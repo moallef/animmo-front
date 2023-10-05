@@ -5,6 +5,7 @@
         <classification/>
         <work-Samples />
         <major-Courses />
+        <students-Ideas />
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import course from './course.vue'
 import workSamples from './workSamples.vue'
 import classification from './classification.vue'
 import majorCourses from './majorCourses.vue'
+import studentsIdeas from './studentsIdeas.vue'
 
 
     export default{
@@ -23,6 +25,7 @@ import majorCourses from './majorCourses.vue'
             "course-section" : course,
             "classification" : classification,
             "major-Courses" : majorCourses,
+            "students-Ideas" : studentsIdeas,
         }
     }
 </script>

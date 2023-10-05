@@ -6,7 +6,7 @@
         <home-page />
     </main>
     <footer>
-        <!-- <footer-app /> -->
+        <footer-app />
     </footer>
 </template>
 
