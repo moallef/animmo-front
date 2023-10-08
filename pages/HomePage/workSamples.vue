@@ -28,7 +28,7 @@
                     </div>
                     <div class="cursesSlider">
                         <div class="productShowCase">
-                            <img src="../assets/images/Rectangle 119.png" alt="Product Image">
+                            <img src="../../assets/images/Rectangle 119.png" alt="Product Image">
                             <button class="likeButtn">
                                 <img src="../assets/icons/LikeBefore.png" alt="">
                             </button>
@@ -36,14 +36,14 @@
                                 <p>زهرا عرفانی</p>
                                 <p>هنرجوی دوره بن گذاری</p>
                                 <button>
-                                    <img src="../assets/icons/icons8-arrow-left-24.png" alt="">
+                                    <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div>
                         <button class="moreBtn">
-                            <img src="../assets/icons/Vector (1).png" alt="">
+                            <img src="../../assets/icons/Vector (1).png" alt="">
                             مشاهده همه
                         </button>
                     </div>
@@ -97,7 +97,7 @@
 #sampleSection {
     width: 60%;
     height: 64px;
-    left: 299px;
+    left: 20%;
     padding: 5px;
     border-radius: 45px;
     gap: 4px;

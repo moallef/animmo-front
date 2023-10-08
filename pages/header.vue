@@ -52,10 +52,10 @@
 </script>
 
 <style scoped>
-;
+
 
 header {
-    width: 1440px;
+    width: 100%;
     height: 56px;
     background: #252565;
 }
@@ -78,6 +78,7 @@ header {
     text-decoration: none;
     color: white;
     top: 20px;
+    font-size: 90%;
 }
 
 .shopIcon a img {
@@ -86,7 +87,7 @@ header {
 }
 
 .shopIcon {
-    bottom: 50%;
+    bottom: 20px;
     left: 15%;
     padding: 0px, 0px, 2.67px, 3.33px;
     display: block;
@@ -102,6 +103,8 @@ header {
     background: #8569C2;
     border-radius: 50%;
     position: relative;
+    padding: 1px;
+    padding-bottom: 2px;
     display: inline-block;
     text-align: center;
 }
@@ -110,10 +113,9 @@ header {
     width: 100%;
     height: 100px;
 }
-
 .logo {
     top: 30px;
-    left: 79px;
+    left: 6%;
     display: inline-block;
     position: relative;
 }
@@ -122,8 +124,7 @@ header {
     width: 20%;
     height: 42px;
     bottom: 20px;
-    left: 308px;
-    padding: 9px, 226px, 8px, 11px;
+    left: 22%;
     border-radius: 33px;
     border: solid 1px #B6A5DA;
     display: inline-block;
@@ -142,7 +143,6 @@ header {
 
 .searchInput::placeholder {
     color: #B6A5DA;
-    ;
 }
 
 .searchInput:focus {
@@ -150,17 +150,21 @@ header {
 }
 
 .navBar {
-    display: inline-block;
     position: relative;
-    width: 670px;
+    width: 40%;
     bottom: 55px;
-    left: 691px;
-    text-align: right;
+    float: right;
+    right: 2%;
 }
 .navBar button{
     border: none;
     background: none;
     cursor: pointer;
     font-size: 16px;
+    margin: 10px;
+}
+
+@media (max-width : px ) {
+    
 }
 </style>

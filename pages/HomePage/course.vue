@@ -33,6 +33,9 @@
 </script>
 
 <style scoped>
+*{
+    padding-top: 5px;
+}
 .courses {
     text-align: center;
 }
@@ -48,8 +51,8 @@
 .sections {
     background: #E9E9E9;
     width: fit-content;
+    left: 22.5%;
     top: 525px;
-    left: 299px;
     padding: 4px;
     border-radius: 45px;
     position: absolute;
@@ -63,7 +66,6 @@
     font-size: 16px;
     width: 151px;
     height: 56px;
-    padding: 12px, 18px, 12px, 18px;
     border-radius: 44px;
     gap: 16px;
 

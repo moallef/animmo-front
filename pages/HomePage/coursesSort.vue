@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="coursesSort1">
-            <img src="../assets/images/Rectangle 105.png" alt="">
+        <div class="coursesSort">
+            <img src="../../assets/images/Rectangle 105.png" alt="">
             <div class="coursesText">
                 <div class="courseTitle">
                     <h3 class="courseName">طراحی کاراکتر سه بعدی</h3>
@@ -31,10 +31,14 @@
 
 <style scoped>
 img {
-    position: absolute;
+    position: relative;
+    width: 90%;
+    z-index: 1;
+    border-radius: 16px;
 }
-    .coursesSort1 {
+    .coursesSort {
     position: absolute;
+    width:32%;
     top: 0px;
     left: 2%;
     height: 50px;
@@ -42,9 +46,10 @@ img {
 }
 
 .coursesText {
-    width: 409px;
+    position: relative;
+    width: 100%;
     height: 423px;
-    top: 19px;
+    bottom: 200px;
     left: 1px;
     border-radius: 24px;
     background: #F4F4F4;

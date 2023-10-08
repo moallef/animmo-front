@@ -13,7 +13,7 @@
 <script>
 import header from './header.vue'
 import footer from './footer.vue'
-import home from './home.vue'
+import home from './HomePage/home.vue'
 
 
 
@@ -28,10 +28,12 @@ import home from './home.vue'
 </script>
 
 <style>
-body{
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 button{
     cursor: pointer;
 }

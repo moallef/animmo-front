@@ -5,15 +5,15 @@
         </div>
         <div>
             <button class="leftArrow">
-                <img src="../assets/icons/leftScrol.png" alt="">
+                <img src="../../assets/icons/leftScrol.png" alt="">
             </button>
             <button class="righArrow">
-                <img src="../assets/icons/rightScrol.png" alt="">
+                <img src="../../assets/icons/rightScrol.png" alt="">
             </button>
         </div>
         <div class="courses">
             <div class="theCourse">
-                <img src="../assets/images/Rectangle 106.png" alt="">
+                <img src="../../assets/images/Rectangle 106.png" alt="">
                 <div class="details">
                     <div class="productName">
                         <p>آموزش جامع انیمیت</p>
@@ -34,7 +34,7 @@
                     </div>
                     <button class="moreBtn">
                         مشاهده 
-                        <img src="../assets/icons/arrow-25-16.png" alt="">
+                        <img src="../../assets/icons/arrow-25-16.png" alt="">
                     </button>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 <style scoped>
 .majorCourses {
     position: relative;
-    width: 1440px;
+    width: 100%;
     height: 350px;
     top: 1080px;
     width: 100%;
@@ -68,18 +68,14 @@
 
 .courses {
     float: left;
-    width: Fixed (1, 292px);
-    height: Hug (364px);
     top: 2427px;
-    left: 80px;
     gap: 28px;
     padding-inline: 8%;
 }
 
 .moreBtn {
-    width: 124px;
+    width: 35%;
     height: 47px;
-    left: 174px;
     padding: 4px, 8px, 4px, 8px;
     border-radius: 22px;
     gap: 8px;
@@ -97,7 +93,8 @@
     width: 12px;
     height: 24.49px;
     top: 190px;
-    right: 640px;
+    float: left;
+    left: 2%;
     border: none;
     background: none;
 }
@@ -107,7 +104,8 @@
     width: 12px;
     height: 24.49px;
     top: 190px;
-    left: 640px;
+    float: right;
+    right: 2%;
     border: none;
     background: none;
 }
@@ -117,8 +115,9 @@
 }
 
 .borderLine {
-    width: 300px;
-    top: 400px;
+    width: 21%;
+    top: 365px;
     position: absolute;
     border-top: 2px solid rgb(180, 144, 201);
+    border-radius: 10px;
 }</style>
