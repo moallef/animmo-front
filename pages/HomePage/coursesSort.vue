@@ -30,6 +30,7 @@
 </script>
 
 <style scoped>
+
 img {
     position: relative;
     width: 90%;
@@ -58,27 +59,27 @@ img {
 .courseTitle {
     padding-right: 7%;
     position: relative;
-    top: 180px;
+    top: 220px;
     text-align: right;
 }
 
 .courseDetails {
     padding-right: 7%;
     position: relative;
-    top: 180px;
+    top: 220px;
     text-align: right;
 }
 
 .courseFee {
     padding-right: 7%;
     position: relative;
-    top: 180px;
+    top: 220px;
     text-align: right;
 }
 
 .addToCart {
     position: relative;
-    top: 190px;
+    top: 250px;
     width: 100%;
     height: 56px;
     border: none;
@@ -94,4 +95,5 @@ img {
     color: red;
     text-decoration: line-through;
 }
+
 </style>

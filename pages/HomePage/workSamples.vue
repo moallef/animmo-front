@@ -30,7 +30,7 @@
                         <div class="productShowCase">
                             <img src="../../assets/images/Rectangle 119.png" alt="Product Image">
                             <button class="likeButtn">
-                                <img src="../assets/icons/LikeBefore.png" alt="">
+                                <img src="../../assets/icons/LikeBefore.png" alt="">
                             </button>
                             <div class="details">
                                 <p>زهرا عرفانی</p>
@@ -63,8 +63,8 @@
     position: absolute;
     text-align: center;
     width: 100%;
-    height: 559px;
-    top: 1532px;
+    height: 630px;
+    top: 1480px;
     background: #252565;
     text-align: center;
 }
@@ -79,13 +79,14 @@
     font-weight: 600;
     line-height: 12px;
     letter-spacing: 0em;
+    margin-block: 30px;
 }
 
 .moreBtn {
     color: white;
     width: 9%;
     height: 49px;
-    top: 130px;
+    top: 200px;
     border-radius: 49px;
     background: #8569C2;
     border: none;

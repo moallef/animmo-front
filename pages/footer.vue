@@ -117,14 +117,15 @@ button {
     text-align: center;
     width: 10%;
     height: 12px;
-    top: 18px;
-    left: 82%;
+    top: 28px;
+    margin-left: 72%;
+    display: inline;
     color: #7D7D7D;
 }
 
 .signUpInputs {
     position: relative;
-    top: 20px;
+    top: 50px;
 }
 
 .signUpInputs input {
@@ -147,7 +148,6 @@ button {
 
 #phoneNumber {
     width: 84%;
-    top: 114px;
 }
 
 .block {
@@ -163,7 +163,7 @@ button {
     background: #8569C2;
     width: 30%;
     height: 46px;
-    top: 30px;
+    top: 70px;
     border-radius: 37px;
     gap: 10px;
     border: none;
@@ -195,6 +195,8 @@ button {
 .e-Namad {
     position: relative;
     top: 50px;
-
+    display: block;
+    width: 10%;
+    left: 43%;
 }
 </style>

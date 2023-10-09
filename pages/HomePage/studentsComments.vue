@@ -126,6 +126,8 @@ button {
 
 .moreComments img {
     width: 80%;
+    box-sizing: border-box;
+    margin-top: 5px;
 
 }
 
@@ -149,11 +151,13 @@ button {
 }
 
 .toComment {
+    position: relative;
     font-size: 15px;
     font-weight: 700;
     line-height: 15px;
     letter-spacing: 0em;
     text-align: center;
+    top: -35px;
 }
 
 .theComment {
@@ -165,16 +169,15 @@ button {
     text-align: center;
 }
 
-
-
 .Opinion {
-    padding-top: -50px;
+    padding-top: -30px;
     padding-inline: 5%;
 }
 
 .rating {
     position: relative;
-    top: -20px;
+    top: 30px;
+    padding-bottom: 20px;
 }
 
 .clock {
@@ -185,7 +188,7 @@ button {
     line-height: 16px;
     letter-spacing: -0.065em;
     text-align: center;
-    top: 60px;
+    top: 90px;
 
     color: #B6A5DA;
 

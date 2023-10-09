@@ -53,30 +53,34 @@
     position: relative;
     width: 100%;
     height: 350px;
-    top: 1080px;
+    top: 1100px;
     width: 100%;
     text-align: center;
 }
 
 .title {
+    position: relative;
     font-size: 24px;
     font-weight: 600;
     line-height: 12px;
     letter-spacing: 0em;
     text-align: center;
+    margin-block: 20px;
 }
 
 .courses {
+    position: relative;
     float: left;
-    top: 2427px;
+    top: 70px;
     gap: 28px;
     padding-inline: 8%;
 }
 
 .moreBtn {
+    position: relative;
     width: 35%;
     height: 47px;
-    padding: 4px, 8px, 4px, 8px;
+    top: 60px;
     border-radius: 22px;
     gap: 8px;
     background: #8569C2;
@@ -115,9 +119,9 @@
 }
 
 .borderLine {
-    width: 21%;
-    top: 365px;
-    position: absolute;
+    position: relative;
+    width: 100%;
+    top: 30px;
     border-top: 2px solid rgb(180, 144, 201);
     border-radius: 10px;
 }</style>

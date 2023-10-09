@@ -41,7 +41,7 @@ export default{
     letter-spacing: 0em;
     text-align: center;
     position: absolute;
-    top: -100px;
+    top: -80px;
 }
 
 .classification {
@@ -58,7 +58,7 @@ export default{
     width: 9%;
     height: 49px;
     top: 350px;
-    left: 47%;
+    left: 45.5%;
     border-radius: 49px;
     background: #8569C2;
     border: none;
