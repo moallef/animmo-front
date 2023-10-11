@@ -79,7 +79,7 @@
 footer {
     text-align: center;
     position: absolute;
-    top: 3400px;
+    top: 4100px;
     width: 100%;
 }
 

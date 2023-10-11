@@ -67,6 +67,7 @@
     top: 1480px;
     background: #252565;
     text-align: center;
+    border-radius: 30px;
 }
 
 .workSamples p {

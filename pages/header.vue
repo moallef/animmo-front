@@ -7,16 +7,62 @@
             </div>
             <div class="shopIcon">
                 <a href="">
-                    <img src="../assets/icons/Group 91.png">
-                    <p class="shopNum">0</p>
+                    <div class="imgHolder">
+                        <img src="../assets/icons/Group 91.png">
+                        <p class="shopNum">{{0}}</p>
+                    </div>
                 </a>
 
             </div>
 
-            <div class="menuBtn">
+            <div class="menu">
                 <button>
                     <img src="../assets/icons/align-right.png" alt="">
                 </button>
+                <div class="hambergerMenu">
+                    <div>
+                        <button id="quitMenu">
+                            <img  src="../assets/icons/x.png" alt="">
+                        </button>
+                        <button id="logoMenu">
+                            <img  src="../assets/icons/" alt="">
+                        </button>
+                    </div>
+                    <div class="menuList">
+                        <div>
+
+                            <button id="aboutUs">درباره ما
+                                <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                            </button>
+                        </div>
+                        <div>
+
+                            <button id="blog">بلاگ
+                                <img src="../assets/icons/Blog.png" alt="Blog">
+                            </button>
+                        </div>
+                        <div>
+
+                            <button id="contact">تماس با ما
+                                <img src="../assets/icons/Contacts.png" alt="Contacts">
+                            </button>
+                        </div>
+
+                        <div class="workSample">
+                            <button id="workSamples">
+                                <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                                نمونه کار هنر جویان
+                                <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+
+                            </button>
+                        </div>
+                        <div>
+                            <button id="home"> صفحه اصلی
+                                <img src="../assets/icons/HomePage.png" alt="Home">
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <div class="headBar">
@@ -71,9 +117,10 @@
 </script>
 
 <style scoped>
-a{
+a {
     text-decoration: none;
 }
+
 header {
     width: 100%;
     height: 56px;
@@ -97,11 +144,16 @@ header {
 .signIn a {
     text-decoration: none;
     color: white;
-    top: 20px;
     font-size: 90%;
     margin-inline: 5%;
 }
-
+.imgHolder{
+    display: inline;
+    margin-top: 15px;
+    position: absolute;
+    top: -17px;
+    
+}
 .shopIcon a img {
     width: 36px;
     height: 32px;
@@ -213,6 +265,9 @@ header {
     width: 100%;
     text-align: right;
 }
+.dropDown button:hover {
+    color: #8569C2;
+}
 
 .workSample {
     display: inline;
@@ -226,18 +281,45 @@ header {
     display: none;
 }
 
-.menuBtn{
+.menu {
     display: none;
     position: relative;
     float: right;
     top: -65px;
     right: 2%;
 }
-.menuBtn button{
+
+.menu button {
     border: none;
     background: none;
 
 }
+.hambergerMenu{
+    position: fixed;
+    background: white;
+    width: 130%;
+    height: 110%;
+    right: -60%;
+    top: -15px;
+    z-index: 2;
+    text-align: right;
+    background: #F9F9F9;
+
+}
+.hambergerMenu button{
+    position: relative;
+    font-size: 40px;
+    margin-block: 20px;
+    top: 100px;
+    padding-right: 30px;
+}
+
+#quitMenu{
+    position: relative;
+    right: 90%;
+    top: 10px;
+}
+
 
 @media (max-width : 1154px) {
 
@@ -255,23 +337,24 @@ header {
 }
 
 @media (max-width : 1050px) {
-    .menuBtn{
+    .menu {
         display: block;
     }
-    .navBar{
+
+    .navBar {
         display: none;
     }
-    .searchInput{
-        left : 40%;
-        width : 55%;
+
+    .searchInput {
+        left: 40%;
+        width: 55%;
     }
-    .search_icon{
+
+    .search_icon {
         left: 42.5%;
     }
 }
 
 
-@media (max-width : 890px) {
-
-}
+@media (max-width : 890px) {}
 </style>

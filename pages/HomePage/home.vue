@@ -6,6 +6,7 @@
         <work-Samples />
         <major-Courses />
         <students-Comments />
+        <blog-Component />
     </div>
 </template>
 
@@ -16,6 +17,7 @@ import workSamples from './workSamples.vue'
 import classification from './classification.vue'
 import majorCourses from './majorCourses.vue'
 import studentsComments from './studentsComments.vue'
+import Blog from '../HomePage/blog.vue'
 
 
     export default{
@@ -26,6 +28,7 @@ import studentsComments from './studentsComments.vue'
             "classification" : classification,
             "major-Courses" : majorCourses,
             "students-Comments" : studentsComments,
+            "blog-Component" : Blog,
         }
     }
 </script>

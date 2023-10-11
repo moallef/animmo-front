@@ -83,8 +83,10 @@ export default {
 .opinionsComponent {
     position: absolute;
     text-align: center;
-    top: 2750px;
+    top: 2700px;
     width: 100%;
+    background: #F4F4F4;
+    height: 600px;
 }
 
 .title {
