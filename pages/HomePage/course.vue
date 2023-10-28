@@ -33,9 +33,7 @@
 </script>
 
 <style scoped>
-*{
-    padding-top: 5px;
-}
+
 .courses {
     text-align: center;
 }
@@ -46,17 +44,17 @@
     font-weight: 600;
     line-height: 12px;
     letter-spacing: 0em;
+    margin: auto;
 }
 
 .sections {
     background: #E9E9E9;
     width: fit-content;
-    left: 22.5%;
-    top: 525px;
     padding: 4px;
     border-radius: 45px;
-    position: absolute;
-    top: 580px;
+    margin: auto;
+    width: 55%;
+    margin-block: 50px;
 }
 
 .courses button {
@@ -64,7 +62,7 @@
     background: #F4F4F4;
     cursor: pointer;
     font-size: 16px;
-    width: 151px;
+    width: 20%;
     height: 56px;
     border-radius: 44px;
     gap: 16px;

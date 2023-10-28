@@ -26,25 +26,36 @@
                             <img src="" alt="">
                         </button>
                     </div>
-                    <div class="cursesSlider">
-                        <div class="productShowCase">
-                            <img src="../../assets/images/Rectangle 119.png" alt="Product Image">
-                            <button class="likeButtn">
-                                <img src="../../assets/icons/LikeBefore.png" alt="">
-                            </button>
-                            <div class="details">
-                                <p>زهرا عرفانی</p>
-                                <p>هنرجوی دوره بن گذاری</p>
-                                <button>
-                                    <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
-                                </button>
-                            </div>
-                        </div>
+
+                    <div class="slider">
+
+                            <Swiper  
+                            :modules="[SwiperAutoplay, SwiperEffectCreative]" 
+                            :slides-per-view="3"
+                            :loop="false" :effect="'creative'" :autoplay="sliderAutoPlay = {
+                                delay: 1500,
+                                }" :creative-effect="{
+                                prev: {
+                                    shadow: false,
+                                    translate: ['-100%', 0, -1],
+                                },
+                                next: {
+                                    translate: ['100%', 0, 0],
+                                },
+                                }">
+                                <SwiperSlide class="Slider" 
+                                    v-for="sample in samples" 
+                                    :key="samples.sampleSrc">
+                                 <the-Sample />
+                                </SwiperSlide>
+                    
+                            </Swiper>
                     </div>
+
                     <div>
                         <button class="moreBtn">
-                            <img src="../../assets/icons/Vector (1).png" alt="">
                             مشاهده همه
+                            <img src="../../assets/icons/Vector (1).png" alt="">
                         </button>
                     </div>
 
@@ -55,25 +66,42 @@
 </template>
 
 <script>
+import theWorkSample from './theSample.vue'
 
+export default {
+    components: {
+        "the-Sample": theWorkSample,
+    },
+    data(){
+        return{
+            playing: false, 
+            samples : [
+                { sampleSrc : theWorkSample},
+                { sampleSrc : theWorkSample},
+                { sampleSrc : theWorkSample},
+                { sampleSrc : theWorkSample},
+            ],
+            sliderAutoPlay: true
+        }
+    }
+}
 </script>
 
 <style scoped>
 .workSamples {
-    position: absolute;
+
     text-align: center;
     width: 100%;
     height: 630px;
-    top: 1480px;
     background: #252565;
     text-align: center;
     border-radius: 30px;
+    padding-top: 20px;
+    margin-top: 60px;
 }
 
 .workSamples p {
     color: #F4F4F4;
-    position: relative;
-    top: 0px;
     width: 100%;
     height: 12px;
     font-size: 24px;
@@ -84,29 +112,27 @@
 }
 
 .moreBtn {
+    margin-top: 130px;
     color: white;
     width: 9%;
     height: 49px;
-    top: 200px;
     border-radius: 49px;
     background: #8569C2;
     border: none;
-    position: relative;
     font-size: 100%;
     font-weight: 400;
 }
 
 #sampleSection {
+    margin: auto;
     width: 60%;
     height: 64px;
-    left: 20%;
     padding: 5px;
     border-radius: 45px;
     gap: 4px;
     background: #16163D;
-    position: relative;
-    top: 10px;
 }
+
 .smapleBtn {
     width: 20%;
     height: 56px;
@@ -119,48 +145,14 @@
     line-height: 28px;
     letter-spacing: 0em;
     color: #B6A5DA;
-    position: relative;
 
 }
-
+.slider{
+    margin-inline: 3%;
+    margin-top: 10px;
+}
 .smapleBtn:hover {
     background: #8569C2;
     color: #F9F9F9;
 }
-.productShowCase {
-    width: 20%;
-    height: 216px;
-    position: relative;
-    left: 5%;
-    text-align: right;
-    top: 60px;
-}
-
-.likeButtn {
-    border: none;
-    border-radius: 50%;
-    background: none;
-    position: relative;
-    right: 80%;
-    bottom: 55px;
-}
-
-.likeButtn button {
-    border: none;
-    border-radius: 50%;
-
-}
-
-.details button {
-    border: none;
-    border-radius: 50%;
-    background: #8569C2;
-    display: inline-block;
-    position: relative;
-    right: 80%;
-    bottom: 45px;
-}
-
-details p {
-    position: relative;
-}</style>
+</style>

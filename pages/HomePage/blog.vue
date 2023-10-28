@@ -22,9 +22,8 @@
                         </p>
                     </div>
                     <button class="readMore">
-                        <img src="../../assets/icons/blogLeftArrow.png" alt="">
-
                         خواندن
+                        <img src="../../assets/icons/blogLeftArrow.png" alt="">
                     </button>
                 </div>
             </div>
@@ -38,31 +37,28 @@
 
 <style scoped>
 .blogComponent {
-    position: absolute;
-    top: 3400px;
     text-align: right;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .title {
     width: 100%;
+    margin-top: 40px;
+    margin-right: 8%;
+    margin-bottom: 50px;
 }
 
 .title p {
-    position: relative;
     font-size: 40px;
     font-weight: 600;
     line-height: 12px;
     letter-spacing: 0em;
     text-align: right;
-    right: 6%;
 }
 
 .theBlog {
-    position: relative;
     width: 25%;
-    float: right;
-    top: 40px;
     margin: 10px 8%;
 }
 
@@ -70,17 +66,8 @@
     width: 15%;
     height: 193px;
     border-radius: 8px;
-    left: 54%;
-    position: relative;
     text-align: right;
 }
-
-.blogTxt {
-    position: relative;
-    right: 60%;
-    top: -180px;
-}
-
 
 .theBlogTitle {
     font-family: Yekan Bakh;
@@ -90,6 +77,7 @@
     letter-spacing: 0em;
     text-align: right;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .theBlogDescription {
@@ -104,7 +92,6 @@
 }
 
 .readMore {
-    position: relative;
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
@@ -114,9 +101,9 @@
     background: none;
     border-radius: 49px;
     border: 2px solid #8569C2;
-    top: 20px;
     height: 40px;
     width: 25%;
+    margin-top: 20px;
 }
 .readMore:hover{
     background: #F4F4F4;

@@ -2,17 +2,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div>
         <header>
-            <div class="signIn">
-                <a href="">ورود/ثبت نام</a>
-            </div>
-            <div class="shopIcon">
-                <a href="">
-                    <div class="imgHolder">
-                        <img src="../assets/icons/Group 91.png">
-                        <p class="shopNum">{{0}}</p>
-                    </div>
-                </a>
-
+            <div class="headIcons">
+                <div class="shopIcon">
+                    <a href="">
+                        <div class="imgHolder">
+                            <p class="shopNum">{{ 0 }}</p>
+                            <img src="../assets/icons/Group 91.png">
+                        </div>
+                    </a>
+                </div>
+                <div class="signIn">
+                    <a href="">ورود/ثبت نام</a>
+                </div>
             </div>
 
             <div class="menu">
@@ -22,43 +23,47 @@
                 <div class="hambergerMenu">
                     <div>
                         <button id="quitMenu">
-                            <img  src="../assets/icons/x.png" alt="">
+                            <img src="../assets/icons/x.png" alt="">
                         </button>
                         <button id="logoMenu">
-                            <img  src="../assets/icons/" alt="">
+                            <img src="../assets/icons/" alt="">
                         </button>
                     </div>
                     <div class="menuList">
                         <div>
 
-                            <button id="aboutUs">درباره ما
+                            <button id="aboutUs">
                                 <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                                درباره ما
                             </button>
                         </div>
                         <div>
 
-                            <button id="blog">بلاگ
+                            <button id="blog">
                                 <img src="../assets/icons/Blog.png" alt="Blog">
+                                بلاگ
                             </button>
                         </div>
                         <div>
 
-                            <button id="contact">تماس با ما
+                            <button id="contact">
                                 <img src="../assets/icons/Contacts.png" alt="Contacts">
+                                تماس با ما
                             </button>
                         </div>
 
                         <div class="workSample">
                             <button id="workSamples">
-                                <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
-                                نمونه کار هنر جویان
                                 <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                                نمونه کار هنر جویان
+                                <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
 
                             </button>
                         </div>
                         <div>
-                            <button id="home"> صفحه اصلی
+                            <button id="home">
                                 <img src="../assets/icons/HomePage.png" alt="Home">
+                                صفحه اصلی
                             </button>
                         </div>
                     </div>
@@ -69,30 +74,21 @@
             <div class="logo">
                 <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
             </div>
-            <div>
+            <div class="search">
                 <i class="fa fa-search search_icon"></i>
                 <input class="searchInput" type="text" placeholder="Search" />
             </div>
             <div class="navBar">
 
-                <button id="aboutUs">درباره ما
-                    <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                <button id="home">
+                    <img src="../assets/icons/HomePage.png" alt="Home">
+                    خانه انیمو
                 </button>
-
-                <button id="blog">بلاگ
-                    <img src="../assets/icons/Blog.png" alt="Blog">
-                </button>
-
-                <button id="contact">تماس با ما
-                    <img src="../assets/icons/Contacts.png" alt="Contacts">
-                </button>
-
                 <div class="workSample">
                     <button id="workSamples">
-                        <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
-                        نمونه کار هنر جویان
                         <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
-
+                        نمونه کار هنر جویان
+                        <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
                     </button>
                     <div class="dropDown">
                         <button>نمونه کار دوره ریگ</button>
@@ -101,10 +97,22 @@
                         <button>نمونه کار دوره طراحی کاراکتر </button>
                     </div>
                 </div>
-
-                <button id="home"> خانه انیمو
-                    <img src="../assets/icons/HomePage.png" alt="Home">
+                <button id="contact">
+                    <img src="../assets/icons/Contacts.png" alt="Contacts">
+                    تماس با ما
                 </button>
+                <button id="blog">
+                    <img src="../assets/icons/Blog.png" alt="Blog">
+                    بلاگ
+                </button>
+                <button id="aboutUs">
+                    <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                    درباره ما
+                </button>
+
+
+
+
 
             </div>
 
@@ -117,6 +125,10 @@
 </script>
 
 <style scoped>
+body {
+    margin: 0px;
+}
+
 a {
     text-decoration: none;
 }
@@ -127,16 +139,18 @@ header {
     background: #252565;
 }
 
+.headIcons {
+    height: 56px;
+}
+
 .signIn {
-    position: relative;
+
+    margin-right: 88%;
     background: #8569C2;
     width: 7%;
     height: 27px;
-    top: 12px;
-    left: 5%;
     border-radius: 28px;
-    gap: 10px;
-    display: inline-block;
+    display: block;
     text-align: center;
     padding-top: 5px;
 }
@@ -144,73 +158,85 @@ header {
 .signIn a {
     text-decoration: none;
     color: white;
-    font-size: 90%;
-    margin-inline: 5%;
+
 }
-.imgHolder{
-    display: inline;
-    margin-top: 15px;
-    position: absolute;
-    top: -17px;
-    
+
+.imgHolder {
+    box-sizing: border-box;
+    display: block;
+    margin-right: 83%;
+    padding-top: 11px;
+    width: 3%;
+    height: 15px;
 }
+
 .shopIcon a img {
+    margin-top: 0px;
     width: 36px;
     height: 32px;
+    margin-top: -14px;
 }
 
 .shopIcon {
-    position: relative;
-    bottom: 17px;
-    left: 15%;
     padding: 0px, 0px, 2.67px, 3.33px;
-    display: block;
     text-decoration: none;
 }
 
 .shopNum {
-    position: relative;
+    margin-right: 60%;
     color: white;
     width: 13.33px;
     height: 13.33px;
-    bottom: 38px;
     background: #8569C2;
     border-radius: 50%;
     text-align: center;
     box-sizing: border-box;
+    z-index: 2;
 }
 
 .headBar {
     width: 100%;
-    height: 100px;
+    display: inline;
+    margin-block: 20px;
 }
 
 .logo {
-    top: 30px;
-    left: 7%;
-    display: inline-block;
-    position: relative;
+    display: block;
+    margin-right: 82%;
+    margin-top: 20px;
+    height: 0px;
+}
+
+.logo img {
+    width: 80%;
+}
+
+.search {
+    display: block;
+    width: 20%;
+    height: 0px;
+    margin-right: 55%;
 }
 
 .searchInput {
-    width: 20%;
+    direction: ltr;
+    width: 100%;
     height: 42px;
-    bottom: 20px;
-    left: 22%;
     border-radius: 33px;
     border: solid 1px #B6A5DA;
-    display: inline-block;
-    position: relative;
+    display: block;
     outline: none;
-    padding-left: 25px;
+    padding-left: 10%;
+    box-sizing: border-box;
+    margin-top: -30px;
 }
 
 .search_icon {
     color: #B6A5DA;
-    position: relative;
-    left: 23.5%;
-    bottom: 19px;
+    margin-right: 92%;
     z-index: 1;
+    margin-top: 30px;
+    display: block;
 }
 
 .searchInput::placeholder {
@@ -222,35 +248,33 @@ header {
 }
 
 .navBar {
-    position: relative;
-    width: 40%;
-    bottom: 55px;
-    float: right;
-    right: 2%;
+    width: 50%;
+    margin-right: 5%;
+    padding-inline: 3%;
+    margin-top: -15px;
 }
 
 .navBar button {
     border: none;
     background: none;
-    cursor: pointer;
     font-size: 16px;
     margin: 10px;
 }
 
 .dropDown {
-    display: none;
     position: absolute;
+    display: none;
     height: 132px;
-    width: 50%;
+    width: 20%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
-    z-index: 1;
-    left: 30%;
-    top: 30px;
+    z-index: 2;
     background: #F9F9F9;
     box-shadow: 0px 4px 14px 1px #8569C233;
     border-radius: 8px;
     box-sizing: border-box;
+    margin-top: -10px;
+    margin-right: 6%;
 }
 
 .dropDown button {
@@ -265,6 +289,7 @@ header {
     width: 100%;
     text-align: right;
 }
+
 .dropDown button:hover {
     color: #8569C2;
 }
@@ -283,18 +308,14 @@ header {
 
 .menu {
     display: none;
-    position: relative;
-    float: right;
-    top: -65px;
-    right: 2%;
 }
 
 .menu button {
     border: none;
     background: none;
-
 }
-.hambergerMenu{
+
+.hambergerMenu {
     position: fixed;
     background: white;
     width: 130%;
@@ -306,19 +327,14 @@ header {
     background: #F9F9F9;
 
 }
-.hambergerMenu button{
-    position: relative;
+
+.hambergerMenu button {
     font-size: 40px;
     margin-block: 20px;
-    top: 100px;
     padding-right: 30px;
 }
 
-#quitMenu{
-    position: relative;
-    right: 90%;
-    top: 10px;
-}
+#quitMenu {}
 
 
 @media (max-width : 1154px) {
@@ -327,34 +343,71 @@ header {
         width: 30%;
     }
 
+    .navBar button {
+        font-size: 14px;
+    }
+
     .dropDown {
-        left: -20%;
-        top: 70px;
-        width: 70%;
+        width: 20%;
     }
 
 
 }
 
 @media (max-width : 1050px) {
-    .menu {
-        display: block;
-    }
 
     .navBar {
-        display: none;
+        width: 25%;
     }
 
+    .navBar button {
+        text-align: right;
+        font-size: 16px;
+        width: 100%;
+    }
+    .logo{
+        width:45%;
+        margin-right: 58%;
+    }
     .searchInput {
-        left: 40%;
-        width: 55%;
+        margin-top: 130px;
+        width: 200%;
+    }
+    .search_icon{
+        position: relative;
+        top: 160px;
+        right: 98%;
     }
 
-    .search_icon {
-        left: 42.5%;
-    }
+    .search_icon {}
 }
 
 
-@media (max-width : 890px) {}
-</style>
+@media (max-width : 800px) {
+    .navBar button {
+
+        font-size: 12px;
+
+    }
+}
+
+@media (max-width : 650px) {
+    .navBar {
+        display: none;
+    }
+    .logo{
+        width:200px;
+        margin-right: 70%;
+        padding-left: 5%;
+    }
+    .searchInput {
+        margin-top: -35px;
+        width: 250%;
+        margin-right: -250%;
+        padding-left: 20px;
+    }
+    .search_icon{
+        top: -5px;
+        right: -108%;
+    }
+}</style>

@@ -28,10 +28,17 @@ import home from './HomePage/home.vue'
 </script>
 
 <style>
+body{
+    direction: rtl;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+}
+.routerLink{
+    cursor: pointer;
 }
 
 button{

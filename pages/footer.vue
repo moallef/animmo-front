@@ -10,8 +10,8 @@
             <div class="signUp">
                 <p>ثبت نام</p>
                 <div class="signUpInputs">
-                    <input type="text" id="family" placeholder="نام خانوادگی">
                     <input type="text" id="name" placeholder="نام">
+                    <input type="text" id="family" placeholder="نام خانوادگی">
                     <input type="text" id="phoneNumber" placeholder="تلفن همراه">
                 </div>
                 <button class="signUpBtn">
@@ -20,8 +20,8 @@
             </div>
             <div class="block">
                 <div class="e-Namad">
-                    <a href="">
-                        <img src="../assets/icons/e-namad.png" alt="e-namad">
+                    <a href="https://enamad.ir/" target="_blank">
+                        <img src="../assets/icons/e-namad.png"  alt="e-namad">
                     </a>
                 </div>
                 <div>
@@ -30,41 +30,45 @@
                     </div>
                     <div class="navBar">
                         <button id="courses">
-                            دوره ها 🡥
+                            🡥
+                            دوره ها
                         </button>
 
                         <button id="guide">
-                            راهنمایی سایت 🡥
+                            🡥
+                            راهنمایی سایت
                         </button>
 
                         <button id="aboutUs">
-                            درباره ما 🡥
+                            🡥
+                            درباره ما
                         </button>
 
                         <button id="contact">
-                            تماس با ما 🡥
+                            🡥
+                            تماس با ما
                         </button>
                     </div>
                 </div>
                 <div class="comunications">
-                    <button>
-                        <img src="../assets/icons/social media/Untitled-2-04.pn" alt="">
-                    </button>
-                    <button>
-                        <img src="../../assets/icons/social media/Untitled-2-05.png" alt="">
-                    </button>
-                    <button>
-                        <img src="../../assets/icons/social media/Untitled-2-07.png" alt="">
-                    </button>
-                    <button>
-                        <img src="../../assets/icons/social media/Untitled-2-02.png" alt="">
-                    </button>
-                    <button>
-                        <img src="../../assets/icons/social media/Untitled-2-01.png" alt="">
-                    </button>
-                    <button>
-                        <img src="../../assets/icons/social media/Untitled-2-03.png" alt="">
-                    </button>
+                    <a>
+                        <img src="../assets/icons/social media/Untitled-2-04.svg" alt="">
+                    </a>
+                    <a>
+                        <img src="../assets/icons/social media/Untitled-2-05.svg" alt="">
+                    </a>
+                    <a>
+                        <img src="../assets/icons/social media/Untitled-2-06.svg" alt="">
+                    </a>
+                    <a>
+                        <img src="../assets/icons/social media/Untitled-2-02.svg" alt="">
+                    </a>
+                    <a>
+                        <img src="../assets/icons/social media/Untitled-2-01.svg" alt="">
+                    </a>
+                    <a>
+                        <img src="../assets/icons/social media/Untitled-2-03.svg" alt="">
+                    </a>
                 </div>
             </div>
         </footer>
@@ -78,8 +82,6 @@
 <style scoped>
 footer {
     text-align: center;
-    position: absolute;
-    top: 4100px;
     width: 100%;
 }
 
@@ -88,28 +90,27 @@ button {
 }
 
 .scrollUp {
-    right: 10%;
-    bottom: 70px;
-    float: right;
-    position: relative;
+    margin-left: 80%;
     width: 42px;
     height: 42px;
     background: #DF59A1;
     border-radius: 50%;
     border: none;
+    margin-bottom: -10px;
 }
 
 .signUp {
-    position: absolute;
     background: #F4F4F4;
     height: 243px;
     width: 35%;
     bottom: 50px;
-    left: 5%;
+    margin-right: 60%;
+    margin-bottom: -200px;
+    padding-top: 15px;
+    z-index: 5;
 }
 
 .signUp p {
-    position: relative;
     font-size: 24px;
     font-weight: 700;
     line-height: 12px;
@@ -117,17 +118,14 @@ button {
     text-align: center;
     width: 10%;
     height: 12px;
-    top: 28px;
     margin-left: 72%;
     display: inline;
     color: #7D7D7D;
 }
 
 .signUpInputs {
-    position: relative;
-    top: 50px;
+    margin-top: 30px;
 }
-
 .signUpInputs input {
     border: none;
     border-radius: 32px;
@@ -135,11 +133,11 @@ button {
     height: 32px;
     margin: 5px;
     text-align: right;
+    padding-right: 10px;
 }
 
 #name {
     width: 40%;
-    top: 66px;
 }
 
 #family {
@@ -157,32 +155,29 @@ button {
 }
 
 .signUpBtn {
-    left: 7%;
-    float: left;
-    position: relative;
     background: #8569C2;
-    width: 30%;
-    height: 46px;
-    top: 70px;
+    width: 25%;
+    height: 36px;
     border-radius: 37px;
     gap: 10px;
     border: none;
     color: white;
-    font-size: 100%
+    font-size: 100%;
+    margin-right: 59%;
+    margin-top: 3px;
 }
 
 #logo {
-    position: relative;
-    float: right;
-    right: 10%;
-    bottom: 110px;
+    text-align: right;
+    margin-right: 5%;
+    margin-top: -120px;
 }
-
-.navBar {
-    left: 2%;
-    position: relative;
-    float: right;
-    bottom: 35px;
+.navBar{
+    text-align: right;
+    margin-right: 5%;
+    height: 10px;
+    width: 50%;
+    margin-top: 10px;
 }
 
 .navBar button {
@@ -193,10 +188,22 @@ button {
 }
 
 .e-Namad {
-    position: relative;
-    top: 50px;
     display: block;
     width: 10%;
-    left: 43%;
+    margin-right: 50%;
+    margin-top: 40ox;
+}
+.comunications{
+    text-align: right;
+    margin-right: 5%;
+    width: 50%;
+    margin-top: 40px;
+}
+.comunications a{
+    margin-inline: 10px;
+    cursor: pointer;
+}
+.comunications img{
+    width: 6%;
 }
 </style>
