@@ -8,12 +8,14 @@
                     <p class="teacher">{{ techersName }}</p>
                 </div>
                 <div class="productTime">
-                    <p class="SeasonsCount">
+                    <p class="seasonsCount">
+                        <img src="../../assets/icons/clock-3-16.png" alt="">
                         فصل
                         {{ SeasonsCount }}
                         <img src="" alt="">
                     </p>
                     <p class="courseDurationInHours">
+                        <img src="../../assets/icons/pngaaa.com-630491.png" alt="">
                         ساعت
                         {{ courseDurationInHours }}
                         <img src="" alt="">
@@ -21,24 +23,26 @@
                 </div>
                 <div class="courseFee">
                     <p class="primaryFee">
-                        {{ primaryFee }} 
+                        {{ primaryFee }}
                         هزار تومان
                     </p>
-                    <p class="DiscountedFee">
-                        {{ DiscountedFee }} 
+                    <p class="discountedFee">
+                        {{ DiscountedFee }}
                         هزار تومان
                     </p>
                 </div>
-                <button class="addToCards">
-                    <nuxt-link to="">
-                        افزودن به سبد خرید
-                    </nuxt-link>
-                </button>
-                <button class="moreBtn">
-                    <nuxt-link to="">
-                        مشاهده دوره
-                    </nuxt-link>
-                </button>
+                <div class="btnHolder">
+                    <button class="addToCards">
+                        <nuxt-link to="">
+                            افزودن به سبد خرید
+                        </nuxt-link>
+                    </button>
+                    <button class="moreBtn">
+                        <nuxt-link to="">
+                            مشاهده دوره
+                        </nuxt-link>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -84,33 +88,69 @@ export default {
     font-weight: 800;
     line-height: 15px;
     letter-spacing: -0.04em;
+    margin-top: 10px;
+    margin-right: 2%;
 }
-
+.teacher{
+    margin-top: 10px;
+    margin-right: 2%;
+}
+.btnHolder{
+    margin-top: 25px;
+}
 .moreBtn {
-    width: 15%;
-    height: 42px;
+    width: 45%;
+    height: 40px;
     border-radius: 50px;
     gap: 8px;
     color: #9D87CE;
     border: 2px solid #9D87CE;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 15px;
     letter-spacing: -0.07em;
+    margin-right: 5%;
 }
 
 .addToCards {
     background: #8569C2;
-    height: 42px;
-    width: 20%;
+    height: 40px;
+    width: 45%;
     border-radius: 50px;
     border: none;
     color: white;
-    font-size: 18px;
+    font-size: 14px;
+    margin-right: 2%;
 }
-
+.productTime {
+    color: #979797;
+    margin-top: -10px;
+}
+.courseDurationInHours{
+    margin-right: 55%;
+    margin-top: -20px;
+}
+.seasonsCount{
+    margin-top: 20px;
+    margin-right: 2%;
+}
+.courseDurationInHours img{
+    width: 17px;
+    opacity: 0.67;
+}
+.courseFee{
+    margin-top: -15px;
+}
 .primaryFee {
     text-decoration: line-through;
-    color: red;
+    color: #646464;
+    margin-top: 20px;
+    margin-right: 2%;
+}
+.discountedFee{
+    color:#C8102E;
+    margin-right: 55%;
+    width: 50%;
+    margin-top: -20px;
 }
 </style>

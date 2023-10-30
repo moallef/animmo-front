@@ -191,13 +191,13 @@ button {
 }
 
 .clock {
-    font-family: Yekan Bakh;
+    position: relative;
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
     letter-spacing: -0.065em;
     text-align: center;
-    margin-top: 30px;
+    top: 80px;
     color: #B6A5DA;
 
 }

@@ -40,6 +40,9 @@ body{
 .routerLink{
     cursor: pointer;
 }
+a{
+    text-decoration: none;
+}
 
 button{
     cursor: pointer;

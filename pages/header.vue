@@ -16,109 +16,82 @@
                 </div>
             </div>
 
-            <div class="menu">
-                <button>
-                    <img src="../assets/icons/align-right.png" alt="">
-                </button>
-                <div class="hambergerMenu">
-                    <div>
-                        <button id="quitMenu">
-                            <img src="../assets/icons/x.png" alt="">
-                        </button>
-                        <button id="logoMenu">
-                            <img src="../assets/icons/" alt="">
-                        </button>
-                    </div>
-                    <div class="menuList">
-                        <div>
 
-                            <button id="aboutUs">
-                                <img src="../assets/icons/AboutUs.png" alt="AboutUs">
-                                درباره ما
-                            </button>
-                        </div>
-                        <div>
+            <div class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
 
-                            <button id="blog">
-                                <img src="../assets/icons/Blog.png" alt="Blog">
-                                بلاگ
-                            </button>
-                        </div>
-                        <div>
-
-                            <button id="contact">
-                                <img src="../assets/icons/Contacts.png" alt="Contacts">
-                                تماس با ما
-                            </button>
-                        </div>
-
-                        <div class="workSample">
-                            <button id="workSamples">
-                                <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
-                                نمونه کار هنر جویان
-                                <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
-
-                            </button>
-                        </div>
-                        <div>
-                            <button id="home">
-                                <img src="../assets/icons/HomePage.png" alt="Home">
-                                صفحه اصلی
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="headBar">
-            <div class="logo">
-                <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
-            </div>
-            <div class="search">
-                <i class="fa fa-search search_icon"></i>
-                <input class="searchInput" type="text" placeholder="Search" />
-            </div>
-            <div class="navBar">
-
-                <button id="home">
-                    <img src="../assets/icons/HomePage.png" alt="Home">
-                    خانه انیمو
-                </button>
-                <div class="workSample">
-                    <button id="workSamples">
+                <ul class="menu__box">
+                    <li><a class="menu__item" href="#">
+                        <img src="../assets/icons/Contacts.png" alt="Contacts">
+                        تماس با ما
+                    </a></li>
+                    <li><a class="menu__item" href="#">
+                        <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                        درباره ما
+                    </a></li>
+                    <li><a class="menu__item" href="#">
+                        <img src="../assets/icons/Blog.png" alt="Blog">
+                        بلاگ
+                    </a></li>
+                    <li><a class="menu__item" href="#">
                         <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
                         نمونه کار هنر جویان
                         <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
-                    </button>
-                    <div class="dropDown">
-                        <button>نمونه کار دوره ریگ</button>
-                        <button>نمونه کار دوره بن گذاری</button>
-                        <button>نمونه کار دوره انیمیت </button>
-                        <button>نمونه کار دوره طراحی کاراکتر </button>
-                    </div>
-                </div>
-                <button id="contact">
-                    <img src="../assets/icons/Contacts.png" alt="Contacts">
-                    تماس با ما
-                </button>
-                <button id="blog">
-                    <img src="../assets/icons/Blog.png" alt="Blog">
-                    بلاگ
-                </button>
-                <button id="aboutUs">
-                    <img src="../assets/icons/AboutUs.png" alt="AboutUs">
-                    درباره ما
-                </button>
-
-
-
-
-
+                    </a></li>
+                    <li><a class="menu__item" href="#">
+                        <img src="../assets/icons/HomePage.png" alt="Home">
+                        صفحه اصلی
+                    </a></li>
+                </ul>
             </div>
+        </header>
 
+    <div class="headBar">
+        <div class="logo">
+            <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
         </div>
+        <div class="search">
+            <i class="fa fa-search search_icon"></i>
+            <input class="searchInput" type="text" placeholder="Search" />
+        </div>
+        <div class="navBar">
+
+            <button id="home">
+                <img src="../assets/icons/HomePage.png" alt="Home">
+                خانه انیمو
+            </button>
+            <div class="workSample">
+                <button id="workSamples">
+                    <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                    نمونه کار هنر جویان
+                    <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                </button>
+                <div class="dropDown">
+                    <button>نمونه کار دوره ریگ</button>
+                    <button>نمونه کار دوره بن گذاری</button>
+                    <button>نمونه کار دوره انیمیت </button>
+                    <button>نمونه کار دوره طراحی کاراکتر </button>
+                </div>
+            </div>
+            <button id="contact">
+                <img src="../assets/icons/Contacts.png" alt="Contacts">
+                تماس با ما
+            </button>
+            <button id="blog">
+                <img src="../assets/icons/Blog.png" alt="Blog">
+                بلاگ
+            </button>
+            <button id="aboutUs">
+                <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                درباره ما
+            </button>
+        </div>
+
     </div>
-</template>
+</div></template>
 
 <script>
 
@@ -306,35 +279,93 @@ header {
     display: none;
 }
 
-.menu {
-    display: none;
+#menu__toggle {
+    opacity: 0;
 }
 
-.menu button {
-    border: none;
-    background: none;
+#menu__toggle:checked+.menu__btn>span {
+    transform: rotate(45deg);
 }
 
-.hambergerMenu {
+#menu__toggle:checked+.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+    right: 0 !important;
+}
+
+.menu__btn {
     position: fixed;
-    background: white;
-    width: 130%;
-    height: 110%;
-    right: -60%;
-    top: -15px;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 3;
+    margin-left: 85%;
+}
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: none;
+    position: relative;
+    top: 5px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition-duration: .25s;
+    
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #F9F9F9;
+    margin-left: 40%;
     z-index: 2;
-    text-align: right;
-    background: #F9F9F9;
-
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
 }
 
-.hambergerMenu button {
-    font-size: 40px;
-    margin-block: 20px;
-    padding-right: 30px;
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
 }
 
-#quitMenu {}
+.menu__item:hover {
+    background-color: #B6A5DA;
+}
 
 
 @media (max-width : 1154px) {
@@ -365,18 +396,35 @@ header {
         font-size: 16px;
         width: 100%;
     }
-    .logo{
-        width:45%;
+
+    .logo {
+        width: 45%;
         margin-right: 58%;
     }
+
     .searchInput {
         margin-top: 130px;
         width: 200%;
     }
-    .search_icon{
+
+    .search_icon {
         position: relative;
         top: 160px;
         right: 98%;
+    }
+
+    .signIn {
+        width: 15%;
+        font-size: 17px;
+        margin-right: 80%;
+    }
+
+    .shopIcon {
+        margin-left: 95%;
+    }
+
+    .shopNum {
+        margin-right: 2200%;
     }
 
     .search_icon {}
@@ -388,6 +436,7 @@ header {
 
         font-size: 12px;
 
+
     }
 }
 
@@ -395,19 +444,51 @@ header {
     .navBar {
         display: none;
     }
-    .logo{
-        width:200px;
-        margin-right: 70%;
+
+    .logo {
+        width: 200px;
+        margin-right: 60%;
         padding-left: 5%;
     }
+
     .searchInput {
         margin-top: -35px;
         width: 250%;
         margin-right: -250%;
         padding-left: 20px;
     }
-    .search_icon{
+
+    .search_icon {
         top: -5px;
         right: -108%;
     }
-}</style>
+
+    .signIn {
+        width: 17%;
+        margin-right: 80%;
+        font-size: 100%;
+    }
+
+    .shopIcon {
+        margin-left: 84%;
+    }
+
+    .menu button {
+        display: block;
+        text-align: right;
+    }
+
+    .shopNum {
+        margin-right: 900%;
+    }
+    .menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+}
+.menu__box{
+    display: block;
+}
+
+}
+</style>

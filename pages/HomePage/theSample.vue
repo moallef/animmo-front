@@ -7,31 +7,51 @@
             </button>
             <div class="details">
                 <p>زهرا عرفانی</p>
-                <p>هنرجوی دوره بن گذاری</p>
-                <button>
-                    <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
-                </button>
+                <p class="studentName">هنرجوی دوره بن گذاری</p>
+                <div class="btn">
+                    <button>
+                        <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+
+        }
+    }
+}
 </script>
 
 <style scoped>
-p{
+p {
     color: #F4F4F4;
 }
-.sampleImg{
+
+.sampleImg {
     display: block;
     margin-bottom: -20px;
+    width: 100%;
 }
+
+.studentName {
+    font-family: Yekan Bakh;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 0em;
+    margin-top: 10px;
+}
+
 .productShowCase {
     margin-top: 40px;
     margin-right: 3%;
-    width: 20%;
-    height: 216px;
+    width: 65%;
     text-align: right;
 }
 
@@ -39,7 +59,7 @@ p{
     border: none;
     border-radius: 50%;
     background: none;
-    margin-right: 270%;
+    margin-right: 82%;
     margin-top: -40px;
     margin-bottom: 20px;
 }
@@ -53,9 +73,9 @@ p{
     border: none;
     border-radius: 50%;
     background: #8569C2;
-    display: inline-block;
-    margin-right: 98%;
-    padding-top: 2px;
+    margin-right: 90%;
+    padding-top: 3px;
     padding-inline: 3px;
+    margin-top: 20px;
 }
 </style>

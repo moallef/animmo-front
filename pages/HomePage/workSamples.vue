@@ -76,10 +76,10 @@ export default {
         return{
             playing: false, 
             samples : [
-                { sampleSrc : theWorkSample},
-                { sampleSrc : theWorkSample},
-                { sampleSrc : theWorkSample},
-                { sampleSrc : theWorkSample},
+                { sampleSrc : theWorkSample , route : '',},
+                { sampleSrc : theWorkSample , route : '',},
+                { sampleSrc : theWorkSample , route : '',},
+                { sampleSrc : theWorkSample , route : '',},
             ],
             sliderAutoPlay: true
         }
@@ -97,7 +97,7 @@ export default {
     text-align: center;
     border-radius: 30px;
     padding-top: 20px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .workSamples p {
@@ -112,7 +112,7 @@ export default {
 }
 
 .moreBtn {
-    margin-top: 130px;
+    margin-top: 60px;
     color: white;
     width: 9%;
     height: 49px;
@@ -148,7 +148,7 @@ export default {
 
 }
 .slider{
-    margin-inline: 3%;
+    margin-left: 1%;
     margin-top: 10px;
 }
 .smapleBtn:hover {

@@ -25,7 +25,9 @@
 
                     <div>
                         <button class="showMore">
-                            مشاهده دوره ها
+                            <nuxt-link to="Courses/courseComponent.vue">
+                                مشاهده دوره ها
+                            </nuxt-link>
                         </button>
                     </div>
 
@@ -40,6 +42,7 @@
 </script>
 
 <style scoped>
+
 img {
     width: 80%;
     z-index: 1;
@@ -94,7 +97,9 @@ img {
 .rating img {
     width: 17%;
 }
-
+a{
+    color: #F4F4F4;
+}
 .showMore {
     background: #8569C2;
     color: #F4F4F4;
