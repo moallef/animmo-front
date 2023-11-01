@@ -25,7 +25,7 @@
 
                     <div>
                         <button class="showMore">
-                            <nuxt-link to="Courses/courseComponent.vue">
+                            <nuxt-link to="/Courses/courseComponent">
                                 مشاهده دوره ها
                             </nuxt-link>
                         </button>
@@ -38,6 +38,16 @@
 </template>
 
 <script>
+export default {
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+
+    },
+}
 
 </script>
 

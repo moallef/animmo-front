@@ -1,8 +1,8 @@
 <template>
     <div>
         <footer>
-            <button class="scrollUp">
-                <img src="../assets/icons/arrow-142-16.png" alt="">
+            <button class="scrollUp" @click="scrollUp()">
+                    <img src="../assets/icons/arrow-142-16.png" alt="">
             </button>
             <div class="rectangle">
 
@@ -10,9 +10,9 @@
             <div class="signUp">
                 <p>ثبت نام</p>
                 <div class="signUpInputs">
-                    <input type="text" id="name" placeholder="نام">
-                    <input type="text" id="family" placeholder="نام خانوادگی">
-                    <input type="text" id="phoneNumber" placeholder="تلفن همراه">
+                    <input type="text" v-model="name" id="name" placeholder="نام">
+                    <input type="text" v-model="family" id="family" placeholder="نام خانوادگی">
+                    <input type="text" v-model="phoneNumber" id="phoneNumber" placeholder="تلفن همراه">
                 </div>
                 <button class="signUpBtn">
                     ثبت نام
@@ -76,7 +76,23 @@
 </template>
 
 <script>
+export default{
+    data(){
+        return{
+            name : "",
+            family: "",
+            phoneNumber: "",
+        }
+    },
+    methods:{
+        scrollUp(){
+            window.scrollTo({ top: 0, behavior : 'smooth'})
+        },
+    },
+    computed:{
 
+    }
+}
 </script>
 
 <style scoped>
@@ -187,11 +203,14 @@ button {
     margin: 10px;
 }
 
+.e-Namad img{
+    width: 90%;
+}
 .e-Namad {
     display: block;
     width: 10%;
-    margin-right: 50%;
-    margin-top: 40ox;
+    margin-right: 47%;
+    padding-top: 20px;
 }
 .comunications{
     text-align: right;

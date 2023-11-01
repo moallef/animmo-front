@@ -15,7 +15,9 @@
     </div>
     <div>
         <button class="moreBtn">
-            مشاهده همه
+            <nuxt-link to="/Courses">
+                مشاهده همه
+            </nuxt-link>
             <img src="../../assets/icons/Vector (1).png" alt="">
         </button>
     </div>
@@ -32,6 +34,9 @@ export default{
 </script>
 
 <style scoped>
+a{
+    color: white;
+}
 #classifications {
     width: 100%;
     height: 12px;

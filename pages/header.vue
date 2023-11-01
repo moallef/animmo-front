@@ -6,7 +6,7 @@
                 <div class="shopIcon">
                     <a href="">
                         <div class="imgHolder">
-                            <p class="shopNum">{{ 0 }}</p>
+                            <p class="shopNum">{{ shopNum }}</p>
                             <img src="../assets/icons/Group 91.png">
                         </div>
                     </a>
@@ -25,16 +25,8 @@
 
                 <ul class="menu__box">
                     <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/Contacts.png" alt="Contacts">
-                        تماس با ما
-                    </a></li>
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/AboutUs.png" alt="AboutUs">
-                        درباره ما
-                    </a></li>
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/Blog.png" alt="Blog">
-                        بلاگ
+                        <img src="../assets/icons/HomePage.png" alt="Home">
+                        صفحه اصلی
                     </a></li>
                     <li><a class="menu__item" href="#">
                         <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
@@ -42,8 +34,16 @@
                         <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
                     </a></li>
                     <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/HomePage.png" alt="Home">
-                        صفحه اصلی
+                        <img src="../assets/icons/Blog.png" alt="Blog">
+                        بلاگ
+                    </a></li>
+                    <li><a class="menu__item" href="#">
+                        <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                        درباره ما
+                    </a></li>
+                    <li><a class="menu__item" href="#">
+                        <img src="../assets/icons/Contacts.png" alt="Contacts">
+                        تماس با ما
                     </a></li>
                 </ul>
             </div>
@@ -94,7 +94,17 @@
 </div></template>
 
 <script>
+export default{
+    data(){
+        return{
+            shopNum : 0,
 
+        }
+    },
+    methods:{
+
+    }
+}
 </script>
 
 <style scoped>
