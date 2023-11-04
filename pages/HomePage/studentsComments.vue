@@ -17,117 +17,132 @@
                     </p>
                 </div>
 
+                <div class="blocks">
+         
+                    <div class="blurBlock" id="blurBlock4">
+                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <div class="BlurOpinion">
+                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
+                            <div class="rating" id="blurRating">
+                                <img src="../../assets/icons/emptyStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <!-- show the rating by using full stars -->
+                            </div>
+                            <div class="theOpinin" id="blurOpinion">
+                                <p class="theComment" id="blurComment">
+                                    {{ theComment }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- block 4 ended -->
 
-                <div class="OpinionBlock">
-                    <img src="../../assets/images/Ellipse 10.png" alt="">
-                    <div class="Opinion">
-                        <p class="toComment">{{ toComment }}</p>
-                        <div class="rating">
-                            <img src="../../assets/icons/emptyStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <!-- show the rating by using full stars -->
-                        </div>
-                        <div class="theOpinin">
-                            <p class="theComment">
-                                {{ theComment }}
-                            </p>
-                        </div>
-                        <div class="clock">
-                            {{ commentTime }}
+                    <div class="blurBlock" id="blurBlock3">
+                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <div class="BlurOpinion">
+                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
+                            <div class="rating" id="blurRating">
+                                <img src="../../assets/icons/emptyStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <!-- show the rating by using full stars -->
+                            </div>
+                            <div class="theOpinin" id="blurOpinion">
+                                <p class="theComment" id="blurComment">
+                                    {{ theComment }}
+                                </p>
+                            </div>
+                            <div class="clock" id="bClock">
+                                {{ commentTime }}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="blurBlock" id="blurBlock1">
-                    <img src="../../assets/images/Ellipse 10.png" alt="">
-                    <div class="BlurOpinion">
-                        <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                        <div class="rating" id="blurRating">
-                            <img src="../../assets/icons/emptyStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <!-- show the rating by using full stars -->
-                        </div>
-                        <div class="theOpinin" id="blurOpinion">
-                            <p class="theComment" id="blurComment">
-                                {{ theComment }}
-                            </p>
-                        </div>
-                        <div class="clock" id="bClock">
-                            {{ commentTime }}
-                        </div>
-                    </div>
-                </div>
-                <div class="blurBlock" id="blurBlock2">
-                    <img src="../../assets/images/Ellipse 10.png" alt="">
-                    <div class="BlurOpinion">
-                        <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                        <div class="rating" id="blurRating">
-                            <img src="../../assets/icons/emptyStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <!-- show the rating by using full stars -->
-                        </div>
-                        <div class="theOpinin" id="blurOpinion">
-                            <p class="theComment" id="blurComment">
-                                {{ theComment }}
-                            </p>
-                        </div>
-                        <div class="clock" id="bClock">
-                            {{ commentTime }}
+                    <!-- block 3 ended -->
+                    
+                    <div class="blurBlock" id="blurBlock2">
+                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <div class="BlurOpinion">
+                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
+                            <div class="rating" id="blurRating">
+                                <img src="../../assets/icons/emptyStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <!-- show the rating by using full stars -->
+                            </div>
+                            <div class="theOpinin" id="blurOpinion">
+                                <p class="theComment" id="blurComment">
+                                    {{ theComment }}
+                                </p>
+                            </div>
+                            <div class="clock" id="bClock">
+                                {{ commentTime }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="blurBlock" id="blurBlock3">
-                    <img src="../../assets/images/Ellipse 10.png" alt="">
-                    <div class="BlurOpinion">
-                        <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                        <div class="rating" id="blurRating">
-                            <img src="../../assets/icons/emptyStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <!-- show the rating by using full stars -->
-                        </div>
-                        <div class="theOpinin" id="blurOpinion">
-                            <p class="theComment" id="blurComment">
-                                {{ theComment }}
-                            </p>
-                        </div>
-                        <div class="clock" id="bClock">
-                            {{ commentTime }}
-                        </div>
-                    </div>
-                </div>
-                <div class="blurBlock" id="blurBlock4">
-                    <img src="../../assets/images/Ellipse 10.png" alt="">
-                    <div class="BlurOpinion">
-                        <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                        <div class="rating" id="blurRating">
-                            <img src="../../assets/icons/emptyStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <!-- show the rating by using full stars -->
-                        </div>
-                        <div class="theOpinin" id="blurOpinion">
-                            <p class="theComment" id="blurComment">
-                                {{ theComment }}
-                            </p>
-                        </div>
-                        <div class="clock" id="bClock">
-                            {{ commentTime }}
+
+                    <!-- block 2 ended -->
+
+                    <div class="blurBlock" id="blurBlock1">
+                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <div class="BlurOpinion">
+                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
+                            <div class="rating" id="blurRating">
+                                <img src="../../assets/icons/emptyStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <img src="../../assets/icons/fullStar.png" alt="">
+                                <!-- show the rating by using full stars -->
+                            </div>
+                            <div class="theOpinin" id="blurOpinion">
+                                <p class="theComment" id="blurComment">
+                                    {{ theComment }}
+                                </p>
+                            </div>
+                            <div class="clock" id="bClock">
+                                {{ commentTime }}
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- block 1 ended -->
+                    
+                    <div class="clock" id="bClock">
+                        <div class="OpinionBlock">
+                            <img src="../../assets/images/Ellipse 10.png" alt="">
+                            <div class="Opinion">
+                                <p class="toComment">{{ toComment }}</p>
+                                <div class="rating">
+                                    <img src="../../assets/icons/emptyStar.png" alt="">
+                                    <img src="../../assets/icons/fullStar.png" alt="">
+                                    <img src="../../assets/icons/fullStar.png" alt="">
+                                    <img src="../../assets/icons/fullStar.png" alt="">
+                                    <img src="../../assets/icons/fullStar.png" alt="">
+                                    <!-- show the rating by using full stars -->
+                                </div>
+                                <div class="theOpinin">
+                                    <p class="theComment">
+                                        {{ theComment }}
+                                    </p>
+                                </div>
+                                <div class="clock">
+                                    {{ commentTime }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- main block ended -->
+
                 </div>
             </div>
         </div>
@@ -209,6 +224,8 @@ button {
     font-size: 39px;
     float: right;
     margin-left: 15px;
+    cursor: pointer;
+    z-index: 3;
 
 }
 
@@ -232,16 +249,21 @@ button {
 
 }
 
+.blocks{
+    width: 70%;
+    margin-right: 30%;
+}
+
 .OpinionBlock {
-    width: 25%;
+    width: 35%;
     height: 455px;
     border-radius: 0px 0px 183px 183px;
     box-sizing: border-box;
-    margin-right: 40%;
+    margin-right: 20%;
     background: #8569C2;
     color: white;
     box-shadow: 0px 4px 14px 1px #8569C233;
-    margin-top: -150px;
+    margin-top: -460px;
     z-index: 2;
 }
 
@@ -296,15 +318,15 @@ button {
 }
 
 .blurBlock {
-    width: 18%;
+    width: 28%;
     height: 381px;
     border-radius: 0px 0px 183px 183px;
     box-sizing: border-box;
-    margin-right: 59%;
+    margin-right: 40%;
     background: #E9E9E9;
     color: white;
     box-shadow: 0px 4px 14px 1px #8569C233;
-    margin-top: -420px;
+    margin-top: -380px;
     filter: blur(1px);
     text-align: center;
     z-index: 1;
@@ -330,23 +352,27 @@ button {
 #blurToComment {
     margin-top: 10px;
 }
-#blurOpinion{
+
+#blurOpinion {
     margin: auto;
 }
+
 #blurComment {
     font-size: 11px;
 }
-#blurBlock2{
-    margin-right: 64%;
+
+#blurBlock2 {
+    margin-right: 44%;
     margin-top: -380px;
 }
-#blurBlock3{
-    margin-right: 68%;
+
+#blurBlock3 {
+    margin-right: 48%;
     margin-top: -380px;
 }
-#blurBlock4{
-    margin-right: 72%;
-    margin-top: -380px;
-    
-}
-</style>
+
+#blurBlock4 {
+    margin-right: 51%;
+    margin-top: -140px;
+
+}</style>

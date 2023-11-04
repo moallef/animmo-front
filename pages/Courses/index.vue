@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import header from './header.vue'
-import footer from './footer.vue'
-import course from '../course.vue'
+import header from '../header.vue'
+import footer from '../footer.vue'
+import course from '../HomePage/coursesSort.vue'
 
 export default {
     components: {

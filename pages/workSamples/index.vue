@@ -1,0 +1,32 @@
+<template>
+    <div>
+        <header>
+            <header-app/>
+        </header>
+
+        <div>
+            <work-Samples/>
+        </div>
+        
+        <footer>
+            <footer-app/>
+        </footer>
+    </div>
+</template>
+
+<style>
+</style>
+
+<script>
+import header from '../header.vue'
+import footer from '../footer.vue'
+import workSamples from '../HomePage/workSamples.vue'
+
+export default{
+    components:{
+        "header-app": haeder,
+        "footer-app": footer,
+        "work-Samples": workSamples,
+    }
+}
+</script>

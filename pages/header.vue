@@ -59,16 +59,20 @@
         </div>
         <div class="navBar">
 
+            <nuxt-link to="/">
             <button id="home">
-                <img src="../assets/icons/HomePage.png" alt="Home">
-                خانه انیمو
-            </button>
-            <div class="workSample">
-                <button id="workSamples">
-                    <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
-                    نمونه کار هنر جویان
-                    <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                    <img src="../assets/icons/HomePage.png" alt="Home">
+                    خانه انیمو
                 </button>
+            </nuxt-link>
+            <div class="workSample">
+                <nuxt-link to="">
+                <button id="workSamples">
+                        <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                        نمونه کار هنر جویان
+                        <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                    </button>
+                </nuxt-link>
                 <div class="dropDown">
                     <button>نمونه کار دوره ریگ</button>
                     <button>نمونه کار دوره بن گذاری</button>
@@ -76,18 +80,24 @@
                     <button>نمونه کار دوره طراحی کاراکتر </button>
                 </div>
             </div>
+            <nuxt-link to="">
             <button id="contact">
-                <img src="../assets/icons/Contacts.png" alt="Contacts">
-                تماس با ما
-            </button>
+                    <img src="../assets/icons/Contacts.png" alt="Contacts">
+                    تماس با ما
+                </button>
+            </nuxt-link>
+            <nuxt-link to="">
             <button id="blog">
-                <img src="../assets/icons/Blog.png" alt="Blog">
-                بلاگ
-            </button>
+                    <img src="../assets/icons/Blog.png" alt="Blog">
+                    بلاگ
+                </button>
+            </nuxt-link>
+            <nuxt-link to="">
             <button id="aboutUs">
-                <img src="../assets/icons/AboutUs.png" alt="AboutUs">
-                درباره ما
-            </button>
+                    <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                    درباره ما
+                </button>
+            </nuxt-link>
         </div>
 
     </div>
@@ -235,6 +245,10 @@ header {
     margin-right: 5%;
     padding-inline: 3%;
     margin-top: -15px;
+
+}
+.navBar button a {
+    color: black;
 }
 
 .navBar button {
@@ -437,7 +451,6 @@ header {
         margin-right: 2200%;
     }
 
-    .search_icon {}
 }
 
 

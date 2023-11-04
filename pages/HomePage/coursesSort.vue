@@ -25,7 +25,7 @@
 
                     <div>
                         <button class="showMore">
-                            <nuxt-link to="/Courses/courseComponent">
+                            <nuxt-link to="">
                                 مشاهده دوره ها
                             </nuxt-link>
                         </button>
@@ -117,4 +117,25 @@ a{
     padding: 10px 16px 10px 16px;
     border-radius: 35px;
 }
+@media (max-width : 1054px) {
+    .coursesSort{
+        width: 25%;
+    }
+}
+
+@media (max-width : 850px){
+    .coursesSort{
+        width: 35%;
+    }
+}
+@media (max-width : 550px){
+    .coursesSort{
+        width: 40%;
+        font-size: 12px;
+    }
+    .courseDetails{
+        font-size: 11px;
+    }
+}
+
 </style>

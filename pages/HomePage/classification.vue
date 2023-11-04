@@ -8,35 +8,43 @@
             </div>
             <div>
                 <div>
-                    <courses-Sort/>
+                    <courses-Sort />
                 </div>
             </div>
         </div>
     </div>
     <div>
+        <nuxt-link to="/Courses">
         <button class="moreBtn">
-            <nuxt-link to="/Courses">
                 مشاهده همه
-            </nuxt-link>
-            <img src="../../assets/icons/Vector (1).png" alt="">
-        </button>
+                <img src="../../assets/icons/Vector (1).png" alt="">
+            </button>
+        </nuxt-link>
     </div>
 </template>
 
 <script>
 import coursesSort from './coursesSort.vue'
 
-export default{
-    components : {
-        "courses-Sort" : coursesSort
+export default {
+    components: {
+        "courses-Sort": coursesSort
+    },
+    router: {
+        routes: [
+        ]
+    },
+    data() {
+
     }
 }
 </script>
 
 <style scoped>
-a{
+a {
     color: white;
 }
+
 #classifications {
     width: 100%;
     height: 12px;
@@ -53,6 +61,7 @@ a{
     width: 100%;
     min-width: 315px;
 }
+
 .moreBtn {
     color: white;
     width: 9%;

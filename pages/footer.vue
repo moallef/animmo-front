@@ -2,7 +2,7 @@
     <div>
         <footer>
             <button class="scrollUp" @click="scrollUp()">
-                    <img src="../assets/icons/arrow-142-16.png" alt="">
+                <img src="../assets/icons/arrow-142-16.png" alt="">
             </button>
             <div class="rectangle">
 
@@ -21,7 +21,7 @@
             <div class="block">
                 <div class="e-Namad">
                     <a href="https://enamad.ir/" target="_blank">
-                        <img src="../assets/icons/e-namad.png"  alt="e-namad">
+                        <img src="../assets/icons/e-namad.png" alt="e-namad">
                     </a>
                 </div>
                 <div>
@@ -76,20 +76,21 @@
 </template>
 
 <script>
-export default{
-    data(){
-        return{
-            name : "",
+export default {
+    data() {
+        return {
+            name: "",
             family: "",
             phoneNumber: "",
+
         }
     },
-    methods:{
-        scrollUp(){
-            window.scrollTo({ top: 0, behavior : 'smooth'})
+    methods: {
+        scrollUp() {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
         },
     },
-    computed:{
+    computed: {
 
     }
 }
@@ -99,6 +100,7 @@ export default{
 footer {
     text-align: center;
     width: 100%;
+    margin-top: 100px;
 }
 
 button {
@@ -142,6 +144,7 @@ button {
 .signUpInputs {
     margin-top: 30px;
 }
+
 .signUpInputs input {
     border: none;
     border-radius: 32px;
@@ -188,7 +191,8 @@ button {
     margin-right: 5%;
     margin-top: -120px;
 }
-.navBar{
+
+.navBar {
     text-align: right;
     margin-right: 5%;
     height: 10px;
@@ -203,26 +207,29 @@ button {
     margin: 10px;
 }
 
-.e-Namad img{
+.e-Namad img {
     width: 90%;
 }
+
 .e-Namad {
     display: block;
     width: 10%;
     margin-right: 47%;
     padding-top: 20px;
 }
-.comunications{
+
+.comunications {
     text-align: right;
     margin-right: 5%;
     width: 50%;
     margin-top: 40px;
 }
-.comunications a{
+
+.comunications a {
     margin-inline: 10px;
     cursor: pointer;
 }
-.comunications img{
+
+.comunications img {
     width: 6%;
-}
-</style>
+}</style>

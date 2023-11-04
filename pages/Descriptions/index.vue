@@ -7,7 +7,7 @@
 
             <course-section />
 
-            <majorCourses />
+            <latest-Courses />
 
         </div>
         <footer>
@@ -17,13 +17,17 @@
 </template>
 
 <script>
-import header from './header.vue'
-import footer from './footer.vue'
+import header from '../header.vue'
+import footer from '../footer.vue'
+import latestCourses from '../HomePage/latestCourses.vue'
+import courseSection from '../HomePage/coursesSort.vue'
 
 export default {
     components: {
         "header-app": header,
         "footer-app": footer,
+        "latest-Courses": latestCourses,
+        "course-section": courseSection,
     }
 }
 </script>
