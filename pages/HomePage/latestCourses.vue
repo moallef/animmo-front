@@ -81,7 +81,6 @@ export default {
     height: 345px;
     width: 100%;
     padding-inline: 1%;
-
 }
 
 .title {

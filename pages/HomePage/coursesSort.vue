@@ -116,6 +116,7 @@ a{
     border: none;
     padding: 10px 16px 10px 16px;
     border-radius: 35px;
+    margin-right: 45%;
 }
 @media (max-width : 1054px) {
     .coursesSort{

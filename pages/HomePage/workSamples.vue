@@ -53,10 +53,12 @@
                     </div>
 
                     <div>
-                        <button class="moreBtn">
-                            مشاهده همه
-                            <img src="../../assets/icons/Vector (1).png" alt="">
-                        </button>
+                        <nuxt-link to="/workSamples">
+                            <button class="moreBtn">
+                                مشاهده همه
+                                <img src="../../assets/icons/Vector (1).png" alt="">
+                            </button>
+                        </nuxt-link>
                     </div>
 
                 </div>

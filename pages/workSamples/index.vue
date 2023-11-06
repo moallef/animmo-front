@@ -24,7 +24,7 @@ import workSamples from '../HomePage/workSamples.vue'
 
 export default{
     components:{
-        "header-app": haeder,
+        "header-app": header,
         "footer-app": footer,
         "work-Samples": workSamples,
     }
