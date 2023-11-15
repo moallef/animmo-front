@@ -31,6 +31,9 @@ import home from './HomePage/home.vue'
 body{
     direction: rtl;
 }
+a{
+    color: none;
+}
 *{
     margin: 0;
     padding: 0;

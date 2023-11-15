@@ -3,17 +3,19 @@
     <div>
         <header>
             <div class="headIcons">
-                <div class="shopIcon">
-                    <a href="">
-                        <div class="imgHolder">
-                            <p class="shopNum">{{ shopNum }}</p>
-                            <img src="../assets/icons/Group 91.png">
-                        </div>
-                    </a>
-                </div>
-                <div class="signIn">
-                    <a href="">ورود/ثبت نام</a>
-                </div>
+                <nuxt-link to="/shoppingBag">
+                    <div class="shopIcon">
+                        <a href="">
+                            <div class="imgHolder">
+                                <p class="shopNum">{{ shopNum }}</p>
+                                <img src="../assets/icons/Group 91.png">
+                            </div>
+                        </a>
+                    </div>
+                </nuxt-link>
+                <button class="signIn" @click="scrollDown()">
+                    <a href="">ورود / ثبت نام</a>
+                </button>
             </div>
 
 
@@ -66,7 +68,7 @@
                 </button>
             </nuxt-link>
             <div class="workSample">
-                <nuxt-link to="">
+                <nuxt-link to="/workSamples">
                 <button id="workSamples">
                         <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
                         نمونه کار هنر جویان
@@ -80,19 +82,19 @@
                     <button>نمونه کار دوره طراحی کاراکتر </button>
                 </div>
             </div>
-            <nuxt-link to="">
+            <nuxt-link to="/contactUs">
             <button id="contact">
                     <img src="../assets/icons/Contacts.png" alt="Contacts">
                     تماس با ما
                 </button>
             </nuxt-link>
-            <nuxt-link to="">
+            <nuxt-link to="/Blogs">
             <button id="blog">
                     <img src="../assets/icons/Blog.png" alt="Blog">
                     بلاگ
                 </button>
             </nuxt-link>
-            <nuxt-link to="">
+            <nuxt-link to="/AboutUs">
             <button id="aboutUs">
                     <img src="../assets/icons/AboutUs.png" alt="AboutUs">
                     درباره ما
@@ -112,7 +114,9 @@ export default{
         }
     },
     methods:{
-
+        scrollDown(){
+            window.scrollTo({ top: 5000, behavior: 'smooth' })
+        }
     }
 }
 </script>
@@ -137,15 +141,15 @@ header {
 }
 
 .signIn {
-
+    margin-top: -2px;
     margin-right: 88%;
     background: #8569C2;
     width: 7%;
-    height: 27px;
+    height: 32px;
     border-radius: 28px;
     display: block;
     text-align: center;
-    padding-top: 5px;
+    border: none;
 }
 
 .signIn a {

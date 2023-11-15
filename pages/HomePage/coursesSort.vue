@@ -25,7 +25,7 @@
 
                     <div>
                         <button class="showMore">
-                            <nuxt-link to="">
+                            <nuxt-link to="/Animate">
                                 مشاهده دوره ها
                             </nuxt-link>
                         </button>

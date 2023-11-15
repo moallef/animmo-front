@@ -31,19 +31,14 @@
                         هزار تومان
                     </p>
                 </div>
-                <div class="btnHolder">
-                    <button class="addToCards">
-                        <nuxt-link to="">
-                            افزودن به سبد خرید
-                        </nuxt-link>
-                    </button>
-                    <button class="moreBtn">
-                        <nuxt-link to="./CourseDetails">
-                            مشاهده دوره
-                        </nuxt-link>
-                    </button>
-                </div>
             </div>
+        </div>
+        <div class="btnHolder">
+            <button class="addToCards">
+                <nuxt-link to="">
+                    افزودن به سبد خرید
+                </nuxt-link>
+            </button>
         </div>
     </div>
 </template>
@@ -96,31 +91,18 @@ export default {
     margin-right: 2%;
 }
 .btnHolder{
-    margin-top: 15px;
+    margin-top: 25px;
+    width: 112%;
+    margin-right: -6%;
 }
-.moreBtn {
-    width: 45%;
-    height: 40px;
-    border-radius: 50px;
-    gap: 8px;
-    color: #9D87CE;
-    border: 2px solid #9D87CE;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 15px;
-    letter-spacing: -0.07em;
-    margin-right: 5%;
-}
-
 .addToCards {
     background: #8569C2;
     height: 40px;
-    width: 45%;
-    border-radius: 50px;
+    width: 100%;
+    border-radius: 0px 0px 24px 24px;
     border: none;
     color: white;
     font-size: 14px;
-    margin-right: 2%;
 }
 .productTime {
     color: #979797;

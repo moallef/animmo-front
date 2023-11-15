@@ -1,15 +1,15 @@
 <template>
     <div>
         <header>
-            <header-app />
+            <header-app/>
         </header>
 
         <div class="belt">
             <belt/>
         </div>
 
-        <div>
-            <course-section/>
+        <div class="contactUs">
+            <contactUs/>
         </div>
 
         <footer>
@@ -21,19 +21,33 @@
 <script>
 import header from '../header.vue'
 import footer from '../footer.vue'
-import course from '../HomePage/coursesSort.vue'
-import belt from './CourseBelt.vue'
+import belt from './Belt.vue'
+import contactUs from './contactUs.vue'
 
 export default {
+    name: 'FrontendIndex',
+
+    data() {
+        return {
+
+        };
+    },
     components: {
         "header-app": header,
         "footer-app": footer,
-        "course-section" : course,
-        "belt" : belt
-    }
-}
+        "belt": belt,
+        "contactUs": contactUs
+    },
+
+
+    mounted() {
+
+    },
+
+    methods: {
+
+    },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style lang="scss" scoped></style>
