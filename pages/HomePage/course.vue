@@ -55,6 +55,7 @@
     margin: auto;
     width: 55%;
     margin-block: 50px;
+
 }
 
 .courses button {
@@ -66,11 +67,26 @@
     height: 56px;
     border-radius: 44px;
     gap: 16px;
-
+    color: #818181;
 }
 
 .courses button:hover {
     background: #8569C2;
     color: #F4F4F4;
+}
+@media (max-width: 755px) {
+ .sections{
+    width: 70%;
+ }   
+}
+@media (max-width: 630px) {
+ .sections{
+    width: 90%;
+ }   
+}
+@media (max-width: 630px) {
+    .courses button{
+    font-size: 12px;
+ }   
 }
 </style>

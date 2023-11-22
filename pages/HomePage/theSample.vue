@@ -37,6 +37,7 @@ p {
     display: block;
     margin-bottom: -20px;
     width: 100%;
+    border-radius: 18px;
 }
 
 .studentName {
@@ -51,8 +52,9 @@ p {
 .productShowCase {
     margin-top: 40px;
     margin-right: 3%;
-    width: 65%;
+    width: 95%;
     text-align: right;
+    padding-inline: 1%;
 }
 
 .likeButtn {
@@ -73,9 +75,10 @@ p {
     border: none;
     border-radius: 50%;
     background: #8569C2;
-    margin-right: 90%;
+    margin-right: 85%;
     padding-top: 3px;
     padding-inline: 3px;
     margin-top: 20px;
 }
+
 </style>

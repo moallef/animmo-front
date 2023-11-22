@@ -77,4 +77,25 @@ a {
     margin: auto;
     margin-top: 50px;
 }
+@media (max-width : 1150px) {
+    .moreBtn{
+        width: 13%;
+    }
+}
+@media (max-width : 780px) {
+    .moreBtn{
+        width: 16%;
+    }
+}
+@media (max-width : 780px) {
+    .moreBtn{
+        width: 20%;
+    }
+}
+@media (max-width : 520px) {
+    .moreBtn{
+        width: 30%;
+        height: 40px;
+    }
+}
 </style>

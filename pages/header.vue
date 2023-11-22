@@ -26,95 +26,113 @@
                 </label>
 
                 <ul class="menu__box">
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/HomePage.png" alt="Home">
-                        صفحه اصلی
-                    </a></li>
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
-                        نمونه کار هنر جویان
-                        <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
-                    </a></li>
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/Blog.png" alt="Blog">
-                        بلاگ
-                    </a></li>
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/AboutUs.png" alt="AboutUs">
-                        درباره ما
-                    </a></li>
-                    <li><a class="menu__item" href="#">
-                        <img src="../assets/icons/Contacts.png" alt="Contacts">
-                        تماس با ما
-                    </a></li>
+                    <li>
+                        <nuxt-link to="/">
+                            <a class="menu__item" href="#">
+                                <img src="../assets/icons/HomePage.png" alt="Home">
+                                صفحه اصلی
+                            </a>
+                        </nuxt-link>
+                    </li>
+                    <li> <nuxt-link to="/workSamples">
+                            <a class="menu__item" href="#">
+                                <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                                نمونه کار هنر جویان
+                                <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                            </a></nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link to="/Blogs">
+                            <a class="menu__item" href="#">
+                                <img src="../assets/icons/Blog.png" alt="Blog">
+                                بلاگ
+                            </a>
+                        </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link to="/AboutUs">
+                            <a class="menu__item" href="#">
+                                <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                                درباره ما
+                            </a>
+                        </nuxt-link>
+                    </li>
+                    <li> <nuxt-link to="/contactUs">
+                            <a class="menu__item" href="#">
+                                <img src="../assets/icons/Contacts.png" alt="Contacts">
+                                تماس با ما
+                            </a>
+                        </nuxt-link>
+                    </li>
                 </ul>
             </div>
         </header>
 
-    <div class="headBar">
-        <div class="logo">
-            <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
-        </div>
-        <div class="search">
-            <i class="fa fa-search search_icon"></i>
-            <input class="searchInput" type="text" placeholder="Search" />
-        </div>
-        <div class="navBar">
+        <div class="headBar">
+            <div class="logo">
+                <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
+            </div>
+            <div class="search">
+                <i class="fa fa-search search_icon"></i>
+                <input class="searchInput" type="text" placeholder="Search" />
+            </div>
+            <div class="navBar">
 
-            <nuxt-link to="/">
-            <button id="home">
-                    <img src="../assets/icons/HomePage.png" alt="Home">
-                    خانه انیمو
-                </button>
-            </nuxt-link>
-            <div class="workSample">
-                <nuxt-link to="/workSamples">
-                <button id="workSamples">
-                        <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
-                        نمونه کار هنر جویان
-                        <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                <nuxt-link to="/">
+                    <button id="home">
+                        <img src="../assets/icons/HomePage.png" alt="Home">
+                        خانه انیمو
                     </button>
                 </nuxt-link>
-                <div class="dropDown">
-                    <button>نمونه کار دوره ریگ</button>
-                    <button>نمونه کار دوره بن گذاری</button>
-                    <button>نمونه کار دوره انیمیت </button>
-                    <button>نمونه کار دوره طراحی کاراکتر </button>
+                <div class="workSample">
+                    <nuxt-link to="/workSamples">
+                        <button id="workSamples">
+                            <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                            نمونه کار هنر جویان
+                            <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                        </button>
+                    </nuxt-link>
+                    <div class="dropDown">
+                        <button>نمونه کار دوره ریگ</button>
+                        <button>نمونه کار دوره بن گذاری</button>
+                        <button>نمونه کار دوره انیمیت </button>
+                        <button>نمونه کار دوره طراحی کاراکتر </button>
+                    </div>
                 </div>
+                <nuxt-link to="/contactUs">
+                    <button id="contact">
+                        <img src="../assets/icons/Contacts.png" alt="Contacts">
+                        تماس با ما
+                    </button>
+                </nuxt-link>
+                <nuxt-link to="/Blogs">
+                    <button id="blog">
+                        <img src="../assets/icons/Blog.png" alt="Blog">
+                        بلاگ
+                    </button>
+                </nuxt-link>
+                <nuxt-link to="/AboutUs">
+                    <button id="aboutUs">
+                        <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                        درباره ما
+                    </button>
+                </nuxt-link>
             </div>
-            <nuxt-link to="/contactUs">
-            <button id="contact">
-                    <img src="../assets/icons/Contacts.png" alt="Contacts">
-                    تماس با ما
-                </button>
-            </nuxt-link>
-            <nuxt-link to="/Blogs">
-            <button id="blog">
-                    <img src="../assets/icons/Blog.png" alt="Blog">
-                    بلاگ
-                </button>
-            </nuxt-link>
-            <nuxt-link to="/AboutUs">
-            <button id="aboutUs">
-                    <img src="../assets/icons/AboutUs.png" alt="AboutUs">
-                    درباره ما
-                </button>
-            </nuxt-link>
-        </div>
 
+        </div>
     </div>
-</div></template>
+</template>
 
 <script>
-export default{
-    data(){
-        return{
-            shopNum : 0,
+export default {
+    data() {
+        return {
+            shopNum: 0,
 
         }
     },
-    methods:{
-        scrollDown(){
+    methods: {
+        scrollDown() {
             window.scrollTo({ top: 5000, behavior: 'smooth' })
         }
     }
@@ -251,6 +269,7 @@ header {
     margin-top: -15px;
 
 }
+
 .navBar button a {
     color: black;
 }
@@ -330,7 +349,7 @@ header {
 }
 
 .menu__btn {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
     width: 26px;
@@ -348,19 +367,20 @@ header {
     top: 5px;
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: #8569C2;
     transition-duration: .25s;
-    
 }
 
 .menu__btn>span::before {
     content: '';
     top: -8px;
+
 }
 
 .menu__btn>span::after {
     content: '';
     top: 8px;
+
 }
 
 .menu__box {
@@ -508,14 +528,29 @@ header {
     .shopNum {
         margin-right: 900%;
     }
+
     .menu__btn>span,
-.menu__btn>span::before,
-.menu__btn>span::after {
-    display: block;
+    .menu__btn>span::before,
+    .menu__btn>span::after {
+        display: block;
+    }
+
+    .menu__box {
+        display: block;
+    }
+
 }
-.menu__box{
-    display: block;
+@media (max-width : 550px) {
+    .signIn {
+        width: 25%;
+        margin-right: 70%;
+    }
+
 }
+@media (max-width : 370px) {
+    .signIn a{
+        font-size: 12px;
+    }
 
 }
 </style>

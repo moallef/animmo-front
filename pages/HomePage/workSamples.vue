@@ -29,34 +29,31 @@
 
                     <div class="slider">
 
-                            <Swiper  
-                            :modules="[SwiperAutoplay, SwiperEffectCreative]" 
-                            :slides-per-view="3"
-                            :loop="false" :effect="'creative'" :autoplay="sliderAutoPlay = {
+                        <Swiper class="Swiper" :modules="[SwiperAutoplay, SwiperEffectCreative]"
+                            :slides-per-view='isMobile ? 1 : 3' :loop="false" :effect="'creative'" :autoplay="sliderAutoPlay = {
                                 delay: 1500,
-                                }" :creative-effect="{
+                            }" :creative-effect="{
                                 prev: {
                                     shadow: false,
                                     translate: ['-100%', 0, -1],
                                 },
                                 next: {
-                                    translate: ['100%', 0, 0],
+                                    translate: ['100%', 1, 0],
                                 },
-                                }">
-                                <SwiperSlide class="Slider" 
-                                    v-for="sample in samples" 
-                                    :key="samples.sampleSrc">
-                                 <the-Sample />
-                                </SwiperSlide>
-                    
-                            </Swiper>
+                            }">
+                            <SwiperSlide class="Slider" v-for="sample in samples" :key="samples.sampleSrc">
+                                <div class="theSample">
+                                    <the-Sample />
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
 
                     <div>
                         <nuxt-link to="/workSamples">
                             <button class="moreBtn">
                                 مشاهده همه
-                                <img src="../../assets/icons/Vector (1).png" alt="">
+                                <img src="../../assets/icons/Vector (4).png" alt="">
                             </button>
                         </nuxt-link>
                     </div>
@@ -68,24 +65,61 @@
 </template>
 
 <script>
+import { ref, onMounted, onUnmounted } from 'vue'
+import Swiper from 'swiper';
 import theWorkSample from './theSample.vue'
 
 export default {
     components: {
         "the-Sample": theWorkSample,
     },
-    data(){
-        return{
-            playing: false, 
-            samples : [
-                { sampleSrc : theWorkSample , route : '',},
-                { sampleSrc : theWorkSample , route : '',},
-                { sampleSrc : theWorkSample , route : '',},
-                { sampleSrc : theWorkSample , route : '',},
-            ],
-            sliderAutoPlay: true
-        }
+    setup() {
+    const isMobile = ref(false)
+
+    const handleResize = () => {
+      isMobile.value = window.innerWidth < 600
     }
+
+    onMounted(() => {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize)
+    })
+
+    return {
+      isMobile
+    }
+  },
+    data() {
+        return {
+            sliderPerView: 2,
+            playing: false,
+            samples: [
+                { sampleSrc: theWorkSample, route: '', },
+                { sampleSrc: theWorkSample, route: '', },
+                { sampleSrc: theWorkSample, route: '', },
+                { sampleSrc: theWorkSample, route: '', },
+            ],
+            sliderAutoPlay: true,
+        }
+    },
+    methods: {
+        // sliderFixer() {
+        //     this.width > 800 ? Swiper.slidesPerView = "1" :
+        //         Swiper.slidesPerView = "3"
+        // }
+    },
+    mounted() {
+        const Swiper = this.$el.querySelector('.Swiper');
+        const width = Swiper.offsetWidth;
+        console.log({ width });
+        width < 600 ? this.sliderPerView = 1 : this.sliderPerView = 3
+
+    },
+
 }
 </script>
 
@@ -94,7 +128,6 @@ export default {
 
     text-align: center;
     width: 100%;
-    height: 630px;
     background: #252565;
     text-align: center;
     border-radius: 30px;
@@ -115,14 +148,15 @@ export default {
 
 .moreBtn {
     margin-top: 60px;
-    color: white;
+    color: #8569C2;
     width: 9%;
     height: 49px;
     border-radius: 49px;
-    background: #8569C2;
-    border: none;
+    background: none;
+    border: 2px solid #8569C2;
     font-size: 100%;
     font-weight: 400;
+    margin-bottom: 40px;
 }
 
 #sampleSection {
@@ -149,12 +183,38 @@ export default {
     color: #B6A5DA;
 
 }
-.slider{
+
+.slider {
     margin-left: 1%;
     margin-top: 10px;
 }
+
 .smapleBtn:hover {
     background: #8569C2;
     color: #F9F9F9;
+}
+
+@media (max-width : 970px) {
+    .moreBtn {
+        width: 20%;
+    }
+}
+
+@media (max-width : 850px) {
+    .sections {
+        display: none;
+    }
+
+    .moreBtn {
+        width: 22%;
+        height: 45px;
+    }
+}
+
+@media (max-width : 550px) {
+    .moreBtn {
+        width: 30%;
+        height: 40px;
+    }
 }
 </style>

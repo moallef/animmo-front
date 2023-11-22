@@ -2,8 +2,8 @@
     <div>
         <div class="container">
             <div class="textHolder">
+                <a href="">
                 <div class="telegram">
-                    <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
                             viewBox="0 0 48 48">
                             <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
@@ -20,8 +20,8 @@
                         <p id="telegram">
                             عضویت در کانال تلگرام
                         </p>
-                    </a>
-                </div>
+                    </div>
+                </a>
                 <div class="backUpNumber">
                     <p>شماره پشتیبانی :</p>
                     <p id="theNumber"> {{ phoneNum1 }} / {{ phoneNum2 }} </p>
@@ -90,7 +90,7 @@ svg {
     height: 45px;
     width: 20%;
     margin-top: 4px;
-
+    margin-right: -80%;
 }
 
 .imgHolder {

@@ -32,16 +32,16 @@
                     </p>
                 </div>
                 <div class="btnHolder">
-                    <button class="addToCards">
-                        <nuxt-link to="">
-                            افزودن به سبد خرید
-                        </nuxt-link>
-                    </button>
-                    <button class="moreBtn">
-                        <nuxt-link to="./CourseDetails">
+                    <nuxt-link to="./CourseDetails">
+                        <button class="moreBtn">
                             مشاهده دوره
-                        </nuxt-link>
-                    </button>
+                        </button>
+                    </nuxt-link>
+                    <nuxt-link to="">
+                        <button class="addToCards">
+                            افزودن به سبد خرید
+                        </button>
+                    </nuxt-link>
                 </div>
             </div>
         </div>
@@ -91,13 +91,17 @@ export default {
     margin-top: 10px;
     margin-right: 2%;
 }
-.teacher{
+
+.teacher {
     margin-top: 10px;
     margin-right: 2%;
 }
-.btnHolder{
+
+.btnHolder {
+    margin: auto;
     margin-top: 15px;
 }
+
 .moreBtn {
     width: 45%;
     height: 40px;
@@ -110,6 +114,7 @@ export default {
     line-height: 15px;
     letter-spacing: -0.07em;
     margin-right: 5%;
+    margin-bottom: 20px;
 }
 
 .addToCards {
@@ -122,35 +127,72 @@ export default {
     font-size: 14px;
     margin-right: 2%;
 }
+
 .productTime {
     color: #979797;
     margin-top: -10px;
 }
-.courseDurationInHours{
+
+.courseDurationInHours {
     margin-right: 55%;
     margin-top: -20px;
 }
-.seasonsCount{
+
+.seasonsCount {
     margin-top: 20px;
     margin-right: 2%;
 }
-.courseDurationInHours img{
+
+.courseDurationInHours img {
     width: 17px;
     opacity: 0.67;
 }
-.courseFee{
+
+.courseFee {
     margin-top: -15px;
 }
+
 .primaryFee {
     text-decoration: line-through;
     color: #646464;
     margin-top: 20px;
     margin-right: 2%;
 }
-.discountedFee{
-    color:#C8102E;
+
+.discountedFee {
+    color: #C8102E;
     margin-right: 55%;
     width: 50%;
     margin-top: -20px;
+}
+
+@media (max-width : 940px) {
+    .courseFee {
+        width: 100%;
+    }
+    .discountedFee {
+        margin-right: 3%;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .primaryFee {
+        margin-right: 3%;
+        margin-top: 30px;
+        width: 100%;
+    }
+}
+
+@media (max-width : 770px) {
+    .addToCards {
+        width: 95%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .moreBtn {
+        width: 95%;
+        margin: auto;
+    }
 }
 </style>

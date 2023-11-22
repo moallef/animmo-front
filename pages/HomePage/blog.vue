@@ -3,36 +3,28 @@
         <div class="title">
             <p>وبلاگ</p>
         </div>
-        <div class="blogs">
-            <div class="theBlog">
-                <div class="blogPoster">
-                    <img src="../../assets/images/image 8.png" alt="">
-                </div>
-                <div class="blogTxt">
-                    <div class="theBlogTitle">
-                        <p>
-                            همه چیز درباره
-                            تاریخ صنعت انیمیشن سازی در ژاپن
-                        </p>
-                    </div>
-                    <div class="theBlogDescription">
-                        <p>
-                            انواع انیمیشن از دیرباز با دنیای شگفت‌انگیز و
-                            فانتزی خود برای تحقق بخشیدن به رؤیاهای ...
-                        </p>
-                    </div>
-                    <button class="readMore">
-                        خواندن
-                        <img src="../../assets/icons/blogLeftArrow.png" alt="">
-                    </button>
-                </div>
-            </div>
+        <div class="theBlog">
+            <theBlog/>
+        </div>
+        <div class="showMore">
+            <nuxt-link to="">
+                <button class="moreBtn">
+                    مشاهده همه
+                    <img src="../../assets/icons/Vector (1).png" alt="">
+                </button>
+            </nuxt-link>
         </div>
     </div>
 </template>
 
 <script>
+import theBlog from './theBlog.vue'
 
+export default{
+    components: {
+        "theBlog" :theBlog,
+    }
+}
 </script>
 
 <style scoped>
@@ -40,6 +32,9 @@
     text-align: right;
     width: 100%;
     margin-bottom: 50px;
+}
+.theBlog{
+    width: 45%;
 }
 
 .title {
@@ -57,55 +52,48 @@
     text-align: right;
 }
 
-.theBlog {
-    width: 25%;
-    margin: 10px 8%;
-}
-
-.blogPoster {
-    width: 15%;
-    height: 193px;
-    border-radius: 8px;
-    text-align: right;
-}
-
-.theBlogTitle {
-    font-family: Yekan Bakh;
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: right;
-    margin-bottom: 20px;
-    margin-top: 10px;
-}
-
-.theBlogDescription {
-    font-family: Yekan Bakh;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: -0.02em;
-    text-align: right;
-    color: #979797;
-
-}
-
-.readMore {
+.moreBtn {
+    color: white;
+    width: 9%;
+    height: 49px;
+    border-radius: 49px;
+    background: #8569C2;
+    border: none;
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
     letter-spacing: 0em;
-    text-align: center;
-    color: #8569C2;
-    background: none;
-    border-radius: 49px;
-    border: 2px solid #8569C2;
-    height: 40px;
-    width: 25%;
-    margin-top: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
 }
-.readMore:hover{
-    background: #F4F4F4;
+@media (max-width : 1150px) {
+    .moreBtn{
+        width: 13%;
+    }
+}
+@media (max-width : 920px) {
+    .theBlog{
+    width: 100%;
+}
+}
+@media (max-width : 780px) {
+    .moreBtn{
+        width: 16%;
+    }
+    .moreBtn{
+        width: 20%;
+        margin-top: 100px;
+    }
+    .theBlog{
+    width: 100%;
+}
+}
+@media (max-width : 520px) {
+    .moreBtn{
+        width: 30%;
+        height: 40px;
+        margin-top: 100px;
+    }
 }
 </style>

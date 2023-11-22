@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="blocks">
-         
+
                     <div class="blurBlock" id="blurBlock4">
                         <img src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- block 4 ended -->
 
                     <div class="blurBlock" id="blurBlock3">
@@ -65,7 +65,7 @@
                     </div>
 
                     <!-- block 3 ended -->
-                    
+
                     <div class="blurBlock" id="blurBlock2">
                         <img src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
@@ -113,9 +113,9 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- block 1 ended -->
-                    
+
                     <div class="clock" id="bClock">
                         <div class="OpinionBlock">
                             <img src="../../assets/images/Ellipse 10.png" alt="">
@@ -140,10 +140,45 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- main block ended -->
 
                 </div>
+                <div class="arrowBtnHolder">
+                    <button class="righArrow">
+                        <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px"
+                            viewBox="0 0 493.578 493.578" xml:space="preserve" transform="matrix(-1, 0, 0, 1, 0, 0)"
+                            stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <path
+                                        d="M487.267,225.981c0-17.365-13.999-31.518-31.518-31.518H194.501L305.35,83.615c12.24-12.24,12.24-32.207,0-44.676 L275.592,9.18c-12.24-12.24-32.207-12.24-44.676,0L15.568,224.527c-6.12,6.12-9.256,14.153-9.256,22.262 c0,8.032,3.136,16.142,9.256,22.262l215.348,215.348c12.24,12.239,32.207,12.239,44.676,0l29.758-29.759 c12.24-12.24,12.24-32.207,0-44.676L194.501,299.498h261.094c17.366,0,31.519-14.153,31.519-31.519L487.267,225.981z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <button class="leftArrow">
+                        <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px"
+                            viewBox="0 0 493.578 493.578" xml:space="preserve" transform="matrix(1, 0, 0, 1, 0, 0)"
+                            stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <path
+                                        d="M487.267,225.981c0-17.365-13.999-31.518-31.518-31.518H194.501L305.35,83.615c12.24-12.24,12.24-32.207,0-44.676 L275.592,9.18c-12.24-12.24-32.207-12.24-44.676,0L15.568,224.527c-6.12,6.12-9.256,14.153-9.256,22.262 c0,8.032,3.136,16.142,9.256,22.262l215.348,215.348c12.24,12.239,32.207,12.239,44.676,0l29.758-29.759 c12.24-12.24,12.24-32.207,0-44.676L194.501,299.498h261.094c17.366,0,31.519-14.153,31.519-31.519L487.267,225.981z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -249,7 +284,7 @@ button {
 
 }
 
-.blocks{
+.blocks {
     width: 70%;
     margin-right: 30%;
 }
@@ -303,6 +338,10 @@ button {
 
 .rating img {
     margin-inline: 1.5%;
+}
+
+.arrowBtnHolder {
+    display: none;
 }
 
 .clock {
@@ -375,4 +414,69 @@ button {
     margin-right: 51%;
     margin-top: -140px;
 
-}</style>
+}
+
+
+@media (max-width : 900px) {
+    .opinionsComponent{
+        height: 750px;
+    }
+    .title {
+        margin: auto;
+        font-size: 28px;
+    }
+
+    .blocks {
+        margin-top: 500px;
+    }
+
+    .blurBlock {
+        box-shadow: 0px 10px 15px 5px #8569C233;
+        background: #B6A5DA;
+        width: 50%;
+    }
+
+    .OpinionBlock {
+        width: 60%;
+        margin-right: 0%;
+    }
+
+    #blurBlock2 {
+        margin-right: -30%;
+    }
+
+    #blurBlock3 {
+        display: none;
+    }
+
+    #blurBlock4 {
+        display: none;
+
+    }
+
+    .commentsCount {
+        display: none;
+    }
+
+    .moreComments {
+        display: none;
+    }
+
+    .arrowBtnHolder {
+        display: block;
+        margin-top: 100px;
+        margin-right: 44%;
+    }
+    .arrowBtnHolder button{
+        box-sizing: border-box;
+
+    }
+    svg{
+        width: 24px;
+        padding-bottom: 14px;
+    }
+}
+@media (max-width : 600px) {
+
+}
+</style>

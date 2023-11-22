@@ -24,12 +24,12 @@
 
 
                     <div>
+                        <nuxt-link to="/Animate">
                         <button class="showMore">
-                            <nuxt-link to="/Animate">
                                 مشاهده دوره ها
-                            </nuxt-link>
-                        </button>
-                    </div>
+                            </button>
+                        </nuxt-link>
+                        </div>
 
                 </div>
             </div>
@@ -128,6 +128,9 @@ a{
     .coursesSort{
         width: 35%;
     }
+    .showMore{
+        margin-right: 40%;
+    }
 }
 @media (max-width : 550px){
     .coursesSort{
@@ -137,6 +140,34 @@ a{
     .courseDetails{
         font-size: 11px;
     }
+    .showMore{
+        margin-right: 40%;
+    }
+}
+@media (max-width : 550px){
+    .showMore{
+        margin-right: 20%;
+        width: 65%;
+        font-size: 12px;
+        margin-top: -20px;
+    }
+    img {
+        margin-bottom: -90px;
+    }
+    .rating {
+        top: -75px;
+    }
+    .courseDetails{
+        margin-top: 0px;
+        margin-left: 55%;
+    }
+    .courseName {
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+.courseName{
+    font-size: 20px;
+}
 }
 
 </style>
