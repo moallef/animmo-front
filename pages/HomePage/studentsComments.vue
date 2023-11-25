@@ -17,6 +17,18 @@
                     </p>
                 </div>
 
+                <div class="addCommentInput">
+
+                    <button class="addComments">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 21" id="Navigation">
+                            <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m8 1 7 19-7-4-7 4z" class="colorStroke000000 svgStroke"></path>
+                        </svg>
+                    </button>
+                    <input type="text" class="commentInput" placeholder="افزودن نظرات ...">
+
+                </div>
+
                 <div class="blocks">
 
                     <div class="blurBlock" id="blurBlock4">
@@ -284,13 +296,57 @@ button {
 
 }
 
+.addCommentInput {
+    width: 600px;
+    text-align: right;
+    margin-bottom: -50px;
+}
+
+.addComments {
+    width: 37px;
+    height: 37px;
+    box-sizing: border-box;
+    margin-right: 190px;
+    margin-top: 50px;
+    margin-bottom: -40px;
+    z-index: 3;
+}
+svg {
+    width: 14px;
+    height: 19px;
+    margin: 10px;
+}
+*:focus {
+    outline: none;
+    font-size: 16px;
+}
+Input {
+    text-align: right;
+    width: 340px;
+    height: 41px;
+    padding-right: 20px;
+    border-radius: 51px;
+    gap: 231px;
+    background: #FFFFFF;
+    border: none;
+    margin-right: 15%;
+    font-family: Yekan Bakh;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    color: #979797;
+}
+
+
 .blocks {
-    width: 70%;
-    margin-right: 30%;
+    width: 60%;
+    margin-right: 40%;
+    margin-top: -230px;
 }
 
 .OpinionBlock {
-    width: 35%;
+    width: 45%;
     height: 455px;
     border-radius: 0px 0px 183px 183px;
     box-sizing: border-box;
@@ -357,7 +413,7 @@ button {
 }
 
 .blurBlock {
-    width: 28%;
+    width: 38%;
     height: 381px;
     border-radius: 0px 0px 183px 183px;
     box-sizing: border-box;
@@ -418,9 +474,10 @@ button {
 
 
 @media (max-width : 900px) {
-    .opinionsComponent{
+    .opinionsComponent {
         height: 750px;
     }
+
     .title {
         margin: auto;
         font-size: 28px;
@@ -467,16 +524,16 @@ button {
         margin-top: 100px;
         margin-right: 44%;
     }
-    .arrowBtnHolder button{
+
+    .arrowBtnHolder button {
         box-sizing: border-box;
 
     }
-    svg{
+
+    svg {
         width: 24px;
         padding-bottom: 14px;
     }
 }
-@media (max-width : 600px) {
 
-}
-</style>
+@media (max-width : 600px) {}</style>

@@ -23,7 +23,7 @@
 import header from '../header.vue'
 import footer from '../footer.vue'
 import belt from './blogBelt.vue'
-import theBlog from './theBlog.vue'
+import theBlog from '../HomePage/theBlog.vue'
 
 export default {
     name: 'FrontendIndex',
