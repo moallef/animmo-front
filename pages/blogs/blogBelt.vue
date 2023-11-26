@@ -35,7 +35,7 @@ export default {
 }
 .content{
     margin-right: 5%;
-    padding-top: 5px;
+    padding-top: 15px;
 }
 h1 {
     font-family: Yekan Bakh;
@@ -43,7 +43,7 @@ h1 {
     font-weight: 600;
     line-height: 15px;
     letter-spacing: 0em;
-
+    margin-bottom: 10px;
 }
 
 p {

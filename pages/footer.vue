@@ -7,17 +7,7 @@
             <div class="rectangle">
 
             </div>
-            <div class="signUp">
-                <p>ثبت نام</p>
-                <div class="signUpInputs">
-                    <input type="text" v-model="name" id="name" placeholder="نام">
-                    <input type="text" v-model="family" id="family" placeholder="نام خانوادگی">
-                    <input type="text" v-model="phoneNumber" id="phoneNumber" placeholder="تلفن همراه">
-                </div>
-                <button class="signUpBtn">
-                    ثبت نام
-                </button>
-            </div>
+
             <div class="block">
                 <div class="e-Namad">
                     <a href="https://enamad.ir/" target="_blank">
@@ -114,57 +104,7 @@ button {
     background: #DF59A1;
     border-radius: 50%;
     border: none;
-    margin-bottom: -10px;
-}
-
-.signUp {
-    background: #F4F4F4;
-    height: 243px;
-    width: 35%;
-    bottom: 50px;
-    margin-right: 60%;
-    margin-bottom: -200px;
-    padding-top: 15px;
-    z-index: 5;
-}
-
-.signUp p {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 12px;
-    letter-spacing: -0.065em;
-    text-align: center;
-    width: 10%;
-    height: 12px;
-    margin-left: 72%;
-    display: inline;
-    color: #7D7D7D;
-}
-
-.signUpInputs {
-    margin-top: 30px;
-}
-
-.signUpInputs input {
-    border: none;
-    border-radius: 32px;
-    background: #F9F9F9;
-    height: 32px;
-    margin: 5px;
-    text-align: right;
-    padding-right: 10px;
-}
-
-#name {
-    width: 40%;
-}
-
-#family {
-    width: 40%;
-}
-
-#phoneNumber {
-    width: 84%;
+    margin-bottom: 20px;
 }
 
 .block {
@@ -173,18 +113,6 @@ button {
     width: 100%;
 }
 
-.signUpBtn {
-    background: #8569C2;
-    width: 25%;
-    height: 36px;
-    border-radius: 37px;
-    gap: 10px;
-    border: none;
-    color: white;
-    font-size: 100%;
-    margin-right: 59%;
-    margin-top: 3px;
-}
 
 #logo {
     text-align: right;
@@ -232,4 +160,5 @@ button {
 
 .comunications img {
     width: 6%;
-}</style>
+}
+</style>

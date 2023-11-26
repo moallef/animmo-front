@@ -23,7 +23,7 @@
 import header from '../header.vue'
 import footer from '../footer.vue'
 import belt from './blogBelt.vue'
-import theBlog from '../HomePage/theBlog.vue'
+import Blog from './blogs.vue'
 
 export default {
     name: 'FrontendIndex',
@@ -38,7 +38,7 @@ export default {
         "header-app" : header,
         "footer-app" : footer,
         "belt" : belt,
-        "Blog": theBlog,
+        "Blog": Blog,
     },
 
     mounted() {

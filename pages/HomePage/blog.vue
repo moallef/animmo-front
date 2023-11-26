@@ -7,7 +7,7 @@
             <theBlog/>
         </div>
         <div class="showMore">
-            <nuxt-link to="">
+            <nuxt-link to="/blogs">
                 <button class="moreBtn">
                     مشاهده همه
                     <img src="../../assets/icons/Vector (1).png" alt="">

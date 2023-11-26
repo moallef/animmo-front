@@ -13,9 +13,12 @@
                         </a>
                     </div>
                 </nuxt-link>
-                <button class="signIn" @click="scrollDown()">
-                    <a href="">ورود / ثبت نام</a>
-                </button>
+                
+                <nuxt-link to="/authentication">
+                    <button class="signIn" >
+                        <a href="">ورود / ثبت نام</a>
+                    </button>
+                </nuxt-link>
             </div>
 
 

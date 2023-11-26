@@ -107,10 +107,6 @@ export default {
         }
     },
     methods: {
-        // sliderFixer() {
-        //     this.width > 800 ? Swiper.slidesPerView = "1" :
-        //         Swiper.slidesPerView = "3"
-        // }
     },
     mounted() {
         const Swiper = this.$el.querySelector('.Swiper');
@@ -210,6 +206,7 @@ export default {
         height: 45px;
     }
 }
+
 
 @media (max-width : 550px) {
     .moreBtn {

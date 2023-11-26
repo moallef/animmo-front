@@ -32,6 +32,7 @@ export default {
 .belt {
     height: 67px;
     background: #F4F4F4;
+    margin-top: 60px;
 }
 
 .content {

@@ -32,7 +32,7 @@
                 <div class="blocks">
 
                     <div class="blurBlock" id="blurBlock4">
-                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
                             <div class="rating" id="blurRating">
@@ -54,7 +54,7 @@
                     <!-- block 4 ended -->
 
                     <div class="blurBlock" id="blurBlock3">
-                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
                             <div class="rating" id="blurRating">
@@ -79,7 +79,7 @@
                     <!-- block 3 ended -->
 
                     <div class="blurBlock" id="blurBlock2">
-                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
                             <div class="rating" id="blurRating">
@@ -104,7 +104,7 @@
                     <!-- block 2 ended -->
 
                     <div class="blurBlock" id="blurBlock1">
-                        <img src="../../assets/images/Ellipse 10.png" alt="">
+                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
                             <div class="rating" id="blurRating">
@@ -130,7 +130,7 @@
 
                     <div class="clock" id="bClock">
                         <div class="OpinionBlock">
-                            <img src="../../assets/images/Ellipse 10.png" alt="">
+                            <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                             <div class="Opinion">
                                 <p class="toComment">{{ toComment }}</p>
                                 <div class="rating">
@@ -306,7 +306,7 @@ button {
     width: 37px;
     height: 37px;
     box-sizing: border-box;
-    margin-right: 190px;
+    margin-right: 150px;
     margin-top: 50px;
     margin-bottom: -40px;
     z-index: 3;
@@ -340,7 +340,7 @@ Input {
 
 
 .blocks {
-    width: 60%;
+    width: 50%;
     margin-right: 40%;
     margin-top: -230px;
 }
@@ -362,6 +362,7 @@ Input {
     border-radius: 50%;
     margin-top: -50px;
     margin-bottom: 40px;
+    width: ;
 }
 
 .toComment {
@@ -536,4 +537,14 @@ Input {
     }
 }
 
-@media (max-width : 600px) {}</style>
+@media (max-width : 600px) {
+    .rating img {
+        width: 18px;
+    }
+}
+@media (max-width : 600px) { 
+    .rating img {
+        width: 15px;
+    }
+}
+</style>
