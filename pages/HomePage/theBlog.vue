@@ -18,10 +18,12 @@
                             فانتزی خود برای تحقق بخشیدن به رؤیاهای ...
                         </p>
                     </div>
-                    <button class="readMore">
-                        خواندن
-                        <img src="../../assets/icons/blogLeftArrow.png" alt="">
-                    </button>
+                    <nuxt-link to="/theBlog">
+                        <button class="readMore">
+                            خواندن
+                            <img src="../../assets/icons/blogLeftArrow.png" alt="">
+                        </button>
+                    </nuxt-link>
                 </div>
             </div>
         </div>

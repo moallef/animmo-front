@@ -35,14 +35,6 @@
                         <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                            <div class="rating" id="blurRating">
-                                <img src="../../assets/icons/emptyStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <!-- show the rating by using full stars -->
-                            </div>
                             <div class="theOpinin" id="blurOpinion">
                                 <p class="theComment" id="blurComment">
                                     {{ theComment }}
@@ -57,14 +49,7 @@
                         <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                            <div class="rating" id="blurRating">
-                                <img src="../../assets/icons/emptyStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <!-- show the rating by using full stars -->
-                            </div>
+
                             <div class="theOpinin" id="blurOpinion">
                                 <p class="theComment" id="blurComment">
                                     {{ theComment }}
@@ -82,14 +67,7 @@
                         <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                            <div class="rating" id="blurRating">
-                                <img src="../../assets/icons/emptyStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <!-- show the rating by using full stars -->
-                            </div>
+
                             <div class="theOpinin" id="blurOpinion">
                                 <p class="theComment" id="blurComment">
                                     {{ theComment }}
@@ -107,14 +85,6 @@
                         <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
                             <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                            <div class="rating" id="blurRating">
-                                <img src="../../assets/icons/emptyStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <img src="../../assets/icons/fullStar.png" alt="">
-                                <!-- show the rating by using full stars -->
-                            </div>
                             <div class="theOpinin" id="blurOpinion">
                                 <p class="theComment" id="blurComment">
                                     {{ theComment }}
@@ -133,14 +103,6 @@
                             <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                             <div class="Opinion">
                                 <p class="toComment">{{ toComment }}</p>
-                                <div class="rating">
-                                    <img src="../../assets/icons/emptyStar.png" alt="">
-                                    <img src="../../assets/icons/fullStar.png" alt="">
-                                    <img src="../../assets/icons/fullStar.png" alt="">
-                                    <img src="../../assets/icons/fullStar.png" alt="">
-                                    <img src="../../assets/icons/fullStar.png" alt="">
-                                    <!-- show the rating by using full stars -->
-                                </div>
                                 <div class="theOpinin">
                                     <p class="theComment">
                                         {{ theComment }}
@@ -311,15 +273,18 @@ button {
     margin-bottom: -40px;
     z-index: 3;
 }
+
 svg {
     width: 14px;
     height: 19px;
     margin: 10px;
 }
+
 *:focus {
     outline: none;
     font-size: 16px;
 }
+
 Input {
     text-align: right;
     width: 340px;
@@ -362,7 +327,6 @@ Input {
     border-radius: 50%;
     margin-top: -50px;
     margin-bottom: 40px;
-    width: ;
 }
 
 .toComment {
@@ -380,21 +344,13 @@ Input {
     line-height: 24px;
     letter-spacing: -0.065em;
     text-align: center;
+    margin-top: 50px;
 
 }
 
 .Opinion {
     padding-top: -30px;
     padding-inline: 5%;
-}
-
-.rating {
-    padding-bottom: 20px;
-    margin-top: 60px;
-}
-
-.rating img {
-    margin-inline: 1.5%;
 }
 
 .arrowBtnHolder {
@@ -428,7 +384,23 @@ Input {
     z-index: 1;
 }
 
+.blurBlock :hover {
+    cursor: pointer;
+    width: 100%;
+    height: 455px;
+    border-radius: 0px 0px 183px 183px;
+    box-sizing: border-box;
+    margin-right: 20%;
+    background: #8569C2;
+    color: white;
+    box-shadow: 0px 4px 14px 1px #8569C233;
+    margin-top: -460px;
+    z-index: 2;
+
+}
+
 .blurBlock img {
+    border-radius: 50%;
     margin-top: -40px;
 }
 
@@ -542,9 +514,9 @@ Input {
         width: 18px;
     }
 }
-@media (max-width : 600px) { 
+
+@media (max-width : 600px) {
     .rating img {
         width: 15px;
     }
-}
-</style>
+}</style>

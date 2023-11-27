@@ -59,7 +59,7 @@ export default {
 
 .descriptions{
     width: 60%;
-    margin-top: -370px;
+    margin-top: -420px;
     margin-right: 3%;
 }
 

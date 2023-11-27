@@ -1,20 +1,36 @@
 <template>
     <div>
-        <div class="header">
-            <h1></h1>
-            <div class="buttons">
-                <button id="share"></button>
-                <button id="save"></button>
+        <div class="content">
+
+            <div class="header">
+                <h1>
+                    {{ blogTitle }}
+                </h1>
+                <div class="buttons">
+                    <button id="share">
+                        <img src="../../assets/icons/share-2.png" alt="">
+                    </button>
+                    <button id="save">
+                        <img src="../../assets/icons/Vector (7).png" alt="">
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="aboutBlog">
+            <div class="aboutBlog">
+                <p class="author">
+                    {{ author }} نوشته شده توسط
+                </p>
+                <p class="date">
+                    {{ date }}
+                </p>
+            </div>
+            <div class="blogContent">
+                <p id="blogContent">
+                    {{ blogContent }}
+                </p>
+            </div>
+            <div class="theList">
 
-        </div>
-        <div class="blogContent">
-
-        </div>
-        <div class="theList">
-
+            </div>
         </div>
     </div>
 </template>
@@ -25,20 +41,93 @@ export default {
 
     data() {
         return {
-            
+            blogTitle: "دی‌کاپریو هم وارد صنعت انیمیشن شد",
+            author: "",
+            date: "فوریه 22, 2023",
+            blogContent: `به گزارش خبرنگار گروه فرهنگ و جامعه خبرگزاری علم و فناوری آنا، انیمیشن سینمایی «اوزی، صدای جنگل» که اخیراً در جشنواره انیمیشن «انسی» به نمایش درآمد، یکی از جدیدترین تولیدات از مجموعه آثاری است که به دنبال برجسته کردن خطرات مختلف برای محیط زیست هستند.
+این انیمیشن سینمایی روایتگر داستان زندگی اورانگوتان جوانی به نام اوزی با صداپیشگی آماندلا استنبرگ است که وقتی خانه‌اش در جنگل‌های بارانی توسط یک شرکت تولیدکننده روغن نخل ویران می‌شود، از والدینش جدا می‌شود.
+
+دیکاپریو تهیه کننده اوزی، صدای  جنگل
+به جز استنبرگ لورا درن، جیمون هونسو و دانلد ساترلند نیز از چهره‌های شناخته شده این اثر در زمینه صداپیشگی هستند.
+اما بدون شک شناخته شده‌ترین چهره در پروسه تولید این اثر نه صداپیشگان آن و نه کارگردان اثر هستند، لئوناردو دی‌کاپریو ستاره شناخته شده هالیوود، به عنوان تهیه کننده در این مجموعه حضور دارد که نام او اعتبار ویژه‌ای به این اثر بخشیده است. مایک مداویو نیز دیگر تهیه‌کننده انیمیشن سینمایی «اوزی، صدای جنگل» است.
+رودریگو بلاس، کارگردان این انیمیشن سینمایی که در کارنامه هنری‌اش انیمیشن‌های مهم فراوانی دیده می‌شود و به عنوان انیماتور در آثار کلاسیک پیکسار مانند «شگفت‌انگیزان» و «بالا» حضور داشته، در گفت‌وگویی اعلام کرده که انیمیشن «وال‌ای» الهام‌بخش او در پروسه تولید «اوزی، صدای جنگل» بوده است.
+
+شخصیت اوزی باز می گردد     
+با همکاری سازمان‌های خیریه‌ای مانند سازمان بین‌المللی نجات حیوانات و جانوران و گیاهان بین‌المللی (FFI)، فیلمسازان پیش‌بینی می‌کنند که «اوزی» اولین فیلم از مجموعه‌ای از فیلم‌ها خواهد بود که هدف همگی توسعه «صدا» زیستگاه‌ها و مناطق مختلف است. استقبال از این انیمیشن در نخستین اکران آن در جشنواره انسی تا حدی بود که مایک مداویو تهیه کننده این پروژه اعلام کرد که شخصیت اوزی ممکن است در تکرار دیگری - یک نمایش تلویزیونی یا نمایشنامه - که توسط کیت چپمن ساخته شده است، بازگردد.
+این تهیه‌کننده در گفت‌وگویی با ورایتی عنصر سرگرمی را از عوامل مهم و تاثیرگذار انیمیشن «اوزی، صدای جنگل» مطرح کرده و گفت: «ما این اثر را به عنوان دارویی برای مردم نمی‌دانیم. ما به عنوان سرگرمی فکر می‌کنیم، اما بدیهی است که حتی در سرگرمی، چیزی وجود دارد که مردم می‌توانند بیرون بروند و در مورد محیط صحبت کنند. به همه بازیگرانی که در این پروژه حضور دارند، نگاه کنید، کسی نبود که ما به او پیشنهاد دهیم و «بله» نگوید.»`,
         };
     },
 
     mounted() {
-        
+
     },
 
     methods: {
-        
+
     },
 };
 </script>
 
 <style lang="scss" scoped>
+.content {
+    border-radius: 35px 35px 0px 0px;
+    z-index: 4;
+    margin-inline: 5%;
+}
 
+h1 {
+    font-family: Yekan Bakh;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-top: 50px;
+    height: 0px;
+
+}
+
+.buttons button {
+    background: none;
+    border: none;
+    margin-right: 90%;
+    display: block;
+    width: 5%;
+    text-align: right;
+    height: 0px;
+}
+
+#save {
+    text-align: left;
+
+}
+
+.author {
+    font-family: Yekan Bakh;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 8px;
+    letter-spacing: 0em;
+    color: #979797;
+    margin-top: 90px;
+}
+
+.date {
+    font-family: Yekan Bakh;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 8px;
+    letter-spacing: 0em;
+    color: #C9C9C9;
+    margin-top: 20px;
+}
+
+.blogContent {
+    width: 70%;
+    font-family: Yekan Bakh;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-top: 40px;
+}
 </style>

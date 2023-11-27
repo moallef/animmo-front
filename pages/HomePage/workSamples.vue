@@ -108,13 +108,7 @@ export default {
     },
     methods: {
     },
-    mounted() {
-        const Swiper = this.$el.querySelector('.Swiper');
-        const width = Swiper.offsetWidth;
-        console.log({ width });
-        width < 600 ? this.sliderPerView = 1 : this.sliderPerView = 3
 
-    },
 
 }
 </script>

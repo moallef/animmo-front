@@ -13,8 +13,8 @@
                 <div class="container">
 
                     <div class="buttons">
-                        <button id="logIn">ورود</button>
-                        <button id="signUp">ثبت نام </button>
+                        <button autofocus @click="changeFocus(true)" :class=" focusBoolian ? 'focus' : 'unfocus'" id="logIn" >ورود</button>
+                        <button @click="changeFocus(false)" :class=" focusBoolian ? 'unfocus' : 'focus'" id="signUp">ثبت نام </button>
                     </div>
                     <div class="inputs">
                         <div id="name">
@@ -60,8 +60,11 @@ export default {
 
     data() {
         return {
-
+            focusBoolian : true,
         };
+    },
+    directives: {
+
     },
 
     components: {
@@ -74,6 +77,10 @@ export default {
 
     methods: {
 
+        changeFocus(change) {
+            this.focusBoolian = change;
+            console.log(this.focusBoolian);
+        },
     },
 };
 </script>
@@ -85,11 +92,13 @@ export default {
     margin-top: -450px;
     height: 100%;
 }
+
 .main {
     text-align: center;
     width: 60%;
     margin-top: 100px;
 }
+
 .container {
     width: 100%;
 }
@@ -106,13 +115,15 @@ h1 {
     letter-spacing: 0em;
     color: #252565;
 }
-.otherWays{
+
+.otherWays {
     margin: auto;
     margin-top: 20px;
     width: 301px;
 
 }
-.otherWays button{
+
+.otherWays button {
     border-radius: 50%;
     border: none;
     background: none;
@@ -141,8 +152,17 @@ h1 {
     line-height: 12px;
     letter-spacing: 0em;
 }
+.unfocus{
+    outline:none;
+    color: #8569C2;
+}
+.focus{
+    background: #8569C2;
+    color: white;
+}
 
-.buttons button:focus {
+#logIn[autofocus] {
+    outline: none;
     background: #8569C2;
     color: white;
 }
@@ -198,10 +218,12 @@ h1 {
     line-height: 19px;
     letter-spacing: 0em;
 }
+
 @media (max-width : 1100px) {
     .image {
         display: none;
-    } 
+    }
+
     .main {
         width: 100%;
     }
