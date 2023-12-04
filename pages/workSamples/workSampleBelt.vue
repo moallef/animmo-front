@@ -4,13 +4,6 @@
             <h1>نمونه کار هنرجویان</h1>
             <p>خانه انیمو/نمونه کار هنرجویان</p>
             <div class="sortBy">
-                <div class="btn">
-                    نمایش بر اساس
-                    <img src="../../assets/icons/Vector (4).png" alt="">
-                    <div class="dropDown">
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -37,6 +30,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img{
+    padding-right: 15%;
+}
 .container{
     background: #F4F4F4;
     height: 67px;

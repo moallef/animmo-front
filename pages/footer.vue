@@ -4,61 +4,124 @@
             <button class="scrollUp" @click="scrollUp()">
                 <img src="../assets/icons/arrow-142-16.png" alt="">
             </button>
-            <div class="rectangle">
-
-            </div>
 
             <div class="block">
-                <div class="e-Namad">
-                    <a href="https://enamad.ir/" target="_blank">
-                        <img src="../assets/icons/e-namad.png" alt="e-namad">
-                    </a>
+                <div id="logo">
+                    <img src="../assets/icons/logoDarkBG.png" alt="">
                 </div>
-                <div>
-                    <div id="logo">
-                        <img src="../assets/icons/logoDarkBG.png" alt="">
+
+                <div class="container">
+                    <ul class="menu__box">
+                        <div class="firstRow">
+                            <li>
+                                <nuxt-link to="/">
+                                    <img class="navBarImage" src="../assets/icons/HomePage.png" alt="Home">
+                                    صفحه اصلی
+                                </nuxt-link>
+                            </li>
+                            <li> <nuxt-link to="/workSamples">
+
+                                    <img class="navBarImage" src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                                    نمونه کار هنر جویان
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/GuidePage">
+
+                                    <img class="navBarImage" src="../assets/icons/help-circle.png" alt="Blog">
+                                    راهنما
+
+                                </nuxt-link>
+                            </li>
+                        </div>
+                        <div class="secondRow">
+
+                            <li>
+                                <nuxt-link to="/Blogs">
+
+                                    <img class="navBarImage" src="../assets/icons/Blog.png" alt="Blog">
+                                    بلاگ
+
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/AboutUs">
+                                    <a class="menu__item" href="#">
+                                        <img class="navBarImage" src="../assets/icons/alert-octagon.png" alt="AboutUs">
+                                        درباره ما
+                                    </a>
+                                </nuxt-link>
+                            </li>
+                            <li> <nuxt-link to="/contactUs">
+
+                                    <img class="navBarImage" src="../assets/icons/Contacts.png" alt="Contacts">
+                                    تماس با ما
+
+                                </nuxt-link>
+                            </li>
+                        </div>
+                    </ul>
+
+                    <div class="aboutUs">
+                        <div id="backUpNum">
+                            شماره های پشتیبانی :
+                        </div>
+                        <div id="firstNum">
+                            {{ firstNum }}
+                        </div>
+                        <div id="secondNum">
+                            {{ secondNum }}
+                        </div>
+                        <div class="workTime">
+                            {{ workTime }}
+                        </div>
                     </div>
-                    <div class="navBar">
-                        <button id="courses">
-                            🡥
-                            دوره ها
-                        </button>
 
-                        <button id="guide">
-                            🡥
-                            راهنمایی سایت
-                        </button>
+                    <div class="comunicateBlock">
 
-                        <button id="aboutUs">
-                            🡥
-                            درباره ما
-                        </button>
+                        <div class="certificates">
 
-                        <button id="contact">
-                            🡥
-                            تماس با ما
-                        </button>
+                            <a href="https://enamad.ir/" target="_blank">
+                                <img class="certificateIcon" src="../assets/icons/image 20.png" alt="e-namad">
+                            </a>
+
+                            <a href="https://enamad.ir/" target="_blank">
+                                <img class="certificateIcon" src="../assets/icons/image 19.png" alt="e-namad">
+                            </a>
+
+                            <a href="https://enamad.ir/" target="_blank">
+                                <img class="certificateIcon" id="e-namad" src="../assets/icons/e-namad.png" alt="e-namad">
+                            </a>
+
+                        </div>
+
+                        <div class="comunications">
+                            <a>
+                                <img class="comunicationsButton" src="../assets/icons/social media/Untitled-2-04.svg"
+                                    alt="">
+                            </a>
+                            <a>
+                                <img class="comunicationsButton" src="../assets/icons/social media/Untitled-2-05.svg"
+                                    alt="">
+                            </a>
+                            <a>
+                                <img class="comunicationsButton" src="../assets/icons/social media/Untitled-2-06.svg"
+                                    alt="">
+                            </a>
+                            <a>
+                                <img class="comunicationsButton" src="../assets/icons/social media/Untitled-2-02.svg"
+                                    alt="">
+                            </a>
+                            <a>
+                                <img class="comunicationsButton" src="../assets/icons/social media/Untitled-2-01.svg"
+                                    alt="">
+                            </a>
+                            <a>
+                                <img class="comunicationsButton" src="../assets/icons/social media/Untitled-2-03.svg"
+                                    alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="comunications">
-                    <a>
-                        <img src="../assets/icons/social media/Untitled-2-04.svg" alt="">
-                    </a>
-                    <a>
-                        <img src="../assets/icons/social media/Untitled-2-05.svg" alt="">
-                    </a>
-                    <a>
-                        <img src="../assets/icons/social media/Untitled-2-06.svg" alt="">
-                    </a>
-                    <a>
-                        <img src="../assets/icons/social media/Untitled-2-02.svg" alt="">
-                    </a>
-                    <a>
-                        <img src="../assets/icons/social media/Untitled-2-01.svg" alt="">
-                    </a>
-                    <a>
-                        <img src="../assets/icons/social media/Untitled-2-03.svg" alt="">
-                    </a>
                 </div>
             </div>
         </footer>
@@ -71,8 +134,9 @@ export default {
         return {
             name: "",
             family: "",
-            phoneNumber: "",
-
+            firstNum: "۰۲۱۳۳۶۷۸۵۵",
+            secondNum: "۰۲۱۳۳۶۷۸۴۷",
+            workTime: "زمان پاسخگویی تلفن از ساعت ۸ الی 16 روز های غیر تعطیل "
         }
     },
     methods: {
@@ -109,48 +173,83 @@ button {
 
 .block {
     background: #252565;
-    height: 243px;
     width: 100%;
 }
 
+.comunicateBlock {
+    text-align: center;
+    width: 35%;
+    margin-right: 65%;
+}
+
+.aboutUs {
+    color: white;
+    text-align: right;
+    width: 25%;
+    margin-right: 39%;
+    height: 0px;
+    margin-top: 45px;
+    font-family: Yekan Bakh;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+}
+
+.menu__box {
+    width: 35%;
+    text-align: right;
+    margin-right: 5%;
+    list-style: none;
+    font-family: Yekan Bakh;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    height: 0px;
+}
+
+li {
+    padding-top: 50px;
+}
+
+.navBarImage {
+    padding-left: 10px;
+}
+
+.firstRow {
+    height: 0px;
+}
+
+.secondRow {
+    margin-right: 50%;
+}
+
+a {
+    color: white;
+}
+
+.certificateIcon {
+    width: 18%;
+    margin-top: -50px;
+    margin-bottom: 40px;
+    margin-inline: 5%;
+
+}
 
 #logo {
     text-align: right;
     margin-right: 5%;
-    margin-top: -120px;
+    padding-top: 30px;
 }
 
-.navBar {
-    text-align: right;
-    margin-right: 5%;
-    height: 10px;
-    width: 50%;
-    margin-top: 10px;
-}
-
-.navBar button {
-    background: none;
-    color: #FFFFFF;
-    font-size: 120%;
-    margin: 10px;
-}
-
-.e-Namad img {
-    width: 90%;
-}
-
-.e-Namad {
-    display: block;
-    width: 10%;
-    margin-right: 47%;
-    padding-top: 20px;
+#logo img {
+    width: 12%;
 }
 
 .comunications {
-    text-align: right;
-    margin-right: 5%;
-    width: 50%;
-    margin-top: 40px;
+    width: 100%;
+    padding-bottom: 80px;
 }
 
 .comunications a {
@@ -159,6 +258,108 @@ button {
 }
 
 .comunications img {
-    width: 6%;
+    width: 10%;
 }
+
+#firstNum,
+#secondNum {
+    margin-top: 20px;
+    font-family: Yekan Bakh;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+
+}
+
+.workTime {
+    margin-top: 30px;
+    font-family: Yekan Bakh;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #8569C2;
+}
+
+@media (max-width:1400px) {
+    .aboutUs {
+        margin-right: 35%;
+    }
+}
+
+@media (max-width:1200px) {
+    .aboutUs {
+        display: none;
+    }
+
+    .comunicateBlock {
+
+        padding-top: 80px;
+    }
+}
+
+@media (max-width:1000px) {
+    .firstRow {
+        height: unset;
+    }
+
+    .secondRow {
+        margin-right: 0;
+    }
+
+    li {
+        padding-top: 20px;
+    }
+
+    #logo img {
+        width: 17%;
+    }
+
+    .comunicateBlock {
+        width: 45%;
+        margin-right: 50%;
+    }
+}
+
+@media (max-width:1000px) {
+    .certificateIcon {
+        display: none;
+    }
+
+    #e-namad {
+        display: block;
+        margin-right: 70%;
+    }
+
+    .comunicateBlock {
+        width: 65%;
+        margin-right: 35%;
+    }
+
+}
+
+@media (max-width:550px) {
+    li{
+        font-size: 14px;
+    }
+    .comunicateBlock {
+        margin-top: 50px;
+    }
+    .comunications a {
+    margin-inline: 5px;
+}
+}
+@media (max-width:480px) {
+    #e-namad {
+        width: 40%;
+        margin-right: 40%;
+        margin-top: -100px;
+    }
+    .comunications{
+        margin-right: -10%;
+        margin-top: 60px;
+    }
+}
+
 </style>

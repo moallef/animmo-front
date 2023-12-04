@@ -56,6 +56,9 @@ export default {
 </script>
 
 <style scoped>
+.navBar{
+    margin-top: 60px;
+}
 
 .descriptions{
     width: 60%;
@@ -70,5 +73,33 @@ export default {
 }
 .assosiateCourses{
     margin-top: 100px;
+}
+@media (max-width: 1500px) {
+    .descriptions{
+        margin-top: -380px;
+    }
+}
+@media (max-width: 1200px) {
+    .descriptions{
+        margin-top: -340px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .descriptions{
+        margin-top: -320px;
+    }
+}
+@media (max-width: 700px) {
+    .descriptions{
+        margin-top: 50px;
+        margin-inline: 10%;
+        width: 80%;
+    }
+    .theCourse {
+    width: 80%;
+    margin-top: 50px;
+    margin-inline: 10%;
+}
 }
 </style>

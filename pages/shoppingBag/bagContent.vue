@@ -4,47 +4,49 @@
             <h1>سبد خرید</h1>
             <p>خانه انیمو/سبد خرید</p>
         </div>
+        <div class="container">
 
-        <section class="cartSection">
-            <!-- <table v-if="items.length > 0" id="cartTable"> -->
-            <div class="product">
-                <img class="productCover" src="../../assets/images/Rectangle 105.png" alt="">
-                <div class="informations">
-                    <div class="details">
-                        <p id="CourseTitle">{{ CourseTitle }}</p>
-                        <p id="teachersName">{{ teachersName }}</p>
+            <section class="cartSection">
+                <!-- <table v-if="items.length > 0" id="cartTable"> -->
+                <div class="product">
+                    <img class="productCover" src="../../assets/images/Rectangle 105.png" alt="">
+                    <div class="informations">
+                        <div class="details">
+                            <p id="CourseTitle">{{ CourseTitle }}</p>
+                            <p id="teachersName">{{ teachersName }}</p>
+                        </div>
+                        <div class="fee">
+                            {{ courseFee }} هزار تومان
+                        </div>
                     </div>
-                    <div class="fee">
-                        {{ courseFee }} هزار تومان
+                    <div class="delete">
+                        <button class="deleteBtn">
+                            <img src="../../assets/icons/Group 90.png" alt="">
+                        </button>
                     </div>
                 </div>
-                <div class="delete">
-                    <button class="deleteBtn">
-                        <img src="../../assets/icons/Group 90.png" alt="">
-                    </button>
-                </div>
-            </div>
-            <!-- </table> -->
-        </section>
+                <!-- </table> -->
+            </section>
 
-        <div class="descriptions">
-            <div class="ultimateList">
-                <div class="selectedCoursesTitle">
-                    <p class="courses">دوره های انتخاب شده ({{ coursesCount }})</p>
+            <div class="descriptions">
+                <div class="ultimateList">
+                    <div class="theTitle">
+                        <p class="courses">دوره های انتخاب شده ({{ coursesCount }})</p>
+                    </div>
+                </div>
+                <div class="selectedCourses">
                     <p class="theCourseName"> {{ CourseTitle }} </p>
-                </div>
-                <span class="total" id="List"> مجموع سبد خرید شما</span>
-            </div>
-
-            <div class="ultimateFee">
-                <div class="selectedCoursesFee">
                     <p class="theCourseFee"> {{ courseFee }} هزار تومان</p>
                 </div>
-                <span class="total" id="Fee">{{ totalPrice }} هزار تومان </span>
-            </div>
-            <div class="operstions">
-                <input type="text" class="discountCode" placeholder="وارد کردن کد تخفیف">
-                <button class="admitPay" @click="$router.push('/checkout')">تایید و پرداخت</button>
+
+                <div class="ultimateFee">
+                    <p class="total" id="List"> مجموع سبد خرید شما</p>
+                    <p class="total" id="Fee">{{ totalPrice }} هزار تومان </p>
+                </div>
+                <div class="operstions">
+                    <input type="text" class="discountCode" placeholder="وارد کردن کد تخفیف">
+                    <button class="admitPay" @click="$router.push('/checkout')">تایید و پرداخت</button>
+                </div>
             </div>
         </div>
     </div>
@@ -80,7 +82,7 @@ button {
     height: 67px;
     background: #F4F4F4;
     padding-right: 5%;
-    margin-top: 20px;
+    margin-top: 50px;
     padding-top: 10px;
 }
 
@@ -106,8 +108,10 @@ button {
 }
 
 .cartSection {
-    margin-top: 40px;
+    margin-top: 10px;
     margin-right: 5%;
+    display: flex;
+    flex-direction: column;
 }
 
 .product {
@@ -165,9 +169,9 @@ button {
     background: #F4F4F4;
     width: 30%;
     margin-right: 65%;
-    margin-top: -152px;
+    top: 280px;
     border-radius: 16px;
-
+    position: absolute;
 }
 
 .operstions {
@@ -205,6 +209,11 @@ button {
     margin-bottom: 15px;
 }
 
+.selectedCourses {
+    width: 100%;
+    margin-inline: 5%;
+}
+
 .ultimateList {
     width: 40%;
     padding-top: 30px;
@@ -212,11 +221,11 @@ button {
 }
 
 .ultimateFee {
-
-    width: 40%;
-    margin-right: 60%;
-    margin-top: -52px;
-    margin-bottom: 90px;
+    width: 100%;
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .courses {
@@ -228,9 +237,17 @@ button {
     letter-spacing: -0.04em;
 }
 
+.theCourseFee {
+    margin-right: 60%;
+}
+
+.theCourseName {
+    height: 0px;
+}
+
 .theCourseName,
 .theCourseFee {
-    margin-block: 10px;
+
     color: #646464;
     width: 90%;
     font-family: IRANYekan;
@@ -241,6 +258,7 @@ button {
 }
 
 .total {
+    width: 90%;
     color: #646464;
     font-family: IRANYekan;
     font-size: 17px;
@@ -251,9 +269,12 @@ button {
 
 #Fee {
     color: #C8102E;
+    margin-right: 60%;
 }
 
 #List {
     color: black;
+    height: 0px;
 }
-</style>
+
+@media (max-width : 1300px) {}</style>

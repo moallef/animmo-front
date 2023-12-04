@@ -57,4 +57,7 @@ export default {
     margin-top: 40px;
     margin-inline: 5%;
 }
+footer{
+    margin-top: 150px;
+}
 </style>

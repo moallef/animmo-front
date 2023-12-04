@@ -2,32 +2,32 @@
     <div class="theBlog">
         <div class="line"></div>
         <div class="container">
-            <img class="blogCover" src="../../assets/images/image 8.png" alt="">
-            <div class="description">
-                <nuxt-link to="">
+            <nuxt-link to="/theBlog">
+                <img class="blogCover" src="../../assets/images/image 8.png" alt="">
+                <div class="description">
                     <p class="title">
                         {{ title }}
-                    </p>        
-                </nuxt-link>
-                <p class="annonation">
-                    {{ annonation }}
-                </p>
-            </div>
-            <div class="address">
-                <p class="author">
-                    {{ author }}
-                </p>
-                <p class="date">
-                    {{ date }}
-                </p>
-                <div class="save">
-                    <button>
-                        <img src="../../assets/icons/Property 1=Default.png" alt="">
-                    </button>
+                    </p>
+                    <p class="annonation">
+                        {{ annonation }}
+                    </p>
                 </div>
+                <div class="address">
+                    <p class="author">
+                        {{ author }}
+                    </p>
+                    <p class="date">
+                        {{ date }}
+                    </p>
+                </div>
+            </nuxt-link>
+            <div class="save">
+                <button @click="chnageIcon" >
+                    <img :src="savedIcon" alt="ذخیره">
+                </button>
             </div>
-        </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -36,6 +36,8 @@ export default {
 
     data() {
         return {
+            saveIcon : "../../assets/icons/saveIcon.png",
+            savedIcon: "../../assets/icons/savedIcon.png",
             title: " همه چیز درباره تاریخ صنعت انیمیشن سازی در ژاپن ",
             annonation: " انواع انیمیشن از دیرباز با دنیای شگفت‌انگیز و فانتزی خود برای تحقق بخشیدن به رؤیاهای ... ",
             author: "نوشته شده توسط",
@@ -48,19 +50,25 @@ export default {
     },
 
     methods: {
-
+        chnageIcon(){
+            this.saveIcon = savedIcon;
+        }
     },
 };
 </script>
 
 <style lang="scss" scoped>
+a {
+    color: black;
+}
 
 .line {
     border: 1px solid #C9C9C9;
     margin-bottom: 20px;
     width: 95%;
 }
-.blogCover{
+
+.blogCover {
     width: 30%;
 }
 
@@ -113,10 +121,11 @@ export default {
 }
 
 .save {
-    margin-right: 85%;
+    margin-right: 90%;
     margin-top: -30px;
 }
-button{
+
+button {
     background: none;
     border: none;
 }

@@ -29,7 +29,8 @@
 <script>
 import pic1 from '../../assets/images/SliderPic.png'
 import pic2 from '../../assets/images/image 11.png'
-
+import * as axios from 'axios'
+import { getSlider } from '~/API/slider.js'
 
 export default  {
     modules: {
@@ -50,9 +51,12 @@ export default  {
     methods: {
         stopRotarion() {
             this.sliderAutoPlay = !this.sliderAutoPlay
-            console.log(this.sliderAutoPlay);
         }
-    }
+    },
+    async beforeCreate() {
+        const data = await getSlider()
+        console.log(data);
+    }, 
 }
 
 

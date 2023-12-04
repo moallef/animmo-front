@@ -83,16 +83,16 @@
 
                 <nuxt-link to="/">
                     <button id="home">
-                        <img src="../assets/icons/HomePage.png" alt="Home">
+                        <img class="navBarImage" src="../assets/icons/HomePage.png" alt="Home">
                         خانه انیمو
                     </button>
                 </nuxt-link>
                 <div class="workSample">
                     <nuxt-link to="/workSamples">
                         <button id="workSamples">
-                            <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                            <img class="navBarImage" src="../assets/icons/WorkSamples.png" alt="Work Samples">
                             نمونه کار هنر جویان
-                            <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
+                            <img id="dropDownIcon" src="../assets/icons/icons8-down-arrow-50.png" alt="">
                         </button>
                     </nuxt-link>
                     <div class="dropDown">
@@ -104,19 +104,19 @@
                 </div>
                 <nuxt-link to="/contactUs">
                     <button id="contact">
-                        <img src="../assets/icons/Contacts.png" alt="Contacts">
+                        <img class="navBarImage" src="../assets/icons/Contacts.png" alt="Contacts">
                         تماس با ما
                     </button>
                 </nuxt-link>
                 <nuxt-link to="/Blogs">
                     <button id="blog">
-                        <img src="../assets/icons/Blog.png" alt="Blog">
+                        <img class="navBarImage" src="../assets/icons/Blog.png" alt="Blog">
                         بلاگ
                     </button>
                 </nuxt-link>
                 <nuxt-link to="/AboutUs">
                     <button id="aboutUs">
-                        <img src="../assets/icons/AboutUs.png" alt="AboutUs">
+                        <img class="navBarImage" src="../assets/icons/AboutUs.png" alt="AboutUs">
                         درباره ما
                     </button>
                 </nuxt-link>
@@ -283,6 +283,9 @@ header {
     font-size: 16px;
     margin: 10px;
 }
+.navBarImage{
+    padding-left: 10px;
+}
 
 .dropDown {
     position: absolute;
@@ -386,6 +389,9 @@ header {
 
 }
 
+#dropDownIcon{
+    margin-right: 10px;
+}
 .menu__box {
     display: none;
     position: fixed;
@@ -419,7 +425,7 @@ header {
 }
 
 
-@media (max-width : 1154px) {
+@media (max-width : 1320px) {
 
     .navBar {
         width: 30%;

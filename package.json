@@ -15,6 +15,7 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "bootstrap": "^5.3.2",
     "nuxt-swiper": "^1.2.2",
     "swiper": "^10.3.1",

@@ -13,14 +13,14 @@
                 <div class="container">
 
                     <div class="buttons">
-                        <button autofocus @click="changeFocus(true)" :class=" focusBoolian ? 'focus' : 'unfocus'" id="logIn" >ورود</button>
-                        <button @click="changeFocus(false)" :class=" focusBoolian ? 'unfocus' : 'focus'" id="signUp">ثبت نام </button>
+                        <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''" >ورود</button>
+                        <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت نام </button>
                     </div>
                     <div class="inputs">
-                        <div id="name">
-                            <input type="text" class="input" placeholder="نام ">
+                        <div :id="focusBoolian ? 'logInInput' : ''" >
+                            <input type="text" class="input"  placeholder="نام ">
                         </div>
-                        <div id="family">
+                        <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی">
                         </div>
                         <div id="phoneNumber">
@@ -79,13 +79,13 @@ export default {
 
         changeFocus(change) {
             this.focusBoolian = change;
-            console.log(this.focusBoolian);
         },
     },
 };
 </script>
 
 <style scoped>
+
 .image {
     width: 30%;
     margin-right: 100%;
@@ -101,10 +101,14 @@ export default {
 
 .container {
     width: 100%;
+    height: 350px;
 }
 
 #logo {
     width: 193px;
+}
+#logInInput{
+    display: none;
 }
 
 h1 {
@@ -162,6 +166,12 @@ h1 {
 }
 
 #logIn[autofocus] {
+    outline: none;
+    background: #8569C2;
+    color: white;
+}
+
+#signUp[autofocus] {
     outline: none;
     background: #8569C2;
     color: white;

@@ -37,11 +37,14 @@ export default{
 <style>
 .workSample{
     margin-top: 50px;
-    display: block;
-    width: 30%;
+    width: 90%;
+    margin-inline: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
 }
 .belt{
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 </style>

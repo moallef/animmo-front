@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <div class="productShowCase">
+    <nuxt-link to="workSamples">
+        <div>
+            <div class="productShowCase">
             <img class="sampleImg" src="../../assets/images/Rectangle 119.png" alt="Product Image">
             <button class="likeButtn">
                 <img src="../../assets/icons/LikeBefore.png" alt="">
@@ -16,6 +17,7 @@
             </div>
         </div>
     </div>
+</nuxt-link>
 </template>
 
 <script>
@@ -61,8 +63,8 @@ p {
     border: none;
     border-radius: 50%;
     background: none;
-    margin-right: 82%;
-    margin-top: -40px;
+    margin-right: 90%;
+    margin-top: -30px;
     margin-bottom: 20px;
 }
 
@@ -75,7 +77,7 @@ p {
     border: none;
     border-radius: 50%;
     background: #8569C2;
-    margin-right: 85%;
+    margin-right: 92%;
     padding-top: 3px;
     padding-inline: 3px;
     margin-top: 20px;

@@ -5,8 +5,9 @@
         <div class="bag-Content">
             <bag-Content/>
         </div>
-
-        <footer-app/>
+        <div class="footer">
+            <footer-app/>
+        </div>
     </div>
 </template>
 
@@ -25,5 +26,7 @@ export default {
 </script>
 
 <style scoped>
-
+.footer{
+    margin-top: 200px;
+}
 </style>

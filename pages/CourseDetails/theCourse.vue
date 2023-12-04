@@ -72,6 +72,7 @@ export default {
 .courseImage {
     border-radius: 10px;
     width: 90%;
+    margin-right: 5%;
 }
 
 .details {

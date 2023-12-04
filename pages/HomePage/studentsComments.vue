@@ -98,7 +98,7 @@
 
                     <!-- block 1 ended -->
 
-                    <div class="clock" id="bClock">
+                    <div class="Block" id="block">
                         <div class="OpinionBlock">
                             <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                             <div class="Opinion">
@@ -117,40 +117,6 @@
 
                     <!-- main block ended -->
 
-                </div>
-                <div class="arrowBtnHolder">
-                    <button class="righArrow">
-                        <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px"
-                            viewBox="0 0 493.578 493.578" xml:space="preserve" transform="matrix(-1, 0, 0, 1, 0, 0)"
-                            stroke="#ffffff">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <g>
-                                    <path
-                                        d="M487.267,225.981c0-17.365-13.999-31.518-31.518-31.518H194.501L305.35,83.615c12.24-12.24,12.24-32.207,0-44.676 L275.592,9.18c-12.24-12.24-32.207-12.24-44.676,0L15.568,224.527c-6.12,6.12-9.256,14.153-9.256,22.262 c0,8.032,3.136,16.142,9.256,22.262l215.348,215.348c12.24,12.239,32.207,12.239,44.676,0l29.758-29.759 c12.24-12.24,12.24-32.207,0-44.676L194.501,299.498h261.094c17.366,0,31.519-14.153,31.519-31.519L487.267,225.981z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
-                    <button class="leftArrow">
-                        <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px"
-                            viewBox="0 0 493.578 493.578" xml:space="preserve" transform="matrix(1, 0, 0, 1, 0, 0)"
-                            stroke="#ffffff">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <g>
-                                    <path
-                                        d="M487.267,225.981c0-17.365-13.999-31.518-31.518-31.518H194.501L305.35,83.615c12.24-12.24,12.24-32.207,0-44.676 L275.592,9.18c-12.24-12.24-32.207-12.24-44.676,0L15.568,224.527c-6.12,6.12-9.256,14.153-9.256,22.262 c0,8.032,3.136,16.142,9.256,22.262l215.348,215.348c12.24,12.239,32.207,12.239,44.676,0l29.758-29.759 c12.24-12.24,12.24-32.207,0-44.676L194.501,299.498h261.094c17.366,0,31.519-14.153,31.519-31.519L487.267,225.981z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
                 </div>
 
             </div>
@@ -206,7 +172,6 @@ export default {
     background: #F4F4F4;
     height: 700px;
     padding-top: 50px;
-
 }
 
 .title {
@@ -259,7 +224,7 @@ button {
 }
 
 .addCommentInput {
-    width: 600px;
+    width: 40%;
     text-align: right;
     margin-bottom: -50px;
 }
@@ -268,7 +233,7 @@ button {
     width: 37px;
     height: 37px;
     box-sizing: border-box;
-    margin-right: 150px;
+    margin-right: 25%;
     margin-top: 50px;
     margin-bottom: -40px;
     z-index: 3;
@@ -280,14 +245,9 @@ svg {
     margin: 10px;
 }
 
-*:focus {
-    outline: none;
-    font-size: 16px;
-}
-
 Input {
     text-align: right;
-    width: 340px;
+    width: 50%;
     height: 41px;
     padding-right: 20px;
     border-radius: 51px;
@@ -303,6 +263,9 @@ Input {
     color: #979797;
 }
 
+.profileImage {
+    width: 30%;
+}
 
 .blocks {
     width: 50%;
@@ -310,19 +273,25 @@ Input {
     margin-top: -230px;
 }
 
+    .Block{
+        position: relative;
+        top: 80px;
+        width: 45%;
+    }
+
 .OpinionBlock {
-    width: 45%;
+    width: 100%;
     height: 455px;
     border-radius: 0px 0px 183px 183px;
     box-sizing: border-box;
-    margin-right: 20%;
+    margin-right: 30%;
     background: #8569C2;
     color: white;
     box-shadow: 0px 4px 14px 1px #8569C233;
     margin-top: -460px;
     z-index: 2;
+    cursor: pointer;
 }
-
 .OpinionBlock img {
     border-radius: 50%;
     margin-top: -50px;
@@ -353,10 +322,6 @@ Input {
     padding-inline: 5%;
 }
 
-.arrowBtnHolder {
-    display: none;
-}
-
 .clock {
     position: relative;
     font-size: 12px;
@@ -368,6 +333,7 @@ Input {
     color: #B6A5DA;
 
 }
+
 
 .blurBlock {
     width: 38%;
@@ -382,22 +348,9 @@ Input {
     filter: blur(1px);
     text-align: center;
     z-index: 1;
-}
-
-.blurBlock :hover {
     cursor: pointer;
-    width: 100%;
-    height: 455px;
-    border-radius: 0px 0px 183px 183px;
-    box-sizing: border-box;
-    margin-right: 20%;
-    background: #8569C2;
-    color: white;
-    box-shadow: 0px 4px 14px 1px #8569C233;
-    margin-top: -460px;
-    z-index: 2;
-
 }
+
 
 .blurBlock img {
     border-radius: 50%;
@@ -406,15 +359,6 @@ Input {
 
 #blurOpinion {
     width: 80%;
-}
-
-#blurRating {
-    padding-inline: 10%;
-    margin-top: 30px;
-}
-
-#blurRating img {
-    width: 9%;
 }
 
 #blurToComment {
@@ -446,9 +390,14 @@ Input {
 }
 
 
+
 @media (max-width : 900px) {
+    .Block{
+        width: 100%;
+    }
+
     .opinionsComponent {
-        height: 750px;
+        height: 850px;
     }
 
     .title {
@@ -458,6 +407,7 @@ Input {
 
     .blocks {
         margin-top: 500px;
+        margin-right: 35%;
     }
 
     .blurBlock {
@@ -484,6 +434,10 @@ Input {
 
     }
 
+    .OpinionBlock img {
+        margin-top: -30px;
+    }
+
     .commentsCount {
         display: none;
     }
@@ -492,31 +446,53 @@ Input {
         display: none;
     }
 
-    .arrowBtnHolder {
-        display: block;
-        margin-top: 100px;
-        margin-right: 44%;
-    }
-
-    .arrowBtnHolder button {
-        box-sizing: border-box;
-
-    }
-
     svg {
         width: 24px;
-        padding-bottom: 14px;
+        margin: auto;
+        margin-bottom: 2px;
+    }
+
+    .addComments {
+        margin-right: 90%;
+    }
+
+    .addCommentInput {
+        text-align: center;
+        margin: auto;
+    }
+
+    input {
+        width: 80%;
+        margin-right: -10%;
     }
 }
 
-@media (max-width : 600px) {
-    .rating img {
-        width: 18px;
+@media (max-width : 500px) {
+    .blocks{
+        margin-right: 35%;
+    }
+    .OpinionBlock img {
+        margin-top: -10px;
+    }
+    .OpinionBlock {
+        width: 80%;
+        margin-right: -10%;
+    }
+    .blurBlock {
+        box-shadow: 0px 10px 15px 5px #8569C233;
+        background: #B6A5DA;
+        width: 60%;
+        margin-right: 40%;
+    }
+    #blurBlock2 {
+        margin-right: -40%;
+    }
+    input {
+        width: 150%;
+        margin-right: -40%;
+    }
+    .addComments {
+        margin-right: 115%;
     }
 }
-
-@media (max-width : 600px) {
-    .rating img {
-        width: 15px;
-    }
-}</style>
+</style>

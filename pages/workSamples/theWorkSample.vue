@@ -6,11 +6,6 @@
                 <p class="student"> {{ student }} </p>
                 <p class="courseStudent"> {{ courseStudent }} </p>
             </div>
-            <nuxt-link to="">
-                <button>
-                    مشاهده
-                </button>
-            </nuxt-link>
         </div>
     </div>
 </template>
@@ -43,12 +38,14 @@ export default {
     margin-right: 5%;
     border-radius: 15px;
     text-align: center;
+    margin-top: 50px;
+    margin-inline: 20px;
 }
 
 img {
     width: 90%;
     margin-top: 20px;
-    height: 165px;
+    height: 185px;
 }
 
 .content {
