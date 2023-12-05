@@ -6,10 +6,8 @@
                     دسته بندی ها
                 </p>
             </div>
-            <div>
-                <div>
-                    <courses-Sort />
-                </div>
+            <div class="courses">
+                    <courses-Sort v-for="index in 5" :key="index" :index="index" />
             </div>
         </div>
     </div>
@@ -60,6 +58,12 @@ a {
     height: 442px;
     width: 100%;
     min-width: 315px;
+}
+.courses{
+    margin: auto;
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
 }
 
 .moreBtn {

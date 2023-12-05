@@ -61,10 +61,10 @@ img {
 }
 
 .coursesSort {
-    width: 18%;
+    width: 100%;
     text-align: center;
-    margin-right: 3%;
     margin-top: 40px;
+    padding-inline: 5%;
 }
 
 .textContainer {

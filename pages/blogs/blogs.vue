@@ -23,7 +23,7 @@
             </nuxt-link>
             <div class="save">
                 <button @click="chnageIcon" >
-                    <img :src="savedIcon" alt="ذخیره">
+                    <img :src="iconBoolian ? savedIcon : unsavedIcon" alt="ذخیره">
                 </button>
             </div>
     </div>
@@ -31,13 +31,15 @@
 </template>
 
 <script>
+import unsavedIcon from "../../assets/icons/saveIcon.png"
+import savedIcon from "../../assets/icons/savedIcon.png"
+
 export default {
     name: 'FrontendTheBlog',
 
     data() {
         return {
-            saveIcon : "../../assets/icons/saveIcon.png",
-            savedIcon: "../../assets/icons/savedIcon.png",
+            iconBoolian : false,
             title: " همه چیز درباره تاریخ صنعت انیمیشن سازی در ژاپن ",
             annonation: " انواع انیمیشن از دیرباز با دنیای شگفت‌انگیز و فانتزی خود برای تحقق بخشیدن به رؤیاهای ... ",
             author: "نوشته شده توسط",
@@ -51,13 +53,20 @@ export default {
 
     methods: {
         chnageIcon(){
-            this.saveIcon = savedIcon;
+            this.iconBoolian = !this.iconBoolian 
+            console.log(this.iconBoolian);
         }
     },
 };
 </script>
 
 <style lang="scss" scoped>
+.theBlog{
+    width: 48%;
+    margin-top: 50px;
+    margin-left: 1%;
+}
+
 a {
     color: black;
 }

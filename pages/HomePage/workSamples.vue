@@ -183,6 +183,10 @@ export default {
     background: #8569C2;
     color: #F9F9F9;
 }
+.smapleBtn:focus{
+    background: #8569C2;
+    color: #F9F9F9;
+}
 
 @media (max-width : 970px) {
     .moreBtn {

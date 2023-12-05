@@ -8,7 +8,7 @@
             <belt/>
         </div>
 
-        <div>
+        <div class="courseSection">
             <course-section/>
         </div>
 
@@ -35,5 +35,7 @@ export default {
 </script>
 
 <style scoped>
-
+.courseSection{
+    width: 18%;
+}
 </style>

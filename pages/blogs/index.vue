@@ -53,9 +53,12 @@ export default {
 
 <style lang="scss" scoped>
 .blog{
-    width: 40%;
+    width: 90%;
     margin-top: 40px;
     margin-inline: 5%;
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
 }
 footer{
     margin-top: 150px;

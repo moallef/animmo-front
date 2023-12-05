@@ -61,7 +61,6 @@ img {
     font-weight: 500;
     line-height: 8px;
     letter-spacing: 0em;
-    text-align: justified;
     color: #979797;
     margin-top: 20px;
 }
@@ -72,7 +71,6 @@ img {
     font-weight: 600;
     line-height: 8px;
     letter-spacing: 0em;
-    text-align: justified;
     color: #252565;
     margin-top: 15px;
 }

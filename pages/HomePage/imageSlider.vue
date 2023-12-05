@@ -1,14 +1,8 @@
 <template id="slider">
-    <Swiper 
-        class="slider" 
-        :modules="[SwiperAutoplay, SwiperEffectCreative]" 
-        :slides-per-view="1"
-        :loop="true"
-        :effect="'creative'"
-        :autoplay="sliderAutoPlay = {
-            delay : 5000,
-        }"
-        :creative-effect="{
+    <Swiper class="slider" :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="1" :loop="true"
+        :effect="'creative'" :autoplay="sliderAutoPlay = {
+            delay: 5000,
+        }" :creative-effect="{
     prev: {
         shadow: false,
         translate: ['-100%', 0, -1],
@@ -17,34 +11,29 @@
         translate: ['100%', 0, 0],
     },
 }">
-    <SwiperSlide class="container" v-for="banner in bannerList" :key="banner.imgSrc">
-      <nuxt-link class="routerLink" to="">
-          <img :src="banner.imgSrc" alt="" @mouseenter="stopRotarion" @mouseout="stopRotarion">
-      </nuxt-link>
-    </SwiperSlide>
-    
+        <SwiperSlide class="container" v-for="banner in bannerList" :key="banner.imgSrc" @v-on:mouseover="stopRotarion"
+            @mouseout="stopRotarion">
+            <nuxt-link class="routerLink" to="">
+                <h1>{{ banner.imgSrc }}</h1>
+                <img :src="`http://127.0.0.1:8000/${banner.imgSrc}`" alt="" @mouseenter="stopRotation" @mouseout="stopRotation">
+            </nuxt-link>
+        </SwiperSlide>
+
     </Swiper>
 </template>
 
 <script>
-import pic1 from '../../assets/images/SliderPic.png'
-import pic2 from '../../assets/images/image 11.png'
 import * as axios from 'axios'
 import { getSlider } from '~/API/slider.js'
 
-export default  {
+export default {
     modules: {
-    },  
+    },
     data() {
         return {
             playing: false,
-            bannerList: [
-                { imgSrc: pic1, Rout: ''},
-                { imgSrc: pic2, Rout: ''},
-                { imgSrc: pic1, Rout: ''},
-                { imgSrc: pic2, Rout: ''},
-            ],
-            sliderAutoPlay: true
+            bannerList: [],
+            sliderAutoPlay: true,
         }
     },
 
@@ -55,17 +44,24 @@ export default  {
     },
     async beforeCreate() {
         const data = await getSlider()
-        console.log(data);
-    }, 
+        data.forEach(element => {
+            this.bannerList.push({
+                id: element.id,
+                imgSrc: element.image,
+                name: element.name
+            })
+        });
+    },
 }
 
 
 </script>
 
 <style scoped>
-.container{
+.container {
     border-radius: 15px;
 }
+
 img {
     border-radius: 15px;
     width: 100%;
