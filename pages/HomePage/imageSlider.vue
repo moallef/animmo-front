@@ -17,6 +17,7 @@
                 <h1>{{ banner.imgSrc }}</h1>
                 <img :src="`http://127.0.0.1:8000/${banner.imgSrc}`" alt="" @mouseenter="stopRotation" @mouseout="stopRotation">
             </nuxt-link>
+            
         </SwiperSlide>
 
     </Swiper>
