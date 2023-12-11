@@ -14,7 +14,6 @@
         <SwiperSlide class="container" v-for="banner in bannerList" :key="banner.imgSrc" @v-on:mouseover="stopRotarion"
             @mouseout="stopRotarion">
             <nuxt-link class="routerLink" to="">
-                <h1>{{ banner.imgSrc }}</h1>
                 <img :src="`http://127.0.0.1:8000/${banner.imgSrc}`" alt="" @mouseenter="stopRotation" @mouseout="stopRotation">
             </nuxt-link>
             
@@ -44,14 +43,18 @@ export default {
         }
     },
     async beforeCreate() {
-        const data = await getSlider()
-        data.forEach(element => {
-            this.bannerList.push({
-                id: element.id,
-                imgSrc: element.image,
-                name: element.name
-            })
-        });
+        try {
+            const data = await getSlider()
+            data.forEach(element => {
+                this.bannerList.push({
+                    id: element.id,
+                    imgSrc: element.image,
+                    name: element.name
+                })
+            });
+        } catch (error) {
+            console.log(error);   
+        }
     },
 }
 
