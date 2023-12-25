@@ -2,40 +2,40 @@
     <div>
         <div class="classification">
             <div>
-                <p id="classifications">
-                    دسته بندی ها
-                </p>
+                <p id="classifications">دسته بندی ها</p>
             </div>
-            <div class="courses" >
-                    <courses-Sort v-for="index in 5" :key="index" :index="index" />
+            <div class="courses">
+                <courses-Sort v-for="(course, index) in courses" :key="index" :index="index" />
             </div>
         </div>
     </div>
     <div>
         <nuxt-link to="/Courses">
-        <button class="moreBtn">
+            <button class="moreBtn">
                 مشاهده همه
                 <img src="../../assets/icons/Vector (1).png" alt="">
             </button>
         </nuxt-link>
     </div>
 </template>
-
+  
 <script>
-import coursesSort from './coursesSort.vue'
+import coursesSort from './coursesSort.vue';
+import { useCounterStore } from '~/store/store.js';
 
 export default {
     components: {
         "courses-Sort": coursesSort
     },
-    router: {
-        routes: [
-        ]
-    },
     data() {
-
-    }
-}
+        return {
+            courses: [],
+        };
+    },
+    async created() {
+        this.courses = await useCounterStore().fetchCourse();
+    },
+};
 </script>
 
 <style scoped>
@@ -59,7 +59,8 @@ a {
     width: 100%;
     min-width: 315px;
 }
-.courses{
+
+.courses {
     margin: auto;
     display: flex;
     justify-content: right;
@@ -81,23 +82,27 @@ a {
     margin: auto;
     margin-top: 50px;
 }
+
 @media (max-width : 1150px) {
-    .moreBtn{
+    .moreBtn {
         width: 13%;
     }
 }
+
 @media (max-width : 780px) {
-    .moreBtn{
+    .moreBtn {
         width: 16%;
     }
 }
+
 @media (max-width : 780px) {
-    .moreBtn{
+    .moreBtn {
         width: 20%;
     }
 }
+
 @media (max-width : 520px) {
-    .moreBtn{
+    .moreBtn {
         width: 30%;
         height: 40px;
     }

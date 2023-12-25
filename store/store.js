@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import axios from "axios";
 import { getCourse } from '~/API/course';
 
 export const useCounterStore = defineStore("counter", {
@@ -24,7 +23,12 @@ export const useCounterStore = defineStore("counter", {
             id: element.id,
             category: element.category,
             subCategory: element.subcategory,
+            course: element.course,
             imgSrc: element.image,
+            price: element.price,
+            season: element.season,
+            duration: element.duration,
+            teacher: element.teacher,
           }));
           console.log('1');
           this.course = courseData;

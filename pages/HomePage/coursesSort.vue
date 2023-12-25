@@ -1,28 +1,18 @@
 <template>
     <div>
         <div class="coursesSort">
-            <img src="../../assets/images/Rectangle 105.png" alt="">
+            <img :src="course.imgSrc" alt="">
             <div class="textContainer">
                 <div class="courseText">
-
                     <div class="courseTitle">
-                        <h3 class="courseName"></h3>
-                        <p class="courseTaecher">مهدی مولف</p>
+                        <h3 class="courseName">{{ course.course }}</h3>
+                        <p class="courseTeacher"> {{ course.teacher }}</p>
                     </div>
                     <div class="aboutCourse">
-                        <div class="rating">
-                            <img src="../../assets/icons/emptyStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                            <img src="../../assets/icons/fullStar.png" alt="">
-                        </div>
                         <div class="courseDetails">
-                            <p>({{ 3 }}) تعداد دوره‌ها </p>
+                            <p>({{ course.season }}) تعداد دوره‌ها </p>
                         </div>
                     </div>
-
-
                     <div>
                         <nuxt-link to="/Animate">
                             <button class="showMore">
@@ -30,41 +20,32 @@
                             </button>
                         </nuxt-link>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </template>
-
+  
 <script>
-import { getCourseDetail } from '~/API/coursDetails';
-import { useCounterStore } from '~/store/store.js'; 
+import { useCounterStore } from '~/store/store.js';
 
 export default {
-    computed: {
-
+    props: {
+        index: Number,
     },
-    setup() {
-        const counterStore = useCounterStore();
-
-        return { counterStore }
+    data() {
+        return {
+            course: {},
+        };
     },
-    methods: {
-        async callFetchCourse(){
-            // const store = useCounterStore();
-            // await store.fetchCourse(); 
-        }
+    async beforeCreate() {
+        const store = useCounterStore();
+        const courses = await store.fetchCourse();
+        this.course = courses[this.index] || {};
     },
-    async beforeCreate(){
-        // const store = useCounterStore();
-        // console.log(store.count);
-        console.log(await this.counterStore.fetchCourse());
-    }
 };
-
 </script>
-
+  
 <style scoped>
 img {
     width: 80%;
@@ -108,17 +89,6 @@ img {
 
 .courseName {
     margin-bottom: 10px;
-}
-
-.rating {
-    width: 40%;
-    position: relative;
-    top: -155px;
-    margin-right: 55%
-}
-
-.rating img {
-    width: 17%;
 }
 
 a {
