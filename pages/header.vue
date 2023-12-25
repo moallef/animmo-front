@@ -1,6 +1,7 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div>
+
         <header>
             <div class="headIcons">
                 <nuxt-link to="/shoppingBag">
@@ -13,12 +14,13 @@
                         </a>
                     </div>
                 </nuxt-link>
-                
-                <nuxt-link to="/authentication">
-                    <button class="signIn" >
-                        <a href="">ورود / ثبت نام</a>
-                    </button>
-                </nuxt-link>
+
+                <button @click="navigateToAuthentication" class="signIn">
+                    ورود / ثبت نام
+                </button>
+
+
+
             </div>
 
 
@@ -75,7 +77,7 @@
             <div class="logo">
                 <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
             </div>
-            <div class="search">
+            <div class="search" v-on:keyup.enter="onEnter">
                 <i class="fa fa-search search_icon"></i>
                 <input class="searchInput" type="text" placeholder="Search" />
             </div>
@@ -131,12 +133,23 @@ export default {
     data() {
         return {
             shopNum: 0,
-
+            searchTerm: '',
         }
+    },
+    computed: {
+        searchResults() {
+            // Access the courses from the Vuex store
+            return this.$store.getters.getCourse.filter(course =>
+                course.category.toLowerCase().includes(this.searchTerm.toLowerCase())
+            );
+        },
     },
     methods: {
         scrollDown() {
             window.scrollTo({ top: 5000, behavior: 'smooth' })
+        },
+        navigateToAuthentication() {
+            this.$router.push('/authentication');
         }
     }
 }
@@ -171,12 +184,7 @@ header {
     display: block;
     text-align: center;
     border: none;
-}
-
-.signIn a {
-    text-decoration: none;
     color: white;
-
 }
 
 .imgHolder {
@@ -283,7 +291,8 @@ header {
     font-size: 16px;
     margin: 10px;
 }
-.navBarImage{
+
+.navBarImage {
     padding-left: 10px;
 }
 
@@ -389,9 +398,10 @@ header {
 
 }
 
-#dropDownIcon{
+#dropDownIcon {
     margin-right: 10px;
 }
+
 .menu__box {
     display: none;
     position: fixed;
@@ -549,6 +559,7 @@ header {
     }
 
 }
+
 @media (max-width : 550px) {
     .signIn {
         width: 25%;
@@ -556,8 +567,9 @@ header {
     }
 
 }
+
 @media (max-width : 370px) {
-    .signIn a{
+    .signIn a {
         font-size: 12px;
     }
 

@@ -3,25 +3,9 @@
         <div class="courses">
             <p>دوره ها</p>
             <div class="sections">
-                <button>
-                    دو بعدی
-                    <img src="" alt="">
-                </button>
-                <button>
-                    سه بعدی
-                    <img src="" alt="">
-                </button>
-                <button>
-                    فیلمنامه نویسی
-                    <img src="" alt="">
-                </button>
-                <button>
-                    فتوشاپ
-                    <img src="" alt="">
-                </button>
-                <button>
-                    ایلستریتور
-                    <img src="" alt="">
+                <button v-for="(category , index ) in categories.slice(0,5)"  :key="category.id">
+                    <img :src="category.icon" alt="">
+                    {{ category.category }}
                 </button>
             </div>
         </div>
@@ -29,11 +13,35 @@
 </template>
 
 <script>
+import { getClassifications } from '~/API/classification'
 
+export default {
+    data() {
+        return {
+            categories: []
+        }
+    },
+    methods: {
+    },
+    async created() {
+        try {
+            const data = await getClassifications();
+            if (data) {
+                    this.categories = data.map(element => ({
+                        id: element.id,
+                        category: element.category,
+                        imgSrc: element.image,
+                    }));
+                }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    },
+
+}
 </script>
 
 <style scoped>
-
 .courses {
     text-align: center;
 }
@@ -74,19 +82,22 @@
     background: #8569C2;
     color: #F4F4F4;
 }
+
 @media (max-width: 755px) {
- .sections{
-    width: 70%;
- }   
+    .sections {
+        width: 70%;
+    }
 }
+
 @media (max-width: 630px) {
- .sections{
-    width: 90%;
- }   
+    .sections {
+        width: 90%;
+    }
 }
+
 @media (max-width: 630px) {
-    .courses button{
-    font-size: 12px;
- }   
+    .courses button {
+        font-size: 12px;
+    }
 }
 </style>

@@ -16,8 +16,10 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@pinia/nuxt": "^0.5.1",
     "bootstrap": "^5.3.2",
     "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7",
     "swiper": "^10.3.1",
     "vue3-carousel-nuxt": "^1.1.0",
     "vuex": "^4.1.0"

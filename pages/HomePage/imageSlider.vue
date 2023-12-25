@@ -1,8 +1,12 @@
 <template id="slider">
-    <Swiper class="slider" :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="1" :loop="true"
-        :effect="'creative'" :autoplay="sliderAutoPlay = {
-            delay: 5000,
-        }" :creative-effect="{
+    <Swiper 
+    class="slider" 
+    :modules="[SwiperAutoplay, SwiperEffectCreative]" 
+    :slides-per-view="1" 
+    :loop="true"
+    :effect="'creative'" 
+    :autoplay="sliderAutoPlay" 
+    :creative-effect="{
     prev: {
         shadow: false,
         translate: ['-100%', 0, -1],
@@ -14,9 +18,10 @@
         <SwiperSlide class="container" v-for="banner in bannerList" :key="banner.imgSrc" @v-on:mouseover="stopRotarion"
             @mouseout="stopRotarion">
             <nuxt-link class="routerLink" to="">
-                <img :src="`http://127.0.0.1:8000/${banner.imgSrc}`" alt="" @mouseenter="stopRotation" @mouseout="stopRotation">
+                <img :src="`http://127.0.0.1:8000/${banner.imgSrc}`" alt="" @mouseenter="stopRotation"
+                    @mouseout="stopRotation">
             </nuxt-link>
-            
+
         </SwiperSlide>
 
     </Swiper>
@@ -34,28 +39,35 @@ export default {
             playing: false,
             bannerList: [],
             sliderAutoPlay: true,
+            sliderAutoPlay: {
+                delay: 5000,
+            },
         }
     },
 
     methods: {
         stopRotarion() {
             this.sliderAutoPlay = !this.sliderAutoPlay
-        }
+        },
+        updateDelay(newDelay) {
+            this.sliderAutoPlay.delay = newDelay;
+        },
     },
-    async beforeCreate() {
-        try {
-            const data = await getSlider()
-            data.forEach(element => {
-                this.bannerList.push({
-                    id: element.id,
-                    imgSrc: element.image,
-                    name: element.name
-                })
-            });
-        } catch (error) {
-            console.log(error);   
-        }
-    },
+    beforeCreate() {
+        return getSlider()
+            .then(data => {
+                if (data) {
+                    this.bannerList = data.map(element => ({
+                        id: element.id,
+                        imgSrc: element.image,
+                        name: element.name
+                    }));
+                }
+            })
+            .catch(error => {
+                console.log("Error in beforeCreate ", error);
+            })
+    }
 }
 
 

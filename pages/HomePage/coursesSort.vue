@@ -6,7 +6,7 @@
                 <div class="courseText">
 
                     <div class="courseTitle">
-                        <h3 class="courseName">آموزش انیمیت </h3>
+                        <h3 class="courseName"></h3>
                         <p class="courseTaecher">مهدی مولف</p>
                     </div>
                     <div class="aboutCourse">
@@ -18,18 +18,18 @@
                             <img src="../../assets/icons/fullStar.png" alt="">
                         </div>
                         <div class="courseDetails">
-                            <p>({{3}}) تعداد دوره‌ها </p>
+                            <p>({{ 3 }}) تعداد دوره‌ها </p>
                         </div>
                     </div>
 
 
                     <div>
                         <nuxt-link to="/Animate">
-                        <button class="showMore">
+                            <button class="showMore">
                                 مشاهده دوره ها
                             </button>
                         </nuxt-link>
-                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -38,21 +38,34 @@
 </template>
 
 <script>
-export default {
-    data(){
-        return{
+import { getCourseDetail } from '~/API/coursDetails';
+import { useCounterStore } from '~/store/store.js'; 
 
+export default {
+    computed: {
+
+    },
+    setup() {
+        const counterStore = useCounterStore();
+
+        return { counterStore }
+    },
+    methods: {
+        async callFetchCourse(){
+            // const store = useCounterStore();
+            // await store.fetchCourse(); 
         }
     },
-    methods:{
-
-    },
-}
+    async beforeCreate(){
+        // const store = useCounterStore();
+        // console.log(store.count);
+        console.log(await this.counterStore.fetchCourse());
+    }
+};
 
 </script>
 
 <style scoped>
-
 img {
     width: 80%;
     z-index: 1;
@@ -107,9 +120,11 @@ img {
 .rating img {
     width: 17%;
 }
-a{
+
+a {
     color: #F4F4F4;
 }
+
 .showMore {
     background: #8569C2;
     color: #F4F4F4;
@@ -118,56 +133,66 @@ a{
     border-radius: 35px;
     margin-right: 45%;
 }
+
 @media (max-width : 1054px) {
-    .coursesSort{
+    .coursesSort {
         width: 25%;
     }
 }
 
-@media (max-width : 850px){
-    .coursesSort{
+@media (max-width : 850px) {
+    .coursesSort {
         width: 35%;
     }
-    .showMore{
+
+    .showMore {
         margin-right: 40%;
     }
 }
-@media (max-width : 550px){
-    .coursesSort{
-        width: 40%;
+
+@media (max-width : 550px) {
+    .coursesSort {
+        width: 100%;
         font-size: 12px;
     }
-    .courseDetails{
+
+    .courseDetails {
         font-size: 11px;
     }
-    .showMore{
+
+    .showMore {
         margin-right: 40%;
     }
 }
-@media (max-width : 550px){
-    .showMore{
+
+@media (max-width : 550px) {
+    .showMore {
         margin-right: 20%;
         width: 65%;
         font-size: 12px;
         margin-top: -20px;
     }
+
     img {
         margin-bottom: -90px;
     }
+
     .rating {
         top: -75px;
     }
-    .courseDetails{
+
+    .courseDetails {
         margin-top: 0px;
         margin-left: 55%;
     }
-    .courseName {
-    margin-bottom: 10px;
-    margin-top: -20px;
-}
-.courseName{
-    font-size: 20px;
-}
-}
 
+    .courseName {
+        margin-bottom: 10px;
+        margin-top: -20px;
+    }
+
+    .courseName {
+        font-size: 20px;
+    }
+}
 </style>

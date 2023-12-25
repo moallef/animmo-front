@@ -125,11 +125,12 @@
 </template>
 
 <script>
-
+import { getFeedbacks } from '~/API/feedbacks'
 
 export default {
     data() {
         return {
+            studentFeedbacks : [],
             theComment: "",
             toComment: "امیرحسین حسنی",
             commentsCount: 58,
@@ -157,6 +158,24 @@ export default {
         },
 
     },
+    async created(){
+        try {
+            const feedback = await getFeedbacks();
+            if (data) {
+                this.studentFeedbacks = feedback.map(element =>({
+                    id : element.id,
+                    user : element.user,
+                    massage : element.massage,
+                    date : element.created
+                }))
+            }
+            console.log(this.studentFeedbacks);
+        
+        } catch (error) {
+            console.log(error);
+        };
+        
+    }
 
 }
 
@@ -273,11 +292,11 @@ Input {
     margin-top: -230px;
 }
 
-    .Block{
-        position: relative;
-        top: 80px;
-        width: 45%;
-    }
+.Block {
+    position: relative;
+    top: 80px;
+    width: 45%;
+}
 
 .OpinionBlock {
     width: 100%;
@@ -292,6 +311,7 @@ Input {
     z-index: 2;
     cursor: pointer;
 }
+
 .OpinionBlock img {
     border-radius: 50%;
     margin-top: -50px;
@@ -349,8 +369,19 @@ Input {
     text-align: center;
     z-index: 1;
     cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease, filter 0.3s ease, z-index 0.3s ease;
 }
 
+.blurBlock:hover {
+    width: 45%;
+    height: 400px;
+    filter: blur(0px);
+    z-index: 2;
+}
+
+.blurBlock:not(:hover) {
+  z-index: 0; /* Set the z-index of non-hovered blocks to a lower value */
+}
 
 .blurBlock img {
     border-radius: 50%;
@@ -392,7 +423,7 @@ Input {
 
 
 @media (max-width : 900px) {
-    .Block{
+    .Block {
         width: 100%;
     }
 
@@ -468,29 +499,35 @@ Input {
 }
 
 @media (max-width : 500px) {
-    .blocks{
+    .blocks {
         margin-right: 35%;
     }
+
     .OpinionBlock img {
         margin-top: -10px;
     }
+
     .OpinionBlock {
         width: 80%;
         margin-right: -10%;
     }
+
     .blurBlock {
         box-shadow: 0px 10px 15px 5px #8569C233;
         background: #B6A5DA;
         width: 60%;
         margin-right: 40%;
     }
+
     #blurBlock2 {
         margin-right: -40%;
     }
+
     input {
         width: 150%;
         margin-right: -40%;
     }
+
     .addComments {
         margin-right: 115%;
     }

@@ -6,7 +6,7 @@
                     دسته بندی ها
                 </p>
             </div>
-            <div class="courses">
+            <div class="courses" >
                     <courses-Sort v-for="index in 5" :key="index" :index="index" />
             </div>
         </div>

@@ -4,7 +4,7 @@
             <div class="workSamples">
                 <p>نمونه کار هنرجویان</p>
                 <div class="sampleBlock">
-                    <div class="sections" id="sampleSection">
+                    <!-- <div class="sections" id="sampleSection">
                         <button class="smapleBtn">
                             دو بعدی
                             <img src="" alt="">
@@ -25,7 +25,7 @@
                             ایلستریتور
                             <img src="" alt="">
                         </button>
-                    </div>
+                    </div> -->
 
                     <div class="slider">
 
@@ -147,6 +147,10 @@ export default {
     font-size: 100%;
     font-weight: 400;
     margin-bottom: 40px;
+}
+.moreBtn:hover{
+    background: #8569C2;
+    color: white;
 }
 
 #sampleSection {
