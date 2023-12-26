@@ -4,7 +4,7 @@
             <p>وبلاگ</p>
         </div>
         <div class="theBlog">
-            <theBlog/>
+            <theBlog v-for="(blog, index) in blogs" :key="index" :index="index" />
         </div>
         <div class="showMore">
             <nuxt-link to="/blogs">
@@ -18,13 +18,22 @@
 </template>
 
 <script>
-import theBlog from './theBlog.vue'
+import theBlog from './theBlog.vue';
+import { useCounterStore } from '~/store/store.js';
 
-export default{
+export default {
     components: {
-        "theBlog" :theBlog,
-    }
-}
+        "theBlog": theBlog,
+    },
+    data() {
+        return {
+            blogs: [],
+        };
+    },
+    async created() {
+        this.blogs = await useCounterStore().fetchBlog();
+    },
+};
 </script>
 
 <style scoped>
@@ -33,7 +42,8 @@ export default{
     width: 100%;
     margin-bottom: 50px;
 }
-.theBlog{
+
+.theBlog {
     width: 45%;
 }
 
@@ -67,33 +77,38 @@ export default{
     margin: auto;
     margin-top: 50px;
 }
+
 @media (max-width : 1150px) {
-    .moreBtn{
+    .moreBtn {
         width: 13%;
     }
 }
+
 @media (max-width : 920px) {
-    .theBlog{
-    width: 100%;
+    .theBlog {
+        width: 100%;
+    }
 }
-}
+
 @media (max-width : 780px) {
-    .moreBtn{
+    .moreBtn {
         width: 16%;
     }
-    .moreBtn{
+
+    .moreBtn {
         width: 20%;
         margin-top: 100px;
     }
-    .theBlog{
-    width: 100%;
+
+    .theBlog {
+        width: 100%;
+    }
 }
-}
+
 @media (max-width : 520px) {
-    .moreBtn{
+    .moreBtn {
         width: 30%;
         height: 40px;
         margin-top: 100px;
     }
-}
-</style>
+}</style>

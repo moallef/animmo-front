@@ -380,7 +380,7 @@ Input {
 }
 
 .blurBlock:not(:hover) {
-  z-index: 0; /* Set the z-index of non-hovered blocks to a lower value */
+  z-index: 0; 
 }
 
 .blurBlock img {

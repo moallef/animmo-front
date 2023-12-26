@@ -3,22 +3,16 @@
         <div class="blogs">
             <div class="theBlog">
                 <div class="blogPoster">
-                    <img src="../../assets/images/image 8.png" alt="">
+                    <img :src="`http://127.0.0.1:8000/blog/${blog.imgSrc}`" alt="">
                 </div>
                 <div class="blogTxt">
                     <div class="theBlogTitle">
-                        <p>
-                            همه چیز درباره
-                            تاریخ صنعت انیمیشن سازی در ژاپن
-                        </p>
+                        <p>{{ blog.title }}</p>
                     </div>
                     <div class="theBlogDescription">
-                        <p>
-                            انواع انیمیشن از دیرباز با دنیای شگفت‌انگیز و
-                            فانتزی خود برای تحقق بخشیدن به رؤیاهای ...
-                        </p>
+                        <p>{{ truncateText(blog.body, maxLength) }}</p>
                     </div>
-                    <nuxt-link to="/theBlog">
+                    <nuxt-link :to="`/theBlog/${blog.id}`">
                         <button class="readMore">
                             خواندن
                             <img src="../../assets/icons/blogLeftArrow.png" alt="">
@@ -29,24 +23,34 @@
         </div>
     </div>
 </template>
-
+  
 <script>
-export default {
-    name: 'FrontendTheBlog',
+import { useCounterStore } from '~/store/store.js';
 
+export default {
+    name: 'TheBlog',
+    props: {
+        index: Number,
+    },
     data() {
         return {
-
+            blog: {},
+            maxLength: 60,
         };
     },
-
-    mounted() {
-
+    async beforeCreate() {
+        const store = useCounterStore();
+        const blogs = await store.fetchBlog();
+        this.blog = blogs[this.index] || {};
     },
-
-    methods: {
-
-    },
+    methods:{
+        truncateText(text, maxLength){
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...';
+            }
+            return text
+        }
+    }
 };
 </script>
 
@@ -112,6 +116,7 @@ export default {
         width: 30%;
     }
 }
+
 @media (max-width : 780px) {
     .readMore {
         height: 30px;
@@ -122,6 +127,7 @@ export default {
     .theBlogTitle {
         font-size: 16px;
     }
+
     .theBlogDescription {
         font-size: 11px;
     }

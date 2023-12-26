@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="coursesSort">
-            <img :src="course.imgSrc" alt="">
+            <img :src="`http://127.0.0.1:8000/${course.imgSrc}`" alt="">
             <div class="textContainer">
                 <div class="courseText">
                     <div class="courseTitle">
@@ -48,7 +48,8 @@ export default {
   
 <style scoped>
 img {
-    width: 80%;
+    width: 180px;
+    height: 120px;
     z-index: 1;
     border-radius: 16px;
     margin-bottom: -110px;
@@ -58,7 +59,7 @@ img {
     width: 100%;
     text-align: center;
     margin-top: 40px;
-    padding-inline: 5%;
+    margin-left: 50px;
 }
 
 .textContainer {
