@@ -3,21 +3,21 @@
         <div class="line"></div>
         <div class="container">
             <nuxt-link to="/theBlog">
-                <img class="blogCover" src="../../assets/images/image 8.png" alt="">
+                <img class="blogCover" :src="`http://127.0.0.1:8000/${blog.imgSrc}`" alt="">
                 <div class="description">
                     <p class="title">
-                        {{ title }}
+                        {{ blog.title }}
                     </p>
                     <p class="annonation">
-                        {{ annonation }}
+                        {{ truncateText(blog.body, maxLength) }}
                     </p>
                 </div>
                 <div class="address">
                     <p class="author">
-                        {{ author }}
+                        {{ blog.user }}
                     </p>
                     <p class="date">
-                        {{ date }}
+                        {{ blog.createdAt }}
                     </p>
                 </div>
             </nuxt-link>
@@ -33,25 +33,32 @@
 <script>
 import unsavedIcon from "../../assets/icons/saveIcon.png"
 import savedIcon from "../../assets/icons/savedIcon.png"
+import { useCounterStore } from '~/store/store.js'
 
 export default {
     name: 'FrontendTheBlog',
 
+    props: {
+        index: Number,
+    },
     data() {
         return {
-            iconBoolian : false,
-            title: " همه چیز درباره تاریخ صنعت انیمیشن سازی در ژاپن ",
-            annonation: " انواع انیمیشن از دیرباز با دنیای شگفت‌انگیز و فانتزی خود برای تحقق بخشیدن به رؤیاهای ... ",
-            author: "نوشته شده توسط",
-            date: "فوریه 22, 2023 ",
+            blog: {},
+            maxLength: 60,
         };
     },
-
-    mounted() {
-
+    async beforeCreate() {
+        const store = useCounterStore();
+        const blogs = await store.fetchBlog();
+        this.blog = blogs[this.index] || {};
     },
-
-    methods: {
+    methods:{
+        truncateText(text, maxLength){
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...';
+            }
+            return text
+        },
         chnageIcon(){
             this.iconBoolian = !this.iconBoolian 
             console.log(this.iconBoolian);

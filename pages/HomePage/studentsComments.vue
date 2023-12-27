@@ -34,10 +34,10 @@
                     <div class="blurBlock" id="blurBlock4">
                         <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                         <div class="BlurOpinion">
-                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
+                            <p class="toComment" id="blurToComment">{{ studentFeedbacks.user }}</p>
                             <div class="theOpinin" id="blurOpinion">
                                 <p class="theComment" id="blurComment">
-                                    {{ theComment }}
+                                    {{ studentFeedbacks.massage }}
                                 </p>
                             </div>
                         </div>
@@ -130,52 +130,54 @@ import { getFeedbacks } from '~/API/feedbacks'
 export default {
     data() {
         return {
-            studentFeedbacks : [],
-            theComment: "",
-            toComment: "امیرحسین حسنی",
-            commentsCount: 58,
-            commentTime: "Sep13, 13:35 p.m",
-            theComment: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، ",
+            studentFeedbacks: [],
+            comments: [],
         }
     },
     methods: {
-        clock(time) {
-            const date = new Date(time);
-            const month = date.toString().split(' ')[1];
-            const day = date.getDate();
-            let hour = date.getHours();
-            const minute = date.getMinutes();
-            let status = 'p.m';
-            if (hour < 12) {
-                status = 'a.m'
-            } else {
-                hour -= 12;
-            }
-            const exactDate = `${month}${day}, ${hour < 10 ? `0${hour}` : hour}
-            :${minute < 10 ? `0${minute}` : minute} ${status}`;
+        // clock(time) {
+        //     const date = new Date(time);
+        //     const month = date.toString().split(' ')[1];
+        //     const day = date.getDate();
+        //     let hour = date.getHours();
+        //     const minute = date.getMinutes();
+        //     let status = 'p.m';
+        //     if (hour < 12) {
+        //         status = 'a.m'
+        //     } else {
+        //         hour -= 12;
+        //     }
+        //     const exactDate = `${month}${day}, ${hour < 10 ? `0${hour}` : hour}
+        //     :${minute < 10 ? `0${minute}` : minute} ${status}`;
 
-            return exactDate;
-        },
+        //     return exactDate;
+        // },
 
     },
-    async created(){
+    async created() {
         try {
             const feedback = await getFeedbacks();
-            if (data) {
-                this.studentFeedbacks = feedback.map(element =>({
-                    id : element.id,
-                    user : element.user,
-                    massage : element.massage,
-                    date : element.created
-                }))
+            if (feedback) {
+                this.studentFeedbacks = feedback.map((element) => ({
+                    id: element.id,
+                    user: element.user,
+                    massage: element.massage,
+                    date: element.created,
+                }));
+
+                // Set comments array based on the number of comments per feedback
+                this.comments = this.studentFeedbacks.map((feedback) => ({
+                    feedbackId: feedback.id,
+                    content: "", // You can set some default value or leave it empty
+                }));
+
+                // Limit the displayed comments to a maximum of 4
+                this.comments = this.comments.slice(-4);
             }
-            console.log(this.studentFeedbacks);
-        
         } catch (error) {
             console.log(error);
-        };
-        
-    }
+        }
+    },
 
 }
 
@@ -380,7 +382,7 @@ Input {
 }
 
 .blurBlock:not(:hover) {
-  z-index: 0; 
+    z-index: 0;
 }
 
 .blurBlock img {

@@ -1,6 +1,6 @@
 import * as axios from 'axios'
 
 export async function getFeedbacks(){
-    const data = await axios.get(`http://localhost:8000/feedback/`)
-    return data ? data.data : null ;
+    const feedback = await axios.get(`http://localhost:8000/feedback/`)
+    return feedback ? feedback.data : null ;
 }

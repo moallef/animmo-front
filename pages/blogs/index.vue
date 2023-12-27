@@ -9,7 +9,7 @@
         </div>
 
         <div class="blog">
-            <Blog/>
+            <Blog v-for="(blog ,index) in blogs" :key="index" :index="index"/>
         </div>
 
         <footer>
@@ -24,14 +24,18 @@ import header from '../header.vue'
 import footer from '../footer.vue'
 import belt from './blogBelt.vue'
 import Blog from './blogs.vue'
+import { useCounterStore } from "~/store/store";
 
 export default {
     name: 'FrontendIndex',
 
     data() {
         return {
-            
+            blogs: [],
         };
+    },
+    async created() {
+        this.blogs = await useCounterStore().fetchBlog();
     },
 
     components: {
@@ -40,6 +44,7 @@ export default {
         "belt" : belt,
         "Blog": Blog,
     },
+
 
     mounted() {
         
