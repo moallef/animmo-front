@@ -18,13 +18,13 @@
                     </div>
                     <div class="inputs">
                         <div :id="focusBoolian ? 'logInInput' : ''" >
-                            <input type="text" class="input"  placeholder="نام ">
+                            <input type="text" class="input"  placeholder="نام " v-model="name">
                         </div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder="نام خانوادگی">
+                            <input type="text" class="input" placeholder="نام خانوادگی" v-model="family">
                         </div>
                         <div id="phoneNumber">
-                            <input type="text" class="input" placeholder="تلفن همراه">
+                            <input type="text" class="input" placeholder="تلفن همراه" v-model="phoneNumber">
                         </div>
                     </div>
                     <div class="oneTimePassword">
@@ -61,6 +61,9 @@ export default {
     data() {
         return {
             focusBoolian : true,
+            name : null ,
+            family : null ,
+            phoneNumber : null,
         };
     },
     directives: {

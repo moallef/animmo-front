@@ -24,7 +24,7 @@ import header from '../header.vue'
 import footer from '../footer.vue'
 import belt from './blogBelt.vue'
 import Blog from './blogs.vue'
-import { useCounterStore } from "~/store/store";
+import { useBlogStore } from "~/store/blogStore.js";
 
 export default {
     name: 'FrontendIndex',
@@ -35,7 +35,7 @@ export default {
         };
     },
     async created() {
-        this.blogs = await useCounterStore().fetchBlog();
+        this.blogs = await useBlogStore().fetchBlog();
     },
 
     components: {

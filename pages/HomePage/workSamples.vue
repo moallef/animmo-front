@@ -4,46 +4,18 @@
             <div class="workSamples">
                 <p>نمونه کار هنرجویان</p>
                 <div class="sampleBlock">
-                    <!-- <div class="sections" id="sampleSection">
-                        <button class="smapleBtn">
-                            دو بعدی
-                            <img src="" alt="">
-                        </button>
-                        <button class="smapleBtn">
-                            سه بعدی
-                            <img src="" alt="">
-                        </button>
-                        <button class="smapleBtn">
-                            فیلمنامه نویسی
-                            <img src="" alt="">
-                        </button>
-                        <button class="smapleBtn">
-                            فتوشاپ
-                            <img src="" alt="">
-                        </button>
-                        <button class="smapleBtn">
-                            ایلستریتور
-                            <img src="" alt="">
-                        </button>
-                    </div> -->
+                    <!-- ... other content ... -->
 
                     <div class="slider">
-
                         <Swiper class="Swiper" :modules="[SwiperAutoplay, SwiperEffectCreative]"
-                            :slides-per-view='isMobile ? 1 : 3' :loop="false" :effect="'creative'" :autoplay="sliderAutoPlay = {
-                                delay: 1500,
-                            }" :creative-effect="{
-                                prev: {
-                                    shadow: false,
-                                    translate: ['-100%', 0, -1],
-                                },
-                                next: {
-                                    translate: ['100%', 1, 0],
-                                },
+                            :slides-per-view='isMobile ? 1 : 3' :loop="false" :effect="'creative'"
+                            :autoplay="sliderAutoPlay = { delay: 1500, }" :creative-effect="{
+                                prev: { shadow: false, translate: ['-100%', 0, -1], },
+                                next: { translate: ['100%', 1, 0], },
                             }">
-                            <SwiperSlide class="Slider" v-for="sample in samples" :key="samples.sampleSrc">
+                            <SwiperSlide class="Slider" v-for="exercise in exercises" :key="index">
                                 <div class="theSample">
-                                    <the-Sample />
+                                    <the-Sample :index="index" />
                                 </div>
                             </SwiperSlide>
                         </Swiper>
@@ -65,51 +37,45 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue';
+import { useExerciseStore } from '~/store/exerciseStore.js';
+import theWorkSample from './theSample.vue';
 import Swiper from 'swiper';
-import theWorkSample from './theSample.vue'
 
 export default {
     components: {
         "the-Sample": theWorkSample,
     },
     setup() {
-    const isMobile = ref(false)
+        const isMobile = ref(false)
 
-    const handleResize = () => {
-      isMobile.value = window.innerWidth < 600
-    }
+        const handleResize = () => {
+            isMobile.value = window.innerWidth < 600
+        }
 
-    onMounted(() => {
-      handleResize()
-      window.addEventListener('resize', handleResize)
-    })
+        onMounted(() => {
+            handleResize()
+            window.addEventListener('resize', handleResize)
+        })
 
-    onUnmounted(() => {
-      window.removeEventListener('resize', handleResize)
-    })
+        onUnmounted(() => {
+            window.removeEventListener('resize', handleResize)
+        })
 
-    return {
-      isMobile
-    }
-  },
-    data() {
         return {
-            sliderPerView: 2,
-            playing: false,
-            samples: [
-                { sampleSrc: theWorkSample, route: '', },
-                { sampleSrc: theWorkSample, route: '', },
-                { sampleSrc: theWorkSample, route: '', },
-                { sampleSrc: theWorkSample, route: '', },
-            ],
-            sliderAutoPlay: true,
+            isMobile
         }
     },
-    methods: {
+    data() {
+        return {
+            exercises: [],
+        };
     },
-
-
+    async created() {
+        const store = useExerciseStore();
+        await store.fetchExercise();
+        this.exercises = store.exercise;
+    },
 }
 </script>
 
@@ -148,7 +114,8 @@ export default {
     font-weight: 400;
     margin-bottom: 40px;
 }
-.moreBtn:hover{
+
+.moreBtn:hover {
     background: #8569C2;
     color: white;
 }
@@ -187,7 +154,8 @@ export default {
     background: #8569C2;
     color: #F9F9F9;
 }
-.smapleBtn:focus{
+
+.smapleBtn:focus {
     background: #8569C2;
     color: #F9F9F9;
 }

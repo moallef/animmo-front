@@ -1,11 +1,39 @@
 <template>
     <div>
         <div class="background">
-            <img id="bground" src="../../assets/images/image 10.png" alt="">
+            <img id="bground" :src="`http://127.0.0.1:8000/${blog.imgSrc}`" alt="">
         </div>
     </div>
 </template>
 
+<script>
+import {useBlogStore} from '~/store/blogStore.js'
+
+export default{
+    props: {
+        index: Number,
+    },
+    data() {
+        return {
+            blog: {},
+            maxLength: 60,
+        };
+    },
+    async beforeCreate() {
+        const store = useBlogStore();
+        const blogs = await store.fetchBlog();
+        this.blog = blogs[this.index] || {};
+    },
+    methods: {
+        truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...';
+            }
+            return text
+        }
+    }
+}
+</script>
 
 <style scoped>
 #bground {

@@ -31,85 +31,35 @@
 
                 <div class="blocks">
 
-                    <div class="blurBlock" id="blurBlock4">
-                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
-                        <div class="BlurOpinion">
-                            <p class="toComment" id="blurToComment">{{ studentFeedbacks.user }}</p>
-                            <div class="theOpinin" id="blurOpinion">
-                                <p class="theComment" id="blurComment">
-                                    {{ studentFeedbacks.massage }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- block 4 ended -->
-
-                    <div class="blurBlock" id="blurBlock3">
-                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
-                        <div class="BlurOpinion">
-                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
-
-                            <div class="theOpinin" id="blurOpinion">
-                                <p class="theComment" id="blurComment">
-                                    {{ theComment }}
-                                </p>
-                            </div>
-                            <div class="clock" id="bClock">
-                                {{ commentTime }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- block 3 ended -->
-
-                    <div class="blurBlock" id="blurBlock2">
-                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
-                        <div class="BlurOpinion">
-                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
-
-                            <div class="theOpinin" id="blurOpinion">
-                                <p class="theComment" id="blurComment">
-                                    {{ theComment }}
-                                </p>
-                            </div>
-                            <div class="clock" id="bClock">
-                                {{ commentTime }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- block 2 ended -->
-
-                    <div class="blurBlock" id="blurBlock1">
-                        <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
-                        <div class="BlurOpinion">
-                            <p class="toComment" id="blurToComment">{{ toComment }}</p>
-                            <div class="theOpinin" id="blurOpinion">
-                                <p class="theComment" id="blurComment">
-                                    {{ theComment }}
-                                </p>
-                            </div>
-                            <div class="clock" id="bClock">
-                                {{ commentTime }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- block 1 ended -->
-
                     <div class="Block" id="block">
                         <div class="OpinionBlock">
                             <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
-                            <div class="Opinion">
-                                <p class="toComment">{{ toComment }}</p>
+                            <div class="Opinion" v-if="studentFeedbacks.length > 0">
+                                <p class="toComment">{{ studentFeedbacks[0].user }}</p>
                                 <div class="theOpinin">
-                                    <p class="theComment">
-                                        {{ theComment }}
+                                    <p class="theComment">{{ studentFeedbacks[0].massage }}</p>
+                                </div>
+                                <div class="clock">{{ studentFeedbacks[0].date }}</div>
+                            </div>
+                            <div v-else>
+                                <p>نظری ثبت نشده.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blur blocks -->
+                    <div v-for="(comment, commentIndex) in studentFeedbacks.slice(1, 5)" :key="commentIndex">
+                        <div class="blurBlock" :id="'blurBlock' + commentIndex">
+                            <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
+                            <div class="BlurOpinion">
+                                <p class="toComment" :id="'blurToComment'">{{ comment.user }}</p>
+                                <div class="theOpinin" :id="'blurOpinion'">
+                                    <p class="theComment" :id="'blurComment'">
+                                        {{ comment.massage }}
                                     </p>
                                 </div>
-                                <div class="clock">
-                                    {{ commentTime }}
+                                <div class="clock" :id="'bClock'">
+                                    {{ comment.date }}
                                 </div>
                             </div>
                         </div>
@@ -309,7 +259,7 @@ Input {
     background: #8569C2;
     color: white;
     box-shadow: 0px 4px 14px 1px #8569C233;
-    margin-top: -460px;
+    margin-top: -300px;
     z-index: 2;
     cursor: pointer;
 }

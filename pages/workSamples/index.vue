@@ -24,6 +24,7 @@ import header from '../header.vue'
 import footer from '../footer.vue'
 import workSamples from './theWorkSample.vue'
 import belt from './workSampleBelt.vue'
+import {} from '~/store/exerciseStore'
 
 export default{
     components:{
@@ -31,7 +32,17 @@ export default{
         "footer-app": footer,
         "work-Samples": workSamples,
         "belt" : belt,
-    }
+    },
+    data() {
+        return {
+            exercises: [],
+        };
+    },
+    async created() {
+        const store = useExerciseStore();
+        await store.fetchExercise();
+        this.exercises = store.exercise;
+    },
 }
 </script>
 <style>

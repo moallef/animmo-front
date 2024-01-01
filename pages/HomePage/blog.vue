@@ -19,7 +19,7 @@
 
 <script>
 import theBlog from './theBlog.vue';
-import { useCounterStore } from '~/store/store.js';
+import { useBlogStore } from '~/store/blogStore.js';
 
 export default {
     components: {
@@ -31,7 +31,7 @@ export default {
         };
     },
     async created() {
-        this.blogs = await useCounterStore().fetchBlog();
+        this.blogs = await useBlogStore().fetchBlog();
     },
 };
 </script>

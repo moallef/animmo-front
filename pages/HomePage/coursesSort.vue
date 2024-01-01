@@ -27,7 +27,7 @@
 </template>
   
 <script>
-import { useCounterStore } from '~/store/store.js';
+import { useCourseStore } from '~/store/courseStore.js';
 
 export default {
     props: {
@@ -39,7 +39,7 @@ export default {
         };
     },
     async beforeCreate() {
-        const store = useCounterStore();
+        const store = useCourseStore();
         const courses = await store.fetchCourse();
         this.course = courses[this.index] || {};
     },

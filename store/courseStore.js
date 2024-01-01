@@ -1,12 +1,9 @@
 import { defineStore } from "pinia";
 import { getCourse } from '~/API/course';
-import { getBlog } from '~/API/blog'
 
-export const useCounterStore = defineStore("counter", {
+export const useCourseStore = defineStore("course", {
   state: () => ({
     course: [],
-    blog: [],
-    count: 87,
   }), 
   getters: {
     getCourse: (state) => state.course,
@@ -41,26 +38,6 @@ export const useCounterStore = defineStore("counter", {
         console.error("fetchCourse error: ", error);
       }
     },
-    async fetchBlog(){
-      try {
-        if (this.blog.length === 0) {
-          const response = await getBlog();
-          const blogData = response.map((element) => ({
-            user : element.user,
-            title : element.title,
-            body: element.body,
-            createdAt: element.created
-          }));
-          this.blog = blogData;
-          return blogData;
-        }
-          else{
-            return this.blog;
-          }
-      } catch (error) {
-          console.log("fetchBlog error: ",error);
-      };
-      
-    }
   },
-});
+  },
+);

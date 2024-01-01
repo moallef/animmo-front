@@ -11,24 +11,23 @@
 </template>
 
 <script>
-export default {
-    name: 'FrontendTheWorkSample',
-
+  import { useExerciseStore } from '~/store/exerciseStore.js';
+  
+  export default {
+    props: {
+      index: Number,
+    },
     data() {
-        return {
-            student: "زهرا عرفانیان ",
-            courseStudent: "هنرجوی دوره بن گذاری"
-        };
+      return {
+        theSampleExercise: {},
+      };
     },
-
-    mounted() {
-
+    async beforeCreate() {
+      const store = useExerciseStore();
+      await store.fetchExercise();
+      this.theSampleExercise = store.exercise[this.index] || {};
     },
-
-    methods: {
-
-    },
-};
+  };
 </script>
 
 <style lang="scss" scoped>

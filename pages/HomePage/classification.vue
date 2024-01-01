@@ -21,7 +21,7 @@
   
 <script>
 import coursesSort from './coursesSort.vue';
-import { useCounterStore } from '~/store/store.js';
+import { useCourseStore } from '~/store/courseStore.js';
 
 export default {
     components: {
@@ -33,7 +33,7 @@ export default {
         };
     },
     async created() {
-        this.courses = await useCounterStore().fetchCourse();
+        this.courses = await useCourseStore().fetchCourse();
     },
 };
 </script>

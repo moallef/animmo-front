@@ -25,7 +25,7 @@
 </template>
   
 <script>
-import { useCounterStore } from '~/store/store.js';
+import { useBlogStore } from '~/store/blogStore.js';
 
 export default {
     name: 'TheBlog',
@@ -39,7 +39,7 @@ export default {
         };
     },
     async beforeCreate() {
-        const store = useCounterStore();
+        const store = useBlogStore();
         const blogs = await store.fetchBlog();
         this.blog = blogs[this.index] || {};
     },

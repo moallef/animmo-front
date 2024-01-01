@@ -1,34 +1,42 @@
 <template>
     <nuxt-link to="workSamples">
-        <div>
-            <div class="productShowCase">
-            <img class="sampleImg" src="../../assets/images/Rectangle 119.png" alt="Product Image">
-            <button class="likeButtn">
-                <img src="../../assets/icons/LikeBefore.png" alt="">
+      <div class="productShowCase">
+        <img class="sampleImg" :src="theSampleExercise.sample_exercise" alt="Product Image">
+        <button class="likeButtn">
+          <img src="../../assets/icons/LikeBefore.png" alt="">
+        </button>
+        <div class="details">
+          <p>{{ theSampleExercise.user }}</p>
+          <p class="studentName">{{ theSampleExercise.subcategory }}</p>
+          <div class="btn">
+            <button>
+              <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
             </button>
-            <div class="details">
-                <p>زهرا عرفانی</p>
-                <p class="studentName">هنرجوی دوره بن گذاری</p>
-                <div class="btn">
-                    <button>
-                        <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
-                    </button>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-</nuxt-link>
-</template>
-
-<script>
-export default {
+      </div>
+    </nuxt-link>
+  </template>
+  
+  <script>
+  import { useExerciseStore } from '~/store/exerciseStore.js';
+  
+  export default {
+    props: {
+      index: Number,
+    },
     data() {
-        return {
-
-        }
-    }
-}
-</script>
+      return {
+        theSampleExercise: {},
+      };
+    },
+    async beforeCreate() {
+      const store = useExerciseStore();
+      await store.fetchExercise();
+      this.theSampleExercise = store.exercise[this.index] || {};
+    },
+  };
+  </script>
 
 <style scoped>
 p {

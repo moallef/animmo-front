@@ -29,20 +29,26 @@ import belt from '../blogs/blogBelt.vue'
 import theBlog from './theblog.vue'
 import background from './background.vue'
 
-
+import { useBlogStore } from '~/store/blogStore.js';
 
 export default {
     name: 'FrontendIndex',
     data() {
-        return {}
+        return {
+            blogs: [],
+        };
     },
-
+    
     components: {
         "header-app": header,
         "footer-app": footer,
         "belt": belt,
         "theBlog": theBlog,
         "background": background
+    },
+    
+    async created() {
+        this.blogs = await useBlogStore().fetchBlog();
     },
 
     mounted() {

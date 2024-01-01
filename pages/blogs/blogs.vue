@@ -33,7 +33,7 @@
 <script>
 import unsavedIcon from "../../assets/icons/saveIcon.png"
 import savedIcon from "../../assets/icons/savedIcon.png"
-import { useCounterStore } from '~/store/store.js'
+import { useBlogStore } from '~/store/blogStore.js'
 
 export default {
     name: 'FrontendTheBlog',
@@ -48,7 +48,7 @@ export default {
         };
     },
     async beforeCreate() {
-        const store = useCounterStore();
+        const store = useBlogStore();
         const blogs = await store.fetchBlog();
         this.blog = blogs[this.index] || {};
     },
