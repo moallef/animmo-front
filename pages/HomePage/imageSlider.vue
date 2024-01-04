@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import * as axios from 'axios'
 import { getSlider } from '~/API/slider.js'
 
 export default {

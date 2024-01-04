@@ -4,18 +4,20 @@
             <div class="workSamples">
                 <p>نمونه کار هنرجویان</p>
                 <div class="sampleBlock">
-                    <!-- ... other content ... -->
-
                     <div class="slider">
-                        <Swiper class="Swiper" :modules="[SwiperAutoplay, SwiperEffectCreative]"
-                            :slides-per-view='isMobile ? 1 : 3' :loop="false" :effect="'creative'"
-                            :autoplay="sliderAutoPlay = { delay: 1500, }" :creative-effect="{
-                                prev: { shadow: false, translate: ['-100%', 0, -1], },
-                                next: { translate: ['100%', 1, 0], },
+                        <Swiper class="slider" :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="1"
+                            :loop="true" :effect="'creative'" :autoplay="sliderAutoPlay" :creative-effect="{
+                                prev: {
+                                    shadow: false,
+                                    translate: ['-100%', 0, -1],
+                                },
+                                next: {
+                                    translate: ['100%', 0, 0],
+                                },
                             }">
-                            <SwiperSlide class="Slider" v-for="exercise in exercises" :key="index">
+                            <SwiperSlide class="Slider" v-for="(exercise, index) in exercises" :key="index">
                                 <div class="theSample">
-                                    <the-Sample :index="index" />
+                                    <the-Sample :exercise="exercise" />
                                 </div>
                             </SwiperSlide>
                         </Swiper>
@@ -37,14 +39,14 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue';
 import { useExerciseStore } from '~/store/exerciseStore.js';
 import theWorkSample from './theSample.vue';
-import Swiper from 'swiper';
+import { SwiperSlide } from 'swiper/vue';
 
 export default {
     components: {
         "the-Sample": theWorkSample,
+        SwiperSlide
     },
     setup() {
         const isMobile = ref(false)
@@ -69,12 +71,14 @@ export default {
     data() {
         return {
             exercises: [],
+            playing: false,
+            bannerList: [],
+            sliderAutoPlay: true,
         };
     },
     async created() {
-        const store = useExerciseStore();
-        await store.fetchExercise();
-        this.exercises = store.exercise;
+        const test = await useExerciseStore().fetchExercise();
+        this.exercises = [...test]
     },
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="container">
-            <img class="sampleImg" src="../../assets/images/Rectangle 119.png" alt="Product Image">
+            <img class="sampleImg" :src="theSampleExercise.sample_exercise" alt="Product Image">
             <div class="content">
-                <p class="student"> {{ student }} </p>
-                <p class="courseStudent"> {{ courseStudent }} </p>
+                <p class="student"> {{ theSampleExercise.user }} </p>
+                <p class="courseStudent"> {{ theSampleExercise.subcategory }} هنرجوی دوره  </p>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
     },
     async beforeCreate() {
       const store = useExerciseStore();
-      await store.fetchExercise();
+      const exercise = await store.fetchExercise();
       this.theSampleExercise = store.exercise[this.index] || {};
     },
   };

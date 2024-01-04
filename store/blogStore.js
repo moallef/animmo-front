@@ -6,11 +6,11 @@ export const useBlogStore = defineStore("blog", {
     blog: [],
   }), 
   getters: {
-    getCourse: (state) => state.course,
+    getBlog: (state) => state.blog,
   },
   mutations: {
-    SET_COURSE(state, course) {
-      state.course = course;
+    SET_BLOG(state, blog) {
+      state.blog = blog;
     },
   },
   actions: {

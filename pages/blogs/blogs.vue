@@ -61,7 +61,6 @@ export default {
         },
         chnageIcon(){
             this.iconBoolian = !this.iconBoolian 
-            console.log(this.iconBoolian);
         }
     },
 };
