@@ -5,7 +5,7 @@
                 <p>نمونه کار هنرجویان</p>
                 <div class="sampleBlock">
                     <div class="slider">
-                        <Swiper class="slider" :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="1"
+                        <Swiper class="slider" :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="3"
                             :loop="true" :effect="'creative'" :autoplay="sliderAutoPlay" :creative-effect="{
                                 prev: {
                                     shadow: false,

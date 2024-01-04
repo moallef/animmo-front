@@ -1,16 +1,15 @@
 <template>
   <nuxt-link to="workSamples">
     <div class="productShowCase">
-      <img class="sampleImg" :src="'http://127.0.0.1:8000/media/video/sample/moqaddame.mp4'" alt="Product Image">
+      <img class="sampleImg" :src="`http://127.0.0.1:8000/${exercise.sample_exercise}`" alt="Product Image">
       <button class="likeButtn">
         <img src="../../assets/icons/LikeBefore.png" alt="">
       </button>
       <div class="details">
-        <p>fsdfsdfd</p>
-        <p class="studentName">theSampleExercise</p>
+        <p> {{ exercise.user }}</p>
+        <p class="studentName">{{ exercise.course }}</p>
         <div class="btn">
           <button>
-            bhvnvbv
             <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
           </button>
         </div>
@@ -21,7 +20,7 @@
   
 <script>
 import { useExerciseStore } from '~/store/exerciseStore.js';
-import { toRaw } from 'vue';
+
 export default {
   props: {
     exercise: Object,
@@ -32,16 +31,10 @@ export default {
     };
   },
   async beforeCreate() {
-    this.theSampleExercise = this.exercise;
-    // const store = useExerciseStore();
-    // const exercise = await store.fetchExercise();
-    // // TODO: this.index is undefined
-    // // this.theSampleExercise = exercise[0];
-    // this.theSampleExercise.sample_exercise = exercise[0].sample_exercise;
-    // this.theSampleExercise.user = exercise[0].user;
-    // this.theSampleExercise.user = exercise[0].course;
-    // console.log('Child component received data:', toRaw(this.theSampleExercise).sample_exercise);
-  },
+        const store = useExerciseStore();
+        const exercise = await store.fetchExercise();
+        this.theSampleExercise = exercise[this.index] || {};
+    },
   mounted() {
 
   },
@@ -55,7 +48,7 @@ p {
 
 .sampleImg {
   display: block;
-  /* margin-bottom: -20px; */
+  margin-bottom: -20px;
   width: 100%;
   border-radius: 18px;
 }
