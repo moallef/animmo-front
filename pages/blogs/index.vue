@@ -1,19 +1,19 @@
 <template>
     <div>
         <header>
-            <header-app/>
+            <header-app />
         </header>
 
         <div class="belt">
-            <belt/>
+            <belt />
         </div>
 
         <div class="blog">
-            <Blog v-for="(blog ,index) in blogs" :key="index" :index="index"/>
+            <Blog v-for="(blog, index) in blogs" :key="index" :index="index" />
         </div>
 
         <footer>
-            <footer-app/>
+            <footer-app />
         </footer>
 
     </div>
@@ -34,30 +34,24 @@ export default {
             blogs: [],
         };
     },
+    props: {
+
+    },
     async created() {
         this.blogs = await useBlogStore().fetchBlog();
     },
 
     components: {
-        "header-app" : header,
-        "footer-app" : footer,
-        "belt" : belt,
+        "header-app": header,
+        "footer-app": footer,
+        "belt": belt,
         "Blog": Blog,
-    },
-
-
-    mounted() {
-        
-    },
-
-    methods: {
-        
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.blog{
+.blog {
     width: 90%;
     margin-top: 40px;
     margin-inline: 5%;
@@ -65,7 +59,8 @@ export default {
     justify-content: right;
     flex-wrap: wrap;
 }
-footer{
+
+footer {
     margin-top: 150px;
 }
 </style>

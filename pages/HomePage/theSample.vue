@@ -30,7 +30,7 @@ export default {
       theSampleExercise: {},
     };
   },
-  async beforeCreate() {
+  async created() {
         const store = useExerciseStore();
         const exercise = await store.fetchExercise();
         this.theSampleExercise = exercise[this.index] || {};

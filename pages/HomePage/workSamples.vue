@@ -39,6 +39,7 @@
 </template>
 
 <script>
+
 import { useExerciseStore } from '~/store/exerciseStore.js';
 import theWorkSample from './theSample.vue';
 import { SwiperSlide } from 'swiper/vue';
@@ -46,7 +47,6 @@ import { SwiperSlide } from 'swiper/vue';
 export default {
     components: {
         "the-Sample": theWorkSample,
-        SwiperSlide
     },
     setup() {
         const isMobile = ref(false)
