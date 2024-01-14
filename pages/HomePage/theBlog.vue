@@ -58,7 +58,6 @@ export default {
 .theBlog {
     margin: 10px 8%;
 }
-
 .blogPoster img {
     width: 35%;
     height: 193px;
@@ -78,7 +77,6 @@ export default {
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0em;
-
     margin-bottom: 20px;
     margin-top: 10px;
 }
@@ -88,10 +86,10 @@ export default {
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-    color: #979797;
-
 }
-
+.theBlogDescription p{
+    color: #979797;
+}
 .readMore {
     font-size: 16px;
     font-weight: 400;

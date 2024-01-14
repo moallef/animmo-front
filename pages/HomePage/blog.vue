@@ -50,8 +50,8 @@ export default {
 .title {
     width: 100%;
     margin-top: 40px;
-    margin-right: 8%;
     margin-bottom: 50px;
+    padding-right: 50px;
 }
 
 .title p {

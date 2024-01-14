@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="header">
+
             <header-app />
         </div>
 
@@ -13,12 +14,12 @@
                 <div class="container">
 
                     <div class="buttons">
-                        <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''" >ورود</button>
+                        <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''">ورود</button>
                         <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت نام </button>
                     </div>
                     <div class="inputs">
-                        <div :id="focusBoolian ? 'logInInput' : ''" >
-                            <input type="text" class="input"  placeholder="نام " v-model="name">
+                        <div :id="focusBoolian ? 'logInInput' : ''">
+                            <input type="text" class="input" placeholder="نام " v-model="name">
                         </div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="family">
@@ -30,6 +31,9 @@
                     <div class="oneTimePassword">
                         <button id="sendPassword">
                             ارسال رمز یکبار مصرف
+                        </button>
+                        <button id="submit">
+                            ثبت
                         </button>
                     </div>
                     <div class="otherWays">
@@ -53,17 +57,19 @@
 </template>
 
 <script>
-import header from '../header.vue'
+import header from '../header.vue';
+import { ref } from 'vue';
+import { useAuthStore } from '~/store/authentications';
 
 export default {
     name: 'FrontendIndex',
 
     data() {
         return {
-            focusBoolian : true,
-            name : null ,
-            family : null ,
-            phoneNumber : null,
+            focusBoolian: true,
+            name: null,
+            family: null,
+            phoneNumber: null,
         };
     },
     directives: {
@@ -74,8 +80,29 @@ export default {
         "header-app": header,
     },
 
-    mounted() {
 
+    mounted() {
+        const store = useAuthStore();
+
+        const username = ref('');
+        const password = ref('');
+        const pin = ref('');
+        const error = ref('');
+
+        const login = async () => {
+            error.value = '';
+
+            const loginSuccess = await store.login(username.value, password.value, pin.value);
+
+            if (!loginSuccess) {
+                error.value = 'Invalid credentials. Please try again.';
+            } else {
+                // Redirect or perform any other action upon successful login
+                // For example, you can use Nuxt 3's `useRouter` to redirect to another page
+                const router = useNuxtApp().router;
+                router.push('/dashboard');
+            }
+        };
     },
 
     methods: {
@@ -88,7 +115,6 @@ export default {
 </script>
 
 <style scoped>
-
 .image {
     width: 30%;
     margin-right: 100%;
@@ -110,7 +136,8 @@ export default {
 #logo {
     width: 193px;
 }
-#logInInput{
+
+#logInInput {
     display: none;
 }
 
@@ -159,11 +186,13 @@ h1 {
     line-height: 12px;
     letter-spacing: 0em;
 }
-.unfocus{
-    outline:none;
+
+.unfocus {
+    outline: none;
     color: #8569C2;
 }
-.focus{
+
+.focus {
     background: #8569C2;
     color: white;
 }
@@ -218,10 +247,23 @@ h1 {
 #sendPassword {
     width: 100%;
     height: 42px;
-    top: 228px;
     padding: 2px, 14px, 2px, 14px;
     border-radius: 37px;
-    gap: 10px;
+    border: none;
+    background: #8569C2;
+    color: white;
+    font-family: IRANSans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+}
+#submit{
+    width: 100%;
+    height: 42px;
+    margin-top: 10px;
+    padding: 2px, 14px, 2px, 14px;
+    border-radius: 37px;
     border: none;
     background: #8569C2;
     color: white;

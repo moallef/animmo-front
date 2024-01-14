@@ -28,8 +28,12 @@ import home from './HomePage/home.vue'
 </script>
 
 <style>
+
 body{
     direction: rtl;
+}
+p{
+    color: black;
 }
 a{
     color: none;
