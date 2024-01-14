@@ -46,8 +46,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Blur blocks -->
                     <div v-for="(comment, commentIndex) in studentFeedbacks.slice(1, 5)" :key="commentIndex">
                         <div class="blurBlock" :id="'blurBlock' + commentIndex">
                             <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
@@ -64,9 +62,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- main block ended -->
-
                 </div>
 
             </div>
@@ -85,24 +80,6 @@ export default {
         }
     },
     methods: {
-        // clock(time) {
-        //     const date = new Date(time);
-        //     const month = date.toString().split(' ')[1];
-        //     const day = date.getDate();
-        //     let hour = date.getHours();
-        //     const minute = date.getMinutes();
-        //     let status = 'p.m';
-        //     if (hour < 12) {
-        //         status = 'a.m'
-        //     } else {
-        //         hour -= 12;
-        //     }
-        //     const exactDate = `${month}${day}, ${hour < 10 ? `0${hour}` : hour}
-        //     :${minute < 10 ? `0${minute}` : minute} ${status}`;
-
-        //     return exactDate;
-        // },
-
     },
     async created() {
         try {
@@ -114,14 +91,10 @@ export default {
                     massage: element.massage,
                     date: element.created,
                 }));
-
-                // Set comments array based on the number of comments per feedback
                 this.comments = this.studentFeedbacks.map((feedback) => ({
                     feedbackId: feedback.id,
-                    content: "", // You can set some default value or leave it empty
+                    content: "", 
                 }));
-
-                // Limit the displayed comments to a maximum of 4
                 this.comments = this.comments.slice(-4);
             }
         } catch (error) {
@@ -146,10 +119,8 @@ export default {
 }
 
 .title {
-
     width: 262px;
     height: 12px;
-
     font-size: 39px;
     font-weight: 600;
     line-height: 12px;
@@ -159,7 +130,6 @@ export default {
 }
 
 button {
-
     background: #8569C2;
     border: none;
     border-radius: 50%;
@@ -171,7 +141,6 @@ button {
     margin-left: 15px;
     cursor: pointer;
     z-index: 3;
-
 }
 
 .buttons {
@@ -277,6 +246,7 @@ Input {
     letter-spacing: 0em;
     text-align: center;
     margin-top: -20px;
+    color: white;
 }
 
 .theComment {
