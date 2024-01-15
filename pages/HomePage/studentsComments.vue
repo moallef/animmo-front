@@ -276,7 +276,6 @@ Input {
 
 }
 
-
 .blurBlock {
     width: 38%;
     height: 381px;

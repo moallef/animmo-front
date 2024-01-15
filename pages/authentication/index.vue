@@ -24,13 +24,30 @@
                         <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="family">
                         </div>
-                        <div id="phoneNumber">
-                            <input type="text" class="input" placeholder="تلفن همراه" v-model="phoneNumber">
+                        <div :id="checkNumber ? 'logInInput' : 'hint' ">
+                            لطفا شماره تلفن خود را وارد کنید!
+                        </div>
+                        <div :id="OTP_Boolian ? 'logInInput' : ''">
+                            <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه" v-model="phoneNumber">
+                        </div>
+                        <!-- wrong -->
+                        <div :id="OTP_Boolian ? 'logInInput' : ''">
+                            <input type="text" class="input" placeholder=" رمز عبور" v-model="password">
+                        </div>
+                        <div :id="focusBoolian ? 'logInInput' : ''">
+                            <input type="text" class="input" placeholder="تکرار رمز عبور " v-model="repeatPassword">
+                        </div>
+                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما {{ phoneNumber }}</div>
+                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'">
+                            <input type="text" class="input" placeholder="ورود کد" v-model="repeatPassword">
                         </div>
                     </div>
                     <div class="oneTimePassword">
-                        <button id="sendPassword">
+                        <button id="sendPassword" @click="changeOTP(true) ; checkPhoneNumber()">
                             ارسال رمز یکبار مصرف
+                        </button>
+                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
+                            تغییر شماره تلفن
                         </button>
                         <button id="submit">
                             ثبت
@@ -70,6 +87,8 @@ export default {
             name: null,
             family: null,
             phoneNumber: null,
+            OTP_Boolian: false,
+            checkNumber : true,
         };
     },
     directives: {
@@ -97,8 +116,6 @@ export default {
             if (!loginSuccess) {
                 error.value = 'Invalid credentials. Please try again.';
             } else {
-                // Redirect or perform any other action upon successful login
-                // For example, you can use Nuxt 3's `useRouter` to redirect to another page
                 const router = useNuxtApp().router;
                 router.push('/dashboard');
             }
@@ -109,7 +126,19 @@ export default {
 
         changeFocus(change) {
             this.focusBoolian = change;
+            
         },
+        changeOTP(change) {
+            this.OTP_Boolian = change;
+            this.checkNumber = true;
+        },
+        checkPhoneNumber(){
+            if(this.phoneNumber === null || this.phoneNumber ===''){
+                alert("شماره تلفن خود را وارد کنید");
+                this.OTP_Boolian = false;
+                this.checkNumber = false;
+            }
+        }
     },
 };
 </script>
@@ -120,6 +149,7 @@ export default {
     margin-right: 100%;
     margin-top: -450px;
     height: 100%;
+    margin-bottom: 200px;
 }
 
 .main {
@@ -222,7 +252,7 @@ h1 {
     width: 100%;
     height: 42px;
     top: 105px;
-    padding: 10px 14px 10px 216px;
+    padding: 10px 14px 10px 10px;
     border-radius: 33px;
     margin-top: 10px;
     font-family: IRANSans;
@@ -258,7 +288,24 @@ h1 {
     line-height: 19px;
     letter-spacing: 0em;
 }
-#submit{
+
+#editNumber {
+    width: 100%;
+    height: 42px;
+    padding: 2px, 14px, 2px, 14px;
+    margin-top: 10px;
+    border-radius: 37px;
+    border: none;
+    background: #8569C2;
+    color: white;
+    font-family: IRANSans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+}
+
+#submit {
     width: 100%;
     height: 42px;
     margin-top: 10px;
@@ -273,6 +320,12 @@ h1 {
     line-height: 19px;
     letter-spacing: 0em;
 }
+#wrong{
+    border:solid 2px red; 
+}
+#hint{
+    color: red;
+}
 
 @media (max-width : 1100px) {
     .image {
@@ -281,6 +334,7 @@ h1 {
 
     .main {
         width: 100%;
+        margin-bottom: 200px;
     }
 }
 </style>
