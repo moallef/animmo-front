@@ -18,26 +18,25 @@
                         <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت نام </button>
                     </div>
                     <div class="inputs">
+                        <div :id="checkNumber ? 'logInInput' : 'hint' ">
+                            شماره تلفن اشتباه است!
+                        </div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام " v-model="name">
                         </div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="family">
                         </div>
-                        <div :id="checkNumber ? 'logInInput' : 'hint' ">
-                            لطفا شماره تلفن خود را وارد کنید!
-                        </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه" v-model="phoneNumber">
                         </div>
-                        <!-- wrong -->
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder=" رمز عبور" v-model="password">
                         </div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="تکرار رمز عبور " v-model="repeatPassword">
                         </div>
-                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما {{ phoneNumber }}</div>
+                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phoneNumber }}</div>
                         <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'">
                             <input type="text" class="input" placeholder="ورود کد" v-model="repeatPassword">
                         </div>
@@ -133,8 +132,8 @@ export default {
             this.checkNumber = true;
         },
         checkPhoneNumber(){
-            if(this.phoneNumber === null || this.phoneNumber ===''){
-                alert("شماره تلفن خود را وارد کنید");
+            const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
+            if(this.phoneNumber ==='' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)){
                 this.OTP_Boolian = false;
                 this.checkNumber = false;
             }

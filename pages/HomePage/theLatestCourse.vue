@@ -107,7 +107,7 @@ export default {
     height: 40px;
     border-radius: 50px;
     gap: 8px;
-    color: #9D87CE;
+    color: white;
     border: 2px solid #9D87CE;
     font-size: 14px;
     font-weight: 400;

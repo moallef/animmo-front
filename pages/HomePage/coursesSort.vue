@@ -52,6 +52,7 @@ img {
     height: 120px;
     z-index: 1;
     border-radius: 16px;
+    margin-right: 12%;
     margin-bottom: -110px;
 }
 
@@ -63,7 +64,7 @@ img {
 }
 
 .textContainer {
-    width: 100%;
+    width: 250%;
     height: 272px;
     border-radius: 24px;
     background: #F4F4F4;
