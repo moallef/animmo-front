@@ -9,44 +9,42 @@
                 <menu-component />
             </div>
             <div class="main">
-                <main-component />
+                <payment-history />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import header from './header.vue';
-import main from './main.vue';
-import menu from './menu.vue';
+import header from '../header.vue';
+import menu from '../menu.vue';
+import payments from './paymentHistory.vue'
 
 export default {
     name: 'FrontendIndex',
 
     data() {
         return {
-
+            
         };
     },
-    components: {
+    components:{
         "header-component": header,
         "menu-component": menu,
-        "main-component": main,
+        "payment-history": payments,
     },
 
     mounted() {
+        
     },
 
     methods: {
-
+        
     },
 };
 </script>
 
 <style lang="scss" scoped>
-*{
-    direction: rtl;
-}
 .content {
     width: 80%;
     margin-inline: 10%;

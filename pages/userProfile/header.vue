@@ -43,9 +43,11 @@ export default {
     padding: 9px 16px 9px 16px;
     color: white;
 }
-.returnToSite{
-    margin-right: 82.5%;
+
+.returnToSite {
+    text-align: left;
     margin-top: 30px;
+    margin-left: 11%;
 }
 
 .logo {

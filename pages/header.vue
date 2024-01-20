@@ -15,9 +15,14 @@
                     </div>
                 </nuxt-link>
 
-                <button @click="navigateToAuthentication" class="signIn">
+                <button @click="navigateToAuthentication" :class="this.authenticationSituation ? 'none' : 'signIn'">
                     ورود / ثبت نام
                 </button>
+
+                <nuxt-link :class="this.authenticationSituation ? 'userProfile' : 'none'" to="/userProfile">
+                    پروفایل کاربری
+                    <img src="~/assets/icons/users.png" alt="">
+                </nuxt-link>
 
 
 
@@ -129,16 +134,24 @@
 </template>
 
 <script>
+import {useAuthStore} from '~/store/authentications';
+
 export default {
     data() {
         return {
             shopNum: 0,
             searchTerm: '',
+            authenticationSituation: null,
         }
+    },
+    created(){
+        const authStore = useAuthStore();
+        this.authenticationSituation = authStore.isAuthenticated;
+        console.log(authStore.isAuthenticated);
+        console.log(this.authenticationSituation);
     },
     computed: {
         searchResults() {
-            // Access the courses from the Vuex store
             return this.$store.getters.getCourse.filter(course =>
                 course.category.toLowerCase().includes(this.searchTerm.toLowerCase())
             );
@@ -150,7 +163,7 @@ export default {
         },
         navigateToAuthentication() {
             this.$router.push('/authentication');
-        }
+        },
     }
 }
 </script>
@@ -185,6 +198,19 @@ header {
     text-align: center;
     border: none;
     color: white;
+}
+.userProfile{
+    margin-top: -2px;
+    margin-right: 85%;
+    height: 32px;
+    border-radius: 28px;
+    display: block;
+    text-align: center;
+    border: none;
+    color: white;
+}
+.none{
+    display: none;
 }
 
 .imgHolder {

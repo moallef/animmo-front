@@ -122,4 +122,11 @@ export default {
     height: 2px;
     background: #2F3BBD;
 
-}</style>
+}
+.courses{
+    display: flex;
+    width: 90%;
+    margin-inline: 5%;
+    margin-top: 30px;
+}
+</style>

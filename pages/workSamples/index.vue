@@ -9,7 +9,7 @@
         </div>
 
         <div class="workSample">
-            <work-Samples/>
+            <work-Samples />
         </div>
         
         <footer>

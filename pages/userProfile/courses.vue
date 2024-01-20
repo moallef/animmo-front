@@ -1,5 +1,31 @@
 <template>
-    <div>
+    <div class="card">
+        <img id="courseCover" src="~/assets/images/Rectangle 106.png" alt="course image">
+        <div class="text">
+            <div class="title">استوری برد</div>
+            <div class="teacher">مهدی مؤلف</div>
+            <div class="during">
+                <div class="seasons">
+                    <img class="icon" src="~/assets/icons/clock-3-16.png" alt="">
+                    ۳ فصل
+                </div>
+                <div class="hours">
+                    <img class="icon" src="~/assets/icons/pngaaa.com-630491.png" alt="">
+                    ۹ ساعت
+                </div>
+            </div>
+
+            <button>
+                کپی لایسنس اسپات پلیر
+                <img class="icon" src="~/assets/icons/icons8-shape-64.png" alt="">
+            </button>
+
+            <div class="backupNumber">شماره پشتیبانی: {{ }}</div>
+            <div class="line"></div>
+            <nuxt-link to="/GuidePage">
+                <div class="guide">راهنمای نصب و راه اندازی اسپات پلیر</div>
+            </nuxt-link>
+        </div>
         
     </div>
 </template>
@@ -10,20 +36,116 @@ export default {
 
     data() {
         return {
-            
+
         };
     },
 
     mounted() {
-        
+
     },
 
     methods: {
-        
+
     },
 };
 </script>
 
 <style lang="scss" scoped>
+.card {
+    width: 22%;
+}
 
+#courseCover {
+    width: 84%;
+    height: 89px;
+    border-radius: 8px;
+    margin-inline: 8%;
+}
+
+.text {
+    width: 100%;
+    height: 267px;
+    border-radius: 16px;
+    background: #F4F4F4;
+    margin-top: -80px;
+    padding-top: 80px;
+    padding-inline: 10px;
+}
+
+.title {
+    font-family: IRANYekan;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+    height: 19px;
+    margin-top: 5px;
+}
+
+.teacher {
+    color: #646464;
+    height: 19px;
+    font-family: IRANYekan;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+}
+
+.during {
+    font-family: IRANYekan;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+    color: #979797;
+}
+
+.seasons {
+    height: 0px;
+}
+
+.hours {
+    text-align: left;
+    margin-left: 8%;
+}
+.icon{
+    margin-left: 2px;
+    width: 12px;
+}
+
+button {
+    width: 147px;
+    height: 24px;
+    border-radius: 16px;
+    border: none;
+    background: #252565;
+    margin-block: 15px;
+    color: white;
+}
+
+.backupNumber {
+    font-family: Peyda;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: -0.02em;
+    color: #7D7D7D;
+}
+
+.line {
+    border: 1px solid #C9C9C9;
+    width: 90%;
+    margin-inline: 5%;
+    margin-block: 15px;
+}
+
+.guide {
+    color: #7D7D7D;
+    font-family: Peyda;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+}
 </style>

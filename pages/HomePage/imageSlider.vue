@@ -7,7 +7,7 @@
     :effect="'creative'" 
     :autoplay="sliderAutoPlay" 
     :creative-effect="{
-    prev: {
+    prev: { 
         shadow: false,
         translate: ['-100%', 0, -1],
     },
