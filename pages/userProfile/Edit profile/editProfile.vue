@@ -16,62 +16,70 @@
             </div>
             <div class="inputs">
                 <input type="text" placeholder="شماره تماس" v-model="userPhoneNumber">
-                <input type="text"  placeholder="تاریخ تولد" v-model="userBirthDate">
+                <input type="text" placeholder="تاریخ تولد" v-model="userBirthDate">
             </div>
             <div class="inputs">
                 <input type="email" placeholder="ایمیل" v-model="userEmail">
             </div>
             <div class="alert">
-                <div class="seccess">
+                <div :class="{ 'seccess': checkNumber && checkEmail && saved, 'none': !checkNumber || !checkEmail || !saved }">
                     {{ seccessAlert }}
                 </div>
-                <div class="unseccess">
-                    {{ unseccessAlert }}
+                <div :class="{ 'unseccess': !checkNumber || !checkEmail, 'none': checkNumber && checkEmail }">
+                    {{ unseccessAlert }} شما اشتباه است!
                 </div>
             </div>
             <div class="buttons">
                 <button id="cancel">لغو</button>
-                <button id="save" @click="getItems()">ذخیره</button>
+                <button id="save" @click="getItems() ; checkPhoneNumber() ; checkEmailAddress()">ذخیره</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import {useInfoStore} from '~/store/userInfo.js'
+import { useInfoStore } from '~/store/userInfo.js'
 
 export default {
     name: 'FrontendEditProfile',
 
     data() {
         return {
-            checkNumber : true,
-            checkEmail : true,
-            checkBrithDate : true,
-            seccessAlert : 'اطلاعات شما با موفقیت ذخیره شد!',
-            unseccessAlert : '',
+            checkNumber: true,
+            checkEmail: true,
+            saved : false,
+            seccessAlert: 'اطلاعات شما با موفقیت ذخیره شد!',
+            unseccessAlert: 'اطلاعات ',
         };
     },
 
     mounted() {
-        
+
     },
-    
+
     methods: {
-        checkPhoneNumber(){
+        checkPhoneNumber() {
             const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
-            if(this.userPhoneNumber ==='' || this.userPhoneNumber === null || !iranianPhoneNumberRegex.test(this.userPhoneNumber)){
+            if (this.userPhoneNumber === '' || this.userPhoneNumber === null || !iranianPhoneNumberRegex.test(this.userPhoneNumber)) {
                 this.checkNumber = false;
+                this.unseccessAlert = 'شماره تلفن  '
             }
         },
-        async getItems(){
+        checkEmailAddress() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.userEmail === '' || this.userEmail === null || !emailRegex.test(this.userEmail)) {
+                this.checkEmail = false;
+                this.unseccessAlert = 'ایمیل  '
+            }
+        },
+        async getItems() {
             const store = await useInfoStore();
+            this.saved = true;
             store.name = this.userName;
             store.family = this.userFamily;
             store.phoneNumber = this.userPhoneNumber;
             store.birthDate = this.userBirthDate;
             store.Email = this.userEmail;
-            console.log(store.name ,store.family ,store.phoneNumber ,store.birthDate ,store.Email);
         },
     },
 };
@@ -145,7 +153,6 @@ input {
 .buttons button {
     width: 99px;
     height: 42px;
-    padding: 10px, 22px, 10px, 22px;
     border-radius: 16px;
     gap: 10px;
     border: none;
@@ -162,19 +169,26 @@ input {
     background: #8569C2;
     color: white;
 }
-#cancel{
+
+#cancel {
     color: #7D7D7D;
-;
 }
-.seccess{
+
+.seccess {
     color: green;
     margin-top: 20px;
     height: 0px;
     margin-right: 5%;
 }
-.unseccess{
+
+.unseccess {
     color: red;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-right: 5%;
+}
+
+.none {
+    background: #000;
+    display: none;
 }
 </style>

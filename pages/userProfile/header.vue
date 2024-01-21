@@ -5,9 +5,11 @@
                 <img src="~/assets/icons/AnimmoLogo.png" alt="">
             </div>
             <div class="returnToSite">
-                <button id="return">
-                    بازگشت به سایت
-                </button>
+                <nuxt-link to="/">
+                    <button id="return">
+                        بازگشت به سایت
+                    </button>
+                </nuxt-link>
             </div>
         </div>
     </div>

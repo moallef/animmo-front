@@ -18,9 +18,10 @@
                         <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت نام </button>
                     </div>
                     <div class="inputs">
-                        <div :id="checkNumber ? 'logInInput' : 'hint' ">
+                        <div :id="checkNumber ? 'logInInput' : 'hint'">
                             شماره تلفن اشتباه است!
                         </div>
+                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phoneNumber }}</div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام " v-model="name">
                         </div>
@@ -28,21 +29,15 @@
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="family">
                         </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
-                            <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه" v-model="phoneNumber">
+                            <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه"
+                                v-model="phoneNumber">
                         </div>
-                        <div :id="OTP_Boolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder=" رمز عبور" v-model="password">
-                        </div>
-                        <div :id="focusBoolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder="تکرار رمز عبور " v-model="repeatPassword">
-                        </div>
-                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phoneNumber }}</div>
                         <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'">
                             <input type="text" class="input" placeholder="ورود کد" v-model="repeatPassword">
                         </div>
                     </div>
                     <div class="oneTimePassword">
-                        <button id="sendPassword" @click="changeOTP(true) ; checkPhoneNumber()">
+                        <button id="sendPassword" @click="changeOTP(true); checkPhoneNumber()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
@@ -87,7 +82,7 @@ export default {
             family: null,
             phoneNumber: null,
             OTP_Boolian: false,
-            checkNumber : true,
+            checkNumber: true,
         };
     },
     directives: {
@@ -125,15 +120,14 @@ export default {
 
         changeFocus(change) {
             this.focusBoolian = change;
-            
         },
         changeOTP(change) {
             this.OTP_Boolian = change;
             this.checkNumber = true;
         },
-        checkPhoneNumber(){
+        checkPhoneNumber() {
             const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
-            if(this.phoneNumber ==='' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)){
+            if (this.phoneNumber === '' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)) {
                 this.OTP_Boolian = false;
                 this.checkNumber = false;
             }
@@ -319,10 +313,12 @@ h1 {
     line-height: 19px;
     letter-spacing: 0em;
 }
-#wrong{
-    border:solid 2px red; 
+
+#wrong {
+    border: solid 2px red;
 }
-#hint{
+
+#hint {
     color: red;
 }
 
@@ -335,5 +331,4 @@ h1 {
         width: 100%;
         margin-bottom: 200px;
     }
-}
-</style>
+}</style>
