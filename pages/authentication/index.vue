@@ -22,23 +22,30 @@
                             شماره تلفن اشتباه است!
                         </div>
                         <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phoneNumber }}</div>
-                        <div :id="focusBoolian ? 'logInInput' : ''">
+                        <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام " v-model="name">
                         </div>
-                        <div :id="focusBoolian ? 'logInInput' : ''">
+                        <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="familyName">
                         </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه"
                                 v-model="phoneNumber">
                         </div>
+                        <div :id="OTP_Boolian ? '' : 'logInInput'">
+                            <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="رمز یکبار مصرف"
+                                v-model="OTP">
+                        </div>
                     </div>
                     <div class="oneTimePassword">
-                        <button id="sendPassword" @click="changeOTP(true); checkPhoneNumber()">
+                        <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword' " @click="changeOTP(true); checkPhoneNumber()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
+                        </button>
+                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
+                            تایید  
                         </button>
                     </div>
                     <div class="otherWays">
@@ -87,6 +94,7 @@ export default {
         const name = ref('');
         const familyName = ref('');
         const phoneNumber = ref('');
+        var OTP =ref('');
 
         try {
             
@@ -121,6 +129,7 @@ export default {
                     name: user.name,
                     familyName: user.familyName,
                     phoneNumber: user.phoneNumber,
+                    OTP: user.OTP,
                     expirationDate: expirationDate.getTime(),
                 };
 
