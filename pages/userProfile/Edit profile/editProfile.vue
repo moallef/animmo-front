@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { useInfoStore } from '~/store/userInfo.js'
+import { useInfoStore } from '~/store/userInfo.js';
 
 export default {
     name: 'FrontendEditProfile',
@@ -87,7 +87,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    width: 893px;
+    width: 100%;
     background: #F9F9F9;
     height: 720px;
     border-radius: 16px;

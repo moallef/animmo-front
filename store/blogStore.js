@@ -23,6 +23,7 @@ export const useBlogStore = defineStore("blog", {
             title : element.title,
             body: element.body,
             createdAt: element.created,
+            imgSrc : element.imgSrc,
             id : element.id,
           }));
           this.blog = blogData;

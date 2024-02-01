@@ -19,13 +19,13 @@
 
                 <div class="addCommentInput">
 
-                    <button class="addComments">
+                    <button class="addComments" @click="submitComment">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 21" id="Navigation">
                             <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2" d="m8 1 7 19-7-4-7 4z" class="colorStroke000000 svgStroke"></path>
                         </svg>
                     </button>
-                    <input type="text" class="commentInput" placeholder="افزودن نظرات ...">
+                    <input type="text" class="commentInput" placeholder="افزودن نظرات ..." v-model="newComment">
 
                 </div>
 
@@ -70,39 +70,33 @@
 </template>
 
 <script>
-import { getFeedbacks } from '~/API/feedbacks'
+import { useFeedbackStore } from '~/store/feedbackStore';
 
 export default {
     data() {
         return {
             studentFeedbacks: [],
             comments: [],
+            newComment: "",
         }
     },
     methods: {
-    },
-    async created() {
-        try {
-            const feedback = await getFeedbacks();
-            if (feedback) {
-                this.studentFeedbacks = feedback.map((element) => ({
-                    id: element.id,
-                    user: element.user,
-                    massage: element.massage,
-                    date: element.created,
-                }));
-                this.comments = this.studentFeedbacks.map((feedback) => ({
-                    feedbackId: feedback.id,
-                    content: "", 
-                }));
-                this.comments = this.comments.slice(-4);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    },
+        async submitComment() {
+            try {
+                const feedbackStore = useFeedbackStore();
 
-}
+                console.log(this.newComment.trim());
+
+                if (this.newComment.trim() !== "") {
+                    await feedbackStore.postCommentToDatabase(this.newComment);
+                    this.newComment= "";
+                }
+            } catch (error) {
+                console.error('Error submitting comment:', error);
+            }
+        },
+    },
+};
 
 
 
@@ -201,6 +195,7 @@ Input {
     line-height: 12px;
     letter-spacing: 0em;
     color: #979797;
+    outline: none;
 }
 
 .profileImage {
@@ -358,7 +353,7 @@ Input {
     }
 
     .blocks {
-        margin-top: 500px;
+        margin-top: 300px;
         margin-right: 35%;
     }
 

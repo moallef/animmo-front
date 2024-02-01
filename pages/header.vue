@@ -48,7 +48,6 @@
                             <a class="menu__item" href="#">
                                 <img src="../assets/icons/WorkSamples.png" alt="Work Samples">
                                 نمونه کار هنر جویان
-                                <img src="../assets/icons/icons8-down-arrow-50.png" alt="">
                             </a></nuxt-link>
                     </li>
                     <li>
@@ -99,15 +98,8 @@
                         <button id="workSamples">
                             <img class="navBarImage" src="../assets/icons/WorkSamples.png" alt="Work Samples">
                             نمونه کار هنر جویان
-                            <img id="dropDownIcon" src="../assets/icons/icons8-down-arrow-50.png" alt="">
                         </button>
                     </nuxt-link>
-                    <div class="dropDown">
-                        <button>نمونه کار دوره ریگ</button>
-                        <button>نمونه کار دوره بن گذاری</button>
-                        <button>نمونه کار دوره انیمیت </button>
-                        <button>نمونه کار دوره طراحی کاراکتر </button>
-                    </div>
                 </div>
                 <nuxt-link to="/contactUs">
                     <button id="contact">
@@ -134,7 +126,7 @@
 </template>
 
 <script>
-import {useAuthStore} from '~/store/authentications';
+// import {useAuthStore} from '~/store/authenticationStore.js';
 
 export default {
     data() {
@@ -144,12 +136,10 @@ export default {
             authenticationSituation: null,
         }
     },
-    created(){
-        const authStore = useAuthStore();
-        this.authenticationSituation = authStore.isAuthenticated;
-        console.log(authStore.isAuthenticated);
-        console.log(this.authenticationSituation);
-    },
+    // created(){
+    //     const authStore = useAuthStore();
+    //     this.authenticationSituation = authStore.isAuthenticated;
+    // },
     computed: {
         searchResults() {
             return this.$store.getters.getCourse.filter(course =>
@@ -388,6 +378,11 @@ header {
 #menu__toggle:checked~.menu__box {
     right: 0 !important;
 }
+.menu__box {
+    right: -100%;
+    transition: right 0.3s ease-in-out;
+}
+
 
 .menu__btn {
     position: absolute;
@@ -491,8 +486,8 @@ header {
     }
 
     .logo {
-        width: 45%;
-        margin-right: 58%;
+        width: 35%;
+        margin-right: 63%;
     }
 
     .searchInput {
@@ -582,6 +577,7 @@ header {
 
     .menu__box {
         display: block;
+        right: -250%;
     }
 
 }

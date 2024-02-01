@@ -48,17 +48,19 @@ export default {
     direction: rtl;
 }
 .content {
-    width: 80%;
+    width: 90%;
     margin-inline: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 
 .menu {
     margin-left: 1%;
-
+    width: 287px;
 }
-
-.content {
-    display: flex;
-    margin-top: 20px;
+.main{
+    width: 65%;
 }
 </style>

@@ -48,32 +48,35 @@ export default {
   
 <style scoped>
 img {
-    width: 180px;
+    width: 90%;
     height: 120px;
-    z-index: 1;
     border-radius: 16px;
-    margin-right: 12%;
-    margin-bottom: -110px;
+    margin-top: -60px;
 }
 
 .coursesSort {
-    width: 100%;
-    text-align: center;
-    margin-top: 40px;
-    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F4F4F4;
+    border-radius: 24px;
+    height: 272px;
+    width: 302px;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: 20px;
 }
 
 .textContainer {
-    width: 250%;
-    height: 272px;
-    border-radius: 24px;
-    background: #F4F4F4;
-    padding-top: 140px;
+    padding-top: 30px;
+    width: 100%;
 }
 
 .courseTitle {
     padding-right: 7%;
     text-align: right;
+    height: 0px;
 }
 
 .courseDetails {
@@ -85,8 +88,8 @@ img {
     line-height: 15px;
     letter-spacing: 0em;
     margin-left: 9%;
-    margin-top: -35px;
-    margin-bottom: 30px;
+
+    margin-bottom: 10px;
 }
 
 .courseName {
@@ -102,19 +105,21 @@ a {
     color: #F4F4F4;
     border: none;
     padding: 10px 16px 10px 16px;
+    width: 125px;
     border-radius: 35px;
-    margin-right: 45%;
+    margin-right: 50%;
+    margin-top: 60px;
 }
 
 @media (max-width : 1054px) {
     .coursesSort {
-        width: 25%;
+        width: 270px;
     }
 }
 
 @media (max-width : 850px) {
     .coursesSort {
-        width: 35%;
+        width: 230px;
     }
 
     .showMore {
@@ -124,7 +129,7 @@ a {
 
 @media (max-width : 550px) {
     .coursesSort {
-        width: 100%;
+        width: 200px;
         font-size: 12px;
     }
 
@@ -137,34 +142,27 @@ a {
     }
 }
 
-@media (max-width : 550px) {
+@media (max-width : 510px) {
+    .coursesSort {
+        width: 140px;
+        font-size: 12px;
+    }
     .showMore {
         margin-right: 20%;
-        width: 65%;
+        width: 100px;
         font-size: 12px;
-        margin-top: -20px;
+        margin-top: 80px;
     }
 
     img {
         margin-bottom: -90px;
     }
-
-    .rating {
-        top: -75px;
-    }
-
-    .courseDetails {
-        margin-top: 0px;
-        margin-left: 55%;
-    }
-
-    .courseName {
-        margin-bottom: 10px;
-        margin-top: -20px;
-    }
-
     .courseName {
         font-size: 20px;
     }
+    .textContainer {
+    padding-top: 120px;
+    width: 100%;
+}
 }
 </style>

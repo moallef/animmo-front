@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    width: 893px;
+    width: 100%;
     background: #F9F9F9;
     height: 720px;
     border-radius: 16px;

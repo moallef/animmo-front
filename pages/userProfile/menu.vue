@@ -43,7 +43,7 @@ export default {
 .menu {
     background: #F9F9F9;
     color: #2F2F2F;
-    width: 287px;
+    width: 100%;
     height: 720px;
     border-radius: 16px;
 }

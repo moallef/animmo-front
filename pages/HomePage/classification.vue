@@ -58,15 +58,17 @@ a {
     height: 442px;
     width: 100%;
     min-width: 315px;
+    margin-bottom: 50px;
 }
 
 .courses {
     margin: auto;
     display: flex;
-    justify-content: right;
     flex-wrap: wrap;
+    margin-inline: 5%;
+    margin-top: 60px;
+    justify-content: flex-start; 
 }
-
 .moreBtn {
     color: white;
     width: 9%;

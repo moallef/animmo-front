@@ -26,14 +26,11 @@
                             <input type="text" class="input" placeholder="نام " v-model="name">
                         </div>
                         <div :id="focusBoolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder="نام خانوادگی" v-model="family">
+                            <input type="text" class="input" placeholder="نام خانوادگی" v-model="familyName">
                         </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه"
                                 v-model="phoneNumber">
-                        </div>
-                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'">
-                            <input type="text" class="input" placeholder="ورود کد" v-model="repeatPassword">
                         </div>
                     </div>
                     <div class="oneTimePassword">
@@ -42,9 +39,6 @@
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
-                        </button>
-                        <button id="submit">
-                            ثبت
                         </button>
                     </div>
                     <div class="otherWays">
@@ -69,8 +63,7 @@
 
 <script>
 import header from '../header.vue';
-import { ref } from 'vue';
-import { useAuthStore } from '~/store/authentications';
+import { useAuthStore } from '~/store/authenticationStore.js';
 
 export default {
     name: 'FrontendIndex',
@@ -79,41 +72,73 @@ export default {
         return {
             focusBoolian: true,
             name: null,
-            family: null,
+            familyName: null,
             phoneNumber: null,
             OTP_Boolian: false,
             checkNumber: true,
         };
     },
-    directives: {
-
-    },
-
     components: {
         "header-app": header,
     },
 
+    setup() {
+        const authStore = useAuthStore();
+        const name = ref('');
+        const familyName = ref('');
+        const phoneNumber = ref('');
 
-    mounted() {
-        const store = useAuthStore();
+        try {
+            
+            if (storedUserData) {
+                const userData = JSON.parse(storedUserData);
+                const currentTimestamp = new Date().getTime();
 
-        const username = ref('');
-        const password = ref('');
-        const pin = ref('');
-        const error = ref('');
+                const expirationDate = new Date();
+                expirationDate.setDate(expirationDate.getDate() + 14);
+
+                if (userData.expirationDate > currentTimestamp) {
+                    name.value = userData.name;
+                    familyName.value = userData.familyName;
+                    phoneNumber.value = userData.phoneNumber;
+                } else {
+                    localStorage.removeItem('userData');
+                }
+                localStorage.setItem('userData', name.value);
+            }
+        } catch (error) {
+            console.error('localStorage is not defined or supported on the server side.');
+        }
 
         const login = async () => {
-            error.value = '';
+            const user = { name: name.value, familyName: familyName.value, phoneNumber: phoneNumber.value };
 
-            const loginSuccess = await store.login(username.value, password.value, pin.value);
+            try {
+                authStore.login(user);
+                authStore.updateUserData(user);
 
-            if (!loginSuccess) {
-                error.value = 'Invalid credentials. Please try again.';
-            } else {
-                const router = useNuxtApp().router;
-                router.push('/dashboard');
+                const userData = {
+                    name: user.name,
+                    familyName: user.familyName,
+                    phoneNumber: user.phoneNumber,
+                    expirationDate: expirationDate.getTime(),
+                };
+
+                localStorage.setItem('userData', JSON.stringify(userData));
+
+            } catch (error) {
+                console.error('Error during login:', error);
             }
         };
+
+        return {
+            name,
+            familyName,
+            phoneNumber,
+            login,
+        };
+    },
+    mounted() {
     },
 
     methods: {
@@ -133,7 +158,7 @@ export default {
             }
         }
     },
-};
+}
 </script>
 
 <style scoped>
@@ -331,4 +356,5 @@ h1 {
         width: 100%;
         margin-bottom: 200px;
     }
-}</style>
+}
+</style>
