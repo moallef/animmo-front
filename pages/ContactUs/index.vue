@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import header from '../header.vue'
-import footer from '../footer.vue'
-import belt from './Belt.vue'
-import contactUs from './contactUs.vue'
+import header from '../header.vue';
+import footer from '../footer.vue';
+import belt from './belt.vue';
+import contactUs from './contactUs.vue';
 
 export default {
     name: 'FrontendIndex',
