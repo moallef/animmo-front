@@ -18,7 +18,7 @@
         <SwiperSlide class="container" v-for="banner in bannerList" :key="banner.imgSrc" @v-on:mouseover="stopRotarion"
             @mouseout="stopRotarion">
             <nuxt-link class="routerLink" to="">
-                <img :src="`https://animmo.ir/api/${banner.imgSrc}`" alt="" @mouseenter="stopRotation"
+                <img :src="`https://animmo.ir/${banner.imgSrc}`" alt="" @mouseenter="stopRotation"
                     @mouseout="stopRotation">
             </nuxt-link>
 
