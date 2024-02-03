@@ -3,7 +3,7 @@
         <div class="line"></div>
         <div class="container">
             <nuxt-link to="/theBlog">
-                <img class="blogCover" :src="`https://animmo.ir/api/${blog.imgSrc}`" alt="">
+                <img class="blogCover" :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
                 <div class="description">
                     <p class="title">
                         {{ blog.title }}
@@ -22,12 +22,12 @@
                 </div>
             </nuxt-link>
             <div class="save">
-                <button @click="chnageIcon" >
+                <button @click="chnageIcon">
                     <img :src="iconBoolian ? savedIcon : unsavedIcon" alt="ذخیره">
                 </button>
             </div>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -52,22 +52,22 @@ export default {
         const blogs = await store.fetchBlog();
         this.blog = blogs[this.index] || {};
     },
-    methods:{
-        truncateText(text, maxLength){
+    methods: {
+        truncateText(text, maxLength) {
             if (text.length > maxLength) {
                 return text.slice(0, maxLength) + '...';
             }
             return text
         },
-        chnageIcon(){
-            this.iconBoolian = !this.iconBoolian 
+        chnageIcon() {
+            this.iconBoolian = !this.iconBoolian
         }
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.theBlog{
+.theBlog {
     width: 48%;
     margin-top: 50px;
     margin-left: 1%;

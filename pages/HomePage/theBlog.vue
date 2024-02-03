@@ -3,7 +3,7 @@
         <div class="blogs">
             <div class="theBlog">
                 <div class="blogPoster">
-                    <img :src="`https://animmo.ir/api/${blog.imgSrc}`" alt="">
+                    <img :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
                 </div>
                 <div class="blogTxt">
                     <div class="theBlogTitle">

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="coursesSort">
-            <img :src="`https://animmo.ir/api/${course.imgSrc}`" alt="">
+            <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
             <div class="textContainer">
                 <div class="courseText">
                     <div class="courseTitle">
