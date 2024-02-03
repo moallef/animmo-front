@@ -3,7 +3,7 @@
         <div class="blogs">
             <div class="theBlog">
                 <div class="blogPoster">
-                    <img :src="`http://127.0.0.1:8000/${blog.imgSrc}`" alt="">
+                    <img :src="`https://animmo.ir/api/${blog.imgSrc}`" alt="">
                 </div>
                 <div class="blogTxt">
                     <div class="theBlogTitle">

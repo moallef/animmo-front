@@ -3,7 +3,7 @@
         <div class="line"></div>
         <div class="container">
             <nuxt-link to="/theBlog">
-                <img class="blogCover" :src="`http://127.0.0.1:8000/${blog.imgSrc}`" alt="">
+                <img class="blogCover" :src="`https://animmo.ir/api/${blog.imgSrc}`" alt="">
                 <div class="description">
                     <p class="title">
                         {{ blog.title }}

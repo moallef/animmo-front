@@ -9,7 +9,7 @@ export const useFeedbackStore = defineStore({
   actions: {
     async postCommentToDatabase(newComment) {
       try {
-        const response = await axios.post("http://127.0.0.1:8000/feedback/", {
+        const response = await axios.post("https://animmo.ir/api/feedback/", {
           comment: newComment,
         });
         const commentData = response.data; 

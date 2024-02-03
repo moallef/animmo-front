@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="background">
-            <img id="bground" :src="`http://127.0.0.1:8000/${blog.imgSrc}`" alt="">
+            <img id="bground" :src="`https://animmo.ir/api/${blog.imgSrc}`" alt="">
         </div>
     </div>
 </template>

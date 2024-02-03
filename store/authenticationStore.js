@@ -1,25 +1,34 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-export const useAuthStore = defineStore("auth", {
+export const useAuthStore = defineStore({
+  id: 'auth',
   state: () => ({
-    user: null,
-    isAuthenticated: false,
+    registrationData: {
+      name: '',
+      familyName: '',
+      phoneNumber: '',
+      OTP: '',
+      expirationDate: 0,
+    },
   }),
-  getters: {
-    getUser: (state) => state.user,
-    isAuthenticated: (state) => state.isAuthenticated,
-  },
   actions: {
-    login(user) {
-      this.user = user;
-      this.isAuthenticated = true;
+    setRegistrationData(data) {
+      this.registrationData = data;
     },
-    logout() {
-      this.user = null;
-      this.isAuthenticated = false;
-    },
-    updateUserData(user) {
-      this.user = user;
+    async registerUser() {
+      try {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 7);
+
+        this.registrationData.expirationDate = expirationDate.getTime();
+
+        const response = await this.$axios.post('accounts/register', this.registrationData);
+
+        console.log('Registration successful:', response.data);
+      } catch (error) {
+        console.error('Registration error:', error);
+      }
     },
   },
 });
+

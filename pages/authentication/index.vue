@@ -14,8 +14,10 @@
                 <div class="container">
 
                     <div class="buttons">
-                        <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''">ورود</button>
-                        <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت نام </button>
+                        <button autofocus @click="changeFocus(true)"
+                            :id="focusBoolian ? 'logIn' : ''">ورود</button>
+                        <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت
+                            نام </button>
                     </div>
                     <div class="inputs">
                         <div :id="checkNumber ? 'logInInput' : 'hint'">
@@ -38,14 +40,15 @@
                         </div>
                     </div>
                     <div class="oneTimePassword">
-                        <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword' " @click="changeOTP(true); checkPhoneNumber()">
+                        <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword'"
+                            @click="changeOTP(true); checkPhoneNumber() ; registerUser()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
                         </button>
-                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
-                            تایید  
+                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false) ; registerUser()">
+                            تایید
                         </button>
                     </div>
                     <div class="otherWays">
@@ -91,52 +94,26 @@ export default {
 
     setup() {
         const authStore = useAuthStore();
-        const name = ref('');
-        const familyName = ref('');
-        const phoneNumber = ref('');
-        var OTP =ref('');
-
-        try {
-            
-            if (storedUserData) {
-                const userData = JSON.parse(storedUserData);
-                const currentTimestamp = new Date().getTime();
-
-                const expirationDate = new Date();
-                expirationDate.setDate(expirationDate.getDate() + 14);
-
-                if (userData.expirationDate > currentTimestamp) {
-                    name.value = userData.name;
-                    familyName.value = userData.familyName;
-                    phoneNumber.value = userData.phoneNumber;
-                } else {
-                    localStorage.removeItem('userData');
-                }
-                localStorage.setItem('userData', name.value);
-            }
-        } catch (error) {
-            console.error('localStorage is not defined or supported on the server side.');
-        }
-
-        const login = async () => {
-            const user = { name: name.value, familyName: familyName.value, phoneNumber: phoneNumber.value };
-
+        const registerUser = async () => {
             try {
-                authStore.login(user);
-                authStore.updateUserData(user);
-
                 const userData = {
-                    name: user.name,
-                    familyName: user.familyName,
-                    phoneNumber: user.phoneNumber,
-                    OTP: user.OTP,
-                    expirationDate: expirationDate.getTime(),
+                    name: this.name,
+                    familyName: this.familyName,
+                    phoneNumber: this.phoneNumber,
+                    OTP: this.OTP,
+                };
+                authStore.setRegistrationData(userData);
+                await authStore.registerUser();
+
+                const userDataWithExpiration = {
+                    ...userData,
+                    expirationDate: authStore.registrationData.expirationDate,
                 };
 
-                localStorage.setItem('userData', JSON.stringify(userData));
+                localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
 
             } catch (error) {
-                console.error('Error during login:', error);
+                console.error('Error during registration:', error);
             }
         };
 
@@ -144,6 +121,7 @@ export default {
             name,
             familyName,
             phoneNumber,
+            registerUser,
             login,
         };
     },

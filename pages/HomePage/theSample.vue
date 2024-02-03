@@ -1,7 +1,7 @@
 <template>
   <nuxt-link to="workSamples">
     <div class="productShowCase">
-      <img class="sampleImg" :src="`http://127.0.0.1:8000/${exercise.sample_exercise}`" alt="Product Image">
+      <img class="sampleImg" :src="`https://animmo.ir/api/${exercise.sample_exercise}`" alt="Product Image">
       <button class="likeButtn">
         <img src="../../assets/icons/LikeBefore.png" alt="">
       </button>
