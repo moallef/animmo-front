@@ -83,7 +83,7 @@ export default {
             firstName: null,
             familyName: null,
             phoneNumber: null,
-            OTP_Boolian: false,
+            OTP_Boolian: true,
             checkNumber: true,
         };
     },
