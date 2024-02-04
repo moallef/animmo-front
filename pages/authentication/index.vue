@@ -147,8 +147,8 @@ export default {
         checkPhoneNumber() {
             // const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
             // if (this.phoneNumber === '' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)) {
-                this.OTP_Boolian = true;
-                this.checkNumber = true;
+                // this.OTP_Boolian = true;
+                // this.checkNumber = true;
             // }
         }
     },
