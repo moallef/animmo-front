@@ -1,13 +1,10 @@
 import { defineStore } from 'pinia';
+import * as axios from 'axios';
 
 export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({
     registrationData: {
-      name: '',
-      familyName: '',
-      phoneNumber: '',
-      OTP: '',
       expirationDate: 0,
     },
   }),
@@ -22,7 +19,7 @@ export const useAuthStore = defineStore({
 
         this.registrationData.expirationDate = expirationDate.getTime();
 
-        const response = await this.$axios.post('http://127.0.0.1:8000/accounts/register/', this.registrationData);
+        const response = await axios.post('http://127.0.0.1:8000/accounts/register/', this.registrationData);
 
         console.log('Registration successful:', response.data);
       } catch (error) {

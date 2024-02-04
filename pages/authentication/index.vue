@@ -22,20 +22,20 @@
                         <div :id="checkNumber ? 'logInInput' : 'hint'">
                             شماره تلفن اشتباه است!
                         </div>
-                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phoneNumber }}</div>
+                        <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phone_number }}</div>
                         <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder="نام " v-model="firstName">
+                            <input type="text" class="input" placeholder="نام " v-model="first_name">
                         </div>
                         <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="familyName">
                         </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه"
-                                v-model="phoneNumber">
+                                v-model="phone_number">
                         </div>
                         <div :id="OTP_Boolian ? '' : 'logInInput'">
                             <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="رمز یکبار مصرف"
-                                v-model="OTP">
+                                v-model="code">
                         </div>
                     </div>
                     <div class="oneTimePassword">
@@ -80,10 +80,10 @@ export default {
     data() {
         return {
             focusBoolian: true,
-            firstName: null,
-            familyName: null,
-            phoneNumber: null,
-            OTP_Boolian: true,
+            first_name: null,
+            last_name: null,
+            phone_number: null,
+            OTP_Boolian: false,
             checkNumber: true,
         };
     },
@@ -94,19 +94,19 @@ export default {
     setup() {
         const authStore = useAuthStore();
 
-        const firstName = ref('');
-        const familyName = ref('');
-        const phoneNumber = ref('');
-        const OTP = ref('');
+        const first_name = ref('');
+        const last_name = ref('');
+        const phone_number = ref('');
+        const code = ref('');
 
         const registerUser = async () => {
             let userData;
             try {
                 const userData = {
-                    firstName: firstName.value,
-                    familyName: familyName.value,
-                    phoneNumber: phoneNumber.value,
-                    OTP: OTP.value,
+                    first_name: first_name.value,
+                    last_name: last_name.value,
+                    phone_number: phone_number.value,
+                    code: code.value,
                 };
 
                 await authStore.registerUser(userData);
@@ -124,10 +124,10 @@ export default {
         };
 
         return {
-            firstName,
-            familyName,
-            phoneNumber,
-            OTP,
+            first_name,
+            last_name,
+            phone_number,
+            code,
             registerUser,
 
         };
@@ -145,11 +145,11 @@ export default {
             this.checkNumber = true;
         },
         checkPhoneNumber() {
-            // const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
-            // if (this.phoneNumber === '' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)) {
-                // this.OTP_Boolian = true;
-                // this.checkNumber = true;
-            // }
+            const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
+            if (this.phone_number === '' || this.phone_number === null || !iranianPhoneNumberRegex.test(this.phone_number)) {
+                this.OTP_Boolian = false;
+                this.checkNumber = false;
+            }
         }
     },
 }
