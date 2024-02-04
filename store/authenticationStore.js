@@ -22,7 +22,7 @@ export const useAuthStore = defineStore({
 
         this.registrationData.expirationDate = expirationDate.getTime();
 
-        const response = await this.$axios.post('accounts/register', this.registrationData);
+        const response = await this.$axios.post('http://127.0.0.1:8000/accounts/register/', this.registrationData);
 
         console.log('Registration successful:', response.data);
       } catch (error) {

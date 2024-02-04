@@ -14,8 +14,7 @@
                 <div class="container">
 
                     <div class="buttons">
-                        <button autofocus @click="changeFocus(true)"
-                            :id="focusBoolian ? 'logIn' : ''">ورود</button>
+                        <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''">ورود</button>
                         <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت
                             نام </button>
                     </div>
@@ -25,7 +24,7 @@
                         </div>
                         <div :id="OTP_Boolian ? 'sentCode' : 'logInInput'"> شماره تلفن شما : {{ phoneNumber }}</div>
                         <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder="نام " v-model="name">
+                            <input type="text" class="input" placeholder="نام " v-model="firstName">
                         </div>
                         <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="familyName">
@@ -41,13 +40,13 @@
                     </div>
                     <div class="oneTimePassword">
                         <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword'"
-                            @click="changeOTP(true); checkPhoneNumber() ; registerUser()">
+                            @click="changeOTP(true); checkPhoneNumber(); registerUser()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
                         </button>
-                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false) ; registerUser()">
+                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false); registerUser()">
                             تایید
                         </button>
                     </div>
@@ -81,7 +80,7 @@ export default {
     data() {
         return {
             focusBoolian: true,
-            name: null,
+            firstName: null,
             familyName: null,
             phoneNumber: null,
             OTP_Boolian: false,
@@ -94,16 +93,23 @@ export default {
 
     setup() {
         const authStore = useAuthStore();
+
+        const firstName = ref('');
+        const familyName = ref('');
+        const phoneNumber = ref('');
+        const OTP = ref('');
+
         const registerUser = async () => {
+            let userData;
             try {
                 const userData = {
-                    name: this.name,
-                    familyName: this.familyName,
-                    phoneNumber: this.phoneNumber,
-                    OTP: this.OTP,
+                    firstName: firstName.value,
+                    familyName: familyName.value,
+                    phoneNumber: phoneNumber.value,
+                    OTP: OTP.value,
                 };
-                authStore.setRegistrationData(userData);
-                await authStore.registerUser();
+
+                await authStore.registerUser(userData);
 
                 const userDataWithExpiration = {
                     ...userData,
@@ -113,16 +119,17 @@ export default {
                 localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
 
             } catch (error) {
-                console.error('Error during registration:', error);
+                // console.error('Error during registration:', error);
             }
         };
 
         return {
-            name,
+            firstName,
             familyName,
             phoneNumber,
+            OTP,
             registerUser,
-            login,
+
         };
     },
     mounted() {
@@ -138,11 +145,11 @@ export default {
             this.checkNumber = true;
         },
         checkPhoneNumber() {
-            const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
-            if (this.phoneNumber === '' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)) {
+            // const iranianPhoneNumberRegex = /^(\+98|0)?9\d{9}$/;
+            // if (this.phoneNumber === '' || this.phoneNumber === null || !iranianPhoneNumberRegex.test(this.phoneNumber)) {
                 this.OTP_Boolian = false;
                 this.checkNumber = false;
-            }
+            // }
         }
     },
 }
