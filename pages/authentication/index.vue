@@ -148,6 +148,8 @@ export default {
 
         changeFocus(change) {
             this.focusBoolian = change;
+            this.OTP_Boolian= false;
+            this.checkNumber= true;
         },
         changeOTP(change) {
             this.OTP_Boolian = change;

@@ -2,7 +2,7 @@
     <div>
         <div class="classification">
             <div>
-                <p id="classifications">دسته بندی ها</p>
+                <p id="classifications">دوره ها</p>
             </div>
             <div class="courses">
                 <courses-Sort v-for="(course, index) in courses" :key="index" :index="index" />

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="courses">
-            <p>دوره ها</p>
+            <p>دسته بندی ها</p>
             <div class="sections">
                 <button v-for="(category , index ) in categories.slice(0,5)"  :key="category.id">
                     <img :src="category.icon" alt="">
