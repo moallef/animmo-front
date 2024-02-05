@@ -39,14 +39,14 @@
                     </div>
                     <div class="oneTimePassword">
                         <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword'"
-                            @click="changeOTP(true); checkPhoneNumber(); registerUser(); register()">
+                            @click="changeOTP(true); checkPhoneNumber(); registerUser(); loginUser(); register() ;login()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'"
-                            @click="changeOTP(false); registerUser(); register()">
+                            @click="changeOTP(false); registerUser(); loginUser(); register() ; login()">
                             تایید
                         </button>
                     </div>
@@ -102,8 +102,11 @@ export default {
                     first_name: first_name.value,
                     last_name: last_name.value,
                     phone_number: phone_number.value,
-                    // code: code.value,
                 };
+
+                // const OTP = {                    
+                //     code: code.value,
+                // }
 
                 authStore.setRegistrationData(userData);
 
@@ -120,16 +123,16 @@ export default {
         };
 
 
-        // const loginUser = async () => {
-        //     try {
-        //         const phoneNumber = {
-        //             phone_number: phone_number.value,
-        //         };
-        //         await authStore.loginUser(phoneNumber);
-        //     } catch (error) {
-        //         console.error('Error during login:', error);
-        //     }
-        // };
+        const loginUser = async () => {
+            try {
+                const phoneNumber = {
+                    phone_number: phone_number.value,
+                };
+                authStore.loginUser(phoneNumber);
+            } catch (error) {
+                console.error('Error during login:', error);
+            }
+        };
 
         return {
             first_name,
@@ -164,7 +167,9 @@ export default {
         },
         async register() {
             await this.authStore.registerUser();
-
+        },
+        async login() {
+            await this.authStore.loginUser();
         }
     },
 }
