@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="header">
-
             <header-app />
         </div>
 
@@ -27,7 +26,7 @@
                             <input type="text" class="input" placeholder="نام " v-model="first_name">
                         </div>
                         <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
-                            <input type="text" class="input" placeholder="نام خانوادگی" v-model="familyName">
+                            <input type="text" class="input" placeholder="نام خانوادگی" v-model="last_name">
                         </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="تلفن همراه"
@@ -40,13 +39,14 @@
                     </div>
                     <div class="oneTimePassword">
                         <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword'"
-                            @click="changeOTP(true); checkPhoneNumber(); registerUser()">
+                            @click="changeOTP(true); checkPhoneNumber(); registerUser(); register()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
                         </button>
-                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false); registerUser()">
+                        <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'"
+                            @click="changeOTP(false); registerUser(); register()">
                             تایید
                         </button>
                     </div>
@@ -80,9 +80,6 @@ export default {
     data() {
         return {
             focusBoolian: true,
-            first_name: null,
-            last_name: null,
-            phone_number: null,
             OTP_Boolian: false,
             checkNumber: true,
         };
@@ -100,20 +97,19 @@ export default {
         const code = ref('');
 
         const registerUser = async () => {
-            let userData;
             try {
                 const userData = {
                     first_name: first_name.value,
                     last_name: last_name.value,
                     phone_number: phone_number.value,
-                    code: code.value,
+                    // code: code.value,
                 };
 
-                await authStore.registerUser(userData);
+                authStore.setRegistrationData(userData);
 
                 const userDataWithExpiration = {
                     ...userData,
-                    expirationDate: authStore.registrationData.expirationDate,
+                    expirationDate: useAuthStore.registrationData.expirationDate,
                 };
 
                 localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
@@ -123,13 +119,26 @@ export default {
             }
         };
 
+
+        // const loginUser = async () => {
+        //     try {
+        //         const phoneNumber = {
+        //             phone_number: phone_number.value,
+        //         };
+        //         await authStore.loginUser(phoneNumber);
+        //     } catch (error) {
+        //         console.error('Error during login:', error);
+        //     }
+        // };
+
         return {
             first_name,
             last_name,
             phone_number,
             code,
             registerUser,
-
+            authStore,
+            // loginUser,
         };
     },
     mounted() {
@@ -150,6 +159,10 @@ export default {
                 this.OTP_Boolian = false;
                 this.checkNumber = false;
             }
+        },
+        async register() {
+            await this.authStore.registerUser();
+
         }
     },
 }

@@ -4,14 +4,19 @@ import * as axios from 'axios';
 export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({
-    registrationData: {
-      expirationDate: 0,
+    phoneNumber: {
+      phone_number: '',
     },
+    code: '',
+    // isAuthenticated : false,
   }),
   actions: {
-    setRegistrationData(data) {
-      this.registrationData = data;
+    setRegistrationData(userData) {
+      this.registrationData = userData;
     },
+    // setLoginData(data){
+    //   this.phoneNumber = data;
+    // },
     async registerUser() {
       try {
         const expirationDate = new Date();
@@ -19,13 +24,31 @@ export const useAuthStore = defineStore({
 
         this.registrationData.expirationDate = expirationDate.getTime();
 
-        const response = await axios.post('http://127.0.0.1:8000/accounts/register/', this.registrationData);
+        const response = await axios.post('https:animmo.ir/accounts/register/', this.registrationData);
 
         console.log('Registration successful:', response.data);
+
+        await useAuthStore.registerUser();
       } catch (error) {
         console.error('Registration error:', error);
+        console.log('Registration Data:', this.registrationData );
+        throw error;
       }
     },
+    // async loginUser() {
+    //   try {
+    //     const response = await axios.post('https:animmo.ir/accounts/login/', this.phone_number);
+    //     if(response){
+    //       this.isAuthenticated = true;
+    //       console.log('Login successful:', response.data);
+    //     }
+    //     else{
+    //       this.isAuthenticated = false;
+    //     }
+    //   } catch (error) {
+    //     console.error('Login error:', error);
+    //   };
+    // }
   },
 });
 
