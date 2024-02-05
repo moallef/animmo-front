@@ -24,7 +24,7 @@ export const useAuthStore = defineStore({
 
         this.registrationData.expirationDate = expirationDate.getTime();
 
-        const response = await axios.post('https:animmo.ir/accounts/register/', this.registrationData);
+        const response = await axios.post('https:animmo.ir/api/accounts/register/', this.registrationData);
 
         console.log('Registration successful:', response.data);
 
