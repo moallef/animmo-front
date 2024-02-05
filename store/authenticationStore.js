@@ -8,7 +8,7 @@ export const useAuthStore = defineStore({
       phone_number: '',
     },
     code: '',
-    // isAuthenticated : false,
+    isAuthenticated : false,
   }),
   actions: {
     setRegistrationData(userData) {
