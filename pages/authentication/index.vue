@@ -46,7 +46,7 @@
                             تغییر شماره تلفن
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'"
-                            @click="changeOTP(false); registerUser(); loginUser(); register() ; login()">
+                            @click="changeOTP(false); registerUser(); loginUser();varification(); register() ; login()">
                             تایید
                         </button>
                     </div>
@@ -128,9 +128,20 @@ export default {
                 const phoneNumber = {
                     phone_number: phone_number.value,
                 };
-                authStore.loginUser(phoneNumber);
+                authStore.setLoginData(phoneNumber);
             } catch (error) {
                 console.error('Error during login:', error);
+            }
+        };
+
+        const varification = async () => {
+            try {
+                const OTP = {
+                    code: code.value,
+                };
+                authStore.setLoginData(OTP);
+            } catch (error) {
+                console.error('Error during varification:', error);
             }
         };
 
@@ -140,8 +151,9 @@ export default {
             phone_number,
             code,
             registerUser,
+            loginUser,
+            varification,
             authStore,
-            // loginUser,
         };
     },
     mounted() {
@@ -166,10 +178,14 @@ export default {
             }
         },
         async register() {
-            await this.authStore.registerUser();
+            if (this.focusBoolian === false) {
+                await this.authStore.registerUser();
+            }
         },
         async login() {
-            await this.authStore.loginUser();
+            if (this.focusBoolian === true) {
+                await this.authStore.loginUser();
+            }
         }
     },
 }
