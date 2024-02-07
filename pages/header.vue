@@ -126,7 +126,7 @@
 </template>
 
 <script>
-// import {useAuthStore} from '~/store/authenticationStore.js';
+import {useAuthStore} from '~/store/authenticationStore.js';
 
 export default {
     data() {
@@ -136,10 +136,10 @@ export default {
             authenticationSituation: null,
         }
     },
-    // created(){
-    //     const authStore = useAuthStore();
-    //     this.authenticationSituation = authStore.isAuthenticated;
-    // },
+    created(){
+        const authStore = useAuthStore();
+        this.authenticationSituation = authStore.isAuthenticated;
+    },
     computed: {
         searchResults() {
             return this.$store.getters.getCourse.filter(course =>

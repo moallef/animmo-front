@@ -1,25 +1,26 @@
 import { defineStore } from "pinia";
 import * as axios from "axios";
+import Swal from "sweetalert2";
 
 export const useAuthStore = defineStore({
   id: "auth",
   state: () => {
-    return{
+    return {
       registrationData: {
-        first_name: '',
-        last_name: '',
-        phone_number: '',
+        first_name: "",
+        last_name: "",
+        phone_number: "",
       },
-      loginData :{
-        phone_number : '',
+      loginData: {
+        phone_number: "",
       },
-      varificationData : {
-        code  : '',
+      varificationData: {
+        code: "",
       },
       code: "",
       isAuthenticated: false,
       loggedIn: false,
-    }
+    };
   },
   actions: {
     setRegistrationData(userData) {
@@ -33,21 +34,33 @@ export const useAuthStore = defineStore({
     },
     async registerUser() {
       try {
-        const expirationDate = new Date();
-        expirationDate.setDate(expirationDate.getDate() + 7);
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/accounts/register/",
+        this.registrationData
+      );
+      console.log("Registration response:");
+      console.log(response.massage);
+      if (response.status === 400) {
+        Swal.fire({
+          icon: "info",
+          title: response.data.massage,
+          text: "",
+        });
+      }
+      if (response.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: response.data.massage,
+        });
+      }
 
-        this.registrationData.expirationDate = expirationDate.getTime();
+      // console.log("Registration successful:", response.data);
 
-        const response = await axios.post(
-          "http://127.0.0.1:8000/api/accounts/register/",
-          this.registrationData
-        );
-
-        console.log("Registration successful:", response.data);
-
-        await useAuthStore.registerUser();
+      // await useAuthStore.registerUser();
       } catch (error) {
-        throw error;
+      console.log(error);
+      console.log('hi');
+      throw error;
       }
     },
     async loginUser() {
@@ -68,20 +81,31 @@ export const useAuthStore = defineStore({
     },
     async varifyUser() {
       try {
-        console.log(this.varificationData);
         const response = await axios.post(
           "http://127.0.0.1:8000/api/accounts/login/verify/",
           this.varificationData
         );
-        if (response === 'invalid data') {
+        if (response.status === 500) {
           this.loggedIn = false;
-          alert('دوباره امتحان کنید');
+          Swal.fire({
+            icon: "info",
+            title: response.massage,
+            text: "",
+          });
         }
-        if (response === 'invalid code') {
+        if (response.status === 400) {
           this.loggedIn = false;
-          alert('کد وارد شده نامعتبر است');
-        }else{
+          Swal.fire({
+            title: response.massage,
+            text: "",
+          });
+        } else {
           this.loggedIn = true;
+          Swal.fire({
+            icon: "success",
+            title: response.massage,
+            text: "",
+          });
         }
       } catch (error) {
         console.log(error);
