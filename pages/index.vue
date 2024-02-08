@@ -17,40 +17,45 @@ import home from './HomePage/home.vue'
 
 
 
-    export default{
-        components:{
-            "header-app" : header,
-            "footer-app" : footer,
-            "home-page" : home,
+export default {
+    components: {
+        "header-app": header,
+        "footer-app": footer,
+        "home-page": home,
 
-        }
     }
+}
 </script>
 
 <style>
-
-body{
+body {
     direction: rtl;
 }
-p{
+
+p {
     color: black;
 }
-a{
+
+a {
     color: none;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
-.routerLink{
+
+.routerLink {
     cursor: pointer;
 }
-a{
+
+a {
     text-decoration: none;
 }
-button{
+
+button {
     cursor: pointer;
 }
 </style>

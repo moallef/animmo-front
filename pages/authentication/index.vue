@@ -25,7 +25,7 @@
                         <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام " v-model="first_name">
                         </div>
-                        <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''">
+                        <div :id="focusBoolian || OTP_Boolian  ? 'logInInput' : ''">
                             <input type="text" class="input" placeholder="نام خانوادگی" v-model="last_name">
                         </div>
                         <div :id="OTP_Boolian ? 'logInInput' : ''">
@@ -39,14 +39,14 @@
                     </div>
                     <div class="oneTimePassword">
                         <button :id="OTP_Boolian ? 'logInInput' : 'sendPassword'"
-                            @click="changeOTP(true); checkPhoneNumber(); registerUser(); loginUser(); register() ;login()">
+                            @click="changeOTP(true); checkPhoneNumber(); register(); login(); getCorrectData()">
                             ارسال رمز یکبار مصرف
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'" @click="changeOTP(false)">
                             تغییر شماره تلفن
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'"
-                            @click="changeOTP(false); registerUser(); loginUser();varification(); register() ; login()">
+                            @click="changeOTP(false) ;varification();">
                             تایید
                         </button>
                     </div>
@@ -82,89 +82,28 @@ export default {
             focusBoolian: true,
             OTP_Boolian: false,
             checkNumber: true,
+            correctData: true,
+            first_name: '',
+            last_name: '',
+            phone_number: '',
+            code: ''
         };
     },
     components: {
         "header-app": header,
     },
-
-    setup() {
-        const authStore = useAuthStore();
-
-        const first_name = ref('');
-        const last_name = ref('');
-        const phone_number = ref('');
-        const code = ref('');
-
-        const registerUser = async () => {
-            try {
-                const userData = {
-                    first_name: first_name.value,
-                    last_name: last_name.value,
-                    phone_number: phone_number.value,
-                };
-
-                // const OTP = {                    
-                //     code: code.value,
-                // }
-
-                authStore.setRegistrationData(userData);
-
-                const userDataWithExpiration = {
-                    ...userData,
-                    expirationDate: useAuthStore.registrationData.expirationDate,
-                };
-
-                localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
-
-            } catch (error) {
-                // console.error('Error during registration:', error);
-            }
-        };
-
-
-        const loginUser = async () => {
-            try {
-                const phoneNumber = {
-                    phone_number: phone_number.value,
-                };
-                authStore.setLoginData(phoneNumber);
-            } catch (error) {
-                console.error('Error during login:', error);
-            }
-        };
-
-        const varification = async () => {
-            try {
-                const OTP = {
-                    code: code.value,
-                };
-                authStore.setLoginData(OTP);
-            } catch (error) {
-                console.error('Error during varification:', error);
-            }
-        };
-
-        return {
-            first_name,
-            last_name,
-            phone_number,
-            code,
-            registerUser,
-            loginUser,
-            varification,
-            authStore,
-        };
-    },
-    mounted() {
-    },
+    // computed() {
+    //     const authStore = useAuthStore();
+    //     this.correctData = computed(() => authStore.correctData);
+    //     console.log(this.correctData);
+    // },
 
     methods: {
 
         changeFocus(change) {
             this.focusBoolian = change;
-            this.OTP_Boolian= false;
-            this.checkNumber= true;
+            this.OTP_Boolian = false;
+            this.checkNumber = true;
         },
         changeOTP(change) {
             this.OTP_Boolian = change;
@@ -177,15 +116,63 @@ export default {
                 this.checkNumber = false;
             }
         },
+        backToFirstStep(){
+            if (this.correctData === false) {
+                this.OTP_Boolian = false;
+            }
+        },
         async register() {
+            const authStore = useAuthStore();
             if (this.focusBoolian === false) {
-                await this.authStore.registerUser();
+                try {
+                    const userData = {
+                        first_name: this.first_name,
+                        last_name: this.last_name,
+                        phone_number: this.phone_number,
+                    };
+
+                    await authStore.setRegistrationData(userData);
+
+                    const userDataWithExpiration = {
+                        ...userData,
+                        expirationDate: authStore.registrationData.expirationDate,
+                    };
+
+                    localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
+
+                } catch (error) {
+                    console.error('Error during registration:', error);
+                }
             }
         },
         async login() {
+            const authStore = useAuthStore();
             if (this.focusBoolian === true) {
-                await this.authStore.loginUser();
+                try {
+                    const phoneNumber = {
+                        phone_number: this.phone_number,
+                    };
+                    await authStore.setLoginData(phoneNumber);
+                } catch (error) {
+                    console.error('Error during login:', error);
+                }
             }
+        },
+        async varification() {
+            const authStore = useAuthStore();
+            try {
+                const OTP = {
+                    code: this.code,
+                };
+                await authStore.setVarifyData(OTP);
+            } catch (error) {
+                console.error('Error during varification:', error);
+            }
+        },
+        getCorrectData() {
+            const authStore = useAuthStore();
+            this.correctData = computed(() => authStore.correctData);
+            console.log(this.correctData);
         }
     },
 }

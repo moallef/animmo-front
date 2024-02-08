@@ -20,17 +20,24 @@ export const useAuthStore = defineStore({
       code: "",
       isAuthenticated: false,
       loggedIn: false,
+      correctData: true,
     };
   },
+  getters: {
+    getCorrectData: state => state.correctData,
+  },
   actions: {
-    setRegistrationData(userData) {
+    async setRegistrationData(userData) {
       this.registrationData = userData;
+      await this.registerUser()
     },
-    setLoginData(phoneNumber) {
+    async setLoginData(phoneNumber) {
       this.loginData = phoneNumber;
+      await this.loginUser()
     },
-    setVarifyData(OTP) {
+    async setVarifyData(OTP) {
       this.varificationData = OTP;
+      await this.varifyUser()
     },
     async registerUser() {
       try {
@@ -38,28 +45,16 @@ export const useAuthStore = defineStore({
         "http://127.0.0.1:8000/api/accounts/register/",
         this.registrationData
       );
-      console.log("Registration response:");
-      console.log(response.massage);
-      if (response.status === 400) {
+      if (response.status === 203) {
+        this.correctData = false;
         Swal.fire({
-          icon: "info",
-          title: response.data.massage,
-          text: "",
-        });
-      }
-      if (response.status === 200) {
-        Swal.fire({
-          icon: "success",
+          icon: "error",
           title: response.data.massage,
         });
       }
 
-      // console.log("Registration successful:", response.data);
-
-      // await useAuthStore.registerUser();
       } catch (error) {
       console.log(error);
-      console.log('hi');
       throw error;
       }
     },
@@ -69,11 +64,16 @@ export const useAuthStore = defineStore({
           "http://127.0.0.1:8000/api/accounts/login/",
           this.loginData
         );
-        if (response) {
+        if (response.status === 200) {
           this.isAuthenticated = true;
           console.log("Login successful:", response.data);
-        } else {
+        } if(response.status === 203) {
+          this.correctData = false;
           this.isAuthenticated = false;
+          Swal.fire({
+            icon: "error",
+            title: response.data.massage,
+          });
         }
       } catch (error) {
         console.error("Login error:", error);
@@ -85,25 +85,20 @@ export const useAuthStore = defineStore({
           "http://127.0.0.1:8000/api/accounts/login/verify/",
           this.varificationData
         );
-        if (response.status === 500) {
-          this.loggedIn = false;
-          Swal.fire({
-            icon: "info",
-            title: response.massage,
-            text: "",
-          });
-        }
-        if (response.status === 400) {
-          this.loggedIn = false;
-          Swal.fire({
-            title: response.massage,
-            text: "",
-          });
-        } else {
+        console.log(response);
+        if (response.status === 200) {
           this.loggedIn = true;
+          this.correctData = true;
           Swal.fire({
             icon: "success",
-            title: response.massage,
+            title: response.data.massage,
+          });
+        }
+        if (response.status === 203) {
+          this.loggedIn = true;
+          Swal.fire({
+            icon: "error",
+            title: response.data.massage,
             text: "",
           });
         }
