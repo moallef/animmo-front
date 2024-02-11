@@ -48,7 +48,7 @@ export const useAuthStore = defineStore({
     async registerUser() {
       try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/accounts/register/",
+        "https://animmo.ir/api/accounts/register/",
         this.registrationData
       );
       if (response.status === 203) {
@@ -66,7 +66,7 @@ export const useAuthStore = defineStore({
     async loginUser() {
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/accounts/login/",
+          "https://animmo.ir/api/accounts/login/",
           this.loginData
         );
          if(response.status === 203) {
@@ -83,7 +83,7 @@ export const useAuthStore = defineStore({
     async varifyRegesterUser() {
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/accounts/register/verify/",
+          "https://animmo.ir/api/accounts/register/verify/",
           this.varificationData
         );
         if (response.status === 200) {
@@ -108,7 +108,7 @@ export const useAuthStore = defineStore({
     async varifyLoginUser() {
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/accounts/login/verify/",
+          "https://animmo.ir/api/accounts/login/verify/",
           this.varificationData
         );
         if (response.status === 200) {
