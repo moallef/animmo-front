@@ -88,13 +88,14 @@ export default {
                 console.log(this.newComment.trim());
 
                 if (this.newComment.trim() !== "") {
-                    await feedbackStore.postCommentToDatabase(this.newComment);
+                    await feedbackStore.postComment(this.newComment);
                     this.newComment= "";
                 }
             } catch (error) {
                 console.error('Error submitting comment:', error);
             }
         },
+
     },
 };
 
