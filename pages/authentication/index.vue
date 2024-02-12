@@ -181,7 +181,6 @@ export default {
                     const OTP = {
                         code: this.code,
                         phone_number: this.phone_number,
-                        ///////////////////////////////
                     };
                     await authStore.setVarifyData(OTP);
                 } catch (error) {
