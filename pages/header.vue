@@ -159,12 +159,23 @@ export default {
 </script>
 
 <style scoped>
+/* @font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+li{
+    font-family: 'Yekan Bakh';
+}
 body {
     margin: 0px;
+    font-family: 'Yekan Bakh', sans-serif;
 }
 
 a {
     text-decoration: none;
+    font-family: 'Yekan Bakh';
 }
 
 header {

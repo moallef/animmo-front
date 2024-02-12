@@ -13,8 +13,8 @@
                 <div class="container">
 
                     <div class="buttons">
-                        <button autofocus onchange="getFocusBoolian()" @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''">ورود</button>
-                        <button autofocus onchange="getFocusBoolian()" @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت
+                        <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''">ورود</button>
+                        <button autofocus  @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت
                             نام </button>
                     </div>
                     <div class="inputs">
@@ -46,7 +46,7 @@
                             تغییر شماره تلفن
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'"
-                            @click="changeOTP(false); loginVarification()">
+                            @click="changeOTP(false); loginVarification();registerVarification()">
                             تایید
                         </button>
                     </div>
@@ -94,11 +94,9 @@ export default {
     },
 
     methods: {
-        getFocusBoolian() {
-            const authStore = useAuthStore();
-            this.focusBoolian = authStore.setFocusBoolian();
-        },
         changeFocus(change) {
+            const authStore = useAuthStore();
+            authStore.setFocusBoolian(change)
             this.focusBoolian = change;
             this.OTP_Boolian = false;
             this.checkNumber = true;
@@ -156,13 +154,15 @@ export default {
                 }
             }
         },
-        async regesterVarification() {
+        async registerVarification() {
             if (this.focusBoolian === false) {
                 const authStore = useAuthStore();
                 try {
                     const OTP = {
                         code: this.code,
                         phone_number: this.phone_number,
+                        first_name: this.first_name,
+                        last_name: this.last_name,
                     };
                     await authStore.setVarifyData(OTP);
                 } catch (error) {
@@ -181,6 +181,7 @@ export default {
                     const OTP = {
                         code: this.code,
                         phone_number: this.phone_number,
+                        ///////////////////////////////
                     };
                     await authStore.setVarifyData(OTP);
                 } catch (error) {

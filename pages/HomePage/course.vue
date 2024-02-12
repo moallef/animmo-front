@@ -42,11 +42,18 @@ export default {
 </script>
 
 <style scoped>
+/* @font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
 .courses {
     text-align: center;
 }
 
 .courses p {
+    font-family: 'Yekan Bakh', sans-serif;
     margin-top: 60px;
     font-size: 24px;
     font-weight: 600;

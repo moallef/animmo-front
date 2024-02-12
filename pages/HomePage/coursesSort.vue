@@ -47,6 +47,12 @@ export default {
 </script>
   
 <style scoped>
+/* @font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
 img {
     width: 90%;
     height: 120px;
@@ -82,13 +88,12 @@ img {
 .courseDetails {
     text-align: left;
     color: #979797;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 15px;
     letter-spacing: 0em;
     margin-left: 9%;
-
     margin-bottom: 10px;
 }
 

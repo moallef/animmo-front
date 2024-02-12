@@ -4,7 +4,7 @@
         <course-section/>
         <classification/>
         <work-Samples />
-        <latest-Courses />
+        <!-- <latest-Courses /> -->
         <students-Comments />
         <blog-Component />
     </div>
