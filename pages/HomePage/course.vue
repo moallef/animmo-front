@@ -3,9 +3,14 @@
         <div class="courses">
             <p>دسته بندی ها</p>
             <div class="sections">
-                <button v-for="(category , index ) in categories.slice(0,5)"  :key="category.id">
-                    <img :src="category.icon" alt="">
-                    {{ category.category }}
+                <button class="btn" v-for="(category, index ) in categories.slice(0, 5)" :key="category.id"
+                    @mouseover="hoverSituation(true)" @mouseleave="hoverSituation(false)">
+                    <img :id="this.hover ? 'none' : 'default-icon'" :src="`https://animmo.ir/${category.icon}`" alt="">
+                    <img :id="this.hover ? 'default-icon' : 'none'" :src="`https://animmo.ir/${category.hovered_icon}`"
+                        alt="">
+                        <span id="txt">
+                            {{ category.category }}
+                        </span>
                 </button>
             </div>
         </div>
@@ -18,21 +23,26 @@ import { getClassifications } from '~/API/classification'
 export default {
     data() {
         return {
+            hover: false,
             categories: []
         }
     },
     methods: {
+        hoverSituation(change) {
+            this.hover = change
+        }
     },
     async created() {
         try {
             const data = await getClassifications();
             if (data) {
-                    this.categories = data.map(element => ({
-                        id: element.id,
-                        category: element.category,
-                        imgSrc: element.image,
-                    }));
-                }
+                this.categories = data.map(element => ({
+                    id: element.id,
+                    category: element.category,
+                    icon: element.icon,
+                    hovered_icon: element.hovered_icon,
+                }));
+            }
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -42,12 +52,13 @@ export default {
 </script>
 
 <style scoped>
-/* @font-face {
+@font-face {
     font-family: 'Yekan Bakh';
     src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
     font-weight: normal;
     font-style: normal;
-} */
+}
+
 .courses {
     text-align: center;
 }
@@ -60,6 +71,23 @@ export default {
     line-height: 12px;
     letter-spacing: 0em;
     margin: auto;
+}
+.btn{
+    height: 0px;
+    padding-bottom: 12px;
+}
+#txt{
+    position: relative;
+    bottom: 5px;
+}
+#none {
+    display: none;
+}
+
+#default-icon {
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 25px;
 }
 
 .sections {
@@ -106,5 +134,4 @@ export default {
     .courses button {
         font-size: 12px;
     }
-}
-</style>
+}</style>

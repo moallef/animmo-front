@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import {getFeedbacks } from '~/API/feedbacks.js';
 import { useFeedbackStore } from '~/store/feedbackStore';
 
 export default {
@@ -88,7 +89,7 @@ export default {
                 console.log(this.newComment.trim());
 
                 if (this.newComment.trim() !== "") {
-                    await feedbackStore.postComment(this.newComment);
+                    await feedbackStore.setComment(this.newComment);
                     this.newComment= "";
                 }
             } catch (error) {

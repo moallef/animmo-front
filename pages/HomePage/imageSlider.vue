@@ -58,7 +58,7 @@ export default {
                 if (data) {
                     this.bannerList = data.map(element => ({
                         id: element.id,
-                        imgSrc: element.image,
+                        imgSrc: element.banner,
                         name: element.name
                     }));
                 }

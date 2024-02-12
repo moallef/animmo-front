@@ -6,15 +6,16 @@ import Swal from "sweetalert2";
 export const useFeedbackStore = defineStore({
   id: "feedback",
   state: () => ({
-    comments: [],
+    comments: '',
   }),
   actions: {
-    async postComment(newComment) {
+    async setComment(newComment) {
       try {
         const authStore = useAuthStore();
+        const token = authStore.token
         const feedback = {
           comment: newComment,
-          token: authStore.token,
+          token: token,
         };
         if (token) {          
           const response = await axios.post(
