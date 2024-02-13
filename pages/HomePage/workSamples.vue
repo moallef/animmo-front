@@ -84,6 +84,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .workSamples {
 
     text-align: center;
@@ -96,6 +102,7 @@ export default {
 }
 
 .workSamples p {
+    font-family: 'Yekan Bakh', sans-serif;
     color: #F4F4F4;
     width: 100%;
     height: 12px;

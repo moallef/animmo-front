@@ -33,6 +33,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .container {
     text-align: center;
 }
@@ -48,7 +54,7 @@ video {
 
 p {
     color: #646464;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 25px;

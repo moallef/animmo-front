@@ -47,12 +47,12 @@ export default {
 </script>
   
 <style scoped>
-/* @font-face {
+@font-face {
     font-family: 'Yekan Bakh';
-    src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-} */
+}
 img {
     width: 90%;
     height: 120px;
@@ -102,6 +102,7 @@ img {
 }
 
 a {
+    font-family: 'Yekan Bakh', sans-serif;
     color: #F4F4F4;
 }
 

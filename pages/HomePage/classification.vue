@@ -39,11 +39,18 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 a {
     color: white;
 }
 
 #classifications {
+    font-family: 'Yekan Bakh', sans-serif;
     width: 100%;
     height: 12px;
     font-size: 24px;
@@ -70,6 +77,7 @@ a {
     justify-content: flex-start; 
 }
 .moreBtn {
+    
     color: white;
     width: 9%;
     height: 49px;

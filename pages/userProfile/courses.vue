@@ -51,6 +51,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+    font-family: 'PeydaWeb';
+    src: url('~/assets/Fonts/PeydaWeb/PeydaWeb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .card {
     width: 22%;
 }
@@ -73,7 +80,7 @@ export default {
 }
 
 .title {
-    font-family: IRANYekan;
+    font-family: 'IRAN Yekan';
     font-size: 16px;
     font-weight: 800;
     line-height: 15px;
@@ -85,7 +92,7 @@ export default {
 .teacher {
     color: #646464;
     height: 19px;
-    font-family: IRANYekan;
+    font-family: 'IRAN Yekan';
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
@@ -93,7 +100,7 @@ export default {
 }
 
 .during {
-    font-family: IRANYekan;
+    font-family: 'IRAN Yekan';
     font-size: 12px;
     font-weight: 400;
     line-height: 15px;
@@ -125,7 +132,8 @@ button {
 }
 
 .backupNumber {
-    font-family: Peyda;
+    font-family: 'PeydaWeb', sans-serif;
+
     font-size: 12px;
     font-weight: 400;
     line-height: 17px;
@@ -142,7 +150,8 @@ button {
 
 .guide {
     color: #7D7D7D;
-    font-family: Peyda;
+    font-family: 'PeydaWeb', sans-serif;
+
     font-size: 11px;
     font-weight: 400;
     line-height: 15px;

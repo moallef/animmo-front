@@ -64,6 +64,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .courses {
     display: block;
     gap: 28px;

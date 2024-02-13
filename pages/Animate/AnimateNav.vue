@@ -10,6 +10,12 @@
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 div {
     margin-top: 30px;
     padding-right: 5%;
@@ -19,7 +25,7 @@ div {
 }
 
 p {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 15px;

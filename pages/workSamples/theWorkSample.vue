@@ -31,6 +31,12 @@
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .container {
     background: #F4F4F4;
     height: 277px;
@@ -55,7 +61,7 @@ img {
 }
 
 .student {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 8px;
@@ -65,7 +71,7 @@ img {
 }
 
 .courseStudent {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 8px;

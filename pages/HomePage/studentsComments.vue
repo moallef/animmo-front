@@ -105,6 +105,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .opinionsComponent {
     margin-top: 150px;
     text-align: center;
@@ -115,6 +121,7 @@ export default {
 }
 
 .title {
+    font-family: 'Yekan Bakh', sans-serif;
     width: 262px;
     height: 12px;
     font-size: 39px;
@@ -191,7 +198,7 @@ Input {
     background: #FFFFFF;
     border: none;
     margin-right: 15%;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 12px;
@@ -237,6 +244,7 @@ Input {
 }
 
 .toComment {
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 15px;
     font-weight: 700;
     line-height: 15px;
@@ -247,6 +255,7 @@ Input {
 }
 
 .theComment {
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;

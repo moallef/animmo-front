@@ -37,6 +37,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .blogComponent {
     text-align: right;
     width: 100%;
@@ -48,6 +54,7 @@ export default {
 }
 
 .title {
+    font-family: 'Yekan Bakh', sans-serif;
     width: 100%;
     margin-top: 40px;
     margin-bottom: 50px;

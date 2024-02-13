@@ -42,6 +42,12 @@ export default {
 </script>
 
 <style >
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 p {
   color: #F4F4F4;
 }
@@ -54,7 +60,7 @@ p {
 }
 
 .studentName {
-  font-family: Yekan Bakh;
+  font-family: 'Yekan Bakh', sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 12px;

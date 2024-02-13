@@ -197,6 +197,18 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANSans';
+    src: url('~/assets/Fonts/IRANSans/FontsFree-Net-ir_sans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .image {
     width: 30%;
     margin-right: 100%;
@@ -225,7 +237,7 @@ export default {
 }
 
 h1 {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 27px;
     font-weight: 500;
     line-height: 42px;
@@ -263,7 +275,7 @@ h1 {
     border-radius: 32px;
     width: 148px;
     height: 100%;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 700;
     line-height: 12px;
@@ -308,7 +320,8 @@ h1 {
     padding: 10px 14px 10px 10px;
     border-radius: 33px;
     margin-top: 10px;
-    font-family: IRANSans;
+    font-family: 'IRANSans', sans-serif;
+
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
@@ -335,7 +348,8 @@ h1 {
     border: none;
     background: #8569C2;
     color: white;
-    font-family: IRANSans;
+    font-family: 'IRANSans', sans-serif;
+
     font-size: 12px;
     font-weight: 400;
     line-height: 19px;
@@ -351,7 +365,8 @@ h1 {
     border: none;
     background: #8569C2;
     color: white;
-    font-family: IRANSans;
+    font-family: 'IRANSans', sans-serif;
+
     font-size: 12px;
     font-weight: 400;
     line-height: 19px;
@@ -367,7 +382,8 @@ h1 {
     border: none;
     background: #8569C2;
     color: white;
-    font-family: IRANSans;
+    font-family: 'IRANSans', sans-serif;
+
     font-size: 12px;
     font-weight: 400;
     line-height: 19px;

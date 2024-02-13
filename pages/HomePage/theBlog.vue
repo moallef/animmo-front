@@ -55,6 +55,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .theBlog {
     margin: 10px 8%;
 }
@@ -72,7 +78,7 @@ export default {
 }
 
 .theBlogTitle {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 25px;
     font-weight: 600;
     line-height: 24px;
@@ -82,7 +88,7 @@ export default {
 }
 
 .theBlogDescription {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;

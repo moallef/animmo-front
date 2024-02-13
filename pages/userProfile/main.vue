@@ -49,6 +49,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+    font-family: 'PeydaWeb';
+    src: url('~/assets/Fonts/PeydaWeb/PeydaWeb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .container {
     width: 100%;
     background: #F9F9F9;
@@ -61,7 +67,8 @@ export default {
 }
 
 .title {
-    font-family: Peyda;
+    font-family: 'PeydaWeb', sans-serif;
+
     font-size: 24px;
     font-weight: 400;
     line-height: 34px;
@@ -97,7 +104,8 @@ export default {
     padding: 6px 22px 6px 22px;
     border-radius: 16px;
     border: none;
-    font-family: Peyda;
+    font-family: 'PeydaWeb', sans-serif;
+
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;

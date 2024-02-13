@@ -39,7 +39,7 @@ export default {
 }
 
 .title {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 15px;
@@ -50,7 +50,7 @@ export default {
 }
 
 .route {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 15px;

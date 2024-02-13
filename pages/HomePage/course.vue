@@ -54,7 +54,7 @@ export default {
 <style scoped>
 @font-face {
     font-family: 'Yekan Bakh';
-    src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -73,19 +73,20 @@ export default {
     margin: auto;
 }
 .btn{
+    font-family: 'Yekan Bakh', sans-serif;
     height: 0px;
     padding-bottom: 12px;
 }
 #txt{
     position: relative;
-    bottom: 5px;
+    bottom: 8px;
 }
 #none {
     display: none;
 }
 
 #default-icon {
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 5px;
     width: 25px;
 }

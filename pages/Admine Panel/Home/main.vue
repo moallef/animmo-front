@@ -81,7 +81,7 @@ export default {
     margin-right: 5%;
     padding-top: 100px;
     padding-bottom: 30px;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 28px;
@@ -108,7 +108,7 @@ export default {
     border-radius: 16px;
     margin: 10px;
     border: none;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 28px;

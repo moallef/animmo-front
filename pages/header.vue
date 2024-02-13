@@ -172,12 +172,19 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     margin: 0px;
 }
 
 a {
     text-decoration: none;
+    font-family: 'Yekan Bakh', sans-serif;
 }
 
 header {
@@ -191,6 +198,7 @@ header {
 }
 
 .signIn {
+    font-family: 'Yekan Bakh', sans-serif;
     margin-top: -2px;
     margin-right: 88%;
     background: #8569C2;
@@ -315,6 +323,7 @@ header {
 }
 
 .navBar button {
+    font-family: 'Yekan Bakh', sans-serif;
     border: none;
     background: none;
     font-size: 16px;
@@ -342,6 +351,7 @@ header {
 }
 
 .dropDown button {
+    font-family: 'Yekan Bakh', sans-serif;
     border: none;
     background: none;
     font-size: 17px;

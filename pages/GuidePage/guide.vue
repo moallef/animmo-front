@@ -54,6 +54,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .mutualQuestions {
     height: 602px;
     border-radius: 16px;
@@ -65,7 +71,7 @@ export default {
 }
 
 .theTitle {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 24px;
     font-weight: 700;
     line-height: 12px;
@@ -74,7 +80,7 @@ export default {
 }
 
 .q1 {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
@@ -84,7 +90,7 @@ export default {
 }
 
 .a1 {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -112,7 +118,7 @@ export default {
 }
 
 #title {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 24px;
     font-weight: 700;
     line-height: 12px;
@@ -123,7 +129,7 @@ export default {
 }
 
 #question {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;
@@ -132,7 +138,7 @@ export default {
 }
 
 #answer {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;

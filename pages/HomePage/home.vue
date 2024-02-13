@@ -22,10 +22,10 @@ import Blog from '../HomePage/blog.vue'
 
     export default{
         components: {
-            "work-Samples" : workSamples,
             "image-Slider" : imageSlider,
             "course-section" : course,
             "classification" : classification,
+            "work-Samples" : workSamples,
             "latest-Courses" : latestCourses,
             "students-Comments" : studentsComments,
             "blog-Component" : Blog,
@@ -33,6 +33,5 @@ import Blog from '../HomePage/blog.vue'
     }
 </script>
 
-<style scoped>
-
+<style>
 </style>

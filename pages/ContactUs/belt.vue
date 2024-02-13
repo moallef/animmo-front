@@ -41,7 +41,7 @@ export default {
 }
 
 h1 {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 15px;
@@ -50,7 +50,7 @@ h1 {
 }
 
 p {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 15px;

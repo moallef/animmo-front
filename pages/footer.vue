@@ -7,7 +7,7 @@
 
             <div class="block">
                 <div id="logo">
-                    <img :key="banner.footer_logo" :src="`https://animmo.ir/${banner.footer_logo}`" alt="Animmo"/>
+                    <img v-if="banner" :key="banner.footer_logo" :src="`https://animmo.ir/${banner.footer_logo}`" alt="Animmo"/>
                 </div>
 
                 <div class="container">
@@ -136,6 +136,7 @@ export default {
         return {
             name: "",
             family: "",
+            banner: '',
             firstNum: "۰۲۱۳۳۶۷۸۵۵",
             secondNum: "۰۲۱۳۳۶۷۸۴۷",
             workTime: "زمان پاسخگویی تلفن از ساعت ۸ الی 16 روز های غیر تعطیل "
@@ -165,6 +166,12 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 footer {
     text-align: center;
     width: 100%;
@@ -203,7 +210,7 @@ button {
     margin-right: 39%;
     height: 0px;
     margin-top: 45px;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 22px;
     font-weight: 400;
     line-height: 21px;
@@ -215,7 +222,7 @@ button {
     text-align: right;
     margin-right: 5%;
     list-style: none;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 12px;
@@ -278,7 +285,7 @@ a {
 #firstNum,
 #secondNum {
     margin-top: 20px;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
@@ -288,7 +295,7 @@ a {
 
 .workTime {
     margin-top: 30px;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;

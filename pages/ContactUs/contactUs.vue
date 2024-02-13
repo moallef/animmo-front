@@ -61,9 +61,15 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 a {
     color: white;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 20px;
     font-weight: 600;
     line-height: 12px;
@@ -118,7 +124,7 @@ img {
     margin-top: 20px;
     padding-inline: 2%;
     padding-block: 5px;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -134,7 +140,7 @@ img {
     margin-top: 20px;
     padding-inline: 2%;
     padding-block: 5px;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;

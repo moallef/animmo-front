@@ -67,6 +67,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('~/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .content {
     border-radius: 35px 35px 0px 0px;
     z-index: 4;
@@ -74,7 +80,7 @@ export default {
 }
 
 h1 {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 42px;
     font-weight: 600;
     line-height: 24px;
@@ -100,7 +106,7 @@ h1 {
 }
 
 .author {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 8px;
@@ -110,7 +116,7 @@ h1 {
 }
 
 .date {
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 8px;
@@ -121,7 +127,7 @@ h1 {
 
 .blogContent {
     width: 70%;
-    font-family: Yekan Bakh;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
