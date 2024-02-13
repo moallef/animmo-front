@@ -52,7 +52,7 @@ export default {
         },
     },
     beforeCreate() {
-        return getSlider()
+        getSlider()
             .then(data => {
                 if (data) {
                     this.bannerList = data.map(element => ({
@@ -63,7 +63,7 @@ export default {
                 }
             })
             .catch(error => {
-                console.log("Error in beforeCreate ", error);
+                console.error("Error in beforeCreate ", error);
             })
     }
 }

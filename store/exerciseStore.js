@@ -32,8 +32,7 @@ export const useExerciseStore = defineStore("exercise", {
           return this.exercise;
         }
       } catch (error) {
-        console.log("fetchExercise error: ", error);
-        throw error;
+        console.error("fetchExercise error: ", error);
       }
     },
   },

@@ -146,7 +146,7 @@ export default {
         }
       })
       .catch(error => {
-        console.log("Error in beforeCreate ", error);
+        console.error("Error in beforeCreate ", error);
       })
   },
     created(){

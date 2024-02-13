@@ -33,7 +33,7 @@ export const useBlogStore = defineStore("blog", {
             return this.blog;
           }
       } catch (error) {
-          console.log("fetchBlog error: ",error);
+          console.error("fetchBlog error: ",error);
       };
       
     }

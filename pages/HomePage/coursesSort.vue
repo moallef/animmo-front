@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="coursesSort">
             <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
             <div class="textContainer">
@@ -73,6 +73,10 @@ img {
     box-sizing: border-box;
     margin-left: 20px;
 }
+.courseText{
+    display: flex;
+    flex-direction: column;
+}
 
 .textContainer {
     padding-top: 30px;
@@ -83,6 +87,7 @@ img {
     padding-right: 7%;
     text-align: right;
     height: 0px;
+    margin-bottom: 5px;
 }
 
 .courseDetails {

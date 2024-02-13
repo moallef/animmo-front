@@ -72,7 +72,7 @@ img {
 
 .courseStudent {
     font-family: 'Yekan Bakh', sans-serif;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 8px;
     letter-spacing: 0em;

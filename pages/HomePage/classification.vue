@@ -70,6 +70,7 @@ a {
 
 .courses {
     margin: auto;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     margin-inline: 5%;

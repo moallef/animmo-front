@@ -146,12 +146,11 @@ export default {
     getSlider()
       .then(data => {
         if (data) {
-            console.log(data[0].footer_logo);
           this.banner = { footer_logo: data[0].footer_logo };
         }
       })
       .catch(error => {
-        console.log("Error in beforeCreate ", error);
+        console.error("Error in beforeCreate ", error);
       })
   },
     methods: {

@@ -33,7 +33,6 @@
 
                     <div class="Block" id="block">
                         <div class="OpinionBlock">
-                            <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                             <div class="Opinion" v-if="studentFeedbacks.length > 0">
                                 <p class="toComment">{{ studentFeedbacks[0].user }}</p>
                                 <div class="theOpinin">
@@ -42,13 +41,12 @@
                                 <div class="clock">{{ studentFeedbacks[0].date }}</div>
                             </div>
                             <div v-else>
-                                <p>نظری ثبت نشده.</p>
+                                <p id="noComment">نظری ثبت نشده.</p>
                             </div>
                         </div>
                     </div>
                     <div v-for="(comment, commentIndex) in studentFeedbacks.slice(1, 5)" :key="commentIndex">
                         <div class="blurBlock" :id="'blurBlock' + commentIndex">
-                            <img class="profileImage" src="../../assets/images/Ellipse 10.png" alt="">
                             <div class="BlurOpinion">
                                 <p class="toComment" :id="'blurToComment'">{{ comment.user }}</p>
                                 <div class="theOpinin" :id="'blurOpinion'">
@@ -81,12 +79,27 @@ export default {
             newComment: "",
         }
     },
+    beforeCreate(){
+        getFeedbacks()
+        .then(data => {
+                if (data) {
+                    this.comments = data.map(element => ({
+                        id: element.id,
+                        imgSrc: element.banner,
+                        name: element.name
+                    }));
+                }
+            })
+            .catch(error => {
+                console.error("Error in beforeCreate ", error);
+            })
+    },
     methods: {
         async submitComment() {
             try {
                 const feedbackStore = useFeedbackStore();
 
-                console.log(this.newComment.trim());
+                this.newComment.trim();
 
                 if (this.newComment.trim() !== "") {
                     await feedbackStore.setComment(this.newComment);
@@ -235,14 +248,8 @@ Input {
     margin-top: -300px;
     z-index: 2;
     cursor: pointer;
+    padding-top: 10px;
 }
-
-.OpinionBlock img {
-    border-radius: 50%;
-    margin-top: -50px;
-    margin-bottom: 40px;
-}
-
 .toComment {
     font-family: 'Yekan Bakh', sans-serif;
     font-size: 15px;
@@ -262,7 +269,16 @@ Input {
     letter-spacing: -0.065em;
     text-align: center;
     margin-top: 50px;
-
+}
+#noComment{
+    color: white;
+    font-family: 'Yekan Bakh', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.065em;
+    text-align: center;
+    margin-top: 50px;
 }
 
 .Opinion {
