@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 @font-face {
     font-family: 'PeydaWeb';
-    src: url('~/assets/Fonts/PeydaWeb/PeydaWeb.ttf') format('truetype');
+    src: url('/assets/Fonts/PeydaWeb/PeydaWeb.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
