@@ -79,7 +79,7 @@
 
         <div class="headBar">
             <div class="logo">
-                <img src="../assets/icons/AnimmoLogo.png" alt="Animmo">
+                <img v-if="banner" :key="banner.header_logo" :src="`https://animmo.ir/${banner.header_logo}`" alt="Animmo"/>
             </div>
             <div class="search" v-on:keyup.enter="onEnter">
                 <i class="fa fa-search search_icon"></i>
@@ -126,6 +126,7 @@
 </template>
 
 <script>
+import {getSlider} from '~/API/slider.js'
 import {useAuthStore} from '~/store/authenticationStore.js';
 
 export default {
@@ -133,9 +134,21 @@ export default {
         return {
             shopNum: 0,
             searchTerm: '',
+            banner: '',
             authenticationSituation: null,
         }
     },
+    beforeCreate() {
+    getSlider()
+      .then(data => {
+        if (data) {
+          this.banner = { header_logo: data[0].header_logo };
+        }
+      })
+      .catch(error => {
+        console.log("Error in beforeCreate ", error);
+      })
+  },
     created(){
         const authStore = useAuthStore();
         this.authenticationSituation = authStore.isAuthenticated;
@@ -159,23 +172,12 @@ export default {
 </script>
 
 <style scoped>
-/* @font-face {
-    font-family: 'Yekan Bakh';
-    src: url('~/assets/Fonts/Yekan Bakh Regular.tff') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} */
-li{
-    font-family: 'Yekan Bakh';
-}
 body {
     margin: 0px;
-    font-family: 'Yekan Bakh', sans-serif;
 }
 
 a {
     text-decoration: none;
-    font-family: 'Yekan Bakh';
 }
 
 header {

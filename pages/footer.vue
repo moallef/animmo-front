@@ -7,7 +7,7 @@
 
             <div class="block">
                 <div id="logo">
-                    <img src="../assets/icons/logoDarkBG.png" alt="">
+                    <img :key="banner.footer_logo" :src="`https://animmo.ir/${banner.footer_logo}`" alt="Animmo"/>
                 </div>
 
                 <div class="container">
@@ -129,6 +129,8 @@
 </template>
 
 <script>
+import {getSlider} from '~/API/slider.js'
+
 export default {
     data() {
         return {
@@ -139,6 +141,18 @@ export default {
             workTime: "زمان پاسخگویی تلفن از ساعت ۸ الی 16 روز های غیر تعطیل "
         }
     },
+    beforeCreate() {
+    getSlider()
+      .then(data => {
+        if (data) {
+            console.log(data[0].footer_logo);
+          this.banner = { footer_logo: data[0].footer_logo };
+        }
+      })
+      .catch(error => {
+        console.log("Error in beforeCreate ", error);
+      })
+  },
     methods: {
         scrollUp() {
             window.scrollTo({ top: 0, behavior: 'smooth' })
