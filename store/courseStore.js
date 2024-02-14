@@ -1,10 +1,12 @@
 import { defineStore } from "pinia";
-import { getCourse } from '~/API/course';
+import { getCourse } from "~/API/course";
 
 export const useCourseStore = defineStore("course", {
   state: () => ({
     course: [],
-  }), 
+    categories: [],
+    categorySelected: "",
+  }),
   getters: {
     getCourse: (state) => state.course,
   },
@@ -38,6 +40,9 @@ export const useCourseStore = defineStore("course", {
         console.error("fetchCourse error: ", error);
       }
     },
+    selectedCategory(category) {
+      this.categorySelected = category;
+      return this.categorySelected
+    },
   },
-  },
-);
+});

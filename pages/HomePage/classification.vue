@@ -5,7 +5,7 @@
                 <p id="classifications">دوره ها</p>
             </div>
             <div class="courses">
-                <courses-Sort v-for="(course, index) in courses" :key="index" :index="index" />
+                <courses-Sort  :index="index" />
             </div>
         </div>
     </div>
@@ -72,10 +72,8 @@ a {
     margin: auto;
     width: 90%;
     display: flex;
-    flex-wrap: wrap;
     margin-inline: 5%;
     margin-top: 60px;
-    justify-content: flex-start; 
 }
 .moreBtn {
     
@@ -91,7 +89,6 @@ a {
     letter-spacing: 0em;
     display: block;
     margin: auto;
-    margin-top: 50px;
 }
 
 @media (max-width : 1150px) {

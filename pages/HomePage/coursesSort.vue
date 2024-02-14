@@ -1,27 +1,30 @@
 <template>
     <div class="container">
-        <div class="coursesSort">
-            <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
-            <div class="textContainer">
-                <div class="courseText">
-                    <div class="courseTitle">
-                        <h3 class="courseName">{{ course.course }}</h3>
-                        <p class="courseTeacher"> {{ course.teacher }}</p>
-                    </div>
-                    <div class="aboutCourse">
-                        <div class="courseDetails">
-                            <p>({{ course.season }}) تعداد دوره‌ها </p>
+        <div v-if="filteredCourses.length > 0" >
+            <div v-for="(course, index) in filteredCourses" :key="index" class="coursesSort">
+                <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
+                <div class="textContainer">
+                    <div class="courseText">
+                        <div class="courseTitle">
+                            <h3 class="courseName">{{ course.course }}</h3>
+                            <p class="courseTeacher">{{ course.teacher }}</p>
                         </div>
-                    </div>
-                    <div>
-                        <nuxt-link to="/Animate">
-                            <button class="showMore">
-                                مشاهده دوره ها
-                            </button>
-                        </nuxt-link>
+                        <div class="aboutCourse">
+                            <div class="courseDetails">
+                                <p>({{ course.season }}) تعداد دوره‌ها </p>
+                            </div>
+                        </div>
+                        <div>
+                            <nuxt-link to="/Animate">
+                                <button class="showMore">مشاهده دوره ها</button>
+                            </nuxt-link>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div v-else>
+            <p>No courses available for this category</p>
         </div>
     </div>
 </template>
@@ -30,18 +33,25 @@
 import { useCourseStore } from '~/store/courseStore.js';
 
 export default {
-    props: {
-        index: Number,
-    },
     data() {
         return {
-            course: {},
+            courses: [],
+            categories: [],
+            slugName: '',
         };
     },
-    async beforeCreate() {
+    computed: {
+        filteredCourses() {
+            const categoryStore = useCourseStore();
+            this.slugName = categoryStore.categorySelected;
+            console.log(this.slugName);
+            return this.courses.filter(course => course.category === this.slugName);
+        },
+    },
+    async created() {
         const store = useCourseStore();
-        const courses = await store.fetchCourse();
-        this.course = courses[this.index] || {};
+        this.courses = await store.fetchCourse();
+        this.slugName = '2d';
     },
 };
 </script>
@@ -53,6 +63,12 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+    gap: 20px;
+}
+
 img {
     width: 90%;
     height: 120px;
@@ -71,9 +87,12 @@ img {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    justify-content: flex-start; 
     margin-left: 20px;
+    margin-bottom: 90px;
 }
-.courseText{
+
+.courseText {
     display: flex;
     flex-direction: column;
 }
@@ -104,6 +123,7 @@ img {
 
 .courseName {
     margin-bottom: 10px;
+    width: 50%;
 }
 
 a {
@@ -158,6 +178,7 @@ a {
         width: 140px;
         font-size: 12px;
     }
+
     .showMore {
         margin-right: 20%;
         width: 100px;
@@ -168,12 +189,14 @@ a {
     img {
         margin-bottom: -90px;
     }
+
     .courseName {
         font-size: 20px;
     }
+
     .textContainer {
-    padding-top: 120px;
-    width: 100%;
-}
+        padding-top: 120px;
+        width: 100%;
+    }
 }
 </style>
