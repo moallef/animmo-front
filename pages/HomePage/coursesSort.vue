@@ -63,41 +63,25 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-/* .container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-} */
-
 img {
     width: 90%;
+    margin-inline: 5%;
     height: 120px;
     border-radius: 16px;
     margin-top: -60px;
 }
 
 .coursesSort {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
     background: #F4F4F4;
     border-radius: 24px;
     height: 272px;
     width: 302px;
-    flex-direction: row;
     align-items: center;
     box-sizing: border-box;
     justify-content: flex-start; 
     margin-left: 20px;
     margin-bottom: 90px;
 }
-
-.courseText {
-    display: flex;
-    flex-direction: column;
-}
-
 .textContainer {
     padding-top: 30px;
     width: 100%;
