@@ -68,10 +68,8 @@ a {
 }
 
 .courses {
-    margin: auto;
-    width: 90%;
     display: flex;
-    margin-inline: 5%;
+    margin-inline: 12%;
     margin-top: 60px;
 }
 .moreBtn {

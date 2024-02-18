@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div v-if="filteredCourses.length > 0" style="display: inline-flex; margin-top: 35px;">
-            <div v-for="(course, index) in filteredCourses" :key="index" class="coursesSort">
+        <div class="forContainer" v-if="filteredCourses.length > 0">
+            <div v-for="(course, index) in filteredCourses.slice(0, 6)" :key="index" class="coursesSort">
                 <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
@@ -23,9 +23,6 @@
                 </div>
             </div>
         </div>
-        <div v-else>
-            <p>No courses available for this category</p>
-        </div>
     </div>
 </template>
   
@@ -44,8 +41,12 @@ export default {
         filteredCourses() {
             const categoryStore = useCourseStore();
             this.slugName = categoryStore.categorySelected;
-            console.log(this.slugName);
-            return this.courses.filter(course => course.category === this.slugName);
+            if (this.slugName) {     
+                return this.courses.filter(course => course.category === this.slugName);
+            }
+            else {
+                return this.courses
+            }
         },
     },
     async created() {
@@ -70,15 +71,17 @@ img {
     border-radius: 16px;
     margin-top: -60px;
 }
-
+.forContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 35px;
+}
 .coursesSort {
     background: #F4F4F4;
     border-radius: 24px;
     height: 272px;
     width: 302px;
-    align-items: center;
-    box-sizing: border-box;
-    justify-content: flex-start; 
     margin-left: 20px;
     margin-bottom: 90px;
 }

@@ -6,11 +6,9 @@
             </p>
             <div>
                 <div class="buttons">
-                    <nuxt-link to="">
-                        <button class="moreComments">
-                            <img src="../../assets/icons/icons8-arrow-50.png" alt="">
+                        <button id="moreComments">
+
                         </button>
-                    </nuxt-link>
 
                     <p class="commentsCount">
                         {{ commentsCount }} Comments
@@ -32,30 +30,30 @@
                 <div class="blocks">
 
                     <div class="Block" id="block">
-                        <div class="OpinionBlock">
-                            <div class="Opinion" v-if="studentFeedbacks.length > 0">
-                                <p class="toComment">{{ studentFeedbacks[0].user }}</p>
+                        <div class="OpinionBlock" >
+                            <div class="Opinion" v-if="comments" v-for="(comment, commentIndex) in comments.slice(0,1 )">
+                                <p class="toComment">{{ comment.user }}</p>
                                 <div class="theOpinin">
-                                    <p class="theComment">{{ studentFeedbacks[0].massage }}</p>
+                                    <p class="theComment" id="mainComment">{{ comment.message }}</p>
                                 </div>
-                                <div class="clock">{{ studentFeedbacks[0].date }}</div>
+                                <div class="clock">{{ comment.created }}</div>
                             </div>
                             <div v-else>
                                 <p id="noComment">نظری ثبت نشده.</p>
                             </div>
                         </div>
                     </div>
-                    <div v-for="(comment, commentIndex) in studentFeedbacks.slice(1, 5)" :key="commentIndex">
+                    <div class="block" v-for="(comment, commentIndex) in comments.slice(1, 5)" :key="commentIndex">
                         <div class="blurBlock" :id="'blurBlock' + commentIndex">
                             <div class="BlurOpinion">
                                 <p class="toComment" :id="'blurToComment'">{{ comment.user }}</p>
                                 <div class="theOpinin" :id="'blurOpinion'">
                                     <p class="theComment" :id="'blurComment'">
-                                        {{ comment.massage }}
+                                        {{ comment.message }}
                                     </p>
                                 </div>
                                 <div class="clock" :id="'bClock'">
-                                    {{ comment.date }}
+                                    {{ comment.created }}
                                 </div>
                             </div>
                         </div>
@@ -74,19 +72,20 @@ import { useFeedbackStore } from '~/store/feedbackStore';
 export default {
     data() {
         return {
-            studentFeedbacks: [],
             comments: [],
             newComment: "",
         }
     },
     beforeCreate(){
+        
         getFeedbacks()
         .then(data => {
                 if (data) {
                     this.comments = data.map(element => ({
                         id: element.id,
-                        imgSrc: element.banner,
-                        name: element.name
+                        user: element.user,
+                        message: element.message,
+                        created : element.created,
                     }));
                 }
             })
@@ -99,8 +98,8 @@ export default {
             try {
                 const feedbackStore = useFeedbackStore();
 
-                this.newComment.trim();
-
+                const comment = this.newComment.trim();
+                feedbackStore.feedbackStore(comment)
                 if (this.newComment.trim() !== "") {
                     await feedbackStore.setComment(this.newComment);
                     this.newComment= "";
@@ -123,6 +122,10 @@ export default {
     src: url('/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+#moreComments{
+    background: none;
+    cursor: auto;
 }
 .opinionsComponent {
     margin-top: 150px;
@@ -170,13 +173,6 @@ button {
     text-align: right;
     color: #979797;
     padding-top: 15px;
-}
-
-.moreComments img {
-    width: 80%;
-    box-sizing: border-box;
-    margin-top: 5px;
-
 }
 
 .addCommentInput {
@@ -234,6 +230,7 @@ Input {
     position: relative;
     top: 80px;
     width: 45%;
+    z-index: 2;
 }
 
 .OpinionBlock {
@@ -257,7 +254,7 @@ Input {
     line-height: 15px;
     letter-spacing: 0em;
     text-align: center;
-    margin-top: -20px;
+    margin-top: 30px;
     color: white;
 }
 
@@ -297,7 +294,6 @@ Input {
     color: #B6A5DA;
 
 }
-
 .blurBlock {
     width: 38%;
     height: 381px;
@@ -319,7 +315,7 @@ Input {
     width: 45%;
     height: 400px;
     filter: blur(0px);
-    z-index: 2;
+    z-index: 3;
 }
 
 .blurBlock:not(:hover) {
@@ -362,7 +358,9 @@ Input {
     margin-top: -140px;
 
 }
-
+#mainComment{
+    color: white;
+}
 
 
 @media (max-width : 900px) {

@@ -12,14 +12,14 @@
                 <background/>
             </div>
            
-            <div class="latestCourses">
-                <latest-Courses />
-            </div>
-
+            
             <div class="courseSection">
                 <course-section />
             </div>
-
+            
+            <div class="latestCourses">
+                <latest-Courses />
+            </div>
 
         </div>
         <footer>
@@ -50,14 +50,14 @@ export default {
 </script>
 
 <style scoped>
-.courseSection{
-    margin-top: 230px;
-}
 .latestCourses{
+    margin-top: 60px;
+}
+.courseSection{
     border-radius: 32px;
     margin-top: -70px;
     background: white;
     position: relative;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 </style>
