@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div v-if="filteredCourses.length > 0" >
+        <div v-if="filteredCourses.length > 0" style="display: inline-flex; margin-top: 35px;">
             <div v-for="(course, index) in filteredCourses" :key="index" class="coursesSort">
                 <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
                 <div class="textContainer">
@@ -63,11 +63,12 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-.container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+/* .container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
-}
+} */
 
 img {
     width: 90%;
@@ -77,14 +78,14 @@ img {
 }
 
 .coursesSort {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     background: #F4F4F4;
     border-radius: 24px;
     height: 272px;
     width: 302px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     box-sizing: border-box;
     justify-content: flex-start; 
