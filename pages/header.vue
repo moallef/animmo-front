@@ -79,7 +79,8 @@
 
         <div class="headBar">
             <div class="logo">
-                <img v-if="banner" :key="banner.header_logo" :src="`https://animmo.ir/${banner.header_logo}`" alt="Animmo"/>
+                <img v-if="banner" :key="banner.header_logo" :src="`https://animmo.ir/${banner.header_logo}`"
+                    alt="Animmo" />
             </div>
             <div class="search" v-on:keyup.enter="onEnter">
                 <i class="fa fa-search search_icon"></i>
@@ -87,37 +88,25 @@
             </div>
             <div class="navBar">
 
-                <nuxt-link to="/">
-                    <button id="home">
-                        <img class="navBarImage" src="../assets/icons/HomePage.png" alt="Home">
-                        خانه انیمو
-                    </button>
+                <nuxt-link to="/" class="navLink">
+                    <img class="navBarImage" src="../assets/icons/HomePage.png" alt="Home">
+                    خانه انیمو
                 </nuxt-link>
-                <div class="workSample">
-                    <nuxt-link to="/workSamples">
-                        <button id="workSamples">
-                            <img class="navBarImage" src="../assets/icons/WorkSamples.png" alt="Work Samples">
-                            نمونه کار هنر جویان
-                        </button>
-                    </nuxt-link>
-                </div>
-                <nuxt-link to="/contactUs">
-                    <button id="contact">
-                        <img class="navBarImage" src="../assets/icons/Contacts.png" alt="Contacts">
-                        تماس با ما
-                    </button>
+                <nuxt-link to="/workSamples" class="navLink">
+                    <img class="navBarImage" src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                    نمونه کار هنر جویان
                 </nuxt-link>
-                <nuxt-link to="/Blogs">
-                    <button id="blog">
-                        <img class="navBarImage" src="../assets/icons/Blog.png" alt="Blog">
-                        بلاگ
-                    </button>
+                <nuxt-link to="/contactUs" class="navLink">
+                    <img class="navBarImage" src="../assets/icons/Contacts.png" alt="Contacts">
+                    تماس با ما
                 </nuxt-link>
-                <nuxt-link to="/AboutUs">
-                    <button id="aboutUs">
-                        <img class="navBarImage" src="../assets/icons/AboutUs.png" alt="AboutUs">
-                        درباره ما
-                    </button>
+                <nuxt-link to="/Blogs" class="navLink">
+                    <img class="navBarImage" src="../assets/icons/Blog.png" alt="Blog">
+                    بلاگ
+                </nuxt-link>
+                <nuxt-link to="/AboutUs" class="navLink">
+                    <img class="navBarImage" src="../assets/icons/AboutUs.png" alt="AboutUs">
+                    درباره ما
                 </nuxt-link>
             </div>
 
@@ -126,8 +115,8 @@
 </template>
 
 <script>
-import {getSlider} from '~/API/slider.js'
-import {useAuthStore} from '~/store/authenticationStore.js';
+import { getSlider } from '~/API/slider.js'
+import { useAuthStore } from '~/store/authenticationStore.js';
 
 export default {
     data() {
@@ -139,17 +128,17 @@ export default {
         }
     },
     beforeCreate() {
-    getSlider()
-      .then(data => {
-        if (data) {
-          this.banner = { header_logo: data[0].header_logo };
-        }
-      })
-      .catch(error => {
-        console.error("Error in beforeCreate ", error);
-      })
-  },
-    created(){
+        getSlider()
+            .then(data => {
+                if (data) {
+                    this.banner = { header_logo: data[0].header_logo };
+                }
+            })
+            .catch(error => {
+                console.error("Error in beforeCreate ", error);
+            })
+    },
+    created() {
         const authStore = useAuthStore();
         this.authenticationSituation = authStore.isAuthenticated;
     },
@@ -178,6 +167,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 body {
     margin: 0px;
 }
@@ -210,7 +200,8 @@ header {
     border: none;
     color: white;
 }
-.userProfile{
+
+.userProfile {
     margin-top: -2px;
     margin-right: 85%;
     height: 32px;
@@ -220,13 +211,15 @@ header {
     border: none;
     color: white;
 }
-.none{
+
+.none {
     display: none;
 }
 
 .imgHolder {
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-right: 83%;
     padding-top: 11px;
     width: 3%;
@@ -237,7 +230,7 @@ header {
     margin-top: 0px;
     width: 36px;
     height: 32px;
-    margin-top: -14px;
+    margin-top: -12px;
 }
 
 .shopIcon {
@@ -246,6 +239,7 @@ header {
 }
 
 .shopNum {
+    display: block;
     margin-right: 60%;
     color: white;
     width: 13.33px;
@@ -255,6 +249,13 @@ header {
     text-align: center;
     box-sizing: border-box;
     z-index: 2;
+    font-family: IRANSans;
+    font-size: 7px;
+    font-weight: 700;
+    line-height: 11px;
+    letter-spacing: 0em;
+    text-align: center;
+
 }
 
 .headBar {
@@ -311,27 +312,23 @@ header {
 }
 
 .navBar {
+    margin-right: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     width: 50%;
-    margin-right: 5%;
-    padding-inline: 3%;
-    margin-top: -15px;
-
+    padding: 10px 20px;
+    margin-top: -10px;
 }
 
-.navBar button a {
+.navLink {
+    font-family: 'Yekan Bakh', sans-serif;
     color: black;
 }
 
-.navBar button {
-    font-family: 'Yekan Bakh', sans-serif;
-    border: none;
-    background: none;
-    font-size: 16px;
-    margin: 10px;
-}
-
 .navBarImage {
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .dropDown {
@@ -401,6 +398,7 @@ header {
 #menu__toggle:checked~.menu__box {
     right: 0 !important;
 }
+
 .menu__box {
     right: -100%;
     transition: right 0.3s ease-in-out;
@@ -480,15 +478,6 @@ header {
 
 
 @media (max-width : 1320px) {
-
-    .navBar {
-        width: 30%;
-    }
-
-    .navBar button {
-        font-size: 14px;
-    }
-
     .dropDown {
         width: 20%;
     }
@@ -497,16 +486,6 @@ header {
 }
 
 @media (max-width : 1050px) {
-
-    .navBar {
-        width: 25%;
-    }
-
-    .navBar button {
-        text-align: right;
-        font-size: 16px;
-        width: 100%;
-    }
 
     .logo {
         width: 35%;
@@ -538,16 +517,6 @@ header {
         margin-right: 2200%;
     }
 
-}
-
-
-@media (max-width : 800px) {
-    .navBar button {
-
-        font-size: 12px;
-
-
-    }
 }
 
 @media (max-width : 650px) {

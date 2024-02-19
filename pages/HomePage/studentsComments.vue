@@ -254,7 +254,7 @@ Input {
     line-height: 15px;
     letter-spacing: 0em;
     text-align: center;
-    margin-top: 30px;
+    padding-top: 30px;
     color: white;
 }
 
@@ -313,6 +313,7 @@ Input {
 
 .blurBlock:hover {
     width: 45%;
+    margin-right: 45%;
     height: 400px;
     filter: blur(0px);
     z-index: 3;
