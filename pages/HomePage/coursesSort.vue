@@ -45,7 +45,7 @@ export default {
                 return this.courses.filter(course => course.category === this.slugName);
             }
             else {
-                return this.courses
+                return this.courses.filter(course => course.category === '2d');
             }
         },
     },
