@@ -117,7 +117,7 @@
 <script>
 import { getSlider } from '~/API/slider.js'
 import { useAuthStore } from '~/store/authenticationStore.js';
-
+// import {} from '../assets/Fonts/YekanBakhRegular/YekanBakh-Regular.ttf'
 export default {
     data() {
         return {
@@ -163,7 +163,13 @@ export default {
 <style scoped>
 @font-face {
     font-family: 'Yekan Bakh';
-    src: url('/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    src: url('../assets/Fonts/YekanBakhRegular/YekanBakh-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/assets/Fonts/IRANSans/FontsFree-Net-ir_sans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -249,7 +255,7 @@ header {
     text-align: center;
     box-sizing: border-box;
     z-index: 2;
-    font-family: IRANSans;
+    font-family: 'IRANSans';
     font-size: 7px;
     font-weight: 700;
     line-height: 11px;

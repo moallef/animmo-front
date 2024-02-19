@@ -61,7 +61,7 @@ export default {
 <style scoped>
 @font-face {
     font-family: 'Yekan Bakh';
-    src: url('/assets/Fonts/Yekan Bakh Regular/Yekan Bakh Regular.ttf') format('truetype');
+    src: url('../assets/Fonts/YekanBakhRegular/YekanBakh-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
