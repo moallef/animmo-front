@@ -5,7 +5,7 @@
         <classification/>
         <work-Samples />
         <!-- <latest-Courses /> -->
-        <students-Comments />
+        <!-- <students-Comments /> -->
         <blog-Component />
     </div>
 </template>

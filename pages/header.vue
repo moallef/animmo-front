@@ -497,6 +497,9 @@ header {
         width: 35%;
         margin-right: 63%;
     }
+    .navBar{
+        font-size: 12px;
+    }
 
     .searchInput {
         margin-top: 130px;
@@ -525,7 +528,13 @@ header {
 
 }
 
-@media (max-width : 650px) {
+@media (max-width : 800px) {
+    .navBar{
+        font-size: 10px;
+        width: 60%;
+    }
+}
+@media (max-width : 700px) {
     .navBar {
         display: none;
     }

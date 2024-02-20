@@ -5,7 +5,7 @@
             <div class="sections">
                 <button class="btn" v-for="(category, index) in categories.slice(0, 5)" :key="category.id"
                     @click="getCategory(category)" @mouseover="hoverSituation(index, true)"
-                    @mouseleave="hoverSituation(index, false)" :class="{ 'focused': index === hoveredIndex }">
+                    @mouseleave="hoverSituation(index, false)" autofocus :class="{ 'focused': index === hoveredIndex }">
                     <div class="icon-wrapper">
                         <img :src="`https://animmo.ir/${category.icon}`" alt="" />
                     </div>
@@ -69,7 +69,10 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-
+:focus{
+    border: none;
+    outline: none;
+}
 .courses {
     text-align: center;
 }

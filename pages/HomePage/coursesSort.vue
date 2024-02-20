@@ -5,16 +5,21 @@
                 <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
-                        <div class="courseTitle">
-                            <h3 class="courseName">{{ course.course }}</h3>
-                            <p class="courseTeacher">{{ course.teacher }}</p>
-                        </div>
-                        <div class="aboutCourse">
-                            <div class="courseDetails">
-                                <p>({{ course.season }}) تعداد دوره‌ها </p>
+                        <div class="detailContainer">
+                            <div class="courseTitle">
+                                <h3 class="courseName">{{ course.course }}</h3>
+                                <p class="courseTeacher">{{ course.teacher }}</p>
+                            </div>
+                            <div class="aboutCourse">
+                                <div class="courseDetails">
+                                    <div class="rating">
+                                        <span class="star" v-for="star in 5" :key="star" :class="{ 'filled': star <= filledStars }">&#9733;</span>
+                                    </div>
+                                    <p>({{ course.season }}) تعداد دوره‌ها </p>
+                                </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="btnHolder">
                             <nuxt-link to="/Animate">
                                 <button class="showMore">مشاهده دوره ها</button>
                             </nuxt-link>
@@ -67,9 +72,13 @@ export default {
 img {
     width: 90%;
     margin-inline: 5%;
-    height: 120px;
+    height: 209px;
     border-radius: 16px;
-    margin-top: -60px;
+    margin-top: -20px;
+}
+.courseText{
+    display: flex;
+    flex-direction: column;
 }
 .forContainer{
     display: flex;
@@ -80,7 +89,7 @@ img {
 .coursesSort {
     background: #F4F4F4;
     border-radius: 24px;
-    height: 272px;
+    height: 351px;
     width: 302px;
     margin-left: 20px;
     margin-bottom: 90px;
@@ -89,11 +98,17 @@ img {
     padding-top: 30px;
     width: 100%;
 }
-
+.detailContainer{
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+}
 .courseTitle {
     padding-right: 7%;
+    width: 50%;
     text-align: right;
-    height: 0px;
     margin-bottom: 5px;
 }
 
@@ -105,15 +120,11 @@ img {
     font-weight: 400;
     line-height: 15px;
     letter-spacing: 0em;
-    margin-left: 9%;
     margin-bottom: 10px;
 }
-
-.courseName {
+.rating{
     margin-bottom: 10px;
-    width: 50%;
 }
-
 a {
     font-family: 'Yekan Bakh', sans-serif;
     color: #F4F4F4;
@@ -127,7 +138,6 @@ a {
     width: 125px;
     border-radius: 35px;
     margin-right: 50%;
-    margin-top: 60px;
 }
 
 @media (max-width : 1054px) {
@@ -146,32 +156,31 @@ a {
     }
 }
 
-@media (max-width : 550px) {
+@media (max-width : 650px) {
     .coursesSort {
-        width: 200px;
+        width: 100%;
         font-size: 12px;
     }
+    .showMore {
+        margin-right: 65%;
+    }
+}
+@media (max-width : 550px) {
 
     .courseDetails {
         font-size: 11px;
     }
 
-    .showMore {
-        margin-right: 40%;
-    }
+
 }
 
 @media (max-width : 510px) {
-    .coursesSort {
-        width: 140px;
-        font-size: 12px;
-    }
 
     .showMore {
-        margin-right: 20%;
-        width: 100px;
+        margin-right: 5%;
+        width: 90%;
         font-size: 12px;
-        margin-top: 80px;
+        margin-top: 20px;
     }
 
     img {
