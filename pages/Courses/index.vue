@@ -21,7 +21,7 @@
 <script>
 import header from '../header.vue'
 import footer from '../footer.vue'
-import course from '../HomePage/coursesSort.vue'
+import course from './HoleCourses.vue'
 import belt from './CourseBelt.vue'
 
 export default {

@@ -113,7 +113,7 @@ export default {
 }
 
 .focused img {
-    filter: grayscale(100%) brightness(0.5);
+    filter: grayscale(100%) brightness(2);
 }
 
 .focused #txt {

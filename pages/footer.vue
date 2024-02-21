@@ -80,15 +80,6 @@
                     <div class="comunicateBlock">
 
                         <div class="certificates">
-
-                            <a href="https://enamad.ir/" target="_blank">
-                                <img class="certificateIcon" src="../assets/icons/image 20.png" alt="e-namad">
-                            </a>
-
-                            <a href="https://enamad.ir/" target="_blank">
-                                <img class="certificateIcon" src="../assets/icons/image 19.png" alt="e-namad">
-                            </a>
-
                             <a href="https://enamad.ir/" target="_blank">
                                 <img class="certificateIcon" id="e-namad" src="../assets/icons/e-namad.png" alt="e-namad">
                             </a>
@@ -243,6 +234,10 @@ li {
 
 .secondRow {
     margin-right: 50%;
+}
+.certificates{
+    text-align: left;
+    margin-left: 5%;
 }
 
 a {

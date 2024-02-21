@@ -78,7 +78,7 @@ export default {
     border: none;
     background: #FCFCFC;
     text-align: center;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 15px;
@@ -93,7 +93,7 @@ export default {
     height: 40px;
     margin-top: 10px;
     border-radius: 37px;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 15px;
@@ -113,6 +113,7 @@ export default {
     padding: 14px;
     text-align: right;
     width: 50%;
+    font-family: 'Yekan Bakh', sans-serif;
 }
 .courseTable td{
     color: #979797;
@@ -130,7 +131,7 @@ export default {
     border: none;
     background: #FCFCFC;
     text-align: center;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 15px;
@@ -145,7 +146,7 @@ export default {
     height: 40px;
     margin-top: 10px;
     border-radius: 37px;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 15px;
@@ -156,7 +157,7 @@ export default {
 .total {
     width: 90%;
     color: #646464;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 17px;
     font-weight: 400;
     line-height: 17px;

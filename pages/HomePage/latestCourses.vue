@@ -24,17 +24,6 @@
 
             </Swiper>
         </div>
-
-        <div class="sliderBtn">
-            <button class="righArrow">
-                <img src="../../assets/icons/rightScrol.png" alt="">
-            </button>
-
-            <button class="leftArrow">
-                <img src="../../assets/icons/leftScrol.png" alt="">
-            </button>
-        </div>
-
     </div>
 </template>
 

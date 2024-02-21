@@ -1,25 +1,27 @@
 <template>
-        <div class="container">
-            <section class="cartSection">
-                <div class="product">
-                    <img class="productCover" src="../../assets/images/Rectangle 105.png" alt="">
-                    <div class="informations">
-                        <div class="details">
+    <div class="container">
+        <section class="cartSection">
+            <div class="product">
+                <img class="productCover" src="../../assets/images/Rectangle 105.png" alt="">
+                <div class="informations">
+                    <div class="details">
+                        <nuxt-link to="">
                             <p id="CourseTitle">{{ CourseTitle }}</p>
+                        </nuxt-link>
                             <p id="teachersName">{{ teachersName }}</p>
                         </div>
-                        <div class="fee">
-                            {{ courseFee }} هزار تومان
-                        </div>
-                    </div>
-                    <div class="delete">
-                        <button class="deleteBtn">
-                            <img src="../../assets/icons/Group 90.png" alt="">
-                        </button>
+                    <div class="fee">
+                        {{ courseFee }} هزار تومان
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="delete">
+                    <button class="deleteBtn">
+                        <img src="../../assets/icons/Group 90.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
 </template>
 
 <script>
@@ -38,13 +40,18 @@ export default {
 </script>
 
 <style scoped>
-.container{
+a{
+    cursor: pointer;
+}
+.container {
     width: 100%;
 }
+
 button {
     border: none;
     background: none;
 }
+
 .cartSection {
     display: flex;
     flex-direction: column;
@@ -71,7 +78,7 @@ button {
 }
 
 #CourseTitle {
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 800;
     line-height: 15px;
@@ -86,7 +93,7 @@ button {
 .fee {
     margin-top: 15px;
     color: #C8102E;
-    font-family: IRANYekan;
+    font-family: 'Yekan Bakh', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 15px;

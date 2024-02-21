@@ -167,6 +167,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'IRANSans';
     src: url('/assets/Fonts/IRANSans/FontsFree-Net-ir_sans.ttf') format('truetype');
@@ -480,9 +481,6 @@ header {
 
 
 @media (max-width : 1320px) {
-    .search{
-        display: none;
-    }
     .dropDown {
         width: 20%;
     }
@@ -491,12 +489,16 @@ header {
 }
 
 @media (max-width : 1050px) {
+    .search {
+        display: none;
+    }
 
     .logo {
         width: 35%;
         margin-right: 63%;
     }
-    .navBar{
+
+    .navBar {
         font-size: 12px;
     }
 
@@ -528,19 +530,19 @@ header {
 }
 
 @media (max-width : 800px) {
-    .navBar{
+    .navBar {
         font-size: 10px;
         width: 60%;
     }
 }
+
 @media (max-width : 700px) {
     .navBar {
         display: none;
     }
 
     .logo {
-        width: 200px;
-        margin-right: 60%;
+        margin-right: 65%;
         padding-left: 5%;
     }
 
@@ -601,5 +603,4 @@ header {
         font-size: 12px;
     }
 
-}
-</style>
+}</style>
