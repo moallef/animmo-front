@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="courses">
-            <p>دسته بندی ها</p>
             <div class="sections">
                 <button class="btn" v-for="(category, index) in categories.slice(0, 5)" :key="category.id"
                     @click="getCategory(category)" @mouseover="hoverSituation(index, true)"

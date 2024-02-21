@@ -1,8 +1,12 @@
 <template>
     <div>
-        <image-Slider/>
-        <course-section/>
-        <classification/>
+        <div class="slider">
+            <image-Slider/>
+        </div>
+        <div class="courses">
+            <course-section/>
+            <classification/>
+        </div>
         <work-Samples />
         <!-- <latest-Courses /> -->
         <!-- <students-Comments /> -->
@@ -34,4 +38,7 @@ import Blog from '../HomePage/blog.vue'
 </script>
 
 <style>
+.slider{
+    margin-top: 100px;
+}
 </style>

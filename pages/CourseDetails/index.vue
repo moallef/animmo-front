@@ -57,13 +57,17 @@ export default {
 
 <style scoped>
 .navBar{
-    margin-top: 60px;
+    margin-top: 1000px;
 }
-
+.content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 .descriptions{
     width: 60%;
-    margin-top: -420px;
     margin-right: 3%;
+    margin-top: 50px;
 }
 
 .theCourse {

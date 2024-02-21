@@ -117,7 +117,7 @@
 <script>
 import { getSlider } from '~/API/slider.js'
 import { useAuthStore } from '~/store/authenticationStore.js';
-// import {} from '../assets/Fonts/YekanBakhRegular/YekanBakh-Regular.ttf'
+
 export default {
     data() {
         return {
@@ -172,10 +172,6 @@ export default {
     src: url('/assets/Fonts/IRANSans/FontsFree-Net-ir_sans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-
-body {
-    margin: 0px;
 }
 
 a {
@@ -484,6 +480,9 @@ header {
 
 
 @media (max-width : 1320px) {
+    .search{
+        display: none;
+    }
     .dropDown {
         width: 20%;
     }

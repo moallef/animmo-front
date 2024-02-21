@@ -31,7 +31,7 @@
 <script>
 import header from '../header.vue'
 import footer from '../footer.vue'
-import course from '../HomePage/classification.vue'
+import course from './subcategories.vue'
 import latestCourses from '../HomePage/latestCourses.vue'
 import background from './AnimateBG.vue'
 import Nav from './AnimateNav.vue'

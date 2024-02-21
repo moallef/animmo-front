@@ -1,9 +1,6 @@
 <template>
     <div>
         <div class="classification">
-            <div>
-                <p id="classifications">دوره ها</p>
-            </div>
             <div class="courses">
                 <courses-Sort  :index="index" />
             </div>

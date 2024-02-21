@@ -38,4 +38,10 @@ export default {
 .courseSection{
     width: 18%;
 }
+
+.courseSection{
+    width: 90%;
+    margin-inline: 5%;
+    display: flex;
+}
 </style>
