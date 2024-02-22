@@ -2,12 +2,12 @@
     <div class="container">
         <div class="forContainer" v-if="filteredCourses.length > 0">
             <div v-for="(course, index) in filteredCourses.slice(0, 6)" :key="index" class="coursesSort">
-                <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
+                <img :src="`https://animmo.ir/${course.image}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
                         <div class="detailContainer">
                             <div class="courseTitle">
-                                <h3 class="courseName">{{ course.course }}</h3>
+                                <h3 class="courseName">{{ course.subcategory }}</h3>
                                 <p class="courseTeacher">{{ course.teacher }}</p>
                             </div>
                             <div class="aboutCourse">
@@ -15,7 +15,7 @@
                                     <div class="rating">
                                         <span class="star" v-for="star in 5" :key="star" :class="{ 'filled': star <= filledStars }">&#9733;</span>
                                     </div>
-                                    <p>({{ course.season }}) تعداد دوره‌ها </p>
+                                    <p>({{ course.count_course }}) تعداد دوره‌ها </p>
                                 </div>
                             </div>
                         </div>
