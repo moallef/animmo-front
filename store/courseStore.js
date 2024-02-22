@@ -23,15 +23,13 @@ export const useCourseStore = defineStore("course", {
           const courseData = response.map((element) => ({
             id: element.id,
             category: element.category,
+            count_course: element.count_course,
             subCategory: element.subcategory,
-            course: element.course,
-            imgSrc: element.image,
-            price: element.price,
-            season: element.season,
-            duration: element.duration,
-            teacher: element.teacher,
+            slug: element.slug,
+            image: element.image,
           }));
           this.course = courseData;
+          console.log('uiuui',this.course);
           return courseData;
         } else {
           return this.course;
