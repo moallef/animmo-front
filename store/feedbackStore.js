@@ -27,7 +27,7 @@ export const useFeedbackStore = defineStore({
           return this.comments;
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     },
     async setComment(newComment) {

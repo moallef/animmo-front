@@ -36,7 +36,6 @@ export const useCourseStore = defineStore("course", {
             updated: element.updated,
           }));
           this.course = courseData;
-          console.log('uiuui',this.course);
           return courseData;
         } else {
           return this.course;

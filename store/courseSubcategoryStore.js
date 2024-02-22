@@ -29,7 +29,6 @@ export const useCourseStore = defineStore("course", {
             image: element.image,
           }));
           this.course = courseData;
-          console.log('uiuui',this.course);
           return courseData;
         } else {
           return this.course;
