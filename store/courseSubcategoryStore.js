@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { getCourse } from "~/API/course.js";
+import { getCourse } from "~/API/subcategory";
 
 export const useCourseStore = defineStore("course", {
   state: () => ({
@@ -23,17 +23,10 @@ export const useCourseStore = defineStore("course", {
           const courseData = response.map((element) => ({
             id: element.id,
             category: element.category,
-            subcategory: element.subcategory,
-            course: element.course,
+            count_course: element.count_course,
+            subCategory: element.subcategory,
             slug: element.slug,
             image: element.image,
-            price: element.price,
-            teacher: element.teacher,
-            discount: element.discount,
-            season: element.season,
-            duration: element.duration,
-            created: element.created,
-            updated: element.updated,
           }));
           this.course = courseData;
           console.log('uiuui',this.course);

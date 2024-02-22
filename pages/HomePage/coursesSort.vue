@@ -8,7 +8,7 @@
                         <div class="detailContainer">
                             <div class="courseTitle">
                                 <h3 class="courseName">{{ course.subcategory }}</h3>
-                                <p class="courseTeacher">{{ course.teacher }}</p>
+                                <p class="courseTeacher">{{ course.category }}</p>
                             </div>
                             <div class="aboutCourse">
                                 <div class="courseDetails">
@@ -32,7 +32,7 @@
 </template>
   
 <script>
-import { useCourseStore } from '~/store/courseStore.js';
+import { useCourseStore } from '~/store/courseSubcategoryStore.js';
 
 export default {
     data() {

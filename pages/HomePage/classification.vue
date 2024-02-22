@@ -18,7 +18,7 @@
   
 <script>
 import coursesSort from './coursesSort.vue';
-import { useCourseStore } from '~/store/courseStore.js';
+import { useCourseStore } from '~/store/courseSubcategoryStore.js';
 
 export default {
     components: {

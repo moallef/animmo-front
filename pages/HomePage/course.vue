@@ -17,7 +17,7 @@
   
 <script>
 import { getClassifications } from '~/API/classification';
-import { useCourseStore } from '~/store/courseStore'
+import { useCourseStore } from '~/store/courseSubcategoryStore'
 
 export default {
     data() {
