@@ -2,7 +2,7 @@
     <div class="container">
         <div class="forContainer" v-if="courses.length > 0">
             <div v-for="(course, index) in courses" :key="index" class="coursesSort">
-                <img :src="`https://animmo.ir/${course.imgSrc}`" alt="">
+                <img :src="`https://animmo.ir/${course.image}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
                         <div class="detailContainer">
@@ -10,19 +10,30 @@
                                 <h3 class="courseName">{{ course.course }}</h3>
                                 <p class="courseTeacher">{{ course.teacher }}</p>
                             </div>
-                            <div class="aboutCourse">
-                                <div class="courseDetails">
-                                    <div class="rating">
-                                        <span class="star" v-for="star in 5" :key="star" :class="{ 'filled': star <= filledStars }">&#9733;</span>
-                                    </div>
-                                    <p>({{ course.season }}) تعداد دوره‌ها </p>
-                                </div>
+                            <div class="courseTime">
+                                <span class="seasons">
+                                    {{ course.season }} فصل
+                                </span>
+                                <span class="hour">
+                                    {{ course.houres }} ساعت 
+                                </span>
                             </div>
-                        </div>
-                        <div class="btnHolder">
-                            <nuxt-link to="/Animate">
-                                <button class="showMore">مشاهده دوره ها</button>
-                            </nuxt-link>
+                            <div class="fee">
+                                <span class="price">
+                                    {{ course.price }} هزار تومان 
+                                </span>
+                                <span v-if="course.price" class="discountFee"> 
+                                    {{ course.price }} هزار تومان
+                                </span>
+                            </div>
+                            <div class="btnHolder">
+                                <nuxt-link to="/Animate">
+                                    <button class="addToStore">افزودن به سبد خرید</button>
+                                </nuxt-link>
+                                <nuxt-link :to="`/CourseDetails/${Id}`">
+                                    <button class="showMore">مشاهده دوره </button>
+                                </nuxt-link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -32,19 +43,22 @@
 </template>
   
 <script>
-import { useCourseStore } from '~/store/courseSubcategoryStore.js';
+import { useCourseStore } from '~/store/courseStore.js';
 
 export default {
     data() {
         return {
             courses: [],
             categories: [],
+            slugName: '',
         };
     },
-
     async created() {
         const store = useCourseStore();
         this.courses = await store.fetchCourse();
+    },
+    computed: {
+
     },
 };
 </script>
@@ -56,120 +70,118 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 img {
     width: 90%;
     margin-inline: 5%;
     height: 209px;
     border-radius: 16px;
-    margin-top: -20px;
+    margin-block: 15px;
 }
-.courseText{
-    display: flex;
-    flex-direction: column;
-}
-.forContainer{
+
+.forContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 35px;
+    width: 100%;
 }
+
 .coursesSort {
     background: #F4F4F4;
     border-radius: 24px;
-    height: 351px;
-    width: 302px;
+    height: 444px;
     margin-left: 20px;
     margin-bottom: 90px;
 }
-.textContainer {
-    padding-top: 30px;
-    width: 100%;
-}
-.detailContainer{
-    display: flex;
-    width: 90%;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 80px;
-}
-.courseTitle {
-    padding-right: 7%;
-    width: 50%;
-    text-align: right;
-    margin-bottom: 5px;
-}
 
-.courseDetails {
-    text-align: left;
-    color: #979797;
+.courseTime,
+.fee {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 5%;
     font-family: 'Yekan Bakh', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 15px;
-    letter-spacing: 0em;
-    margin-bottom: 10px;
+    letter-spacing: -0.04em;
+    color: #7D7D7D;
 }
-.rating{
-    margin-bottom: 10px;
+
+.fee {
+    font-family: 'Yekan Bakh', sans-serif;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.07em;
+    color: #C8102E;
+    width: 100%;
 }
+
+.price {
+    text-decoration: line-through;
+    color: #7D7D7D;
+}
+
+.detailContainer {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.btnHolder {
+    display:inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.courseTitle {
+    padding-right: 7%;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
 a {
     font-family: 'Yekan Bakh', sans-serif;
     color: #F4F4F4;
 }
 
-.showMore {
+.addToStore {
     background: #8569C2;
     color: #F4F4F4;
     border: none;
     padding: 10px 16px 10px 16px;
     width: 125px;
     border-radius: 35px;
-    margin-right: 50%;
+    margin-left: 20px;
 }
 
-@media (max-width : 1054px) {
-    .coursesSort {
-        width: 270px;
-    }
+.showMore {
+    border: 2px solid #9D87CE;
+    color: #9D87CE;
+    width: 125px;
+    padding: 10px 16px 10px 16px;
+    border-radius: 35px;
 }
 
-@media (max-width : 850px) {
-    .coursesSort {
-        width: 230px;
-    }
-
-    .showMore {
-        margin-right: 40%;
-    }
+.showMore:hover {
+    background: #8569C2;
+    color: #F4F4F4;
+    border: none;
 }
-
 @media (max-width : 650px) {
     .coursesSort {
         width: 100%;
         font-size: 12px;
     }
-    .showMore {
-        margin-right: 65%;
-    }
-}
-@media (max-width : 550px) {
-
-    .courseDetails {
-        font-size: 11px;
-    }
-
-
 }
 
 @media (max-width : 510px) {
-
-    .showMore {
-        margin-right: 5%;
-        width: 90%;
-        font-size: 12px;
-        margin-top: 20px;
-    }
-
     img {
         margin-bottom: -90px;
     }
@@ -182,5 +194,4 @@ a {
         padding-top: 120px;
         width: 100%;
     }
-}
-</style>
+}</style>

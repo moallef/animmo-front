@@ -2,7 +2,7 @@
     <div class="container">
         <div class="forContainer" v-if="filteredCourses.length > 0">
             <div v-for="(course, index) in filteredCourses.slice(0, 6)" :key="index" class="coursesSort">
-                <img :src="`https://animmo.ir/api/${course.imgSrc}`" alt="">
+                <img :src="`https://animmo.ir/${course.image}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
                         <div class="detailContainer">
@@ -22,7 +22,7 @@
                                 <span class="price">
                                     {{ course.price }} هزار تومان 
                                 </span>
-                                <span class="discountFee"> 
+                                <span v-if="course.price" class="discountFee"> 
                                     {{ course.price }} هزار تومان
                                 </span>
                             </div>
@@ -53,6 +53,11 @@ export default {
             slugName: '',
         };
     },
+    async created() {
+        const store = useCourseStore();
+        this.courses = await store.fetchCourse();
+        this.slugName = 'دو-بعدی';
+    },
     computed: {
         filteredCourses() {
             const categoryStore = useCourseStore();
@@ -61,14 +66,9 @@ export default {
                 return this.courses.filter(course => course.category === this.slugName);
             }
             else {
-                return this.courses.filter(course => course.category === '2d');
+                return this.courses.filter(course => course.category === 'دو-بعدی');
             }
         },
-    },
-    async created() {
-        const store = useCourseStore();
-        this.courses = await store.fetchCourse();
-        this.slugName = '2d';
     },
 };
 </script>
@@ -89,23 +89,18 @@ img {
     margin-block: 15px;
 }
 
-.courseText {
-    display: flex;
-    flex-direction: column;
-}
-
 .forContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 35px;;
+    margin-top: 35px;
+    width: 100%;
 }
 
 .coursesSort {
     background: #F4F4F4;
     border-radius: 24px;
-    height: 434px;
-    width: 40%;
+    height: 444px;
     margin-left: 20px;
     margin-bottom: 90px;
 }
@@ -149,10 +144,9 @@ img {
 }
 
 .btnHolder {
-    display: inline-flex;
+    display:inline-flex;
+    flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    margin-inline: 5%;
 }
 
 .courseTitle {
@@ -190,52 +184,14 @@ a {
     color: #F4F4F4;
     border: none;
 }
-
-@media (max-width : 1054px) {
-    .coursesSort {
-        width: 270px;
-    }
-}
-
-@media (max-width : 850px) {
-    .coursesSort {
-        width: 230px;
-    }
-
-    .showMore {
-        margin-right: 40%;
-    }
-}
-
 @media (max-width : 650px) {
     .coursesSort {
         width: 100%;
         font-size: 12px;
     }
-
-    .showMore {
-        margin-right: 65%;
-    }
-}
-
-@media (max-width : 550px) {
-
-    .courseDetails {
-        font-size: 11px;
-    }
-
-
 }
 
 @media (max-width : 510px) {
-
-    .showMore {
-        margin-right: 5%;
-        width: 90%;
-        font-size: 12px;
-        margin-top: 20px;
-    }
-
     img {
         margin-bottom: -90px;
     }
