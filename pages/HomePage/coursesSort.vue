@@ -30,7 +30,7 @@
                                 <nuxt-link to="/Animate">
                                     <button class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
-                                <nuxt-link to="/CourseDetails">
+                                <nuxt-link :to="`/CourseDetails/${Id}`">
                                     <button class="showMore">مشاهده دوره </button>
                                 </nuxt-link>
                             </div>
@@ -98,14 +98,14 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 35px;;
 }
 
 .coursesSort {
     background: #F4F4F4;
     border-radius: 24px;
     height: 434px;
-    width: 25%;
+    width: 40%;
     margin-left: 20px;
     margin-bottom: 90px;
 }
