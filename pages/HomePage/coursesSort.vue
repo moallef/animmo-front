@@ -15,20 +15,21 @@
                                     {{ course.season }} فصل
                                 </span>
                                 <span class="duration">
-                                    {{ course.duration }} ساعت 
+                                    {{ course.duration }} ساعت
                                 </span>
                             </div>
                             <div class="fee">
                                 <span class="price">
-                                    {{ course.price }} هزار تومان 
+                                    {{ course.price }} هزار تومان
                                 </span>
-                                <span v-if="course.price" class="discountFee"> 
+                                <span v-if="course.price" class="discountFee">
                                     {{ course.price }} هزار تومان
                                 </span>
                             </div>
                             <div class="btnHolder">
-                                <nuxt-link to="/Animate">
-                                    <button class="addToStore">افزودن به سبد خرید</button>
+                                <nuxt-link>
+                                    <button @click="addToBasket(course.id, course.course, course.price)"
+                                        class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
                                 <nuxt-link :to="`/CourseDetails/${Id}`">
                                     <button class="showMore">مشاهده دوره </button>
@@ -44,6 +45,8 @@
   
 <script>
 import { useCourseStore } from '~/store/courseStore.js';
+import { useBaskteStore } from '~/store/basketStore';
+import Swal from "sweetalert2";
 
 export default {
     data() {
@@ -56,6 +59,16 @@ export default {
     async created() {
         const store = useCourseStore();
         this.courses = await store.fetchCourse();
+    },
+    methods: {
+        addToBasket(courseId, courseName, price) {
+            const store = useBaskteStore();
+            store.addToBasket({ courseId, courseName, price });
+            Swal.fire({
+                icon: "success",
+                title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
+            })
+        },
     },
     computed: {
         filteredCourses() {
@@ -143,7 +156,7 @@ img {
 }
 
 .btnHolder {
-    display:inline-flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
     margin-right: 8%;
@@ -183,6 +196,19 @@ a {
     color: #F4F4F4;
     border: none;
 }
+
+@media (max-width : 1150px) {
+    .coursesSort {
+        width: 35%;
+    }
+}
+
+@media (max-width : 850px) {
+    .coursesSort {
+        width: 45%;
+    }
+}
+
 @media (max-width : 650px) {
     .coursesSort {
         width: 100%;
