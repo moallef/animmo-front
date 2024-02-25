@@ -14,8 +14,8 @@
                                 <span class="seasons">
                                     {{ course.season }} فصل
                                 </span>
-                                <span class="hour">
-                                    {{ course.houres }} ساعت 
+                                <span class="duration">
+                                    {{ course.duration }} ساعت 
                                 </span>
                             </div>
                             <div class="fee">
@@ -56,7 +56,6 @@ export default {
     async created() {
         const store = useCourseStore();
         this.courses = await store.fetchCourse();
-        this.slugName = 'دو-بعدی';
     },
     computed: {
         filteredCourses() {
@@ -94,7 +93,6 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 35px;
-    width: 100%;
 }
 
 .coursesSort {
@@ -103,6 +101,7 @@ img {
     height: 444px;
     margin-left: 20px;
     margin-bottom: 90px;
+    width: 25%;
 }
 
 .courseTime,
@@ -147,11 +146,11 @@ img {
     display:inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-right: 8%;
 }
 
 .courseTitle {
     padding-right: 7%;
-    width: 100%;
     text-align: right;
     margin-bottom: 5px;
 }

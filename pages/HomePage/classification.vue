@@ -65,8 +65,6 @@ a {
 }
 
 .courses {
-    display: flex;
-    margin-inline: 12%;
     margin-top: 60px;
 }
 .moreBtn {
