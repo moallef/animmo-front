@@ -194,6 +194,8 @@ button {
 }
 
 .aboutUs {
+    display: flex;
+    flex-direction: column;
     color: white;
     text-align: right;
     width: 25%;
