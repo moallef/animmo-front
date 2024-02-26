@@ -18,8 +18,8 @@
                                     {{ course.duration }} ساعت
                                 </span>
                             </div>
-                            <div class="fee" v-if="course.off_price = course.price">
-                                <span v-if="course.off_price = course.price" class="price">
+                            <div class="fee" v-if="course.off_price != course.price">
+                                <span class="price">
                                     {{ course.price }} هزار تومان
                                 </span>
                                 <span class="discountFee">
