@@ -29,7 +29,7 @@ export const useCourseStore = defineStore("course", {
             image: element.image,
             price: element.price,
             teacher: element.teacher,
-            discount: element.discount,
+            off_price: element.off_price,
             season: element.season,
             duration: element.duration,
             created: element.created,
