@@ -18,13 +18,16 @@
                                     {{ course.duration }} ساعت
                                 </span>
                             </div>
-                            <div class="fee">
-                                <span class="price">
+                            <div class="fee" v-if="course.off_price = course.price">
+                                <span v-if="course.off_price = course.price" class="price">
                                     {{ course.price }} هزار تومان
                                 </span>
-                                <span v-if="course.off_price != course.price" class="discountFee">
+                                <span  class="discountFee">
                                     {{ course.off_price }} هزار تومان
                                 </span>
+                            </div>
+                            <div class="discountFee" v-else>
+                                {{ course.price }} هزار تومان
                             </div>
                             <div class="btnHolder">
                                 <nuxt-link>

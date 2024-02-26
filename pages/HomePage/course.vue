@@ -101,7 +101,6 @@ export default {
 .btn:hover #txt {
     color: white;
 }
-
 #none {
     display: none;
 }
