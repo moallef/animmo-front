@@ -33,7 +33,7 @@
                             </div>
                             <div class="btnHolder">
                                 <nuxt-link>
-                                    <button @click="addToBasket(course.id, course.course, course.price)"
+                                    <button @click="addToStore(course.id, course.course, course.price ,course.image , course.off_price , course.teacher)"
                                         class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
                                 <nuxt-link :to="`/CourseDetails/${Id}`">
@@ -66,13 +66,39 @@ export default {
         this.courses = await store.fetchCourse();
     },
     methods: {
-        addToBasket(courseId, courseName, price) {
-            const store = useBaskteStore();
-            store.addToBasket({ courseId, courseName, price });
-            Swal.fire({
-                icon: "success",
-                title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
-            })
+        async addToStore(courseId, courseName , price , image , discountPrice , teacher) {
+            try {
+                const addToBasket = {
+                    id: courseId,
+                    price: price,
+                    remove : false,
+                    clear : false
+                };
+                const localStorageBasket = {
+                    id: courseId,
+                    name: courseName,
+                    price: price,
+                    image : image,
+                    discountFee : discountPrice,
+                    teacher : teacher
+                }
+                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? []
+                courses.push(localStorageBasket);
+                localStorage.removeItem('basketItems');
+                console.log(courses);
+                localStorage.setItem('basketItems', JSON.stringify(courses));
+
+                const store = useBaskteStore();
+                store.addToBasket(addToBasket);
+                
+                Swal.fire({
+                    icon: "success",
+                    title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
+                })
+
+                } catch (error) {
+                    console.error('Error during add :', error);
+                }
         },
     },
     computed: {

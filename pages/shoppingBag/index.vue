@@ -50,4 +50,16 @@ export default {
 .ultimateList{
     width: 29.5%;
 }
+@media (max-width : 750px) {
+    .content{
+        flex-direction: column-reverse;
+    }
+    .bag-Content{
+    width: 100%;
+    margin-top: 20px;
+}
+.ultimateList{
+    width:100%;
+}
+}
 </style>

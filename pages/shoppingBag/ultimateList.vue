@@ -8,8 +8,8 @@
             </thead>
             <tbody>
                 <tr v-for="(course, index) in courses" :key="index">
-                    <td>{{ course.title }}</td>
-                    <td>{{ course.fee }} هزار تومان</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.discountFee }} هزار تومان</td>
                 </tr>
                 <tr id="ultimate">
                     <td class="total">مجموع</td>
@@ -31,10 +31,7 @@ export default {
 
     data() {
         return {
-            courses: [
-                { title: 'دوره 1', fee: 50 },
-                { title: 'دوره 2', fee: 75 },
-            ],
+            courses: [],
             totalPrice: 0,
         };
     },
@@ -47,7 +44,7 @@ export default {
 
     methods: {
         calculateTotalPrice() {
-            this.totalPrice = this.courses.reduce((sum, course) => sum + course.fee, 0);
+            this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
         },
     },
 
@@ -56,6 +53,14 @@ export default {
             handler: 'calculateTotalPrice',
             deep: true,
         },
+    },
+    created() {
+        try {
+            this.courses = JSON.parse(localStorage.getItem('basketItems')) || [];
+            console.log(this.courses);
+        } catch (error) {
+            console.error("get Items :", error);
+        };
     },
 
     mounted() {

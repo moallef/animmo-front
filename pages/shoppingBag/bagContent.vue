@@ -1,21 +1,21 @@
 <template>
     <div class="container">
-        <section class="cartSection">
+        <section class="cartSection" v-for="(item, index) in items" :key="index">
             <div class="product">
-                <img class="productCover" src="../../assets/images/Rectangle 105.png" alt="">
+                <img class="productCover" :src="`https://animmo.ir${item.image}`" alt="">
                 <div class="informations">
                     <div class="details">
                         <nuxt-link to="">
-                            <p id="CourseTitle">{{ CourseTitle }}</p>
+                            <p id="CourseTitle">{{ item.name }}</p>
                         </nuxt-link>
-                            <p id="teachersName">{{ teachersName }}</p>
-                        </div>
+                        <p id="teachersName">{{ item.teacher }}</p>
+                    </div>
                     <div class="fee">
-                        {{ courseFee }} هزار تومان
+                        {{ item.discountFee }} هزار تومان
                     </div>
                 </div>
                 <div class="delete">
-                    <button class="deleteBtn">
+                    <button class="deleteBtn" @click="deleteCourse(item.id)">
                         <img src="../../assets/icons/Group 90.png" alt="">
                     </button>
                 </div>
@@ -25,24 +25,39 @@
 </template>
 
 <script>
+import { useBaskteStore } from '../../store/basketStore'
+
 export default {
     data() {
         return {
             items: [],
-            coursesCount: 2,
-            CourseTitle: "دوره انیمت مقدماتی",
-            teachersName: "مهدی مؤلف",
-            courseFee: "۱٬۳۰۰٬۰۰۰",
-            totalPrice: "۲٬۱۰۰٬۰۰۰",
         }
+    },
+    async created() {
+        try {
+            this.items = JSON.parse(localStorage.getItem('basketItems')) || [];
+        } catch (error) {
+            console.error("get Items :", error);
+        };
+    },
+    methods: {
+        deleteCourse(id) {
+            const filteredItem = this.items.filter((f) => {
+                return f.id !== id;
+            })
+            localStorage.removeItem('basketItems');
+            localStorage.setItem('basketItems', JSON.stringify(filteredItem));
+            this.items = filteredItem;
+        },
     }
 }
 </script>
 
 <style scoped>
-a{
+a {
     cursor: pointer;
 }
+
 .container {
     width: 100%;
 }
@@ -106,5 +121,4 @@ button {
     margin-right: 92%;
     margin-top: -40px;
 }
-
-@media (max-width : 1300px) {}</style>
+</style>
