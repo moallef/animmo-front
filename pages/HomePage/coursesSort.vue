@@ -85,7 +85,6 @@ export default {
                 const courses = JSON.parse(localStorage.getItem('basketItems')) ?? []
                 courses.push(localStorageBasket);
                 localStorage.removeItem('basketItems');
-                console.log(courses);
                 localStorage.setItem('basketItems', JSON.stringify(courses));
 
                 const store = useBaskteStore();

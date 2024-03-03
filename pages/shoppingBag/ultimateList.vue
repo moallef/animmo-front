@@ -3,7 +3,7 @@
         <table class="courseTable">
             <thead>
                 <tr>
-                    <th colspan="2">دوره های انتخاب شده ({{this.courses.length}})</th>
+                    <th colspan="2">دوره های انتخاب شده ({{ this.courses.length }})</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,12 +20,14 @@
 
         <div class="operations">
             <input type="text" class="discountCode" placeholder="وارد کردن کد تخفیف">
-            <button class="admitPay" @click="$router.push('/checkout')">تایید و پرداخت</button>
+            <button class="admitPay" @click="pay()">تایید و پرداخت</button>
         </div>
     </div>
 </template>
 
 <script>
+import { usePayStore } from '@/store/payStore.js'
+
 export default {
     name: 'FrontendUltimateList',
 
@@ -46,6 +48,11 @@ export default {
         calculateTotalPrice() {
             this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
         },
+        pay() {
+            const courseIds = this.courses.map(course => ({ course_id: course.id }));
+            const store = usePayStore();
+            store.sendCourseIds(courseIds);
+        }
     },
 
     watch: {
@@ -57,7 +64,6 @@ export default {
     created() {
         try {
             this.courses = JSON.parse(localStorage.getItem('basketItems')) || [];
-            console.log(this.courses);
         } catch (error) {
             console.error("get Items :", error);
         };
@@ -76,6 +82,7 @@ export default {
     border-radius: 16px;
     padding-inline: 3%;
 }
+
 .discountCode {
     width: 90%;
     height: 36px;
@@ -112,6 +119,7 @@ export default {
     border-collapse: collapse;
     margin-bottom: 20px;
 }
+
 .courseTable th,
 .courseTable td {
     background: none;
@@ -120,15 +128,17 @@ export default {
     width: 50%;
     font-family: 'Yekan Bakh', sans-serif;
 }
-.courseTable td{
+
+.courseTable td {
     color: #979797;
 }
 
 .courseTable .total {
     font-weight: bold;
     color: #C8102E;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
+
 .discountCode {
     width: 90%;
     height: 36px;
@@ -159,6 +169,7 @@ export default {
     margin-bottom: 15px;
     border: none;
 }
+
 .total {
     width: 90%;
     color: #646464;
@@ -168,7 +179,8 @@ export default {
     line-height: 17px;
     letter-spacing: -0.04em;
 }
-.operations{
+
+.operations {
     width: 90%;
     margin-top: 20px;
     margin-inline: 5%;
@@ -176,6 +188,7 @@ export default {
     flex-direction: column;
     align-items: center;
 }
+
 #Fee {
     color: #C8102E;
     margin-right: 60%;
@@ -185,7 +198,7 @@ export default {
     color: black;
     height: 0px;
 }
-.courseTable th{
+
+.courseTable th {
     padding-block: 30px;
-}
-</style>
+}</style>

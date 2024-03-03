@@ -88,6 +88,7 @@ export const useAuthStore = defineStore({
           "https://animmo.ir/api/accounts/register/verify/",
           this.varificationData
         );
+        console.log(response);
         if (response.status === 201) {
           this.correctData = true;
           this.token = response.data.access;
@@ -116,6 +117,7 @@ export const useAuthStore = defineStore({
         if (response.status === 200) {
           this.correctData = true;
           this.token = response.data.access;
+          console.log("Token set:", this.token);
           Swal.fire({
             icon: "success",
             title: response.data.massage,
@@ -136,5 +138,8 @@ export const useAuthStore = defineStore({
       this.registrationData = userData;
       await this.registerUser();
     },
+    persistTolocalStorage(){
+      localStorage.setItem("token", JSON.stringify(this.token));
+    }
   },
 });

@@ -52,7 +52,7 @@ export default {
 }
 @media (max-width : 750px) {
     .content{
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     .bag-Content{
     width: 100%;
