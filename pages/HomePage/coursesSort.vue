@@ -22,21 +22,22 @@
                                 <span class="price">
                                     {{ course.price }} هزار تومان
                                 </span>
-                                <span  class="discountFee">
+                                <span class="discountFee">
                                     {{ course.off_price }} هزار تومان
                                 </span>
                             </div>
                             <div class="fee" v-else>
-                                <span class="discountFee" >
+                                <span class="discountFee">
                                     {{ course.price }} هزار تومان
                                 </span>
                             </div>
                             <div class="btnHolder">
                                 <nuxt-link>
-                                    <button @click="addToStore(course.id, course.course, course.price ,course.image , course.off_price , course.teacher)"
+                                    <button
+                                        @click="addToStore(course.id, course.course, course.price, course.image, course.off_price, course.teacher)"
                                         class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
-                                <nuxt-link :to="`/CourseDetails/${Id}`">
+                                <nuxt-link :to="`/CourseDetails/${id}`">
                                     <button class="showMore">مشاهده دوره </button>
                                 </nuxt-link>
                             </div>
@@ -51,6 +52,7 @@
 <script>
 import { useCourseStore } from '~/store/courseStore.js';
 import { useBaskteStore } from '~/store/basketStore';
+import { useCourseDetailsStore } from '@/store/courseDetailStore'
 import Swal from "sweetalert2";
 
 export default {
@@ -66,39 +68,49 @@ export default {
         this.courses = await store.fetchCourse();
     },
     methods: {
-        async addToStore(courseId, courseName , price , image , discountPrice , teacher) {
+        async addToStore(courseId, courseName, price, image, discountPrice, teacher) {
             try {
-                const addToBasket = {
-                    id: courseId,
-                    price: price,
-                    remove : false,
-                    clear : false
-                };
-                const localStorageBasket = {
-                    id: courseId,
-                    name: courseName,
-                    price: price,
-                    image : image,
-                    discountFee : discountPrice,
-                    teacher : teacher
-                }
-                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? []
-                courses.push(localStorageBasket);
-                localStorage.removeItem('basketItems');
-                localStorage.setItem('basketItems', JSON.stringify(courses));
+                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
 
-                const store = useBaskteStore();
-                store.addToBasket(addToBasket);
-                
-                Swal.fire({
-                    icon: "success",
-                    title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
-                })
+                if (existingCourseIndex === -1) {
+                    const addToBasket = {
+                        id: courseId,
+                        price: price,
+                        remove: false,
+                        clear: false
+                    };
 
-                } catch (error) {
-                    console.error('Error during add :', error);
+                    const localStorageBasket = {
+                        id: courseId,
+                        name: courseName,
+                        price: price,
+                        image: image,
+                        discountFee: discountPrice,
+                        teacher: teacher,
+                    }
+
+                    courses.push(localStorageBasket);
+                    localStorage.setItem('basketItems', JSON.stringify(courses));
+
+                    const store = useBaskteStore();
+                    store.addToBasket(addToBasket);
+
+                    Swal.fire({
+                        icon: "success",
+                        title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "این دوره قبلا به سبد خرید شما اضافه شده است",
+                    });
                 }
+            } catch (error) {
+                console.error('Error during add :', error);
+            }
         },
+
     },
     computed: {
         filteredCourses() {
@@ -171,6 +183,7 @@ img {
     color: #C8102E;
     width: 100%;
 }
+
 .price {
     text-decoration: line-through;
     color: #7D7D7D;
