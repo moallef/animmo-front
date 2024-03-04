@@ -92,6 +92,7 @@ export const useAuthStore = defineStore({
         if (response.status === 201) {
           this.correctData = true;
           this.token = response.data.access;
+          console.log(response.data.access);
           Swal.fire({
             icon: "success",
             title: response.data.massage,
@@ -117,11 +118,13 @@ export const useAuthStore = defineStore({
         if (response.status === 200) {
           this.correctData = true;
           this.token = response.data.access;
-          console.log("Token set:", this.token);
+          console.log('jwt' , this.token);
+          console.log("Token set:");
           Swal.fire({
             icon: "success",
             title: response.data.massage,
           });
+          this.persistTolocalStorage()
         }
         if (response.status === 203) {
           Swal.fire({
@@ -139,7 +142,7 @@ export const useAuthStore = defineStore({
       await this.registerUser();
     },
     persistTolocalStorage(){
-      localStorage.setItem("token", JSON.stringify(this.token));
+      localStorage.setItem("token",this.token);
     }
   },
 });

@@ -1,33 +1,46 @@
 import { defineStore } from "pinia";
 import * as axios from "axios";
-import {useAuthStore} from "./authenticationStore"
+import Swal from "sweetalert2";
 
 export const usePayStore = defineStore("Pay", {
   state: () => ({
     courseId: "",
+    url: "",
   }),
 
   actions: {
-    async sendCourseIds(courseId) {
-      this.courseId = courseId;
-      const JWT = localStorage.getItem("token",(this.token));
-      console.log("my token is :" ,JWT);
+    async sendCourseIds(courseIds) {
+      const courseIdArray = courseIds.map((course) => course);
+
+      const JWT = JSON.parse(localStorage.getItem('token'));
       try {
         const response = await axios.post(
           "https://animmo.ir/api/cart/pay/",
-          this.courseId ,
+          courseIdArray,
           {
             headers: {
-                Authorization: `Bearer ${JWT}`
-              }
+              Authorization: `Bearer ${JWT}`,
+            },
           }
         );
-        console.log("header is:" , headers);
-        console.log(response);
-  
-      } catch (error) {
-          console.error(error);
-      };
+        if (response.status == 200) {
+            this.url = response.data['redirect to : ']; 
+          } 
+          else {
+            console.error("error")
+          }
+      } catch {
+        Swal.fire({
+            icon: "error",
+            title: "لطفا ابتدا وارد پروفایل خود شوید",
+            text: "",
+          });
+      }
+    },
+  },
+  getters: {
+    getUrl() {
+      return this.url;
     },
   },
 });

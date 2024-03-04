@@ -35,6 +35,7 @@ export default {
         return {
             courses: [],
             totalPrice: 0,
+            url: '',
         };
     },
 
@@ -48,10 +49,12 @@ export default {
         calculateTotalPrice() {
             this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
         },
-        pay() {
+        async pay() {
             const courseIds = this.courses.map(course => ({ course_id: course.id }));
             const store = usePayStore();
-            store.sendCourseIds(courseIds);
+            await store.sendCourseIds(courseIds);
+            this.url = store.url;
+            window.location.href = this.url;
         }
     },
 
@@ -112,6 +115,7 @@ export default {
     letter-spacing: -0.04em;
     margin-bottom: 15px;
     border: none;
+    cursor: pointer;
 }
 
 .courseTable {
@@ -168,6 +172,9 @@ export default {
     letter-spacing: -0.04em;
     margin-bottom: 15px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .total {
@@ -201,4 +208,5 @@ export default {
 
 .courseTable th {
     padding-block: 30px;
-}</style>
+}
+</style>

@@ -32,13 +32,13 @@
                                 </span>
                             </div>
                             <div class="btnHolder">
-                                <nuxt-link>
+                                <nuxt-link >
                                     <button
                                         @click="addToStore(course.id, course.course, course.price, course.image, course.off_price, course.teacher)"
                                         class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
-                                <nuxt-link :to="`/CourseDetails/${id}`">
-                                    <button class="showMore">مشاهده دوره </button>
+                                <nuxt-link :to="`/CourseDetails/${slug}`">
+                                    <button class="showMore" @click="sendSlugToStore(course.slug)">مشاهده دوره </button>
                                 </nuxt-link>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
 <script>
 import { useCourseStore } from '~/store/courseStore.js';
 import { useBaskteStore } from '~/store/basketStore';
-import { useCourseDetailsStore } from '@/store/courseDetailStore'
+import { useCourseViewStore } from '@/store/viewCourseStore'
 import Swal from "sweetalert2";
 
 export default {
@@ -110,6 +110,11 @@ export default {
                 console.error('Error during add :', error);
             }
         },
+        sendSlugToStore(slug){
+            console.log( "this is slug",slug);
+            const store = useCourseViewStore();
+            store.getSlug(slug);
+        }
 
     },
     computed: {
