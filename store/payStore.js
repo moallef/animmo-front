@@ -12,7 +12,7 @@ export const usePayStore = defineStore("Pay", {
     async sendCourseIds(courseIds) {
       const courseIdArray = courseIds.map((course) => course);
 
-      const JWT = JSON.parse(localStorage.getItem('token'));
+      const JWT = localStorage.getItem('token');
       try {
         const response = await axios.post(
           "https://animmo.ir/api/cart/pay/",

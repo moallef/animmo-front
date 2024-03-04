@@ -124,7 +124,8 @@ export const useAuthStore = defineStore({
             icon: "success",
             title: response.data.massage,
           });
-          this.persistTolocalStorage()
+          this.persistTolocalStorage();
+          window.location.href = '/';
         }
         if (response.status === 203) {
           Swal.fire({
@@ -142,7 +143,7 @@ export const useAuthStore = defineStore({
       await this.registerUser();
     },
     persistTolocalStorage(){
-      localStorage.setItem("token",this.token);
+      JSON.parse(localStorage.setItem("token",this.token));
     }
   },
 });

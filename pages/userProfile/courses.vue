@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" v-for="(course, index) in userCourses">
         <img id="courseCover" src="~/assets/images/Rectangle 106.png" alt="course image">
         <div class="text">
             <div class="title">استوری برد</div>
@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <button>
+            <button @click="copyLicense">
                 کپی لایسنس اسپات پلیر
                 <img class="icon" src="~/assets/icons/icons8-shape-64.png" alt="">
             </button>
@@ -26,26 +26,55 @@
                 <div class="guide">راهنمای نصب و راه اندازی اسپات پلیر</div>
             </nuxt-link>
         </div>
-        
+
     </div>
 </template>
 
 <script>
+import {useUserPannel} from '@/store/userPannel'
+
 export default {
     name: 'FrontendCourses',
 
     data() {
         return {
-
+            userCourses : '',
         };
     },
 
-    mounted() {
-
+    async created(){
+        const store =  useUserPannel();
+        this.userCourses = await store.fetchUserPannel();
     },
 
     methods: {
+        copyLicense() {
+            // Text to copy to clipboard
+            const licenseText = "Your license text goes here";
 
+            // Create a temporary textarea element
+            const textarea = document.createElement("textarea");
+            textarea.value = licenseText;
+
+            // Make the textarea invisible
+            textarea.style.position = "fixed";
+            textarea.style.opacity = 0;
+
+            // Append the textarea to the body
+            document.body.appendChild(textarea);
+
+            // Select the text in the textarea
+            textarea.select();
+
+            // Copy the selected text to the clipboard
+            document.execCommand("copy");
+
+            // Remove the textarea from the body
+            document.body.removeChild(textarea);
+
+            // Optionally, provide feedback to the user
+            alert("لایسنس با موفقیت کپی شد!");
+        }
     },
 };
 </script>
@@ -59,7 +88,7 @@ export default {
 }
 
 .card {
-    width: 22%;
+    width: 25%;
 }
 
 #courseCover {
@@ -116,7 +145,8 @@ export default {
     text-align: left;
     margin-left: 8%;
 }
-.icon{
+
+.icon {
     margin-left: 2px;
     width: 12px;
 }

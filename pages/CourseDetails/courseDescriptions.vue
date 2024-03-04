@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import {useCourseViewStore} from '@/store/viewCourseStore'
+
 export default {
 
     data() {
