@@ -8,7 +8,7 @@
                 <div class="during">
                     <div class="seasons">
                         <img class="icon" src="~/assets/icons/clock-3-16.png" alt="">
-                        {{ course.duration }} فصل
+                        {{ course.season }} فصل
                     </div>
                     <div class="hours">
                         <img class="icon" src="~/assets/icons/pngaaa.com-630491.png" alt="">
@@ -87,7 +87,7 @@ export default {
     justify-content: center;
 }
 .card {
-    width: 28%;
+    width: 30%;
     margin: 20px;
 }
 

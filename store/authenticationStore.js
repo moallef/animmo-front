@@ -24,7 +24,7 @@ export const useAuthStore = defineStore({
       focusBoolian: true,
       correctData: true,
       token: "",
-      loggedIn : false,
+      loggedIn: false,
     };
   },
   actions: {
@@ -117,15 +117,13 @@ export const useAuthStore = defineStore({
         if (response.status === 200) {
           this.correctData = true;
           this.token = response.data.access;
-          if (this.token != undefined && null) {
-            this.loggedIn = true;
-          }
+          this.loggedIn = true;
           Swal.fire({
             icon: "success",
             title: response.data.massage,
           });
-          this.persistTolocalStorage();
           window.location.href = '/';
+          this.persistTolocalStorage();
         }
         if (response.status === 203) {
           Swal.fire({
@@ -142,8 +140,8 @@ export const useAuthStore = defineStore({
       this.registrationData = userData;
       await this.registerUser();
     },
-    persistTolocalStorage(){
-      JSON.parse(localStorage.setItem("token",this.token));
-    }
+    persistTolocalStorage() {
+      JSON.parse(localStorage.setItem("token", this.token));
+    },
   },
 });

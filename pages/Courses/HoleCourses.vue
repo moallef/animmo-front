@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div class="forContainer" v-if="courses.length > 0">
-            <div v-for="(course, index) in courses" :key="index" class="coursesSort">
+        <div class="forContainer" v-if="filteredCourses.length > 0">
+            <div v-for="(course, index) in filteredCourses" :key="index" class="coursesSort">
                 <img :src="`https://animmo.ir/${course.image}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
@@ -14,7 +14,7 @@
                                 <span class="seasons">
                                     {{ course.season }} فصل
                                 </span>
-                                <span class="hour">
+                                <span class="duration">
                                     {{ course.duration }} ساعت
                                 </span>
                             </div>
@@ -26,16 +26,19 @@
                                     {{ course.off_price }} هزار تومان
                                 </span>
                             </div>
-                            <div class="discountFee" v-else>
-                                {{ course.price }} هزار تومان
+                            <div class="fee" v-else>
+                                <span class="discountFee">
+                                    {{ course.price }} هزار تومان
+                                </span>
                             </div>
                             <div class="btnHolder">
-                                <nuxt-link>
-                                    <button @click="addToBasket(course.id, course.course, course.price)"
+                                <nuxt-link >
+                                    <button
+                                        @click="addToStore(course.id, course.course, course.price, course.image, course.off_price, course.teacher)"
                                         class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
-                                <nuxt-link :to="`/CourseDetails/${Id}`">
-                                    <button class="showMore">مشاهده دوره </button>
+                                <nuxt-link :to="`/CourseDetails/${slug}`">
+                                    <button class="showMore" @click="sendSlugToStore(course.slug)">مشاهده دوره </button>
                                 </nuxt-link>
                             </div>
                         </div>
@@ -49,6 +52,7 @@
 <script>
 import { useCourseStore } from '~/store/courseStore.js';
 import { useBaskteStore } from '~/store/basketStore';
+import { useCourseViewStore } from '@/store/viewCourseStore'
 import Swal from "sweetalert2";
 
 export default {
@@ -64,17 +68,66 @@ export default {
         this.courses = await store.fetchCourse();
     },
     methods: {
-        addToBasket(courseId, courseName, price) {
-            const store = useBaskteStore();
-            store.addToBasket({ courseId, courseName, price });
-            Swal.fire({
-                icon: "success",
-                title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
-            })
+        async addToStore(courseId, courseName, price, image, discountPrice, teacher) {
+            try {
+                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+
+                if (existingCourseIndex === -1) {
+                    const addToBasket = {
+                        id: courseId,
+                        price: price,
+                        remove: false,
+                        clear: false
+                    };
+
+                    const localStorageBasket = {
+                        id: courseId,
+                        name: courseName,
+                        price: price,
+                        image: image,
+                        discountFee: discountPrice,
+                        teacher: teacher,
+                    }
+
+                    courses.push(localStorageBasket);
+                    localStorage.setItem('basketItems', JSON.stringify(courses));
+
+                    const store = useBaskteStore();
+                    store.addToBasket(addToBasket);
+
+                    Swal.fire({
+                        icon: "success",
+                        title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "این دوره قبلا به سبد خرید شما اضافه شده است",
+                    });
+                }
+            } catch (error) {
+                console.error('Error during add :', error);
+            }
         },
+        sendSlugToStore(slug){
+            console.log( "this is slug",slug);
+            const store = useCourseViewStore();
+            store.getSlug(slug);
+        }
+
     },
     computed: {
-
+        filteredCourses() {
+            const categoryStore = useCourseStore();
+            this.slugName = categoryStore.categorySelected;
+            if (this.slugName) {
+                return this.courses.filter(course => course.category === this.slugName);
+            }
+            else {
+                return this.courses.filter(course => course.category === 'دو-بعدی');
+            }
+        },
     },
 };
 </script>
@@ -100,7 +153,6 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 35px;
-    width: 100%;
 }
 
 .coursesSort {
@@ -109,6 +161,7 @@ img {
     height: 444px;
     margin-left: 20px;
     margin-bottom: 90px;
+    width: 25%;
 }
 
 .courseTime,
@@ -153,11 +206,11 @@ img {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-right: 8%;
 }
 
 .courseTitle {
     padding-right: 7%;
-    width: 100%;
     text-align: right;
     margin-bottom: 5px;
 }
@@ -191,6 +244,18 @@ a {
     border: none;
 }
 
+@media (max-width : 1150px) {
+    .coursesSort {
+        width: 35%;
+    }
+}
+
+@media (max-width : 850px) {
+    .coursesSort {
+        width: 45%;
+    }
+}
+
 @media (max-width : 650px) {
     .coursesSort {
         width: 100%;
@@ -211,5 +276,4 @@ a {
         padding-top: 120px;
         width: 100%;
     }
-}
-</style>
+}</style>

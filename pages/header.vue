@@ -139,8 +139,14 @@ export default {
             })
     },
     created() {
-        const authStore = useAuthStore();
-        this.authenticationSituation = authStore.loggedIn;
+        if (process.client) {
+            const token = localStorage.getItem('token');
+            if (token) {
+                this.authenticationSituation = true;
+            } else {
+                this.authenticationSituation = false;
+            }
+        }
     },
     computed: {
         searchResults() {
@@ -603,4 +609,5 @@ header {
         font-size: 12px;
     }
 
-}</style>
+}
+</style>
