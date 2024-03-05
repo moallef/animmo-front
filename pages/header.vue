@@ -219,6 +219,8 @@ header {
     text-align: center;
     border: none;
     color: white;
+    display: flex;
+    align-items: center;
 }
 
 .none {
