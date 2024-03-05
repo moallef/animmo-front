@@ -24,6 +24,7 @@ export const useAuthStore = defineStore({
       focusBoolian: true,
       correctData: true,
       token: "",
+      loggedIn : false,
     };
   },
   actions: {
@@ -88,11 +89,9 @@ export const useAuthStore = defineStore({
           "https://animmo.ir/api/accounts/register/verify/",
           this.varificationData
         );
-        console.log(response);
         if (response.status === 201) {
           this.correctData = true;
           this.token = response.data.access;
-          console.log(response.data.access);
           Swal.fire({
             icon: "success",
             title: response.data.massage,
@@ -118,8 +117,9 @@ export const useAuthStore = defineStore({
         if (response.status === 200) {
           this.correctData = true;
           this.token = response.data.access;
-          console.log('jwt' , this.token);
-          console.log("Token set:");
+          if (this.token != undefined && null) {
+            this.loggedIn = true;
+          }
           Swal.fire({
             icon: "success",
             title: response.data.massage,

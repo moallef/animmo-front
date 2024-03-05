@@ -124,7 +124,7 @@ export default {
             shopNum: 0,
             searchTerm: '',
             banner: '',
-            authenticationSituation: null,
+            authenticationSituation: false,
         }
     },
     beforeCreate() {
@@ -140,7 +140,7 @@ export default {
     },
     created() {
         const authStore = useAuthStore();
-        this.authenticationSituation = authStore.isAuthenticated;
+        this.authenticationSituation = authStore.loggedIn;
     },
     computed: {
         searchResults() {
