@@ -20,7 +20,10 @@
                 </button>
 
                 <nuxt-link :class="this.authenticationSituation ? 'userProfile' : 'none'" to="/userProfile">
-                    پروفایل کاربری
+                    <span>
+                        پروفایل کاربری
+                    </span>
+
                     <img src="~/assets/icons/users.png" alt="">
                 </nuxt-link>
 
@@ -212,7 +215,7 @@ header {
 
 .userProfile {
     margin-top: -2px;
-    margin-right: 85%;
+    margin-right: 87%;
     height: 32px;
     border-radius: 28px;
     display: block;
@@ -534,6 +537,9 @@ header {
     .shopNum {
         margin-right: 2200%;
     }
+    .userProfile{
+        margin-right: 80%;
+    }
 
 }
 
@@ -542,6 +548,7 @@ header {
         font-size: 10px;
         width: 60%;
     }
+
 }
 
 @media (max-width : 700px) {
@@ -594,6 +601,12 @@ header {
     .menu__box {
         display: block;
         right: -250%;
+    }
+    .userProfile{
+        margin-right: 90%;
+    }
+    .userProfile span{
+        display: none;
     }
 
 }

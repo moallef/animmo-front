@@ -8,10 +8,13 @@ export const useCourseViewStore = defineStore("course_view", {
   actions: {
     getSlug(slug){
         this.selectedSlug = slug;
+        console.log(this.selectedSlug);
+        this.sendSlug()
     },
-    sendSlug(){
+    async sendSlug(){
         try {
-            const response = axios.post(`https://animmo.ir/api/course/view_course?slug=${this.selectedSlug}`);
+            const response = await axios.post(`https://animmo.ir/api/course/view_course?slug=${this.selectedSlug}`);
+            console.log("hi",response);
         } catch (error) {
             console.error(error);
         };
