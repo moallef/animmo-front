@@ -1,32 +1,34 @@
 <template>
-    <div class="card" v-for="(course, index) in userCourses">
-        <img id="courseCover" src="~/assets/images/Rectangle 106.png" alt="course image">
-        <div class="text">
-            <div class="title">استوری برد</div>
-            <div class="teacher">مهدی مؤلف</div>
-            <div class="during">
-                <div class="seasons">
-                    <img class="icon" src="~/assets/icons/clock-3-16.png" alt="">
-                    ۳ فصل
+    <div class="cardContainer">
+        <div class="card" v-for="(course, index) in userCourses">
+            <img id="courseCover" :src="`https://animmo.ir/${course.image}`" alt="course image">
+            <div class="text">
+                <div class="title"> {{ course.course }}</div>
+                <div class="teacher"> {{ course.teacher }} </div>
+                <div class="during">
+                    <div class="seasons">
+                        <img class="icon" src="~/assets/icons/clock-3-16.png" alt="">
+                        {{ course.duration }} فصل
+                    </div>
+                    <div class="hours">
+                        <img class="icon" src="~/assets/icons/pngaaa.com-630491.png" alt="">
+                        {{ course.duration }} ساعت
+                    </div>
                 </div>
-                <div class="hours">
-                    <img class="icon" src="~/assets/icons/pngaaa.com-630491.png" alt="">
-                    ۹ ساعت
-                </div>
+    
+                <button @click="copyLicense(course)">
+                    کپی لایسنس اسپات پلیر
+                    <img class="icon" src="~/assets/icons/icons8-shape-64.png" alt="">
+                </button>
+    
+                <div class="backupNumber">شماره پشتیبانی: {{ }}</div>
+                <div class="line"></div>
+                <nuxt-link to="/GuidePage">
+                    <div class="guide">راهنمای نصب و راه اندازی اسپات پلیر</div>
+                </nuxt-link>
             </div>
-
-            <button @click="copyLicense">
-                کپی لایسنس اسپات پلیر
-                <img class="icon" src="~/assets/icons/icons8-shape-64.png" alt="">
-            </button>
-
-            <div class="backupNumber">شماره پشتیبانی: {{ }}</div>
-            <div class="line"></div>
-            <nuxt-link to="/GuidePage">
-                <div class="guide">راهنمای نصب و راه اندازی اسپات پلیر</div>
-            </nuxt-link>
+    
         </div>
-
     </div>
 </template>
 
@@ -48,31 +50,23 @@ export default {
     },
 
     methods: {
-        copyLicense() {
-            // Text to copy to clipboard
-            const licenseText = "Your license text goes here";
+        copyLicense(course) {
+            const licenseText = course.spot_player_license;
 
-            // Create a temporary textarea element
             const textarea = document.createElement("textarea");
             textarea.value = licenseText;
 
-            // Make the textarea invisible
             textarea.style.position = "fixed";
             textarea.style.opacity = 0;
 
-            // Append the textarea to the body
             document.body.appendChild(textarea);
 
-            // Select the text in the textarea
             textarea.select();
 
-            // Copy the selected text to the clipboard
             document.execCommand("copy");
 
-            // Remove the textarea from the body
             document.body.removeChild(textarea);
 
-            // Optionally, provide feedback to the user
             alert("لایسنس با موفقیت کپی شد!");
         }
     },
@@ -86,9 +80,15 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-
+.cardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .card {
-    width: 25%;
+    width: 28%;
+    margin: 20px;
 }
 
 #courseCover {
@@ -163,7 +163,6 @@ button {
 
 .backupNumber {
     font-family: 'PeydaWeb', sans-serif;
-
     font-size: 12px;
     font-weight: 400;
     line-height: 17px;
@@ -181,7 +180,6 @@ button {
 .guide {
     color: #7D7D7D;
     font-family: 'PeydaWeb', sans-serif;
-
     font-size: 11px;
     font-weight: 400;
     line-height: 15px;

@@ -60,6 +60,7 @@ export default {
     background: #F9F9F9;
     height: 720px;
     border-radius: 16px;
+    overflow: auto;
 }
 
 .head {
@@ -133,8 +134,8 @@ export default {
 }
 .courses{
     display: flex;
-    width: 90%;
-    margin-inline: 5%;
-    margin-top: 30px;
+    flex-wrap: wrap;
+    width: 100%; 
+    padding: 10px;
 }
 </style>
