@@ -19,7 +19,6 @@ export const useBaskteStore = defineStore({
   actions: {
     async addToBasket(newBasket) {
       this.changesOnBasket = newBasket;
-      console.log("changeOnBasket", this.changesOnBasket);
       await this.addToBasketSrvice();
     },
     async removeFromBasket() {
@@ -28,12 +27,10 @@ export const useBaskteStore = defineStore({
     },
     async addToBasketSrvice() {
       try {
-        console.log(this.changesOnBasket);
         const response = await axios.post(
           "https://animmo.ir/api/cart/",
           this.changesOnBasket
         );
-        console.log( "post response is: ",response);
       } catch (error) {
         console.error("basket error is :", error);
       }
@@ -42,7 +39,6 @@ export const useBaskteStore = defineStore({
       try {
         {
           const response = await getBasket();
-          console.log("response is :", response);
           const basketData = response.map((element) => ({
             quantity: element.quantity,
             price: element.price,

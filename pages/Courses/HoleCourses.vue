@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div class="forContainer" v-if="filteredCourses.length > 0">
-            <div v-for="(course, index) in filteredCourses" :key="index" class="coursesSort">
+        <div class="forContainer" v-if="courses.length > 0">
+            <div v-for="(course, index) in courses" :key="index" class="coursesSort">
                 <img :src="`https://animmo.ir/${course.image}`" alt="">
                 <div class="textContainer">
                     <div class="courseText">
@@ -52,7 +52,6 @@
 <script>
 import { useCourseStore } from '~/store/courseStore.js';
 import { useBaskteStore } from '~/store/basketStore';
-import { useCourseViewStore } from '@/store/viewCourseStore'
 import Swal from "sweetalert2";
 
 export default {
@@ -110,24 +109,8 @@ export default {
                 console.error('Error during add :', error);
             }
         },
-        sendSlugToStore(slug){
-            console.log( "this is slug",slug);
-            const store = useCourseViewStore();
-            store.getSlug(slug);
-        }
-
     },
     computed: {
-        filteredCourses() {
-            const categoryStore = useCourseStore();
-            this.slugName = categoryStore.categorySelected;
-            if (this.slugName) {
-                return this.courses.filter(course => course.category === this.slugName);
-            }
-            else {
-                return this.courses.filter(course => course.category === 'دو-بعدی');
-            }
-        },
     },
 };
 </script>

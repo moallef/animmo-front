@@ -111,7 +111,6 @@ export default {
             }
         },
         sendSlugToStore(slug){
-            console.log( "this is slug",slug);
             const store = useCourseViewStore();
             store.getSlug(slug);
         }
