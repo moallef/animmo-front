@@ -4,17 +4,37 @@ import * as axios from "axios";
 export const useCourseViewStore = defineStore("course_view", {
   state: () => ({
     selectedSlug: '',
+    viewCourse: '',
   }),
   actions: {
-    getSlug(slug){
-        this.selectedSlug = slug;
-        console.log(this.selectedSlug);
-        this.sendSlug()
+    getId(id){
+        this.selectedId = id;
+        console.log(this.selectedId);
+        this.sendId()
     },
-    async sendSlug(){
+    async sendId(){
         try {
-            const response = await axios.post(`https://animmo.ir/api/course/view_course?slug=${this.selectedSlug}`);
-            console.log("hi",response);
+            const response = await axios.get(`https://animmo.ir/api/course/view_course/?id=${this.selectedId}`);
+            const element = response.data;
+            this.viewCourse = {
+              id: element.id,
+              category: element.category,
+              subcategory: element.subcategory,
+              course: element.course,
+              slug: element.slug,
+              image: element.image,
+              price: element.price,
+              teacher: element.teacher,
+              off_price: element.off_price,
+              season: element.season,
+              duration: element.duration,
+              created: element.created,
+              updated: element.updated,
+              description: element.description,
+              contacts_course: element.contacts_course,
+              target_course: element.target_course,
+            }
+            return this.viewCourse
         } catch (error) {
             console.error(error);
         };

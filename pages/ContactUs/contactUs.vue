@@ -116,7 +116,7 @@ img {
 
 .backUpNumber {
     width: 70%;
-    height: 48px;
+    
     background: #E9E9E9;
     border-radius: 29px;
     color: #646464;
@@ -150,5 +150,8 @@ img {
 #theNumber{
     margin-right: 65%;
     margin-top: -20px;
+}
+@media (max-width: 800px) {
+    
 }
 </style>

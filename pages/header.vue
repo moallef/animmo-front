@@ -276,6 +276,7 @@ header {
     width: 100%;
     display: inline;
     margin-block: 20px;
+    align-items: center;
 }
 
 .logo {

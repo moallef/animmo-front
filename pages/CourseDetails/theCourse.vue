@@ -1,61 +1,80 @@
 <template>
-    <div class="courses">
+    <div v-if="theCourse" class="courses">
         <div class="theCourse">
-            <img class="courseImage" src="../../assets/images/Rectangle 106.png" alt="">
+            <img class="courseImage" :src="`https://animmo.ir/${theCourse.image}`" alt="">
             <div class="details">
                 <div class="productName">
-                    <p class="title">{{ title }}</p>
-                    <p class="teacher">{{ techersName }}</p>
+                    <p class="title">{{ theCourse.course }}</p>
+                    <p class="teacher">{{ theCourse.teacher }}</p>
                 </div>
                 <div class="productTime">
                     <p class="seasonsCount">
                         <img src="../../assets/icons/clock-3-16.png" alt="">
                         فصل
-                        {{ SeasonsCount }}
+                        {{ theCourse.season }}
                         <img src="" alt="">
                     </p>
                     <p class="courseDurationInHours">
                         <img src="../../assets/icons/pngaaa.com-630491.png" alt="">
                         ساعت
-                        {{ courseDurationInHours }}
+                        {{ theCourse.duration }}
                         <img src="" alt="">
                     </p>
                 </div>
                 <div class="courseFee">
                     <p class="primaryFee">
-                        {{ primaryFee }}
+                        {{ theCourse.price }}
                         هزار تومان
                     </p>
                     <p class="discountedFee">
-                        {{ DiscountedFee }}
+                        {{ theCourse.off_price }}
                         هزار تومان
                     </p>
                 </div>
             </div>
         </div>
         <div class="btnHolder">
-            <button class="addToCards">
-                <nuxt-link to="">
-                    افزودن به سبد خرید
-                </nuxt-link>
+            <button class="addToCards" @click="sendToLocalStorage(theCourse.id , theCourse.course ,theCourse.price , theCourse.image , theCourse.off_price, theCourse.teacher)">
+                افزودن به سبد خرید
             </button>
         </div>
+    </div>
+    <div v-else>
+        Loading...
     </div>
 </template>
 
 <script>
+import { useCourseViewStore } from '@/store/viewCourseStore';
+
 export default {
     data() {
         return {
-            title: "آموزش نرم افزار مایا",
-            techersName: "مهدی مؤلف",
-            SeasonsCount: "۳",
-            courseDurationInHours: "۹",
-            primaryFee: "۱٬۳۰۰٬۰۰۰",
-            DiscountedFee: "۹۸۰.۰۰۰"
+            theCourse: null,
+        };
+    },
+    async created() {
+        const store = useCourseViewStore();
+        this.theCourse = await store.sendId();
+    },
+    methods: {
+        sendToLocalStorage() {
+            const { id, course, price, image, off_price, teacher } = this.theCourse;
+            const localStorageBasket = {
+                id: id,
+                name: course,
+                price: price,
+                image: image,
+                discountFee: off_price,
+                teacher: teacher,
+            };
+
+            let courses = JSON.parse(localStorage.getItem('basketItems')) || [];
+            courses.push(localStorageBasket);
+            localStorage.setItem('basketItems', JSON.stringify(courses));
         }
     }
-}
+};
 </script>
 
 <style scoped>
@@ -65,6 +84,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 .courses {
     display: block;
     gap: 28px;
@@ -93,15 +113,18 @@ export default {
     margin-top: 10px;
     margin-right: 2%;
 }
-.teacher{
+
+.teacher {
     margin-top: 10px;
     margin-right: 2%;
 }
-.btnHolder{
+
+.btnHolder {
     margin-top: 25px;
     width: 112%;
     margin-right: -6%;
 }
+
 .addToCards {
     background: #8569C2;
     height: 40px;
@@ -111,33 +134,40 @@ export default {
     color: white;
     font-size: 14px;
 }
+
 .productTime {
     color: #979797;
     margin-top: -10px;
 }
-.courseDurationInHours{
+
+.courseDurationInHours {
     margin-right: 55%;
     margin-top: -20px;
 }
-.seasonsCount{
+
+.seasonsCount {
     margin-top: 20px;
     margin-right: 2%;
 }
-.courseDurationInHours img{
+
+.courseDurationInHours img {
     width: 17px;
     opacity: 0.67;
 }
-.courseFee{
+
+.courseFee {
     margin-top: -15px;
 }
+
 .primaryFee {
     text-decoration: line-through;
     color: #646464;
     margin-top: 20px;
     margin-right: 2%;
 }
-.discountedFee{
-    color:#C8102E;
+
+.discountedFee {
+    color: #C8102E;
     margin-right: 55%;
     width: 50%;
     margin-top: -20px;

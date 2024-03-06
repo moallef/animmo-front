@@ -37,8 +37,8 @@
                                         @click="addToStore(course.id, course.course, course.price, course.image, course.off_price, course.teacher)"
                                         class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
-                                <nuxt-link :to="`/CourseDetails/${slug}`">
-                                    <button class="showMore" @click="sendSlugToStore(course.slug)">مشاهده دوره </button>
+                                <nuxt-link :to="`/CourseDetails/${course.slug}`">
+                                    <button class="showMore" @click="sendSlugToStore(course.id , course.slug)">مشاهده دوره </button>
                                 </nuxt-link>
                             </div>
                         </div>
@@ -110,9 +110,9 @@ export default {
                 console.error('Error during add :', error);
             }
         },
-        sendSlugToStore(slug){
+        sendSlugToStore(id){
             const store = useCourseViewStore();
-            store.getSlug(slug);
+            store.getId(id);
         }
 
     },
@@ -167,6 +167,7 @@ img {
 .fee {
     margin-top: 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin-inline: 5%;
     font-family: 'Yekan Bakh', sans-serif;
@@ -259,6 +260,7 @@ a {
     .coursesSort {
         width: 100%;
         font-size: 12px;
+        margin-inline: 5%;
     }
 }
 

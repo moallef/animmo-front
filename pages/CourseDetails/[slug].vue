@@ -56,7 +56,7 @@ export default {
 
 <style scoped>
 .navBar {
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .content {

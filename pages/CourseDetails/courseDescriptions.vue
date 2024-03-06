@@ -1,40 +1,40 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container" v-if="theCourse">
             <div class="description">
                 <p id="description" class="title" >
-                    {{ description }}
+                    {{ descriptionTitle }}
                 </p>
                 <div class="lineContaiter">
                     <div class="aboveLine"></div>
                     <div class="line"></div>
                 </div>
                 <p id="descriptionP" class="paragraph">
-                    {{ descriptionParagraph }}
+                    {{ theCourse.description }}
                 </p>
             </div>
             <div class="courseContacts">
                 <p id="courseContacts" class="title">
-                    {{ courseContacts }}
+                    {{ courseContactsTitle }}
                 </p>
                 <div class="lineContaiter">
                     <div class="aboveLine"></div>
                     <div class="line"></div>
                 </div>
                 <p id="courseContactsP" class="paragraph">
-                    {{ courseContactsParagraph }}
+                    {{ theCourse.contacts_course }}
                 </p>
             </div>
             <div class="courseOutput">
                 <p id="courseOutput" class="title">
-                    {{ courseOutput }}
+                    {{ courseOutputTitle }}
                 </p>
                 <div class="lineContaiter" >
                     <div class="aboveLine" id="line3"></div>
                     <div class="line" ></div>
                 </div>
                 <p id="courseOutputP" class="paragraph">
-                    {{ courseOutputParagraph }}
+                    {{ theCourse.target_course }}
                 </p>
             </div>
         </div>
@@ -43,27 +43,28 @@
 
 <script>
 import {useCourseViewStore} from '@/store/viewCourseStore'
+import theCourse from './theCourse.vue';
 
 export default {
 
     data() {
         return {
-            description: "توضیحات دوره",
-            descriptionParagraph: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، ",
-            courseContacts: " مخاطبین دوره ",
-            courseContactsParagraph: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، ",
-            courseOutput: " خروجی دوره ",
-            courseOutputParagraph: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، ",
+            descriptionTitle: "توضیحات دوره",
+            courseContactsTitle: " مخاطبین دوره ",
+            courseOutputTitle: " خروجی دوره ",    
+            theCourse: null,
         };
+    },
+
+    async created() {
+        const store = useCourseViewStore();
+        this.theCourse = await store.sendId();
     },
 
     mounted() {
 
     },
 
-    methods: {
-
-    },
 };
 </script>
 
