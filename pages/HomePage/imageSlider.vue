@@ -1,20 +1,14 @@
 <template id="slider">
-    <Swiper 
-    class="slider" 
-    :modules="[SwiperAutoplay, SwiperEffectCreative]" 
-    :slides-per-view="1" 
-    :loop="true"
-    :effect="'creative'" 
-    :autoplay="sliderAutoPlay" 
-    :creative-effect="{
-    prev: { 
-        shadow: false,
-        translate: ['-100%', 0, -1],
-    },
-    next: {
-        translate: ['100%', 0, 0],
-    },
-}">
+    <Swiper class="slider" :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="1" :loop="true"
+        :effect="'creative'" :autoplay="sliderAutoPlay" :creative-effect="{
+        prev: {
+            shadow: false,
+            translate: ['-100%', 0, -1],
+        },
+        next: {
+            translate: ['100%', 0, 0],
+        },
+    }">
         <SwiperSlide class="container" v-for="banner in bannerList" :key="banner.imgSrc" @v-on:mouseover="stopRotarion"
             @mouseout="stopRotarion">
             <nuxt-link class="routerLink" to="">
@@ -79,7 +73,7 @@ export default {
 img {
     border-radius: 15px;
     width: 100%;
-    height: 270px;
+    height: 770px;
 }
 
 ul {
@@ -87,7 +81,7 @@ ul {
 }
 
 .slider {
-    height: 270px;
+
     width: 93%;
     margin: auto;
     margin-top: 50px;
@@ -106,5 +100,36 @@ li {
 
 li.on {
     display: block;
+}
+
+@media (max-width : 1200px) {
+    img {
+        border-radius: 15px;
+        width: 100%;
+        height: 650px;
+    }
+}
+
+@media (max-width : 900px) {
+    img {
+        border-radius: 15px;
+        width: 100%;
+        height: 500px;
+    }
+}
+
+@media (max-width : 600px) {
+    img {
+        border-radius: 15px;
+        width: 100%;
+        height: 300px;
+    }
+}
+@media (max-width : 500px) {
+    img {
+        border-radius: 15px;
+        width: 100%;
+        height: 270px;
+    }
 }
 </style>

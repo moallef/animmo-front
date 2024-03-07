@@ -8,7 +8,7 @@
                     <div class="shopIcon">
                         <a href="">
                             <div class="imgHolder">
-                                <p class="shopNum">{{ shopNum }}</p>
+                                <p class="shopNum">{{ basketItems }}</p>
                                 <img src="../assets/icons/Group 91.png">
                             </div>
                         </a>
@@ -127,6 +127,7 @@ export default {
             shopNum: 0,
             searchTerm: '',
             banner: '',
+            basketItems: 0,
             authenticationSituation: false,
         }
     },
@@ -157,6 +158,10 @@ export default {
                 course.category.toLowerCase().includes(this.searchTerm.toLowerCase())
             );
         },
+        basketItemCount() {
+            this.basketItems = localStorage.getItem('basketItems') || [];
+            return basketItems.length;
+        }
     },
     methods: {
         scrollDown() {
@@ -340,6 +345,8 @@ header {
 .navLink {
     font-family: 'Yekan Bakh', sans-serif;
     color: black;
+    display: flex;
+    align-items: center;
 }
 
 .navBarImage {
@@ -538,7 +545,8 @@ header {
     .shopNum {
         margin-right: 2200%;
     }
-    .userProfile{
+
+    .userProfile {
         margin-right: 80%;
     }
 
@@ -603,10 +611,12 @@ header {
         display: block;
         right: -250%;
     }
-    .userProfile{
+
+    .userProfile {
         margin-right: 90%;
     }
-    .userProfile span{
+
+    .userProfile span {
         display: none;
     }
 

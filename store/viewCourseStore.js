@@ -9,7 +9,6 @@ export const useCourseViewStore = defineStore("course_view", {
   actions: {
     getId(id){
         this.selectedId = id;
-        console.log(this.selectedId);
         this.sendId()
     },
     async sendId(){

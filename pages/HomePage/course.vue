@@ -14,7 +14,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import { getClassifications } from '~/API/classification';
 import { useCourseStore } from '~/store/courseSubcategoryStore'
@@ -68,10 +68,12 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-:focus{
+
+:focus {
     border: none;
     outline: none;
 }
+
 .courses {
     text-align: center;
 }
@@ -101,6 +103,7 @@ export default {
 .btn:hover #txt {
     color: white;
 }
+
 #none {
     display: none;
 }
@@ -121,13 +124,13 @@ export default {
 
 .sections {
     background: #E9E9E9;
-    width: fit-content;
     padding: 4px;
-    border-radius: 45px;
+    border-radius: 54px;
     margin: auto;
-    width: 55%;
+    width: fit-content;
     margin-block: 50px;
-
+    display: flex;
+    justify-content: center;
 }
 
 .icon-wrapper {
@@ -141,7 +144,7 @@ export default {
     background: #F4F4F4;
     cursor: pointer;
     font-size: 16px;
-    width: 20%;
+    width: 200px;
     height: 56px;
     border-radius: 44px;
     gap: 16px;
@@ -168,6 +171,10 @@ export default {
         bottom: 28px;
         margin-right: 20px;
     }
+
+    .courses button {
+        width: 170px;
+    }
 }
 
 
@@ -180,33 +187,33 @@ export default {
         bottom: 30px;
         margin-right: 18px;
     }
-}
-@media (max-width: 755px) {
-    .sections {
-        width: 70%;
+
+    .courses button {
+        width: 120px;
     }
 }
 
-@media (max-width: 630px) {
-    .sections {
-        width: 90%;
-    }
-}
 
 @media (max-width: 500px) {
     .courses button {
         font-size: 10px;
     }
+
     #txt {
         margin-right: 40px;
     }
 }
+
 @media (max-width: 450px) {
-    #txt{
+    #txt {
         display: none;
     }
-    .icon-wrapper{
+
+    .icon-wrapper {
         margin-right: 30%;
+    }
+    .courses button {
+        width: 100px;
     }
 }
 </style>

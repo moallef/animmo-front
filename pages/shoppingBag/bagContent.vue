@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import { useBaskteStore } from '../../store/basketStore'
-
 export default {
     data() {
         return {
