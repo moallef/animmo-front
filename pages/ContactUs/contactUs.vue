@@ -151,7 +151,18 @@ img {
     margin-right: 65%;
     margin-top: -20px;
 }
-@media (max-width: 800px) {
-    
+@media (max-width: 900px) {
+    .imgHolder{
+        display: none;
+    }
+    .textHolder{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .backUpNumber{
+        font-size: 15px;
+    }
 }
 </style>
