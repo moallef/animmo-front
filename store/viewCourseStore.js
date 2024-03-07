@@ -25,7 +25,7 @@ export const useCourseViewStore = defineStore("course_view", {
               image: element.image,
               price: element.price,
               teacher: element.teacher,
-              off_price: element.off_price,
+              discount: element.discount,
               season: element.season,
               duration: element.duration,
               created: element.created,

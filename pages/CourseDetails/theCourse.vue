@@ -27,7 +27,7 @@
                         هزار تومان
                     </p>
                     <p class="discountedFee">
-                        {{ theCourse.off_price }}
+                        {{ theCourse.discount }}
                         هزار تومان
                     </p>
                 </div>
