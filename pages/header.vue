@@ -8,7 +8,7 @@
                     <div class="shopIcon">
                         <a href="">
                             <div class="imgHolder">
-                                <p class="shopNum">{{ basketItems }}</p>
+                                <p class="shopNum">{{ basketItemCount }}</p>
                                 <img src="../assets/icons/Group 91.png">
                             </div>
                         </a>
@@ -127,7 +127,6 @@ export default {
             shopNum: 0,
             searchTerm: '',
             banner: '',
-            basketItems: 0,
             authenticationSituation: false,
         }
     },
@@ -159,8 +158,10 @@ export default {
             );
         },
         basketItemCount() {
-            this.basketItems = localStorage.getItem('basketItems') || [];
-            return basketItems.length;
+            if (process.client) {
+                const basketItems  = JSON.parse(localStorage.getItem('basketItems')) || [];
+                return basketItems.length;
+            }
         }
     },
     methods: {
