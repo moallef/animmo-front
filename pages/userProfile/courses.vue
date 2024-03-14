@@ -185,4 +185,17 @@ button {
     line-height: 15px;
     letter-spacing: 0em;
 }
+@media (max-width: 970px) {
+    button{
+        width: 96%;
+    }
+    .card{
+        width: 60%;
+    }
+}
+@media (max-width: 750px) {
+    .card{
+        width: 80%;
+    }
+}
 </style>

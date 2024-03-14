@@ -63,4 +63,9 @@ export default {
 .main{
     width: 65%;
 }
+@media (max-width: 930px) {
+    .menu{
+        width: 150px;
+    }
+}
 </style>

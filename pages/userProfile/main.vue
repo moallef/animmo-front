@@ -138,4 +138,21 @@ export default {
     width: 100%; 
     padding: 10px;
 }
+@media (max-width: 1390px) {
+    .search{
+        margin-right: 48%;
+    }
+}
+@media (max-width: 970px) {
+    .search{
+        margin-right: 10%;
+        text-align: center;
+    }
+    .title{
+        display: none;
+    }
+    #searchInput{
+        width: 100%;
+    }
+}
 </style>
