@@ -151,8 +151,14 @@ export default {
     .title{
         display: none;
     }
-    #searchInput{
-        width: 100%;
+
+}
+@media (max-width: 600px) {
+    .search{
+        margin-right: 2%;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
     }
 }
 </style>

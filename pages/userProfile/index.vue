@@ -68,4 +68,13 @@ export default {
         width: 150px;
     }
 }
+@media (max-width: 800px) {
+    .menu{
+        display: none;
+    }
+    .main{
+        margin-left: 5%;
+        width: 85%;
+}
+}
 </style>

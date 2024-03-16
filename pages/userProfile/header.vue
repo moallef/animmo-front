@@ -44,6 +44,7 @@ export default {
     border-radius: 8px;
     padding: 9px 16px 9px 16px;
     color: white;
+    margin-left: 4%;
 }
 
 .returnToSite {
@@ -60,5 +61,17 @@ img {
     width: 216px;
     height: 77px;
     margin-right: 10%;
+}
+@media (max-width: 600px) {
+    img {
+    width: 116px;
+    height: 37px;
+    margin-right: 10%;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 }
 </style>
