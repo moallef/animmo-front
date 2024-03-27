@@ -73,7 +73,7 @@ export default {
 img {
     border-radius: 15px;
     width: 100%;
-    height: 770px;
+    height: 570px;
 }
 
 ul {
@@ -106,7 +106,7 @@ li.on {
     img {
         border-radius: 15px;
         width: 100%;
-        height: 650px;
+        height: 550px;
     }
 }
 
@@ -114,7 +114,7 @@ li.on {
     img {
         border-radius: 15px;
         width: 100%;
-        height: 500px;
+        height: 400px;
     }
 }
 
@@ -122,14 +122,14 @@ li.on {
     img {
         border-radius: 15px;
         width: 100%;
-        height: 300px;
+        height: 200px;
     }
 }
 @media (max-width : 500px) {
     img {
         border-radius: 15px;
         width: 100%;
-        height: 270px;
+        height: 170px;
     }
 }
 </style>
