@@ -100,6 +100,7 @@ export default {
                         icon: "success",
                         title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
                     });
+                    window.location.reload();
                 } else {
                     Swal.fire({
                         icon: "warning",

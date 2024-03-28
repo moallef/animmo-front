@@ -89,6 +89,7 @@ export default {
 .card {
     width: 30%;
     margin: 20px;
+    min-width: 300px;
 }
 
 #courseCover {

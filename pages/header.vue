@@ -76,14 +76,23 @@
                             </a>
                         </nuxt-link>
                     </li>
+                    <li> <nuxt-link to="/GuidePage">
+                            <a class="menu__item" href="#">
+                                <img src="../assets/icons/Contacts.png" alt="Contacts">
+                                راهنما
+                            </a>
+                        </nuxt-link>
+                    </li>
                 </ul>
             </div>
         </header>
 
         <div class="headBar">
             <div class="logo">
-                <img v-if="banner" :key="banner.header_logo" :src="`https://animmo.ir/${banner.header_logo}`"
-                    alt="Animmo" />
+                <nuxt-link to="/">
+                    <img v-if="banner" :key="banner.header_logo" :src="`https://animmo.ir/${banner.header_logo}`"
+                        alt="Animmo" />
+                </nuxt-link>
             </div>
             <div class="search" v-on:keyup.enter="onEnter">
                 <i class="fa fa-search search_icon"></i>
@@ -92,24 +101,28 @@
             <div class="navBar">
 
                 <nuxt-link to="/" class="navLink">
-                    <img class="navBarImage" src="../assets/icons/HomePage.png" alt="Home">
+                    <img class="navBarImage" src="../assets/icons/header-icons/home.png" alt="Home">
                     خانه انیمو
                 </nuxt-link>
                 <nuxt-link to="/workSamples" class="navLink">
-                    <img class="navBarImage" src="../assets/icons/WorkSamples.png" alt="Work Samples">
+                    <img class="navBarImage" src="../assets/icons/header-icons/Component 14.png" alt="Work Samples">
                     نمونه کار هنر جویان
                 </nuxt-link>
                 <nuxt-link to="/contactUs" class="navLink">
-                    <img class="navBarImage" src="../assets/icons/Contacts.png" alt="Contacts">
+                    <img class="navBarImage" src="../assets/icons/header-icons/Component 14 (1).png" alt="Contacts">
                     تماس با ما
                 </nuxt-link>
                 <nuxt-link to="/Blogs" class="navLink">
-                    <img class="navBarImage" src="../assets/icons/Blog.png" alt="Blog">
+                    <img class="navBarImage" src="../assets/icons/header-icons/بلاگ.png" alt="Blog">
                     بلاگ
                 </nuxt-link>
                 <nuxt-link to="/AboutUs" class="navLink">
-                    <img class="navBarImage" src="../assets/icons/AboutUs.png" alt="AboutUs">
+                    <img class="navBarImage" src="../assets/icons/header-icons/help-circle.png" alt="AboutUs">
                     درباره ما
+                </nuxt-link>
+                <nuxt-link to="/GuidePage" class="navLink">
+                    <img class="navBarImage" src="../assets/icons/header-icons/alert-octagon.png" alt="AboutUs">
+                    راهنما
                 </nuxt-link>
             </div>
 
@@ -119,7 +132,6 @@
 
 <script>
 import { getSlider } from '~/API/slider.js'
-import { useAuthStore } from '~/store/authenticationStore.js';
 
 export default {
     data() {
@@ -279,6 +291,7 @@ header {
 }
 
 .headBar {
+    align-items: center;
     width: 100%;
     display: inline;
     margin-block: 20px;
@@ -345,13 +358,14 @@ header {
 
 .navLink {
     font-family: 'Yekan Bakh', sans-serif;
-    color: black;
+    font-size: 20px;
+    color: #16163D;
     display: flex;
     align-items: center;
 }
 
 .navBarImage {
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .dropDown {

@@ -7,7 +7,9 @@
 
             <div class="block">
                 <div id="logo">
-                    <img v-if="banner" :key="banner.footer_logo" :src="`https://animmo.ir/${banner.footer_logo}`" alt="Animmo"/>
+                    <nuxt-link to="/">
+                        <img v-if="banner" :key="banner.footer_logo" :src="`https://animmo.ir/${banner.footer_logo}`" alt="Animmo"/>
+                    </nuxt-link>
                 </div>
 
                 <div class="container">

@@ -46,6 +46,7 @@ export default {
             localStorage.removeItem('basketItems');
             localStorage.setItem('basketItems', JSON.stringify(filteredItem));
             this.items = filteredItem;
+            window.location.reload();
         },
     }
 }
