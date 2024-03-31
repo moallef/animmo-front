@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import {useCartStore} from '@/store/useCardStore'
+
 export default {
     data() {
         return {
@@ -37,6 +39,7 @@ export default {
         } catch (error) {
             console.error("get Items :", error);
         };
+        this.$emit('data-emitted', this.items);
     },
     methods: {
         deleteCourse(id) {
@@ -46,7 +49,7 @@ export default {
             localStorage.removeItem('basketItems');
             localStorage.setItem('basketItems', JSON.stringify(filteredItem));
             this.items = filteredItem;
-            window.location.reload();
+            this.$emit('data-emitted', this.items);
         },
     }
 }

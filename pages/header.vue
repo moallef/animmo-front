@@ -307,6 +307,7 @@ header {
 
 .logo img {
     width: 80%;
+    height: 90px;
 }
 
 .search {

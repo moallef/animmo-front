@@ -3,7 +3,7 @@
         <table class="courseTable">
             <thead>
                 <tr>
-                    <th colspan="2">دوره های انتخاب شده ({{ this.courses.length }})</th>
+                    <th colspan="2">دوره های انتخاب شده ({{ courses.length }})</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,14 +26,20 @@
 </template>
 
 <script>
-import { usePayStore } from '@/store/payStore.js'
+import { usePayStore } from '@/store/payStore.js';
 
 export default {
     name: 'FrontendUltimateList',
 
+    props: {
+        courses: {
+            type: Array,
+            default: () => []
+        }
+    },
+
     data() {
         return {
-            courses: [],
             totalPrice: 0,
             url: '',
         };
@@ -42,6 +48,9 @@ export default {
     computed: {
         coursesCount() {
             return this.courses.length;
+        },
+        calculateTotalPrice() {
+            this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
         },
     },
 
@@ -60,21 +69,14 @@ export default {
 
     watch: {
         courses: {
-            handler: 'calculateTotalPrice',
+            immediate: true,
             deep: true,
         },
     },
     created() {
-        try {
-            this.courses = JSON.parse(localStorage.getItem('basketItems')) || [];
-        } catch (error) {
-            console.error("get Items :", error);
-        };
-    },
-
-    mounted() {
-        this.calculateTotalPrice();
-    },
+        this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
+        return this.courses.length;
+    }
 };
 </script>
 

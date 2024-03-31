@@ -38,7 +38,5 @@ import Blog from '../HomePage/blog.vue'
 </script>
 
 <style>
-.slider{
-    margin-top: 30px;
-}
+
 </style>

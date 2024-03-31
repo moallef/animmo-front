@@ -1,19 +1,19 @@
 <template>
     <div>
-        <header-app/>
+        <header-app />
         <div class="belt">
-            <the-belt/>
+            <the-belt />
         </div>
         <div class="content">
             <div class="bag-Content">
-                <bag-Content/>
+                <bag-Content @data-emitted="handleDataFromChild"  />
             </div>
             <div class="ultimateList">
-                <ultimate-list/>
+                <ultimate-list :courses="itemsFromChild" />
             </div>
         </div>
         <div class="footer">
-            <footer-app/>
+            <footer-app />
         </div>
     </div>
 </template>
@@ -26,40 +26,56 @@ import bagContent from './bagContent.vue';
 import ultimateList from './ultimateList.vue';
 
 export default {
-    components:{
+    components: {
         "header-app": header,
         "footer-app": footer,
         'the-belt': belt,
         "bag-Content": bagContent,
         "ultimate-list": ultimateList,
+    },
+    data() {
+        return {
+            items: [],
+            itemsFromChild : []
+        }
+    },
+    methods: {
+        handleDataFromChild(data) {
+        this.itemsFromChild = data;
+    }
     }
 }
 </script>
 
 <style scoped>
-.content{
+.content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 20px;
     margin-inline: 5%;
 }
-.bag-Content{
+
+.bag-Content {
     width: 69%;
 }
-.ultimateList{
+
+.ultimateList {
     width: 29.5%;
 }
+
 @media (max-width : 750px) {
-    .content{
+    .content {
         flex-direction: column;
     }
-    .bag-Content{
-    width: 100%;
-    margin-top: 20px;
-}
-.ultimateList{
-    width:100%;
-}
+
+    .bag-Content {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .ultimateList {
+        width: 100%;
+    }
 }
 </style>
