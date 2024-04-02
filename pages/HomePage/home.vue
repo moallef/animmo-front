@@ -5,7 +5,7 @@
         </div>
         <div class="courses">
             <course-section/>
-            <classification/>
+            <classification @data-emitted="handleDataFromChild"/>
         </div>
         <work-Samples />
         <!-- <latest-Courses /> -->
@@ -25,6 +25,11 @@ import Blog from '../HomePage/blog.vue'
 
 
     export default{
+        data() {
+            return {
+                items : []
+            }
+        },
         components: {
             "image-Slider" : imageSlider,
             "course-section" : course,
@@ -33,6 +38,12 @@ import Blog from '../HomePage/blog.vue'
             "latest-Courses" : latestCourses,
             "students-Comments" : studentsComments,
             "blog-Component" : Blog,
+        },
+        methods: {
+            handleDataFromChild(data){
+                this.items = data
+            this.$emit('data-emitted', this.items)
+        }
         }
     }
 </script>

@@ -1,9 +1,9 @@
 <template>
     <header>
-        <header-app />
+        <header-app class="header" :courses="this.items" />
     </header>
     <main>
-        <home-page />
+        <home-page @data-emitted="handleDataFromChild" />
     </main>
     <footer>
         <footer-app />
@@ -18,11 +18,33 @@ import home from './HomePage/home.vue'
 
 
 export default {
+    data() {
+        return {
+            items: []
+        }
+    },
     components: {
         "header-app": header,
         "footer-app": footer,
         "home-page": home,
 
+    },
+    methods: {
+        handleDataFromChild(data) {
+            this.items = data;
+        },
+    },
+    computed: {
+        test() {
+            if (process.client) {
+                this.items = JSON.parse(localStorage.getItem('basketItems'));
+            }
+        }
+    },
+    created() {
+        if (process.client) {
+            this.items = JSON.parse(localStorage.getItem('basketItems'));
+        }
     }
 }
 </script>
@@ -34,6 +56,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 body {
     direction: rtl;
 }

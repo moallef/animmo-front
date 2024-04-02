@@ -8,7 +8,7 @@
                     <div class="shopIcon">
                         <a href="">
                             <div class="imgHolder">
-                                <p class="shopNum">{{ basketItemCount }}</p>
+                                <p class="shopNum">{{ coursesCount }}</p>
                                 <img src="../assets/icons/Group 91.png">
                             </div>
                         </a>
@@ -142,6 +142,12 @@ export default {
             authenticationSituation: false,
         }
     },
+    props: {
+        courses: {
+            type: Array,
+            default: () => []
+        },
+    },
     beforeCreate() {
         getSlider()
             .then(data => {
@@ -161,17 +167,23 @@ export default {
             } else {
                 this.authenticationSituation = false;
             }
+
+            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+            this.shopNum = basketItems.length;
+
+            // Set the default value of coursesCount to the count from local storage
+            this.coursesCount = basketItems.length;
         }
     },
     computed: {
-        searchResults() {
-            return this.$store.getters.getCourse.filter(course =>
-                course.category.toLowerCase().includes(this.searchTerm.toLowerCase())
-            );
+        coursesCount() {
+            if (process.client) {
+                return this.courses.length > 0 ? this.courses.length : JSON.parse(localStorage.getItem('basketItems')) ? JSON.parse(localStorage.getItem('basketItems')).length : 0;
+            }
         },
         basketItemCount() {
             if (process.client) {
-                const basketItems  = JSON.parse(localStorage.getItem('basketItems')) || [];
+                const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
                 return basketItems.length;
             }
         }
@@ -306,8 +318,8 @@ header {
 }
 
 .logo img {
-    width: 80%;
-    height: 90px;
+    width: 60%;
+    height: 60px;
 }
 
 .search {
@@ -520,7 +532,9 @@ header {
         width: 20%;
     }
 
-
+    .navBar a {
+        font-size: 16px;
+    }
 }
 
 @media (max-width : 1050px) {
@@ -534,7 +548,12 @@ header {
     }
 
     .navBar {
-        font-size: 12px;
+        font-size: 18px;
+        width: 45%
+    }
+
+    .navBar a {
+        font-size: 20px;
     }
 
     .searchInput {
@@ -584,6 +603,7 @@ header {
     .logo {
         margin-right: 65%;
         padding-left: 5%;
+        margin-bottom: 100px
     }
 
     .searchInput {

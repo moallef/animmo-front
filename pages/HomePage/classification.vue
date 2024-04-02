@@ -2,7 +2,7 @@
     <div>
         <div class="classification">
             <div class="courses">
-                <courses-Sort  :index="index" />
+                <courses-Sort @data-emitted="handleDataFromChild" :index="index" />
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         </nuxt-link>
     </div>
 </template>
-  
+
 <script>
 import coursesSort from './coursesSort.vue';
 import { useCourseStore } from '~/store/courseStore';
@@ -27,11 +27,18 @@ export default {
     data() {
         return {
             courses: [],
+            itemsFromChild: []
         };
     },
     async created() {
         this.courses = await useCourseStore().fetchCourse();
     },
+    methods: {
+        handleDataFromChild(data) {
+            this.itemsFromChild = data;
+            this.$emit('data-emitted', this.itemsFromChild);
+        },
+    }
 };
 </script>
 
@@ -42,6 +49,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 a {
     color: white;
 }
@@ -67,8 +75,9 @@ a {
 .courses {
     margin-top: 60px;
 }
+
 .moreBtn {
-    
+
     color: white;
     width: 9%;
     height: 49px;

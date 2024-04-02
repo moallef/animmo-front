@@ -2,7 +2,10 @@
     <div>
         <div class="container">
             <div class="logo">
-                <img src="~/assets/icons/AnimmoLogo.png" alt="">
+                <nuxt-link to="/">
+                    <img v-if="banner" :key="banner.header_logo" :src="`https://animmo.ir/${banner.header_logo}`"
+                        alt="Animmo" />
+                </nuxt-link>
             </div>
             <div class="returnToSite">
                 <nuxt-link to="/">
@@ -16,6 +19,8 @@
 </template>
 
 <script>
+import { getSlider } from '~/API/slider.js'
+
 export default {
     name: 'FrontendHeader',
 
@@ -23,6 +28,18 @@ export default {
         return {
 
         };
+    },
+
+    beforeCreate() {
+        getSlider()
+            .then(data => {
+                if (data) {
+                    this.banner = { header_logo: data[0].header_logo };
+                }
+            })
+            .catch(error => {
+                console.error("Error in beforeCreate ", error);
+            })
     },
 
     mounted() {
@@ -57,10 +74,9 @@ export default {
     height: 0px;
 }
 
-img {
-    width: 216px;
-    height: 77px;
-    margin-right: 10%;
+.logo img {
+    width: 60%;
+    height: 60px;
 }
 @media (max-width: 600px) {
     img {

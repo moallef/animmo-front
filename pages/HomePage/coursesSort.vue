@@ -90,16 +90,18 @@ export default {
                         teacher: teacher,
                     }
 
-                    courses.push(localStorageBasket);
+                    await courses.push(localStorageBasket);
                     localStorage.setItem('basketItems', JSON.stringify(courses));
 
                     const store = useBaskteStore();
                     store.addToBasket(addToBasket);
 
+                    
                     Swal.fire({
                         icon: "success",
                         title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
                     });
+                    this.$emit('data-emitted', courses);
                 } else {
                     Swal.fire({
                         icon: "warning",

@@ -87,6 +87,8 @@ export default {
     justify-content: center;
 }
 .card {
+    border-radius: 16px;
+    background: #F4F4F4;
     width: 30%;
     margin: 20px;
     min-width: 300px;
@@ -94,7 +96,7 @@ export default {
 
 #courseCover {
     width: 84%;
-    height: 89px;
+    height: 140px;
     border-radius: 8px;
     margin-inline: 8%;
 }
@@ -102,8 +104,6 @@ export default {
 .text {
     width: 100%;
     height: 267px;
-    border-radius: 16px;
-    background: #F4F4F4;
     margin-top: -80px;
     padding-top: 80px;
     padding-inline: 10px;

@@ -55,9 +55,6 @@ export default {
     },
 
     methods: {
-        calculateTotalPrice() {
-            this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
-        },
         async pay() {
             const courseIds = this.courses.map(course => ({ course_id: course.id }));
             const store = usePayStore();
@@ -70,12 +67,14 @@ export default {
     watch: {
         courses: {
             immediate: true,
-            deep: true,
+            deep: true
         },
     },
     created() {
-        this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
-        return this.courses.length;
+        setTimeout(() => {
+            // todo:
+            this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0)
+        }, 1)
     }
 };
 </script>
