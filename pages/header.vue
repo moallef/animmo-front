@@ -601,7 +601,7 @@ header {
     .logo {
         margin-right: 65%;
         padding-left: 5%;
-        margin-bottom: 100px
+        margin-bottom: 80px
     }
 
     .searchInput {
@@ -667,6 +667,9 @@ header {
 @media (max-width : 370px) {
     .signIn a {
         font-size: 12px;
+    }
+    .logo{
+        margin-bottom: 160px
     }
 
 }
