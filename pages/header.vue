@@ -170,8 +170,6 @@ export default {
 
             const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
             this.shopNum = basketItems.length;
-
-            // Set the default value of coursesCount to the count from local storage
             this.coursesCount = basketItems.length;
         }
     },

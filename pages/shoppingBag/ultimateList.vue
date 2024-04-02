@@ -72,7 +72,6 @@ export default {
     },
     created() {
         setTimeout(() => {
-            // todo:
             this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0)
         }, 1)
     }
