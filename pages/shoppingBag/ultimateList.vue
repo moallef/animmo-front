@@ -47,7 +47,7 @@ export default {
 
     computed: {
         coursesCount() {
-            return this.courses.length;
+            return this.courses.length
         },
         calculateTotalPrice() {
             this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
