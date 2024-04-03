@@ -13,7 +13,7 @@
                 </tr>
                 <tr id="ultimate">
                     <td class="total">مجموع</td>
-                    <td class="total">{{ totalPrice }} هزار تومان</td>
+                    <td class="total" onchange="calculateTotalPrice">{{ totalPrice }} هزار تومان</td>
                 </tr>
             </tbody>
         </table>
@@ -47,7 +47,7 @@ export default {
 
     computed: {
         coursesCount() {
-            return this.courses.length
+            return this.courses.length;
         },
         calculateTotalPrice() {
             this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0);
@@ -64,10 +64,14 @@ export default {
         }
     },
 
+
     watch: {
         courses: {
             immediate: true,
-            deep: true
+            deep: true,
+            handler(newCourses) {
+                this.totalPrice = newCourses.reduce((sum, course) => sum + course.discountFee, 0);
+            }
         },
     },
     created() {
