@@ -653,6 +653,10 @@ header {
     .userProfile span {
         display: none;
     }
+    .search {
+        display: block;
+        margin-top: -50px
+    }
 
 }
 
@@ -661,16 +665,8 @@ header {
         width: 25%;
         margin-right: 70%;
     }
-
-}
-
-@media (max-width : 370px) {
-    .signIn a {
-        font-size: 12px;
+    .search_icon {
+        margin-right: 80%
     }
-    .logo{
-        margin-bottom: 160px
-    }
-
 }
 </style>

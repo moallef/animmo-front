@@ -300,6 +300,10 @@ a {
     letter-spacing: -0.02em;
     color: #8569C2;
 }
+.comunicationsButton{
+    height: 50px;
+    width: 50px
+}
 
 @media (max-width:1400px) {
     .aboutUs {

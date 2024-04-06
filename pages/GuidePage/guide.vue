@@ -60,14 +60,19 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+.container{
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: space-around
+    }
 .mutualQuestions {
     height: 602px;
     border-radius: 16px;
     background: #F4F4F4;
     width: 50%;
-    margin-top: 30px;
     padding-inline: 4%;
-    margin-right: 5%;
+    margin-right: 3%;
 }
 
 .theTitle {
@@ -109,12 +114,11 @@ export default {
     overflow: hidden;
     height: 602px;
     scrollbar-width: 10px;
-    width: 37%;
+    width: 40%;
+    margin-left: 3%;
     background: #252565;
     border-radius: 16px;
     padding-inline: 20px;
-    margin-right: 58%;
-    margin-top: -600px;
 }
 
 #title {
@@ -151,5 +155,17 @@ export default {
     width: 90%;
     border: 1px solid #0B0B1E;
     margin-block: 20px;
+}
+@media (max-width : 800px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .mutualQuestions , .questions{
+        width: 90%;
+        margin-bottom: 30px;
+        margin-right: 5%;
+    }
 }
 </style>

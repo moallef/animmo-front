@@ -9,7 +9,7 @@
             <tbody>
                 <tr v-for="(course, index) in courses" :key="index">
                     <td>{{ course.name }}</td>
-                    <td>{{ course.discountFee }} هزار تومان</td>
+                    <td>{{ course.discountFee }} تومان</td>
                 </tr>
                 <tr id="ultimate">
                     <td class="total">مجموع</td>

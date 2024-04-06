@@ -2,8 +2,9 @@
     <div>
         <div class="container">
             <div class="textHolder">
-                <a href="">
-                <div class="telegram">
+                <a href="
+https://t.me/AnimmoGroup">
+                    <div class="telegram">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
                             viewBox="0 0 48 48">
                             <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
@@ -67,6 +68,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 a {
     color: white;
     font-family: 'Yekan Bakh', sans-serif;
@@ -116,7 +118,7 @@ img {
 
 .backUpNumber {
     width: 70%;
-    
+
     background: #E9E9E9;
     border-radius: 29px;
     color: #646464;
@@ -147,21 +149,24 @@ img {
     letter-spacing: -0.02em;
 }
 
-#theNumber{
+#theNumber {
     margin-right: 65%;
     margin-top: -20px;
 }
+
 @media (max-width: 900px) {
-    .imgHolder{
+    .imgHolder {
         display: none;
     }
-    .textHolder{
+
+    .textHolder {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .backUpNumber{
+
+    .backUpNumber {
         font-size: 15px;
     }
 }

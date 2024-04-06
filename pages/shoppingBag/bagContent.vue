@@ -11,7 +11,7 @@
                         <p id="teachersName">{{ item.teacher }}</p>
                     </div>
                     <div class="fee">
-                        {{ item.discountFee }} هزار تومان
+                        {{ item.discountFee }} تومان
                     </div>
                 </div>
                 <div class="delete">
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {useCartStore} from '@/store/useCardStore'
+import { useCartStore } from '@/store/useCardStore'
 
 export default {
     data() {
@@ -75,6 +75,8 @@ button {
 }
 
 .product {
+    display: flex;
+    flex-direction: row;
     height: 152px;
     border-radius: 16px;
     background: #F4F4F4;
@@ -82,16 +84,24 @@ button {
     padding-right: 1%;
 }
 
+.details {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
 .productCover {
-    width: 14%;
-    height: 115px;
+    width: 123px;
+    height: 123px;
     border-radius: 8px;
     margin-block: 16px;
 }
 
 .informations {
-    margin-right: 17%;
-    margin-top: -120px;
+    margin-right: 3%;
+    margin-top: 40px;
+    width: 80%
 }
 
 #CourseTitle {
@@ -120,7 +130,56 @@ button {
 
 
 .delete {
-    margin-right: 92%;
-    margin-top: -40px;
+    margin-top: 60px;
+}
+
+@media (max-width : 1400px) {
+    .productCover {
+        width: 20%;
+    }
+    .informations {
+        width: 70%
+    }
+}
+@media (max-width : 1200px) {
+    .productCover {
+        width: 22%;
+    }
+}
+@media (max-width : 1000px) {
+    .productCover {
+        width: 24%;
+    }
+}
+@media (max-width : 800px) {
+    .productCover {
+        width: 28%;
+    }
+    .informations {
+        width: 60%
+    }
+    
+}
+@media (max-width : 600px) {
+    .productCover {
+        width: 102px;
+        height: 95px;
+        margin-top: 10px
+    }
+    .product{
+        height: 118px;
+    }
+    .informations {
+        margin-top: 15px;
+        width: 50%;
+        font-size: 12px;
+    }
+    .delete{
+        margin-top: 45px;
+    }
+    .details{
+        font-size: 14px
+    }
+    
 }
 </style>

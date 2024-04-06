@@ -20,15 +20,15 @@
                             </div>
                             <div class="fee" v-if="course.off_price != course.price">
                                 <span class="price">
-                                    {{ course.price }} هزار تومان
+                                    {{ course.price }} تومان
                                 </span>
                                 <span class="discountFee">
-                                    {{ course.off_price }} هزار تومان
+                                    {{ course.off_price }} تومان
                                 </span>
                             </div>
                             <div class="fee" v-else>
                                 <span class="discountFee">
-                                    {{ course.price }} هزار تومان
+                                    {{ course.price }} تومان
                                 </span>
                             </div>
                             <div class="btnHolder">

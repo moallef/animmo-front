@@ -21,20 +21,27 @@
                         <img src="" alt="">
                     </p>
                 </div>
-                <div class="courseFee">
+                <div class="courseFee" v-if="theCourse.discount > 0">
                     <p class="primaryFee">
                         {{ theCourse.price }}
-                        هزار تومان
+                        تومان
                     </p>
                     <p class="discountedFee">
                         {{ theCourse.discount }}
-                        هزار تومان
+                        تومان
+                    </p>
+                </div>
+                <div v-else>
+                    <p class="fee">
+                        {{ theCourse.price }}
+                        تومان
                     </p>
                 </div>
             </div>
         </div>
         <div class="btnHolder">
-            <button class="addToCards" @click="sendToLocalStorage(theCourse.id , theCourse.course ,theCourse.price , theCourse.image , theCourse.off_price, theCourse.teacher)">
+            <button class="addToCards"
+                @click="sendToLocalStorage(theCourse.id, theCourse.course, theCourse.price, theCourse.image, theCourse.off_price, theCourse.teacher)">
                 افزودن به سبد خرید
             </button>
         </div>
@@ -46,6 +53,7 @@
 
 <script>
 import { useCourseViewStore } from '@/store/viewCourseStore';
+import Swal from "sweetalert2";
 
 export default {
     data() {
@@ -58,21 +66,38 @@ export default {
         this.theCourse = await store.sendId();
     },
     methods: {
-        sendToLocalStorage() {
-            const { id, course, price, image, off_price, teacher } = this.theCourse;
-            const localStorageBasket = {
-                id: id,
-                name: course,
-                price: price,
-                image: image,
-                discountFee: off_price,
-                teacher: teacher,
-            };
+        async sendToLocalStorage(courseId, courseName, price, image, discountPrice, teacher) {
+            try {
+                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
 
-            let courses = JSON.parse(localStorage.getItem('basketItems')) || [];
-            courses.push(localStorageBasket);
-            localStorage.setItem('basketItems', JSON.stringify(courses));
-        }
+                if (existingCourseIndex === -1) {
+                    const localStorageBasket = {
+                        id: courseId,
+                        name: courseName,
+                        image: image,
+                        discountFee: price,
+                        teacher: teacher,
+                    }
+
+                    await courses.push(localStorageBasket);
+                    localStorage.setItem('basketItems', JSON.stringify(courses));
+
+                    Swal.fire({
+                        icon: "success",
+                        title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
+                    });
+                    this.$emit('data-emitted', courses);
+                } else {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "این دوره قبلا به سبد خرید شما اضافه شده است",
+                    });
+                }
+            } catch (error) {
+                console.error('Error during add :', error);
+            }
+        },
     }
 };
 </script>
@@ -162,6 +187,12 @@ export default {
 .primaryFee {
     text-decoration: line-through;
     color: #646464;
+    margin-top: 20px;
+    margin-right: 2%;
+}
+
+.fee {
+    color: #C8102E;
     margin-top: 20px;
     margin-right: 2%;
 }
