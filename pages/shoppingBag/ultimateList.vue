@@ -42,9 +42,23 @@ export default {
         return {
             totalPrice: 0,
             url: '',
+            authenticationSituation: false,
         };
     },
 
+    created() {
+        setTimeout(() => {
+            this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0)
+        }, 1)
+        if (process.client) {
+            const token = localStorage.getItem('token');
+            if (token) {
+                this.authenticationSituation = true;
+            } else {
+                this.authenticationSituation = false;
+            }
+        }
+    },
     computed: {
         coursesCount() {
             return this.courses.length;
@@ -56,11 +70,16 @@ export default {
 
     methods: {
         async pay() {
-            const courseIds = this.courses.map(course => ({ course_id: course.id }));
-            const store = usePayStore();
-            await store.sendCourseIds(courseIds);
-            this.url = store.url;
-            window.location.href = this.url;
+            if (this.authenticationSituation) {                
+                const courseIds = this.courses.map(course => ({ course_id: course.id }));
+                const store = usePayStore();
+                await store.sendCourseIds(courseIds);
+                this.url = store.url;
+                window.location.href = this.url;
+            }
+            else{
+                this.$router.push('/authentication'); 
+            }
         }
     },
 
@@ -74,11 +93,6 @@ export default {
             }
         },
     },
-    created() {
-        setTimeout(() => {
-            this.totalPrice = this.courses.reduce((sum, course) => sum + course.discountFee, 0)
-        }, 1)
-    }
 };
 </script>
 

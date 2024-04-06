@@ -12,8 +12,8 @@
                     <div class="theBlogDescription">
                         <p>{{ truncateText(blog.body, maxLength) }}</p>
                     </div>
-                    <nuxt-link :to="`/theBlog/${blog.id}`">
-                        <button class="readMore">
+                    <nuxt-link :to="`/theBlog/${blog.id}`" @click="readTheBlog(blog.id , blog.title , blog.body , blog.user , blog.created , blog.banner) ">
+                        <button class="readMore">بیشتر
                             خواندن
                             <img src="../../assets/icons/blogLeftArrow.png" alt="">
                         </button>
@@ -26,12 +26,10 @@
   
 <script>
 import { useBlogStore } from '~/store/blogStore.js';
+import { useTheBlog } from '@/store/theBlogStore'
 
 export default {
     name: 'TheBlog',
-    props: {
-        index: Number,
-    },
     data() {
         return {
             blog: {},
@@ -49,6 +47,22 @@ export default {
                 return text.slice(0, maxLength) + '...';
             }
             return text
+        },
+        readTheBlog(id , title , body , user , created , banner){
+            try {
+                const theBlog = {
+                    id , 
+                    title , 
+                    body ,
+                    user ,
+                    created ,
+                    banner
+                }
+                const store =  useTheBlog().getTheBlog(theBlog);
+                return store
+            } catch (error) {
+                console.log(error);
+            };
         }
     }
 };

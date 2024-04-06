@@ -1,37 +1,23 @@
 <template>
     <div>
         <div class="background">
-            <img id="bground" :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
+            <img id="bground" :src="`https://animmo.ir/${blog.banner}`" alt="">
         </div>
     </div>
 </template>
 
 <script>
-import {useBlogStore} from '~/store/blogStore.js'
+import { useTheBlog } from '~/store/theBlogStore';
 
 export default{
-    props: {
-        index: Number,
-    },
     data() {
         return {
-            blog: {},
-            maxLength: 60,
+            blog: [],
         };
     },
     async beforeCreate() {
-        const store = useBlogStore();
-        const blogs = await store.fetchBlog();
-        this.blog = blogs[this.index] || {};
+        this.blog = useTheBlog().getTheBlog();
     },
-    methods: {
-        truncateText(text, maxLength) {
-            if (text.length > maxLength) {
-                return text.slice(0, maxLength) + '...';
-            }
-            return text
-        }
-    }
 }
 </script>
 

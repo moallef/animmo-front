@@ -4,7 +4,7 @@
 
             <div class="header">
                 <h1>
-                    {{ blogTitle }}
+                    {{ blog.title }}
                 </h1>
                 <div class="buttons">
                     <button id="share">
@@ -17,15 +17,15 @@
             </div>
             <div class="aboutBlog">
                 <p class="author">
-                    {{ author }} نوشته شده توسط
+                    {{ blog.user }} نوشته شده توسط
                 </p>
                 <p class="date">
-                    {{ date }}
+                    {{ blog.created }}
                 </p>
             </div>
             <div class="blogContent">
                 <p id="blogContent">
-                    {{ blogContent }}
+                    {{ blog.body }}
                 </p>
             </div>
             <div class="theList">
@@ -36,32 +36,21 @@
 </template>
 
 <script>
-import { useBlogStore } from '~/store/blogStore.js';
+import { useTheBlog } from '~/store/theBlogStore';
 
 export default {
 
     name: 'FrontendTheBlog',
-    props: {
-        index: Number,
-    },
     data() {
         return {
             blog: {},
-            maxLength: 60,
         };
     },
-    async beforeCreate() {
-        const store = useBlogStore();
-        const blogs = await store.fetchBlog();
-        this.blog = blogs[this.index] || {};
+    beforeCreate() {
+        this.blog = useTheBlog().getTheBlog();
     },
     methods: {
-        truncateText(text, maxLength) {
-            if (text.length > maxLength) {
-                return text.slice(0, maxLength) + '...';
-            }
-            return text
-        }
+
     }
 };
 </script>
