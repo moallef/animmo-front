@@ -2,7 +2,7 @@
     <div class="theBlog">
         <div class="line"></div>
         <div class="container">
-            <nuxt-link to="/theBlog">
+            <nuxt-link :to="`/theBlog/${blog.id}`"  @click="readTheBlog(blog.id , blog.title , blog.body , blog.user , blog.created , blog.banner) ">
                 <img class="blogCover" :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
                 <div class="description">
                     <p class="title">
@@ -26,7 +26,8 @@
 </template>
 
 <script>
-import { useBlogStore } from '~/store/blogStore.js'
+import { useBlogStore } from '~/store/blogStore.js';
+import { useTheBlog } from '@/store/theBlogStore'
 
 export default {
     name: 'FrontendTheBlog',
@@ -54,6 +55,22 @@ export default {
         },
         chnageIcon() {
             this.iconBoolian = !this.iconBoolian
+        },
+        readTheBlog(id , title , body , user , created , banner){
+            try {
+                const theBlog = {
+                    id , 
+                    title , 
+                    body ,
+                    user ,
+                    created ,
+                    banner
+                }
+                const store =  useTheBlog().getTheBlog(theBlog);
+                return store
+            } catch (error) {
+                console.log(error);
+            };
         }
     },
 };
