@@ -10,8 +10,8 @@
                 <div class="productTime">
                     <p class="seasonsCount">
                         <img src="../../assets/icons/clock-3-16.png" alt="">
-                        فصل
                         {{ theCourse.season }}
+                        فصل
                         <img src="" alt="">
                     </p>
                     <p class="courseDurationInHours">
@@ -33,7 +33,7 @@
                 </div>
                 <div v-else>
                     <p class="fee">
-                        {{ theCourse.price }}
+                        {{ theCourse.discount }}
                         تومان
                     </p>
                 </div>
@@ -41,7 +41,7 @@
         </div>
         <div class="btnHolder">
             <button class="addToCards"
-                @click="sendToLocalStorage(theCourse.id, theCourse.course, theCourse.price, theCourse.image, theCourse.off_price, theCourse.teacher)">
+                @click="sendToLocalStorage(theCourse.id, theCourse.course, theCourse.price, theCourse.image, theCourse.discount, theCourse.teacher)">
                 افزودن به سبد خرید
             </button>
         </div>
@@ -68,21 +68,26 @@ export default {
     methods: {
         async sendToLocalStorage(courseId, courseName, price, image, discountPrice, teacher) {
             try {
+                if (process.client) {
                 const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                }
                 const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+
 
                 if (existingCourseIndex === -1) {
                     const localStorageBasket = {
                         id: courseId,
                         name: courseName,
                         image: image,
-                        discountFee: price,
+                        price: price,
+                        discountFee: discountPrice,
                         teacher: teacher,
                     }
 
                     await courses.push(localStorageBasket);
+                    if (process.client) {
                     localStorage.setItem('basketItems', JSON.stringify(courses));
-
+                    }
                     Swal.fire({
                         icon: "success",
                         title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
