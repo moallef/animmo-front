@@ -67,6 +67,7 @@ export default {
     font-style: normal;
 }
 .theBlog {
+    
     width: 48%;
     margin-top: 50px;
     margin-left: 1%;
