@@ -178,12 +178,22 @@ export default {
             if (process.client) {
                 return this.courses.length > 0 ? this.courses.length : JSON.parse(localStorage.getItem('basketItems')) ? JSON.parse(localStorage.getItem('basketItems')).length : 0;
             }
+            else {
+            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+            return basketItems.length;
+        }
+
         },
         basketItemCount() {
             if (process.client) {
                 const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
                 return basketItems.length;
             }
+            else {
+            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+            return basketItems.length;
+        }
+
         }
     },
     methods: {
