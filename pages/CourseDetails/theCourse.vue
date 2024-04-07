@@ -21,19 +21,19 @@
                         <img src="" alt="">
                     </p>
                 </div>
-                <div class="courseFee" v-if="theCourse.discount > 0">
+                <div class="courseFee" v-if="theCourse.discount != theCourse.price">
                     <p class="primaryFee">
-                        {{ theCourse.price }}
+                        {{ formatPrice(theCourse.price) }}
                         تومان
                     </p>
                     <p class="discountedFee">
-                        {{ theCourse.discount }}
+                        {{ formatPrice(theCourse.discount) }}
                         تومان
                     </p>
                 </div>
                 <div v-else>
                     <p class="fee">
-                        {{ theCourse.discount }}
+                        {{ formatPrice(theCourse.discount) }}
                         تومان
                     </p>
                 </div>
@@ -103,6 +103,9 @@ export default {
                 console.error('Error during add :', error);
             }
         },
+        formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
     }
 };
 </script>
