@@ -64,7 +64,7 @@
                         </div>
                     </ul>
 
-                    <div class="aboutUs">
+                    <div class="aboutUs" style="display: none;">
                         <div id="backUpNum">
                             شماره های پشتیبانی :
                         </div>

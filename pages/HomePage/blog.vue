@@ -4,7 +4,7 @@
             <p>وبلاگ</p>
         </div>
         <Suspense class="theBlog">
-            <theBlog v-for="(blog, index) in blogs" :key="index" :index="index" />
+            <theBlog class="blog" v-for="(blog, index) in blogs" :key="index" :blog="blog" />
         </Suspense>
         <div class="showMore">
             <nuxt-link to="/blogs">
@@ -48,11 +48,6 @@ export default {
     width: 100%;
     margin-bottom: 50px;
 }
-
-.theBlog {
-    width: 45%;
-}
-
 .title {
     font-family: 'Yekan Bakh', sans-serif;
     width: 100%;

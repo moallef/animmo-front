@@ -23,11 +23,11 @@ https://t.me/AnimmoGroup">
                         </p>
                     </div>
                 </a>
-                <div class="backUpNumber">
+                <div class="backUpNumber" >
                     <p>شماره پشتیبانی :</p>
                     <p id="theNumber"> {{ phoneNum1 }} / {{ phoneNum2 }} </p>
                 </div>
-                <div class="contactDescription">
+                <div class="contactDescription" >
                     {{ contactDescription }}
                 </div>
             </div>
@@ -44,8 +44,8 @@ export default {
 
     data() {
         return {
-            phoneNum1: "۰۲۱۳۳۶۷۸۵۵",
-            phoneNum2: "۰۲۱۳۳۶۷۸۴۷",
+            phoneNum1: "",
+            phoneNum2: "",
             contactDescription: ` زمان پاسخگویی تلفن از ساعت ۸ الی 16 روز های غیر تعطیل می باشد
 * برای ارسال تیکت می توانید در پروفایل خود از بخش تیکت استفاده کنید `
         };
@@ -118,8 +118,9 @@ img {
 
 .backUpNumber {
     width: 70%;
-
     background: #E9E9E9;
+    background: white;
+    color: white;
     border-radius: 29px;
     color: #646464;
     margin: auto;
@@ -132,12 +133,15 @@ img {
     line-height: 24px;
     letter-spacing: -0.02em;
 }
+.backUpNumber p , .contactDescription  {
+    color: white;
+}
 
 .contactDescription {
     width: 70%;
-    background: #E9E9E9;
+    background: white;
     border-radius: 16px;
-    color: #646464;
+    color: white;
     margin: auto;
     margin-top: 20px;
     padding-inline: 2%;

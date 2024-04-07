@@ -3,7 +3,7 @@
         <div class="blogs">
             <div class="theBlog">
                 <div class="blogPoster">
-                    <img :src="`https://animmo.ir/${blog.icon}`" alt="">
+                    <img :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
                 </div>
                 <div class="blogTxt">
                     <div class="theBlogTitle">
@@ -36,6 +36,12 @@ export default {
             maxLength: 60,
         };
     },
+    props: {
+        blog: {
+            type: Object,
+            required: true
+        }
+    },
     async beforeCreate() {
         const store = useBlogStore();
         const blogs = await store.fetchBlog();
@@ -56,7 +62,7 @@ export default {
                     body : body,
                     user : user,
                     created : created,
-                    banner  : banner
+                    banner  : imgSrc 
                 }
                 const store =  useTheBlog().getTheBlog(theBlog);
                 return store
@@ -76,17 +82,18 @@ export default {
     font-style: normal;
 }
 .theBlog {
-    margin: 10px 8%;
+    margin: 10px 4%;
+    margin-top: 80px;
 }
 .blogPoster img {
-    width: 35%;
+    width: 20%;
     height: 193px;
     border-radius: 8px;
 
 }
 
 .blogTxt {
-    margin-right: 40%;
+    margin-right: 25%;
     margin-top: -193px;
     width: 60%;
 }
