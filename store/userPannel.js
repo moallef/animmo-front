@@ -25,7 +25,7 @@ export const useUserPannel = defineStore("UserPannel", {
             id: element.course.id,
             course: element.course.course,
             image: element.course.image,
-            spot_player_license: element.course.spot_player_license,
+            spot_player_license: element.spot_player_license,
             price: element.course.price,
             discount: element.course.discount,
             duration: element.course.duration, 

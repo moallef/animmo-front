@@ -85,9 +85,7 @@ export default {
                     }
 
                     await courses.push(localStorageBasket);
-                    if (process.client) {
                     localStorage.setItem('basketItems', JSON.stringify(courses));
-                    }
                     Swal.fire({
                         icon: "success",
                         title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
