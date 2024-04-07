@@ -20,25 +20,26 @@
                             </div>
                             <div class="fee" v-if="course.off_price != course.price">
                                 <span class="price">
-                                    {{ course.price }} تومان
+                                    {{ formatPrice(course.price) }} تومان
                                 </span>
                                 <span class="discountFee">
-                                    {{ course.off_price }} تومان
+                                    {{ formatPrice(course.off_price) }} تومان
                                 </span>
                             </div>
                             <div class="fee" v-else>
                                 <span class="discountFee">
-                                    {{ course.price }} تومان
+                                    {{ formatPrice(course.price) }} تومان
                                 </span>
                             </div>
                             <div class="btnHolder">
-                                <nuxt-link >
+                                <nuxt-link>
                                     <button
                                         @click="addToStore(course.id, course.course, course.price, course.image, course.off_price, course.teacher)"
                                         class="addToStore">افزودن به سبد خرید</button>
                                 </nuxt-link>
                                 <nuxt-link :to="`/CourseDetails/${course.slug}`">
-                                    <button class="showMore" @click="sendSlugToStore(course.id , course.slug)">مشاهده دوره </button>
+                                    <button class="showMore" @click="sendSlugToStore(course.id, course.slug)">مشاهده
+                                        دوره </button>
                                 </nuxt-link>
                             </div>
                         </div>
@@ -48,7 +49,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import { useCourseStore } from '~/store/courseStore.js';
 import { useBaskteStore } from '~/store/basketStore';
@@ -66,6 +67,7 @@ export default {
     async created() {
         const store = useCourseStore();
         this.courses = await store.fetchCourse();
+        this.sortCoursesByCreated();
     },
     methods: {
         async addToStore(courseId, courseName, price, image, discountPrice, teacher) {
@@ -96,7 +98,7 @@ export default {
                     const store = useBaskteStore();
                     store.addToBasket(addToBasket);
 
-                    
+
                     Swal.fire({
                         icon: "success",
                         title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
@@ -112,9 +114,15 @@ export default {
                 console.error('Error during add :', error);
             }
         },
-        sendSlugToStore(id){
+        sendSlugToStore(id) {
             const store = useCourseViewStore();
             store.getId(id);
+        },
+        sortCoursesByCreated() {
+            this.courses.sort((a, b) => new Date(b.created) - new Date(a.created));
+        },
+        formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
     },
@@ -132,7 +140,7 @@ export default {
     },
 };
 </script>
-  
+
 <style scoped>
 @font-face {
     font-family: 'Yekan Bakh';
@@ -279,4 +287,5 @@ a {
         padding-top: 120px;
         width: 100%;
     }
-}</style>
+}
+</style>
