@@ -8,20 +8,20 @@
             <navbar />
         </div>
         <div class="content">
-            <Suspense class="descriptions">
+            <div class="descriptions">
                 <course-description />
-            </Suspense>
-            <Suspense class="theCourse">
+            </div>
+            <div class="theCourse">
                 <theCourse />
-            </Suspense>
+            </div>
 
 
         </div>
 
 
-        <Suspense class="assosiateCourses">
+        <div class="assosiateCourses">
             <courses-sort />
-        </Suspense>
+        </div>
 
         <footer>
             <footer-app />
