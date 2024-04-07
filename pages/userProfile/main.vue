@@ -16,9 +16,9 @@
                     <div class="line"></div>
                 </div>
             </div>
-            <div class="courses" >
+            <Suspense class="courses" >
                 <courses-component/>
-            </div>
+            </Suspense>
         </div>
     </div>
 </template>

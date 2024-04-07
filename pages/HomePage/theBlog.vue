@@ -51,12 +51,12 @@ export default {
         readTheBlog(id , title , body , user , created , banner){
             try {
                 const theBlog = {
-                    id , 
-                    title , 
-                    body ,
-                    user ,
-                    created ,
-                    banner
+                    id : id, 
+                    title : title, 
+                    body : body,
+                    user : user,
+                    created : created,
+                    banner  : banner
                 }
                 const store =  useTheBlog().getTheBlog(theBlog);
                 return store

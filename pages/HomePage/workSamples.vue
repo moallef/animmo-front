@@ -16,9 +16,9 @@
                                 },
                             }">
                             <SwiperSlide class="Slider" v-for="(exercise, index) in exercises" :key="index">
-                                <div class="theSample">
+                                <Suspense class="theSample">
                                     <the-Sample :exercise="exercise" />
-                                </div>
+                                </Suspense>
                             </SwiperSlide>
                         </Swiper>
                     </div>

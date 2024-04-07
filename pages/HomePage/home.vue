@@ -1,16 +1,24 @@
 <template>
     <div>
-        <div class="slider">
-            <image-Slider/>
-        </div>
+        <Suspense class="slider">
+            <image-Slider />
+        </Suspense>
         <div class="courses">
-            <course-section/>
-            <classification @data-emitted="handleDataFromChild"/>
+            <Suspense>
+                <course-section />
+            </Suspense>
+            <Suspense>
+                <classification @data-emitted="handleDataFromChild" />
+            </Suspense>
         </div>
-        <work-Samples />
+        <Suspense>
+            <work-Samples />
+        </Suspense>
         <!-- <latest-Courses /> -->
         <!-- <students-Comments /> -->
-        <blog-Component />
+        <Suspense>
+            <blog-Component />
+        </Suspense>
     </div>
 </template>
 
@@ -24,30 +32,28 @@ import studentsComments from './studentsComments.vue'
 import Blog from '../HomePage/blog.vue'
 
 
-    export default{
-        data() {
-            return {
-                items : []
-            }
-        },
-        components: {
-            "image-Slider" : imageSlider,
-            "course-section" : course,
-            "classification" : classification,
-            "work-Samples" : workSamples,
-            "latest-Courses" : latestCourses,
-            "students-Comments" : studentsComments,
-            "blog-Component" : Blog,
-        },
-        methods: {
-            handleDataFromChild(data){
-                this.items = data
+export default {
+    data() {
+        return {
+            items: []
+        }
+    },
+    components: {
+        "image-Slider": imageSlider,
+        "course-section": course,
+        "classification": classification,
+        "work-Samples": workSamples,
+        "latest-Courses": latestCourses,
+        "students-Comments": studentsComments,
+        "blog-Component": Blog,
+    },
+    methods: {
+        handleDataFromChild(data) {
+            this.items = data
             this.$emit('data-emitted', this.items)
         }
-        }
     }
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

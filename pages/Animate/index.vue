@@ -8,18 +8,18 @@
                 <Nav/>
             </div>
 
-            <div class="bg">
+            <Suspense class="bg">
                 <background/>
-            </div>
+            </Suspense>
            
             
-            <div class="courseSection">
+            <Suspense class="courseSection">
                 <course-section />
-            </div>
+            </Suspense>
             
-            <div class="latestCourses">
+            <Suspense class="latestCourses">
                 <latest-Courses />
-            </div>
+            </Suspense>
 
         </div>
         <footer>

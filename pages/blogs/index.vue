@@ -8,9 +8,9 @@
             <belt />
         </div>
 
-        <div class="blog">
+        <Suspense class="blog">
             <Blog v-for="(blog, index) in blogs" :key="index" :index="index" />
-        </div>
+        </Suspense>
 
         <footer>
             <footer-app />

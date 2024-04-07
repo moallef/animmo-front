@@ -5,12 +5,12 @@
             <the-belt />
         </div>
         <div class="content">
-            <div class="bag-Content">
+            <Suspense class="bag-Content">
                 <bag-Content @data-emitted="handleDataFromChild"  />
-            </div>
-            <div class="ultimateList">
+            </Suspense>
+            <Suspense class="ultimateList">
                 <ultimate-list :courses="itemsFromChild" />
-            </div>
+            </Suspense>
         </div>
         <div class="footer">
             <footer-app />

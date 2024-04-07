@@ -3,9 +3,9 @@
         <div class="title">
             <p>وبلاگ</p>
         </div>
-        <div class="theBlog">
+        <Suspense class="theBlog">
             <theBlog v-for="(blog, index) in blogs" :key="index" :index="index" />
-        </div>
+        </Suspense>
         <div class="showMore">
             <nuxt-link to="/blogs">
                 <button class="moreBtn">

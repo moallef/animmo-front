@@ -3,7 +3,9 @@
         <header-app class="header" :courses="this.items" />
     </header>
     <main>
-        <home-page @data-emitted="handleDataFromChild" />
+        <Suspense>
+            <home-page @data-emitted="handleDataFromChild" />
+        </Suspense>
     </main>
     <footer>
         <footer-app />

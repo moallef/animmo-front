@@ -8,13 +8,13 @@
             <belt />
         </div>
 
-        <div class="backgound">
+        <Suspense class="backgound">
             <background />
-        </div>
+        </Suspense>
 
-        <div class="blog">
+        <Suspense class="blog">
             <theBlog />
-        </div>
+        </Suspense>
 
         <footer>
             <footer-app />

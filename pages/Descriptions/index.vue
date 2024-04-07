@@ -4,11 +4,12 @@
             <header-app />
         </header>
         <div>
-
-            <course-section />
-
+            <Suspense>
+                <course-section />   
+            </Suspense>
+            <Suspense>
             <latest-Courses />
-
+            </Suspense>
         </div>
         <footer>
             <footer-app />

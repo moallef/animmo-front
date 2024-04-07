@@ -1,16 +1,16 @@
 <template>
     <div>
-        <div class="harder">
+        <Suspense class="harder">
             <header-component />
-        </div>
+        </Suspense>
 
         <div class="content">
             <div class="menu">
                 <menu-component />
             </div>
-            <div class="main">
+            <Suspense class="main">
                 <main-component />
-            </div>
+            </Suspense>
         </div>
     </div>
 </template>

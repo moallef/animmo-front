@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="classification">
-            <div class="courses">
+            <Suspense class="courses">
                 <courses-Sort @data-emitted="handleDataFromChild" :index="index" />
-            </div>
+            </Suspense>
         </div>
     </div>
     <div>

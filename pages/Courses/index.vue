@@ -8,9 +8,9 @@
             <belt/>
         </div>
 
-        <div class="courseSection">
+        <Suspense class="courseSection">
             <course-section/>
-        </div>
+        </Suspense>
 
         <footer>
             <footer-app/>
