@@ -3,7 +3,7 @@
         <div class="blogs">
             <div class="theBlog">
                 <div class="blogPoster">
-                    <img :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
+                    <img :src="`https://animmo.ir/${blog.icon}`" alt="">
                 </div>
                 <div class="blogTxt">
                     <div class="theBlogTitle">
@@ -12,7 +12,7 @@
                     <div class="theBlogDescription">
                         <p>{{ truncateText(blog.body, maxLength) }}</p>
                     </div>
-                    <nuxt-link :to="`/theBlog/${blog.id}`" @click="readTheBlog(blog.id , blog.title , blog.body , blog.user , blog.created , blog.banner) ">
+                    <nuxt-link :to="`/theBlog/${blog.id}`" @click="readTheBlog(blog.id , blog.title , blog.body , blog.user , blog.created , blog.imgSrc) ">
                         <button class="readMore">بیشتر
                             خواندن
                             <img src="../../assets/icons/blogLeftArrow.png" alt="">
@@ -32,14 +32,14 @@ export default {
     name: 'TheBlog',
     data() {
         return {
-            blog: {},
+            blogSetter: {},
             maxLength: 60,
         };
     },
     async beforeCreate() {
         const store = useBlogStore();
         const blogs = await store.fetchBlog();
-        this.blog = blogs[this.index] || {};
+        this.blogSetter = blogs[this.index] || {};
     },
     methods:{
         truncateText(text, maxLength){
@@ -48,7 +48,7 @@ export default {
             }
             return text
         },
-        readTheBlog(id , title , body , user , created , banner){
+        readTheBlog(id , title , body , user , created , imgSrc){
             try {
                 const theBlog = {
                     id : id, 
