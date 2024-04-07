@@ -59,6 +59,7 @@ export default {
     data() {
         return {
             theCourse: null,
+            courses : []
         };
     },
     async created() {
@@ -69,9 +70,9 @@ export default {
         async sendToLocalStorage(courseId, courseName, price, image, discountPrice, teacher) {
             try {
                 if (process.client) {
-                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                this.courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
                 }
-                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+                const existingCourseIndex = this.courses.findIndex(course => course.id === courseId);
 
 
                 if (existingCourseIndex === -1) {
@@ -84,13 +85,12 @@ export default {
                         teacher: teacher,
                     }
 
-                    await courses.push(localStorageBasket);
-                    localStorage.setItem('basketItems', JSON.stringify(courses));
+                    this.courses.push(localStorageBasket);
+                    localStorage.setItem('basketItems', JSON.stringify(this.courses));
                     Swal.fire({
                         icon: "success",
                         title: courseName + " با موفقیت به سبد خرید شما اضافه شد ",
                     });
-                    this.$emit('data-emitted', courses);
                 } else {
                     Swal.fire({
                         icon: "warning",
