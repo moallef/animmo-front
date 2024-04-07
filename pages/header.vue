@@ -182,6 +182,7 @@ export default {
             const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
             return basketItems.length;
         }
+        return 0;
 
         },
         basketItemCount() {
