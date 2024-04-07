@@ -210,7 +210,7 @@ export default {
     }
 
     .icon-wrapper {
-        margin-right: 30%;
+        margin-right: 35%;
     }
     .courses button {
         width: 100px;
