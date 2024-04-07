@@ -159,44 +159,44 @@ export default {
                 console.error("Error in beforeCreate ", error);
             })
     },
-    created() {
-        if (process.client) {
-            const token = localStorage.getItem('token');
-            if (token) {
-                this.authenticationSituation = true;
-            } else {
-                this.authenticationSituation = false;
-            }
+    // created() {
+    //     if (process.client) {
+    //         const token = localStorage.getItem('token');
+    //         if (token) {
+    //             this.authenticationSituation = true;
+    //         } else {
+    //             this.authenticationSituation = false;
+    //         }
 
-            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
-            this.shopNum = basketItems.length;
-            this.coursesCount = basketItems.length;
-        }
-    },
-    computed: {
-        coursesCount() {
-            if (process.client) {
-                return this.courses.length > 0 ? this.courses.length : JSON.parse(localStorage.getItem('basketItems')) ? JSON.parse(localStorage.getItem('basketItems')).length : 0;
-            }
-            else {
-            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
-            return basketItems.length;
-        }
-        return 0;
+    //         const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+    //         this.shopNum = basketItems.length;
+    //         this.coursesCount = basketItems.length;
+    //     }
+    // },
+    // computed: {
+    //     coursesCount() {
+    //         if (process.client) {
+    //             return this.courses.length > 0 ? this.courses.length : JSON.parse(localStorage.getItem('basketItems')) ? JSON.parse(localStorage.getItem('basketItems')).length : 0;
+    //         }
+    //         else {
+    //         const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+    //         return basketItems.length;
+    //     }
+    //     return 0;
 
-        },
-        basketItemCount() {
-            if (process.client) {
-                const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
-                return basketItems.length;
-            }
-            else {
-            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
-            return basketItems.length;
-        }
+    //     },
+    //     basketItemCount() {
+        //     if (process.client) {
+        //         const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        //         return basketItems.length;
+        //     }
+        //     else {
+        //     const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        //     return basketItems.length;
+        // }
 
-        }
-    },
+        // }
+    // },
     methods: {
         scrollDown() {
             window.scrollTo({ top: 5000, behavior: 'smooth' })
