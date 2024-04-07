@@ -119,7 +119,7 @@ export default {
             store.getId(id);
         },
         sortCoursesByCreated() {
-            this.courses.sort((a, b) => new Date(b.created) - new Date(a.created));
+            this.courses.sort((a, b) => new Date(a.created) - new Date(b.created));
         },
         formatPrice(price) {
             return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

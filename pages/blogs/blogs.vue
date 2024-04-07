@@ -21,18 +21,11 @@
                     </p>
                 </div>
             </nuxt-link>
-            <div class="save">
-                <button @click="chnageIcon">
-                    <img :src="iconBoolian ? savedIcon : unsavedIcon" alt="ذخیره">
-                </button>
-            </div>
         </div>
     </div>
 </template>
 
 <script>
-import unsavedIcon from "../../assets/icons/saveIcon.png"
-import savedIcon from "../../assets/icons/savedIcon.png"
 import { useBlogStore } from '~/store/blogStore.js'
 
 export default {

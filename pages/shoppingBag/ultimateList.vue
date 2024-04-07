@@ -9,11 +9,11 @@
             <tbody>
                 <tr v-for="(course, index) in courses" :key="index">
                     <td>{{ course.name }}</td>
-                    <td>{{ course.discountFee }} تومان</td>
+                    <td>{{ formatPrice(course.discountFee) }} تومان</td>
                 </tr>
                 <tr id="ultimate">
                     <td class="total">مجموع</td>
-                    <td class="total" onchange="calculateTotalPrice">{{ totalPrice }} هزار تومان</td>
+                    <td class="total" onchange="calculateTotalPrice">{{ formatPrice(totalPrice) }} هزار تومان</td>
                 </tr>
             </tbody>
         </table>
@@ -61,7 +61,7 @@ export default {
     },
     computed: {
         coursesCount() {
-            if (this.courses) {                
+            if (this.courses) {
                 return this.courses.length;
             }
         },
@@ -72,16 +72,19 @@ export default {
 
     methods: {
         async pay() {
-            if (this.authenticationSituation) {                
+            if (this.authenticationSituation) {
                 const courseIds = this.courses.map(course => ({ course_id: course.id }));
                 const store = usePayStore();
                 await store.sendCourseIds(courseIds);
                 this.url = store.url;
                 window.location.href = this.url;
             }
-            else{
-                this.$router.push('/authentication'); 
+            else {
+                this.$router.push('/authentication');
             }
+        },
+        formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     },
 
