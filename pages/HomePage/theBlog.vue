@@ -82,18 +82,19 @@ export default {
     font-style: normal;
 }
 .theBlog {
-    margin: 10px 4%;
     margin-top: 80px;
+    min-width: 500px;
+    width: 100%; 
 }
 .blogPoster img {
-    width: 20%;
+    width: 40%;
     height: 193px;
     border-radius: 8px;
 
 }
 
 .blogTxt {
-    margin-right: 25%;
+    margin-right: 45%;
     margin-top: -193px;
     width: 60%;
 }
@@ -128,7 +129,7 @@ export default {
     border-radius: 49px;
     border: 2px solid #8569C2;
     height: 40px;
-    width: 20%;
+    width: 50%;
     margin-top: 20px;
 }
 
@@ -155,6 +156,20 @@ export default {
 
     .theBlogDescription {
         font-size: 11px;
+    }
+}
+@media (max-width : 650px) {
+    .theBlog{
+        min-width: 90%;
+    }
+    .readMore{
+        margin-right: 10px;
+    }
+    .blogTxt{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 50%;
     }
 }
 </style>

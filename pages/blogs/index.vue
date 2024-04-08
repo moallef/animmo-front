@@ -54,7 +54,6 @@ export default {
 .blog {
     width: 90%;
     margin-top: 40px;
-    margin-inline: 5%;
     display: flex;
     justify-content: right;
     flex-wrap: wrap;

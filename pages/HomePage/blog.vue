@@ -4,9 +4,7 @@
             <p>وبلاگ</p>
         </div>
         <div class="theBlog">
-            <Suspense>
-                <theBlog class="blog" v-for="(blog, index) in blogs" :key="index" :blog="blog" />
-            </Suspense>
+            <theBlog class="blog" v-for="(blog, index) in blogs" :key="index" :blog="blog" />
         </div>
         <div class="showMore">
             <nuxt-link to="/blogs">
@@ -45,11 +43,13 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-.blog {
-    margin-bottom: 20px; 
+.theBlog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 100px;
 }
 .blogComponent {
-    text-align: right;
     width: 100%;
     margin-bottom: 50px;
 }
@@ -113,6 +113,11 @@ export default {
     }
 }
 
+@media (max-width : 650px) {
+    .theBlog {
+    flex-direction: column;
+}
+}
 @media (max-width : 520px) {
     .moreBtn {
         width: 30%;

@@ -3,22 +3,26 @@
         <div class="line"></div>
         <div class="container">
             <nuxt-link :to="`/theBlog/${blog.id}`"  @click="readTheBlog(blog.id , blog.title , blog.body , blog.user , blog.created , blog.banner) ">
-                <img class="blogCover" :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
-                <div class="description">
-                    <p class="title">
-                        {{ blog.title }}
-                    </p>
-                    <p class="annonation">
-                        {{ truncateText(blog.body, maxLength) }}
-                    </p>
+                <div class="image">
+                    <img class="blogCover" :src="`https://animmo.ir/${blog.imgSrc}`" alt="">
                 </div>
-                <div class="address">
-                    <p class="author">
-                        {{ blog.user }}
-                    </p>
-                    <p class="date">
-                        {{ blog.createdAt }}
-                    </p>
+                <div class="blogText">
+                    <div class="description">
+                        <p class="title">
+                            {{ blog.title }}
+                        </p>
+                        <p class="annonation">
+                            {{ truncateText(blog.body, maxLength) }}
+                        </p>
+                    </div>
+                    <div class="address">
+                        <p class="author">
+                            {{ blog.user }}
+                        </p>
+                        <p class="date">
+                            {{ blog.createdAt }}
+                        </p>
+                    </div>
                 </div>
             </nuxt-link>
         </div>
@@ -84,12 +88,19 @@ export default {
     font-style: normal;
 }
 .theBlog {
-    
-    width: 48%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 3%;
+    width: 45%;
     margin-top: 50px;
-    margin-left: 1%;
 }
-
+.container{
+    display: inline-flex;
+}
+.blogText{
+    display: flex;
+    flex-direction: column;
+}
 a {
     color: black;
 }
@@ -101,12 +112,13 @@ a {
 }
 
 .blogCover {
-    width: 30%;
+    width: 40%;
 }
 
 .description {
-    margin-right: 40%;
     margin-top: -190px;
+    margin-right: 45%;
+
 }
 
 .title {
@@ -129,7 +141,7 @@ a {
 }
 
 .address {
-    margin-right: 40%;
+    margin-right: 45%;
     margin-top: 90px;
 }
 
@@ -151,14 +163,24 @@ a {
     color: #C9C9C9;
     margin-top: 5px;
 }
-
-.save {
-    margin-right: 90%;
-    margin-top: -30px;
-}
-
 button {
     background: none;
     border: none;
+}
+@media (max-width : 950px) {
+    .description{
+        margin-top: -140px;
+    }
+}
+
+@media (max-width : 750px) {
+    .theBlog{
+        width: 95%;
+    }
+}
+@media (max-width : 450px) {
+    .description{
+        margin-top: -130px;
+    }
 }
 </style>
