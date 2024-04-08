@@ -170,6 +170,10 @@ export default {
         flex-direction: column;
         flex-wrap: wrap;
         width: 50%;
+        margin-top: -170px;
+    }
+    .blogPoster img{
+        height: 160px;
     }
 }
 </style>
