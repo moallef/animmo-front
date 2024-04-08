@@ -3,9 +3,11 @@
         <div class="title">
             <p>وبلاگ</p>
         </div>
-        <Suspense class="theBlog">
-            <theBlog class="blog" v-for="(blog, index) in blogs" :key="index" :blog="blog" />
-        </Suspense>
+        <div class="theBlog">
+            <Suspense>
+                <theBlog class="blog" v-for="(blog, index) in blogs" :key="index" :blog="blog" />
+            </Suspense>
+        </div>
         <div class="showMore">
             <nuxt-link to="/blogs">
                 <button class="moreBtn">
@@ -43,11 +45,15 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+.blog {
+    margin-bottom: 20px; 
+}
 .blogComponent {
     text-align: right;
     width: 100%;
     margin-bottom: 50px;
 }
+
 .title {
     font-family: 'Yekan Bakh', sans-serif;
     width: 100%;
@@ -113,4 +119,5 @@ export default {
         height: 40px;
         margin-top: 100px;
     }
-}</style>
+}
+</style>
