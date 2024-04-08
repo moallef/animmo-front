@@ -35,7 +35,10 @@ export default {
     },
     async created() {
         try {
-            this.items = JSON.parse(localStorage.getItem('basketItems')) || [];
+            if (process.client) {
+                
+                this.items = JSON.parse(localStorage.getItem('basketItems')) || [];
+            }
         } catch (error) {
             console.error("get Items :", error);
         };
@@ -46,9 +49,12 @@ export default {
             const filteredItem = this.items.filter((f) => {
                 return f.id !== id;
             })
-            localStorage.removeItem('basketItems');
-            localStorage.setItem('basketItems', JSON.stringify(filteredItem));
-            this.items = filteredItem;
+            if (process.client) {
+                
+                localStorage.removeItem('basketItems');
+                localStorage.setItem('basketItems', JSON.stringify(filteredItem));
+                this.items = filteredItem;
+            }
             this.$emit('data-emitted', this.items);
         },
     }

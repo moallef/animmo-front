@@ -69,8 +69,10 @@ export default {
     methods: {
         async addToStore(courseId, courseName, price, image, discountPrice, teacher) {
             try {
-                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
-                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+                if (process.client) {
+                    
+                    const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                    const existingCourseIndex = courses.findIndex(course => course.id === courseId);
 
                 if (existingCourseIndex === -1) {
                     const addToBasket = {
@@ -104,6 +106,7 @@ export default {
                         icon: "warning",
                         title: "این دوره قبلا به سبد خرید شما اضافه شده است",
                     });
+                }
                 }
             } catch (error) {
                 console.error('Error during add :', error);

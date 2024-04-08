@@ -178,11 +178,11 @@ export default {
             if (process.client) {
                 if (this.courses && this.courses.length > 0) {
                     return this.courses.length;
-                } else {
+                } else if (process.client) {
                     const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
                     return basketItems.length;
                 }
-            } else {
+            } else if (process.client) {
                 const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
                 return basketItems.length;
             }

@@ -133,8 +133,9 @@ export default {
                         ...userData,
                         expirationDate: authStore.registrationData.expirationDate,
                     };
-
-                    localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
+                    if (process.client) {
+                        localStorage.setItem('userData', JSON.stringify(userDataWithExpiration));
+                    }
 
                 } catch (error) {
                     console.error('Error during registration:', error);

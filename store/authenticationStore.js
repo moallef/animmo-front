@@ -141,7 +141,9 @@ export const useAuthStore = defineStore({
       await this.registerUser();
     },
     persistTolocalStorage() {
-      JSON.parse(localStorage.setItem("token", this.token));
+      if (process.client) {
+        JSON.parse(localStorage.setItem("token", this.token));
+      }
     },
   },
 });

@@ -12,7 +12,8 @@
                     <div class="theBlogDescription">
                         <p>{{ truncateText(blog.body, maxLength) }}</p>
                     </div>
-                    <nuxt-link :to="`/theBlog/${blog.id}`" @click="readTheBlog(blog.id , blog.title , blog.body , blog.user , blog.created , blog.imgSrc) ">
+                    <nuxt-link :to="`/theBlog/${blog.id}`"
+                        @click="readTheBlog(blog.id, blog.title, blog.body, blog.user, blog.created, blog.imgSrc)">
                         <button class="readMore">بیشتر
                             خواندن
                             <img src="../../assets/icons/blogLeftArrow.png" alt="">
@@ -23,7 +24,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import { useBlogStore } from '~/store/blogStore.js';
 import { useTheBlog } from '@/store/theBlogStore'
@@ -47,24 +48,24 @@ export default {
         const blogs = await store.fetchBlog();
         this.blogSetter = blogs[this.index] || {};
     },
-    methods:{
-        truncateText(text, maxLength){
+    methods: {
+        truncateText(text, maxLength) {
             if (text.length > maxLength) {
                 return text.slice(0, maxLength) + '...';
             }
             return text
         },
-        readTheBlog(id , title , body , user , created , imgSrc){
+        readTheBlog(id, title, body, user, created, imgSrc) {
             try {
                 const theBlog = {
-                    id : id, 
-                    title : title, 
-                    body : body,
-                    user : user,
-                    created : created,
-                    banner  : imgSrc 
+                    id: id,
+                    title: title,
+                    body: body,
+                    user: user,
+                    created: created,
+                    banner: imgSrc
                 }
-                const store =  useTheBlog().getTheBlog(theBlog);
+                const store = useTheBlog().getTheBlog(theBlog);
                 return store
             } catch (error) {
                 console.log(error);
@@ -81,11 +82,13 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 .theBlog {
     margin-top: 80px;
     min-width: 500px;
-    width: 100%; 
+    width: 100%;
 }
+
 .blogPoster img {
     width: 40%;
     height: 193px;
@@ -115,9 +118,11 @@ export default {
     font-weight: 400;
     line-height: 20px;
 }
-.theBlogDescription p{
+
+.theBlogDescription p {
     color: #979797;
 }
+
 .readMore {
     font-size: 16px;
     font-weight: 400;
@@ -158,21 +163,25 @@ export default {
         font-size: 11px;
     }
 }
+
 @media (max-width : 650px) {
-    .theBlog{
+    .theBlog {
         min-width: 90%;
     }
-    .readMore{
+
+    .readMore {
         margin-right: 10px;
     }
-    .blogTxt{
+
+    .blogTxt {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         width: 50%;
         margin-top: -170px;
     }
-    .blogPoster img{
+
+    .blogPoster img {
         height: 160px;
     }
 }

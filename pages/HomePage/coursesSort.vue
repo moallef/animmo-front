@@ -72,28 +72,31 @@ export default {
     methods: {
         async addToStore(courseId, courseName, price, image, discountPrice, teacher) {
             try {
-                const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
-                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+                if (process.client) {
 
-                if (existingCourseIndex === -1) {
-                    const addToBasket = {
-                        id: courseId,
-                        price: price,
-                        remove: false,
-                        clear: false
-                    };
+                    const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                    const existingCourseIndex = courses.findIndex(course => course.id === courseId);
 
-                    const localStorageBasket = {
-                        id: courseId,
-                        name: courseName,
-                        price: price,
-                        image: image,
-                        discountFee: discountPrice,
-                        teacher: teacher,
+                    if (existingCourseIndex === -1) {
+                        const addToBasket = {
+                            id: courseId,
+                            price: price,
+                            remove: false,
+                            clear: false
+                        };
+
+                        const localStorageBasket = {
+                            id: courseId,
+                            name: courseName,
+                            price: price,
+                            image: image,
+                            discountFee: discountPrice,
+                            teacher: teacher,
+                        }
+
+                        await courses.push(localStorageBasket);
+                        localStorage.setItem('basketItems', JSON.stringify(courses));
                     }
-
-                    await courses.push(localStorageBasket);
-                    localStorage.setItem('basketItems', JSON.stringify(courses));
 
                     const store = useBaskteStore();
                     store.addToBasket(addToBasket);
