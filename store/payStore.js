@@ -17,14 +17,15 @@ export const usePayStore = defineStore("Pay", {
         JWT = localStorage.getItem("token");
       }
       try {
-        const response = await axios({
-          method: "post",
-          url: "https://animmo.ir/api/cart/pay/",
-          data: courseIdArray,
-          headers: {
+        const response = await axios.post(
+          "https://animmo.ir/api/cart/pay/",
+          courseIdArray,
+          {
+            headers: {
             Authorization: `Bearer ${JWT}`,
-          },
-        });
+          }
+        }
+        );
         if (response.status == 200) {
           this.url = response.data["redirect to : "];
         } else {

@@ -82,7 +82,7 @@ export default {
                 const store = usePayStore();
                 await store.sendCourseIds(data);
                 this.url = store.url;
-                // window.location.href = this.url;
+                window.location.href = this.url;
             }
             else {
                 this.$router.push('/authentication');
