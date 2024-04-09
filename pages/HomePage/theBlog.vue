@@ -13,7 +13,7 @@
                         <p>{{ truncateText(blog.body, maxLength) }}</p>
                     </div>
                     <nuxt-link :to="`/theBlog/${blog.id}`"
-                        @click="readTheBlog(blog.id, blog.title, blog.body, blog.user, blog.created, blog.imgSrc)">
+                        @click="readTheBlog(blog.id, blog.title, blog.body, blog.user, blog.createdAt, blog.imgSrc)">
                         <button class="readMore">بیشتر
                             خواندن
                             <img src="../../assets/icons/blogLeftArrow.png" alt="">
@@ -55,7 +55,7 @@ export default {
             }
             return text
         },
-        readTheBlog(id, title, body, user, created, imgSrc) {
+        async readTheBlog(id, title, body, user, created, imgSrc) {
             try {
                 const theBlog = {
                     id: id,

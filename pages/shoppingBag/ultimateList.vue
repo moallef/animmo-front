@@ -19,7 +19,7 @@
         </table>
 
         <div class="operations">
-            <input type="text" class="discountCode" placeholder="وارد کردن کد تخفیف">
+            <input v-model="referral_code" type="text" class="discountCode" placeholder="وارد کردن کد تخفیف">
             <button class="admitPay" @click="pay()">تایید و پرداخت</button>
         </div>
     </div>
@@ -43,6 +43,7 @@ export default {
             totalPrice: 0,
             url: '',
             authenticationSituation: false,
+            referral_code : ""
         };
     },
 
@@ -74,8 +75,12 @@ export default {
         async pay() {
             if (this.authenticationSituation) {
                 const courseIds = this.courses.map(course => ({ course_id: course.id }));
+                const data = {
+                    course: courseIds,
+                    referral_code: this.referral_code
+                };
                 const store = usePayStore();
-                await store.sendCourseIds(courseIds);
+                await store.sendCourseIds(data);
                 this.url = store.url;
                 window.location.href = this.url;
             }

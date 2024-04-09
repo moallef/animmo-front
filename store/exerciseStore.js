@@ -26,7 +26,6 @@ export const useExerciseStore = defineStore("exercise", {
             category: element.category,
             sample_exercise: element.sample_exercise,
           }));
-        //   this.SET_EXERCISE(exerciseData);
           return exerciseData;
         } else {
           return this.exercise;

@@ -189,6 +189,7 @@ img {
     line-height: 15px;
     letter-spacing: -0.04em;
     color: #7D7D7D;
+    width: 100%;
 }
 
 .fee {
@@ -199,7 +200,6 @@ img {
     line-height: 15px;
     letter-spacing: -0.07em;
     color: #C8102E;
-    width: 100%;
 }
 
 .price {

@@ -39,18 +39,17 @@
 import { useTheBlog } from '~/store/theBlogStore';
 
 export default {
-
     name: 'FrontendTheBlog',
     data() {
         return {
             blog: {},
         };
     },
-    beforeCreate() {
-        this.blog = useTheBlog().getTheBlog();
+    async created() {
+        const store = useTheBlog();
+        this.blog = await store.getTheBlog();
     },
     methods: {
-
     }
 };
 </script>
@@ -62,6 +61,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 .content {
     border-radius: 35px 35px 0px 0px;
     z-index: 4;
