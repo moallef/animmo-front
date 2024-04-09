@@ -72,35 +72,34 @@ export default {
     methods: {
         async addToStore(courseId, courseName, price, image, discountPrice, teacher) {
             try {
-                if (process.client) {
+                let courses
+                courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+                let addToBasket
+                if (existingCourseIndex === -1) {
+                    addToBasket = {
+                        id: courseId,
+                        price: price,
+                        remove: false,
+                        clear: false
+                    };
 
-                    const courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
-                    const existingCourseIndex = courses.findIndex(course => course.id === courseId);
+                    const localStorageBasket = {
+                        id: courseId,
+                        name: courseName,
+                        price: price,
+                        image: image,
+                        discountFee: discountPrice,
+                        teacher: teacher,
+                    }
 
-                    if (existingCourseIndex === -1) {
-                        const addToBasket = {
-                            id: courseId,
-                            price: price,
-                            remove: false,
-                            clear: false
-                        };
-
-                        const localStorageBasket = {
-                            id: courseId,
-                            name: courseName,
-                            price: price,
-                            image: image,
-                            discountFee: discountPrice,
-                            teacher: teacher,
-                        }
-
+                    if (process.client) {
                         await courses.push(localStorageBasket);
                         localStorage.setItem('basketItems', JSON.stringify(courses));
                     }
 
                     const store = useBaskteStore();
                     store.addToBasket(addToBasket);
-
 
                     Swal.fire({
                         icon: "success",
