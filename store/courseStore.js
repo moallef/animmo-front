@@ -34,6 +34,7 @@ export const useCourseStore = defineStore("course", {
             duration: element.duration,
             created: element.created,
             updated: element.updated,
+            intro : element.intro
           }));
           this.course = courseData;
           return courseData;

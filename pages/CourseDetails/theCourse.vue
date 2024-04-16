@@ -1,7 +1,7 @@
 <template>
     <div v-if="theCourse" class="courses">
         <div class="theCourse">
-            <img class="courseImage" :src="`https://animmo.ir/${theCourse.image}`" alt="">
+            <video ref="videoPlayer" class="courseImage" controls :src="`https://animmo.ir/${theCourse.intro}`" @click="togglePlay" alt="Course Video"></video>
             <div class="details">
                 <div class="productName">
                     <p class="title">{{ theCourse.course }}</p>
@@ -106,6 +106,15 @@ export default {
         },
         formatPrice(price) {
             return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
+        togglePlay() {
+            const video = this.$refs.videoPlayer;
+            if (this.isPlaying) {
+                video.pause();
+            } else {
+                video.play();
+            }
+            this.isPlaying = !this.isPlaying;
         }
     }
 };

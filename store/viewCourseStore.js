@@ -32,6 +32,7 @@ export const useCourseViewStore = defineStore("course_view", {
               description: element.description,
               contacts_course: element.contacts_course,
               target_course: element.target_course,
+              intro : element.intro,
             }
             return this.viewCourse
         } catch (error) {
