@@ -1,7 +1,7 @@
 <template>
     <div v-if="theCourse" class="courses">
         <div class="theCourse">
-            <video ref="videoPlayer" class="courseImage" controls :src="`https://animmo.ir/${theCourse.intro}`" @click="togglePlay" alt="Course Video"></video>
+            <video ref="videoPlayer" class="courseImage" controls @click="loadVideo" alt="Course Video"></video>
             <div class="details">
                 <div class="productName">
                     <p class="title">{{ theCourse.course }}</p>
@@ -59,7 +59,9 @@ export default {
     data() {
         return {
             theCourse: null,
-            courses : []
+            courses: [],
+            videoUrl: null,
+            isVideoLoaded: false
         };
     },
     async created() {
@@ -70,7 +72,7 @@ export default {
         async sendToLocalStorage(courseId, courseName, price, image, discountPrice, teacher) {
             try {
                 if (process.client) {
-                this.courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
+                    this.courses = JSON.parse(localStorage.getItem('basketItems')) ?? [];
                 }
                 const existingCourseIndex = this.courses.findIndex(course => course.id === courseId);
 
@@ -86,7 +88,7 @@ export default {
                     }
 
                     this.courses.push(localStorageBasket);
-                    
+
                     if (process.client) {
                         localStorage.setItem('basketItems', JSON.stringify(this.courses));
                     }
@@ -107,15 +109,20 @@ export default {
         formatPrice(price) {
             return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         },
-        togglePlay() {
-            const video = this.$refs.videoPlayer;
-            if (this.isPlaying) {
-                video.pause();
-            } else {
-                video.play();
+        loadVideo() {
+            if (!this.isVideoLoaded) {
+                // Fetch the video data when the user clicks on the video for the first time
+                // Example: Fetch video URL from an API
+                // Replace this with your actual video URL fetching logic
+                // For now, I'll just use a sample video URL
+                this.videoUrl = `https://animmo.ir/${this.theCourse.intro}`;
+                // Set the video source dynamically
+                this.$refs.videoPlayer.src = this.videoUrl;
+                // Play the video after setting the source
+                this.$refs.videoPlayer.play();
+                this.isVideoLoaded = true;
             }
-            this.isPlaying = !this.isPlaying;
-        }
+        },
     }
 };
 </script>
