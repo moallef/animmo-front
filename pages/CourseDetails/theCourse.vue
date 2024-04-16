@@ -111,14 +111,8 @@ export default {
         },
         loadVideo() {
             if (!this.isVideoLoaded) {
-                // Fetch the video data when the user clicks on the video for the first time
-                // Example: Fetch video URL from an API
-                // Replace this with your actual video URL fetching logic
-                // For now, I'll just use a sample video URL
                 this.videoUrl = `https://animmo.ir/${this.theCourse.intro}`;
-                // Set the video source dynamically
                 this.$refs.videoPlayer.src = this.videoUrl;
-                // Play the video after setting the source
                 this.$refs.videoPlayer.play();
                 this.isVideoLoaded = true;
             }
