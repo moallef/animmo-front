@@ -57,6 +57,7 @@ export default {
         },
         async readTheBlog(id, title, body, user, created, imgSrc) {
             try {
+                const store = useTheBlog();
                 const theBlog = {
                     id: id,
                     title: title,
@@ -65,8 +66,8 @@ export default {
                     created: created,
                     banner: imgSrc
                 }
-                const store = useTheBlog().getTheBlog(theBlog);
-                return store
+                store.theBlog = theBlog;
+                console.log(store.theBlog);
             } catch (error) {
                 console.log(error);
             };

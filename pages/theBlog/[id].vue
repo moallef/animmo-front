@@ -7,14 +7,16 @@
         <div class="belt">
             <belt />
         </div>
-
-        <Suspense class="backgound">
-            <background />
-        </Suspense>
-
-        <Suspense class="blog">
-            <theBlog />
-        </Suspense>
+        
+        <div class="holder">            
+            <Suspense class="background">
+                <background />
+            </Suspense>
+    
+            <Suspense class="blog">
+                <theBlog />
+            </Suspense>
+        </div>
 
         <footer>
             <footer-app />
@@ -61,4 +63,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    .holder{
+        display: flex;
+        flex-direction: column;
+    }
+    .blog{
+        margin-top: -100px;
+    }
+</style>

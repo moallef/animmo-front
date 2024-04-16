@@ -47,7 +47,8 @@ export default {
     },
     async created() {
         const store = useTheBlog();
-        this.blog = await store.getTheBlog();
+        this.blog = store.getTheBlog();
+        console.log("this is component" , this.blog);
     },
     methods: {
     }
@@ -65,7 +66,10 @@ export default {
 .content {
     border-radius: 35px 35px 0px 0px;
     z-index: 4;
-    margin-inline: 5%;
+    padding-inline: 5%;
+    background: white;
+    width: 100%;
+    padding-top: 30px;
 }
 
 h1 {

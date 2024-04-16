@@ -15,7 +15,7 @@ export default{
             blog: [],
         };
     },
-    async beforeCreate() {
+    async created() {
         this.blog = useTheBlog().getTheBlog();
     },
 }
@@ -24,5 +24,9 @@ export default{
 <style scoped>
 #bground {
     width: 100%;
+    height: 324px;
+}
+.background{
+    margin-bottom: -70px;
 }
 </style>

@@ -2,13 +2,15 @@ import { defineStore } from 'pinia';
 
 export const useTheBlog = defineStore('theBlog', {
   state: () => ({
-    theBlog: [],
+    theBlog: {},
   }),
 
   actions: {
-    getTheBlog(Blog) {
-      this.theBlog = Blog;
+    getTheBlog() {
       return this.theBlog;
+    },
+    addBlog(blog) {
+      this.theBlog = blog;
     }
   },
 });
