@@ -17,7 +17,7 @@
             </div>
             <div class="aboutBlog">
                 <p class="author">
-                    {{ blog.user }} نوشته شده توسط
+                    نوشته شده توسط {{ blog.user }} 
                 </p>
                 <p class="date">
                     {{ blog.created }}

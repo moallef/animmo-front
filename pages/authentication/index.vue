@@ -14,7 +14,7 @@
 
                     <div class="buttons">
                         <button autofocus @click="changeFocus(true)" :id="focusBoolian ? 'logIn' : ''">ورود</button>
-                        <button autofocus  @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت
+                        <button autofocus @click="changeFocus(false)" :id="focusBoolian ? '' : 'signUp'">ثبت
                             نام </button>
                     </div>
                     <div class="inputs">
@@ -33,8 +33,13 @@
                                 v-model="phone_number">
                         </div>
                         <div :id="OTP_Boolian ? '' : 'logInInput'">
-                            <input type="text" :id="checkNumber ? '' : 'wrong'" class="input" placeholder="رمز یکبار مصرف"
-                                v-model="code">
+                            <input type="text" :id="checkNumber ? '' : 'wrong'" class="input"
+                                placeholder="رمز یکبار مصرف" v-model="code">
+                        </div>
+                        <div :id="focusBoolian || OTP_Boolian ? 'logInInput' : ''"
+                            style="margin-top: 10px;text-align: right;">
+                            <input type="checkbox" id="deaf" name="deaf" v-model="isDeaf" />
+                            <label for="deaf" style="color: dimgrey;">من ناشنوا هستم </label>
                         </div>
                     </div>
                     <div class="oneTimePassword">
@@ -46,7 +51,7 @@
                             تغییر شماره تلفن
                         </button>
                         <button :id="OTP_Boolian ? 'editNumber' : 'logInInput'"
-                            @click="changeOTP(false); loginVarification();registerVarification()">
+                            @click="changeOTP(false); loginVarification(); registerVarification()">
                             تایید
                         </button>
                     </div>
@@ -83,10 +88,11 @@ export default {
             OTP_Boolian: false,
             checkNumber: true,
             correctData: true,
+            isDeaf: false,
             first_name: '',
             last_name: '',
             phone_number: '',
-            code: ''
+            code: '',
         };
     },
     components: {
@@ -125,6 +131,7 @@ export default {
                         first_name: this.first_name,
                         last_name: this.last_name,
                         phone_number: this.phone_number,
+                        deaf: this.isDeaf,
                     };
 
                     await authStore.setRegistrationData(userData);
@@ -164,6 +171,7 @@ export default {
                         phone_number: this.phone_number,
                         first_name: this.first_name,
                         last_name: this.last_name,
+                        deaf: this.isDeaf,
                     };
                     await authStore.setVarifyData(OTP);
                 } catch (error) {
@@ -204,12 +212,14 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'IRANSans';
     src: url('/assets/Fonts/IRANSans/FontsFree-Net-ir_sans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
 .image {
     width: 30%;
     margin-right: 100%;
@@ -235,6 +245,15 @@ export default {
 
 #logInInput {
     display: none;
+}
+
+#deaf {
+    margin-inline: 10px;
+}
+
+label {
+    font-size: 16px;
+    font-family: 'Yekan Bakh', sans-serif;
 }
 
 h1 {
