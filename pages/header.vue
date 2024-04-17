@@ -18,14 +18,20 @@
                 <button @click="navigateToAuthentication" :class="this.authenticationSituation ? 'none' : 'signIn'">
                     ورود / ثبت نام
                 </button>
+                <div :class="this.authenticationSituation ? 'userProfile' : 'none'" to="/userProfile">
 
-                <nuxt-link :class="this.authenticationSituation ? 'userProfile' : 'none'" to="/userProfile">
-                    <span>
-                        پروفایل کاربری
-                    </span>
+                    <button class="logOut" @click="logOut()">
+                        خروج
+                    </button>
 
-                    <img src="~/assets/icons/users.png" alt="">
-                </nuxt-link>
+                    <nuxt-link to="/userProfile" style="display: flex; align-items: center; color: white;">
+                        <span>
+                            پروفایل کاربری
+                        </span>
+
+                        <img src="~/assets/icons/users.png" alt="">
+                    </nuxt-link>
+                </div>
 
 
 
@@ -205,6 +211,10 @@ export default {
         navigateToAuthentication() {
             this.$router.push('/authentication');
         },
+        logOut() {
+            localStorage.removeItem('token');
+            window.location.reload();
+        }
     }
 }
 </script>
@@ -251,6 +261,17 @@ header {
     text-align: center;
     border: none;
     color: white;
+}
+
+.logOut {
+    background: #8569C2;
+    width: 100px;
+    height: 32px;
+    border-radius: 28px;
+    font-family: 'Yekan Bakh', sans-serif;
+    color: white;
+    border: none;
+    margin-left: 15px;
 }
 
 .userProfile {
