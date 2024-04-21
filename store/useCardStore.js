@@ -6,7 +6,6 @@ export const useCartStore = defineStore("cart", {
   }),
   actions: {
     setItems(items) {
-        console.log(items);
       this.items = items;
     },
     deleteItem(id) {

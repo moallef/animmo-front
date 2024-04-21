@@ -10,10 +10,10 @@
                         <p>{{ blog.title }}</p>
                     </div>
                     <div class="theBlogDescription">
-                        <p>{{ truncateText(blog.body, maxLength) }}</p>
+                        <div>{{ blog.abstract }}</div>
                     </div>
                     <nuxt-link :to="`/theBlog/${blog.id}`"
-                        @click="readTheBlog(blog.id, blog.title, blog.body, blog.user, blog.createdAt, blog.imgSrc)">
+                        @click="readTheBlog(blog.id, blog.title, blog.body, blog.user, blog.createdAt, blog.banner)">
                         <button class="readMore">بیشتر
                             خواندن
                             <img src="../../assets/icons/blogLeftArrow.png" alt="">
@@ -55,7 +55,7 @@ export default {
             }
             return text
         },
-        async readTheBlog(id, title, body, user, created, imgSrc) {
+        async readTheBlog(id, title, body, user, created,banner) {
             try {
                 const store = useTheBlog();
                 const theBlog = {
@@ -64,12 +64,11 @@ export default {
                     body: body,
                     user: user,
                     created: created,
-                    banner: imgSrc
+                    banner: banner
                 }
                 store.theBlog = theBlog;
-                console.log(store.theBlog);
             } catch (error) {
-                console.log(error);
+                console.error(error);
             };
         }
     }

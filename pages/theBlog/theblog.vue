@@ -17,16 +17,14 @@
             </div>
             <div class="aboutBlog">
                 <p class="author">
-                    نوشته شده توسط {{ blog.user }} 
+                    نوشته شده توسط {{ blog.user }}
                 </p>
                 <p class="date">
                     {{ blog.created }}
                 </p>
             </div>
             <div class="blogContent">
-                <p id="blogContent">
-                    {{ blog.body }}
-                </p>
+                <div v-html="'<div>' + blog.body + '</div>'" id="blogContent"></div>
             </div>
             <div class="theList">
 
@@ -48,7 +46,6 @@ export default {
     async created() {
         const store = useTheBlog();
         this.blog = store.getTheBlog();
-        console.log("this is component" , this.blog);
     },
     methods: {
     }

@@ -73,7 +73,7 @@ export default {
                 const store =  useTheBlog().getTheBlog(theBlog);
                 return store
             } catch (error) {
-                console.log(error);
+                console.error(error);
             };
         }
     },
