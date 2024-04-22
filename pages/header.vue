@@ -20,17 +20,18 @@
                 </button>
                 <div :class="this.authenticationSituation ? 'userProfile' : 'none'" to="/userProfile">
 
-                    <button class="logOut" @click="logOut()">
-                        خروج
-                    </button>
 
-                    <nuxt-link to="/userProfile" style="display: flex; align-items: center; color: white;">
+                    <nuxt-link to="/userProfile" class="userPanel">
                         <span>
                             پروفایل کاربری
                         </span>
 
                         <img src="~/assets/icons/users.png" alt="">
                     </nuxt-link>
+
+                    <button class="logOut" @click="logOut()">
+                        خروج
+                    </button>
                 </div>
 
 
@@ -271,7 +272,7 @@ header {
     font-family: 'Yekan Bakh', sans-serif;
     color: white;
     border: none;
-    margin-left: 15px;
+    margin-left: 30px;
 }
 
 .userProfile {
@@ -285,6 +286,13 @@ header {
     color: white;
     display: flex;
     align-items: center;
+}
+
+.userPanel {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-left: 10px;
 }
 
 .none {
@@ -582,7 +590,6 @@ header {
         font-size: 18px;
         width: 45%
     }
-
     .navBar a {
         font-size: 20px;
     }
@@ -680,9 +687,8 @@ header {
     }
 
     .userProfile {
-        margin-right: 90%;
+        margin-right: 75%;
     }
-
     .userProfile span {
         display: none;
     }
@@ -690,6 +696,10 @@ header {
     .search {
         display: block;
         margin-top: -50px
+    }
+    .logOut{
+        width: 100px;
+        margin-left: 50px;
     }
 
 }
@@ -702,6 +712,12 @@ header {
 
     .search_icon {
         margin-right: 80%
+    }
+    .userPanel {
+        margin-left: 10px;
+    }
+    .logOut{
+        margin-left: 10px;
     }
 }
 </style>

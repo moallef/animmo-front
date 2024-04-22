@@ -1,7 +1,11 @@
 <template>
     <div v-if="theCourse" class="courses">
         <div class="theCourse">
-            <video ref="videoPlayer" class="courseImage" controls @click="loadVideo" alt="Course Video"></video>
+            <video ref="videoPlayer" :poster="`${theCourse.image}`" class="courseImage" controls @click="loadVideo"
+                alt="Course Video"></video>
+            <button v-if="!isVideoLoaded" class="playButton" @click="loadVideo">
+                Play
+            </button>
             <div class="details">
                 <div class="productName">
                     <p class="title">{{ theCourse.course }}</p>
@@ -54,6 +58,7 @@
 <script>
 import { useCourseViewStore } from '@/store/viewCourseStore';
 import Swal from "sweetalert2";
+import playIcon from "~/assets/icons/pngaaa.com-630491.png"
 
 export default {
     data() {
@@ -221,5 +226,31 @@ export default {
     margin-right: 55%;
     width: 50%;
     margin-top: -20px;
+}
+.playButton{
+    display: none;
+}
+
+@media (max-width : 900px) {
+    .playButton {
+        display: block;
+        color: white;
+        text-align: center;
+        position: relative;
+        right: 45%;
+        top: -150px;
+        background: #8569C2;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+@media (max-width: 600px) {
+    .playButton {
+        top: -90px;
+        right: 40%;
+    }
 }
 </style>

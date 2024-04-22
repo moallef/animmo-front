@@ -3,7 +3,7 @@
         <div class="container">
             <div class="textHolder">
                 <a href="
-https://t.me/AnimmoGroup">
+                https://t.me/animmo_support">
                     <div class="telegram">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
                             viewBox="0 0 48 48">
@@ -19,15 +19,15 @@ https://t.me/AnimmoGroup">
                             </path>
                         </svg>
                         <p id="telegram">
-                            عضویت در کانال تلگرام
+                            پشتیبانی تلگرام
                         </p>
                     </div>
                 </a>
-                <div class="backUpNumber" >
+                <div class="backUpNumber">
                     <p>شماره پشتیبانی :</p>
                     <p id="theNumber"> {{ phoneNum1 }} / {{ phoneNum2 }} </p>
                 </div>
-                <div class="contactDescription" >
+                <div class="contactDescription">
                     {{ contactDescription }}
                 </div>
             </div>
@@ -133,7 +133,9 @@ img {
     line-height: 24px;
     letter-spacing: -0.02em;
 }
-.backUpNumber p , .contactDescription  {
+
+.backUpNumber p,
+.contactDescription {
     color: white;
 }
 
