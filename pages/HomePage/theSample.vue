@@ -1,23 +1,18 @@
 <template>
-  <nuxt-link to="workSamples">
-    <div class="productShowCase">
-      <img class="sampleImg" :src="`https://animmo.ir/${exercise.sample_exercise}`" alt="Product Image">
-      <button class="likeButtn">
-        <img src="../../assets/icons/LikeBefore.png" alt="">
-      </button>
-      <div class="details">
-        <p> {{ exercise.user }}</p>
-        <p class="studentName">{{ exercise.course }}</p>
-        <div class="btn">
-          <button>
-            <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
-          </button>
-        </div>
+  <div class="productShowCase">
+    <video class="sampleVideo" controls ref="videoPlayer" alt="Product Image" @click="loadVideo"></video>
+    <div class="details">
+      <p style="color: white;"> {{ exercise.user }}</p>
+      <p class="studentName">{{ exercise.course }}</p>
+      <div class="btn">
+        <button>
+          <img src="../../assets/icons/icons8-arrow-left-24.png" alt="">
+        </button>
       </div>
     </div>
-  </nuxt-link>
+  </div>
 </template>
-  
+
 <script>
 import { useExerciseStore } from '~/store/exerciseStore.js';
 
@@ -28,35 +23,49 @@ export default {
   data() {
     return {
       theSampleExercise: {},
+      videoUrl: "",
+      isVideoLoaded: ""
     };
   },
   async created() {
-        const store = useExerciseStore();
-        const exercise = await store.fetchExercise();
-        this.theSampleExercise = exercise[this.index] || {};
-    },
+    const store = useExerciseStore();
+    const exercise = await store.fetchExercise();
+    this.theSampleExercise = exercise[this.index] || {};
+  },
   mounted() {
 
   },
+  methods: {
+    loadVideo() {
+      if (!this.isVideoLoaded) {
+        this.videoUrl = `https://animmo.ir/${this.exercise.sample_exercise}`;
+        this.$refs.videoPlayer.src = this.videoUrl;
+        this.$refs.videoPlayer.play();
+        this.isVideoLoaded = true;
+      }
+    },
+  }
 };
 </script>
 
-<style >
+<style>
 @font-face {
-    font-family: 'Yekan Bakh';
-    src: url('../assets/Fonts/YekanBakhRegular/YekanBakh-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Yekan Bakh';
+  src: url('../assets/Fonts/YekanBakhRegular/YekanBakh-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
 p {
   color: #F4F4F4;
 }
 
-.sampleImg {
+.sampleVideo {
   display: block;
-  margin-bottom: -20px;
+  margin-bottom: 10px;
   width: 100%;
   border-radius: 18px;
+  cursor: pointer;
 }
 
 .studentName {
@@ -66,6 +75,7 @@ p {
   line-height: 12px;
   letter-spacing: 0em;
   margin-top: 10px;
+  color: white;
 }
 
 .productShowCase {
@@ -94,7 +104,7 @@ p {
   border: none;
   border-radius: 50%;
   background: #8569C2;
-  margin-right: 92%;
+  margin-right: 85%;
   padding-top: 3px;
   padding-inline: 3px;
   margin-top: 20px;

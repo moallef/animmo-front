@@ -12,7 +12,7 @@
                             {{ blog.title }}
                         </p>
                         <p class="annonation">
-                            {{ truncateText(blog.body, maxLength) }}
+                            {{ blog.abstract }}
                         </p>
                     </div>
                     <div class="address">

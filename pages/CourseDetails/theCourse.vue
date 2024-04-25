@@ -58,7 +58,6 @@
 <script>
 import { useCourseViewStore } from '@/store/viewCourseStore';
 import Swal from "sweetalert2";
-import playIcon from "~/assets/icons/pngaaa.com-630491.png"
 
 export default {
     data() {

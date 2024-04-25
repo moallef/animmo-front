@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <img class="sampleImg" :src="theSampleExercise.sample_exercise" alt="Product Image">
+            <video class="sampleImg" :src="theSampleExercise.sample_exercise" alt="Product Image"></video>
             <div class="content">
                 <p class="student"> {{ theSampleExercise.user }} </p>
                 <p class="courseStudent"> {{ theSampleExercise.subcategory }} هنرجوی دوره  </p>
@@ -47,7 +47,7 @@
     margin-inline: 20px;
 }
 
-img {
+video {
     width: 90%;
     margin-top: 20px;
     height: 185px;
